@@ -13,8 +13,7 @@ import UIKit
 class RowDetailViewController: UIViewController {
     
     // MARK: - Properties
-    
-//    Если надо будет из этого vc передать что-нибудь назад
+
     weak var delegate: VC2Delegate?
     
     private var isTimeBased = true
@@ -34,11 +33,14 @@ class RowDetailViewController: UIViewController {
     private let keyText: UITextField = {
         let textField = UITextField()
         textField.placeholder = "key"
+        textField.isUserInteractionEnabled = true
         return textField
     }()
     
     private let keyLabel: UILabel = {
         let label = UILabel()
+        label.backgroundColor = UIColor.systemBackground
+        label.textColor = UIColor.label
         return label
     }()
     
@@ -101,63 +103,66 @@ class RowDetailViewController: UIViewController {
     
     
     private func setupLayouts(){
-
-         view.addSubview(accountLabel)
-         NSLayoutConstraint.activate([
-             accountLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 24),
-             accountLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-             accountLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-             accountLabel.heightAnchor.constraint(equalToConstant: 40)
-         ])
+        view.backgroundColor = UIColor.systemBackground
+        view.addSubview(accountLabel)
+        NSLayoutConstraint.activate([
+            accountLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            accountLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            accountLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            accountLabel.heightAnchor.constraint(equalToConstant: 40)
+        ])
          
-         view.addSubview(accountText)
-         NSLayoutConstraint.activate([
-             accountText.topAnchor.constraint(equalTo: accountLabel.safeAreaLayoutGuide.bottomAnchor, constant: 1),
-             accountText.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-             accountText.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-             accountText.heightAnchor.constraint(equalToConstant: 40)
-         ])
+        view.addSubview(accountText)
+        NSLayoutConstraint.activate([
+            accountText.topAnchor.constraint(equalTo: accountLabel.safeAreaLayoutGuide.bottomAnchor, constant: 2),
+            accountText.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            accountText.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            accountText.heightAnchor.constraint(equalToConstant: 40)
+        ])
          
-         view.addSubview(keyLabel)
-         NSLayoutConstraint.activate([
-             keyLabel.topAnchor.constraint(equalTo: accountText.bottomAnchor, constant: 24),
-             keyLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-             keyLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-             keyLabel.heightAnchor.constraint(equalToConstant: 40)
-         ])
+        view.addSubview(keyLabel)
+        NSLayoutConstraint.activate([
+            keyLabel.topAnchor.constraint(equalTo: accountText.bottomAnchor),
+            keyLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            keyLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            keyLabel.heightAnchor.constraint(equalToConstant: 40)
+        ])
          
-         view.addSubview(keyText)
-         NSLayoutConstraint.activate([
-             keyText.topAnchor.constraint(equalTo: keyLabel.bottomAnchor, constant: 1),
-             keyText.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-             keyText.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-             keyText.heightAnchor.constraint(equalToConstant: 80)
-         ])
+        view.addSubview(keyText)
+        NSLayoutConstraint.activate([
+            keyText.topAnchor.constraint(equalTo: keyLabel.bottomAnchor),
+            keyText.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            keyText.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            keyText.heightAnchor.constraint(equalToConstant: 80)
+        ])
          
-         view.addSubview(switchLayerView)
-         NSLayoutConstraint.activate([
-             switchLayerView.topAnchor.constraint(equalTo: keyText.bottomAnchor, constant: 20),
-             switchLayerView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-             switchLayerView.heightAnchor.constraint(equalToConstant: 40),
-             switchLayerView.widthAnchor.constraint(equalToConstant: 50)
-         ])
+        switchLayerView.backgroundColor = UIColor.systemBackground
+        view.addSubview(switchLayerView)
+        NSLayoutConstraint.activate([
+            switchLayerView.topAnchor.constraint(equalTo: keyText.bottomAnchor),
+            switchLayerView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            switchLayerView.heightAnchor.constraint(equalToConstant: 40),
+            switchLayerView.widthAnchor.constraint(equalToConstant: 50)
+        ])
          
-         switchLayerView.addSubview(switchControl)
+        switchLayerView.addSubview(switchControl)
          
-         view.addSubview(switchLabel)
-         NSLayoutConstraint.activate([
-             switchLabel.topAnchor.constraint(equalTo: keyText.bottomAnchor, constant: 20),
-             switchLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-             switchLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -50),
-             switchLabel.heightAnchor.constraint(equalToConstant: 40)
-         ])
+        view.addSubview(switchLabel)
+        NSLayoutConstraint.activate([
+            switchLabel.topAnchor.constraint(equalTo: keyText.bottomAnchor),
+            switchLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            switchLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -50),
+            switchLabel.heightAnchor.constraint(equalToConstant: 40)
+        ])
     }
     
     private func setupTextField(textField: UITextField)  {
-        textField.backgroundColor = .white
+        textField.backgroundColor = UIColor.systemBackground
+        textField.textColor = UIColor.label
         textField.font = UIFont(name: "Lato-Light", size: 24)
         textField.translatesAutoresizingMaskIntoConstraints = false
         let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: 30))
+        paddingView.backgroundColor = UIColor.systemBackground
         textField.leftView = paddingView
         textField.leftViewMode = UITextField.ViewMode.always
     }
@@ -180,6 +185,8 @@ class RowDetailViewController: UIViewController {
         label.attributedText =  attributedText
         label.translatesAutoresizingMaskIntoConstraints = false
         label.backgroundColor = .white
+        label.backgroundColor = UIColor.systemBackground
+        label.textColor = UIColor.label
 
     }
 

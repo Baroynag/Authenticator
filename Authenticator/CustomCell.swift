@@ -71,9 +71,9 @@ class CustomCell: UITableViewCell {
         
         accountLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            accountLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 8),
+            accountLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             accountLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
-            accountLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor,  constant: -120),
+            accountLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
             accountLabel.heightAnchor.constraint(equalToConstant: 24)
             ])
         
@@ -81,9 +81,9 @@ class CustomCell: UITableViewCell {
         addSubview(passLabel)
         passLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            passLabel.topAnchor.constraint(equalTo: accountLabel.bottomAnchor, constant: 16),
+            passLabel.topAnchor.constraint(equalTo: accountLabel.bottomAnchor),
             passLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
-            passLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor,  constant: -120),
+            passLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
             passLabel.heightAnchor.constraint(equalToConstant: 48)
          ])
         
@@ -93,8 +93,8 @@ class CustomCell: UITableViewCell {
         NSLayoutConstraint.activate([
             descriptionLabel.topAnchor.constraint(equalTo: passLabel.bottomAnchor),
             descriptionLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
-            descriptionLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor,  constant: -120),
-            descriptionLabel.heightAnchor.constraint(equalToConstant: 24)
+            descriptionLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
+            descriptionLabel.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
          ])
 
     }
@@ -102,7 +102,6 @@ class CustomCell: UITableViewCell {
     private func startTimer(){
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateLabel), userInfo: nil, repeats: true)
     }
-
     
     // MARK: - Handlers
     
@@ -115,6 +114,7 @@ class CustomCell: UITableViewCell {
             passLabel.text = token?.currentPassword
         }
     }
+
 }
 
 extension CustomCell{
@@ -137,7 +137,7 @@ extension CustomCell{
         }
 
         let token = Token(name: name, issuer: issuer, generator: generator)
-//        print(token)
+
         return token
     }
 }

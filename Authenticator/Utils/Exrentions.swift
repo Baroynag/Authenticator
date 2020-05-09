@@ -21,33 +21,10 @@ extension UIColor{
         return UIColor(red: red/255, green: green/255, blue: blue/255, alpha: 1)
     }
     
-    static func mainPink() -> UIColor{
-        return UIColor.rgb(red: 221, green: 94, blue: 86)
+    static func fucsiaColor() -> UIColor{
+        return UIColor(red: 1, green: 0.196, blue: 0.392, alpha: 0.3)
     }
 }
-
-
-
-
-//extension AuthenticatorViewController: MarkAsFavoriteDelegate{
-//
-//    func markAsFavorite(cell: UITableViewCell) {
-//        guard let index = tableView.indexPath(for: cell)?.row else {return}
-//
-//        lessonsList[index].passed = !lessonsList[index].passed
-//
-//        if lessonsList[index].passed{
-//            cell.accessoryView?.tintColor = .orange
-//        } else{
-//            cell.accessoryView?.tintColor = .gray
-//        }
-//
-//        print("markASFavorite!!!")
-//
-//    }
-//
-//}
-
 
 extension AuthenticatorViewController: VC2Delegate {
     func titleDidChange(newAuthItem: Authenticator) {
@@ -71,31 +48,25 @@ extension AuthenticatorViewController: VC2Delegate {
         
         tableView.reloadData()
     }
-    
-    
 }
 
 extension RowDetailViewController: AuthenticatorViewControllerDelegate {
     func setEditedText(text: String?, state: States) {
-        
         guard let text = text else {return}
         editedText = text
     }
-   
 }
 
 extension UIViewController{
     func setupNavigationController(){
-        
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
-        appearance.backgroundColor = UIColor.lightGray
-        appearance.titleTextAttributes = [.foregroundColor: UIColor.black]
+        appearance.backgroundColor = UIColor.systemBackground
+        appearance.titleTextAttributes = [.foregroundColor: UIColor.systemBlue]
         navigationItem.standardAppearance = appearance
         navigationItem.scrollEdgeAppearance = appearance
         navigationItem.compactAppearance = appearance
-        self.navigationController?.navigationBar.tintColor = .black
-
+        self.navigationController?.navigationBar.tintColor = UIColor.systemBlue
     }
 }
 
@@ -110,7 +81,7 @@ extension UILabel{
 
         let attributes: [NSAttributedString.Key: Any] = [
             .font: font!,
-            .foregroundColor: UIColor.black,
+            .foregroundColor: UIColor.label,
             .paragraphStyle: paragraphStyle
         ]
         
@@ -124,7 +95,9 @@ extension UILabel{
        
         self.attributedText =  attributedText
         self.translatesAutoresizingMaskIntoConstraints = false
-        self.backgroundColor = .white
+        self.backgroundColor = .systemBackground
 
     }
+    
 }
+

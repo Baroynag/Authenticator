@@ -122,24 +122,6 @@ extension AuthenticatorViewController{
                     cell.authItem = authItem
                }
             
-//            if let cellText = text as? String {
-//
-//                let font = UIFont(name: "Lato-Light", size: 24)
-//                let paragraphStyle = NSMutableParagraphStyle()
-//                paragraphStyle.alignment = .left
-//                paragraphStyle.firstLineHeadIndent = 10.0
-//
-//                let attributes: [NSAttributedString.Key: Any] = [
-//                    .font: font!,
-//                    .foregroundColor: UIColor.black,
-//                    .paragraphStyle: paragraphStyle
-//                ]
-//
-//                let attributedText = NSMutableAttributedString(string: cellText, attributes: attributes)
-//
-//                cell.textLabel?.attributedText = attributedText
-//            }
-            
         return cell
     }
         
@@ -147,10 +129,6 @@ extension AuthenticatorViewController{
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
             
         if editingStyle == .delete {
-//            authList.remove(at: indexPath.row)
-//            tableView.deleteRows(at: [indexPath], with: .fade)
-//
-            //TODO: delete from core data
           
             guard let account = authList[indexPath.row].value(forKey: "account") as? String
                 else { return}
