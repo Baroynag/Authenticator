@@ -3,29 +3,55 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		1401DA7B2440D46800DE677F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1401DA7A2440D46800DE677F /* AppDelegate.swift */; };
 		1401DA7D2440D46800DE677F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1401DA7C2440D46800DE677F /* SceneDelegate.swift */; };
-		1401DA7F2440D46800DE677F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1401DA7E2440D46800DE677F /* ViewController.swift */; };
 		1401DA822440D46800DE677F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1401DA802440D46800DE677F /* Main.storyboard */; };
 		1401DA852440D46800DE677F /* Authenticator.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1401DA832440D46800DE677F /* Authenticator.xcdatamodeld */; };
 		1401DA872440D46B00DE677F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1401DA862440D46B00DE677F /* Assets.xcassets */; };
 		1401DA8A2440D46B00DE677F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1401DA882440D46B00DE677F /* LaunchScreen.storyboard */; };
+		1401DABB2443405C00DE677F /* AuthenticationList+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1401DAB92443405C00DE677F /* AuthenticationList+CoreDataClass.swift */; };
+		1401DABC2443405C00DE677F /* AuthenticationList+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1401DABA2443405C00DE677F /* AuthenticationList+CoreDataProperties.swift */; };
+		1401DABF244342CC00DE677F /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1401DABE244342CC00DE677F /* CustomCell.swift */; };
+		1401DAC12443431200DE677F /* AuthenticatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1401DAC02443431100DE677F /* AuthenticatorViewController.swift */; };
+		1401DAC32443433100DE677F /* RowDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1401DAC22443433100DE677F /* RowDetailViewController.swift */; };
+		1401DAC62443436E00DE677F /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1401DAC42443436E00DE677F /* Protocols.swift */; };
+		1401DAC72443436E00DE677F /* Exrentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1401DAC52443436E00DE677F /* Exrentions.swift */; };
+		1401DACA244343FE00DE677F /* AuthenticatorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1401DAC9244343FE00DE677F /* AuthenticatorModel.swift */; };
+		1403CC28244A35C60054160F /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1403CC27244A35C60054160F /* CustomTextField.swift */; };
+		1403CC2A244AFCF90054160F /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1403CC29244AFCF90054160F /* CustomLabel.swift */; };
+		141917D0245483EC00EE125D /* ScanQrViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141917CF245483EC00EE125D /* ScanQrViewController.swift */; };
+		14F740F22447743D0052244C /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 14F740F12447743D0052244C /* Lato-Light.ttf */; };
+		FD6CF9FFA6037CDAEBC06627 /* Pods_Authenticator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67D87C916A1E254B6ABFAF7D /* Pods_Authenticator.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1401DA772440D46800DE677F /* Authenticator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Authenticator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1401DA7A2440D46800DE677F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1401DA7C2440D46800DE677F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		1401DA7E2440D46800DE677F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		1401DA812440D46800DE677F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1401DA842440D46800DE677F /* Authenticator.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Authenticator.xcdatamodel; sourceTree = "<group>"; };
 		1401DA862440D46B00DE677F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1401DA892440D46B00DE677F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1401DA8B2440D46B00DE677F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1401DAB92443405C00DE677F /* AuthenticationList+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthenticationList+CoreDataClass.swift"; sourceTree = "<group>"; };
+		1401DABA2443405C00DE677F /* AuthenticationList+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthenticationList+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		1401DABE244342CC00DE677F /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
+		1401DAC02443431100DE677F /* AuthenticatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatorViewController.swift; sourceTree = "<group>"; };
+		1401DAC22443433100DE677F /* RowDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowDetailViewController.swift; sourceTree = "<group>"; };
+		1401DAC42443436E00DE677F /* Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
+		1401DAC52443436E00DE677F /* Exrentions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Exrentions.swift; sourceTree = "<group>"; };
+		1401DAC9244343FE00DE677F /* AuthenticatorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatorModel.swift; sourceTree = "<group>"; };
+		1403CC27244A35C60054160F /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		1403CC29244AFCF90054160F /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
+		141917CF245483EC00EE125D /* ScanQrViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanQrViewController.swift; sourceTree = "<group>"; };
+		14F740F12447743D0052244C /* Lato-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Light.ttf"; sourceTree = "<group>"; };
+		67D87C916A1E254B6ABFAF7D /* Pods_Authenticator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Authenticator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B1087AF21F7B4953349EB22F /* Pods-Authenticator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Authenticator.debug.xcconfig"; path = "Target Support Files/Pods-Authenticator/Pods-Authenticator.debug.xcconfig"; sourceTree = "<group>"; };
+		E105FBA28569813673C1F6B7 /* Pods-Authenticator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Authenticator.release.xcconfig"; path = "Target Support Files/Pods-Authenticator/Pods-Authenticator.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +59,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD6CF9FFA6037CDAEBC06627 /* Pods_Authenticator.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0D520F5E198E7DE48BC30C63 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				67D87C916A1E254B6ABFAF7D /* Pods_Authenticator.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		1401DA6E2440D46700DE677F = {
 			isa = PBXGroup;
 			children = (
 				1401DA792440D46800DE677F /* Authenticator */,
 				1401DA782440D46800DE677F /* Products */,
+				A9BF4EE2A6484A861A2F363B /* Pods */,
+				0D520F5E198E7DE48BC30C63 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,16 +95,84 @@
 		1401DA792440D46800DE677F /* Authenticator */ = {
 			isa = PBXGroup;
 			children = (
-				1401DA7A2440D46800DE677F /* AppDelegate.swift */,
-				1401DA7C2440D46800DE677F /* SceneDelegate.swift */,
-				1401DA7E2440D46800DE677F /* ViewController.swift */,
-				1401DA802440D46800DE677F /* Main.storyboard */,
-				1401DA862440D46B00DE677F /* Assets.xcassets */,
-				1401DA882440D46B00DE677F /* LaunchScreen.storyboard */,
+				141917CE245483D100EE125D /* ScanQR */,
+				1403CC2B244AFD920054160F /* CustomComponents */,
+				14F740F0244774300052244C /* Fonts */,
+				1401DAC8244343CC00DE677F /* Utils */,
+				1401DAB82443399200DE677F /* Resources */,
+				1401DABD2443406B00DE677F /* Data */,
 				1401DA8B2440D46B00DE677F /* Info.plist */,
-				1401DA832440D46800DE677F /* Authenticator.xcdatamodeld */,
+				1401DABE244342CC00DE677F /* CustomCell.swift */,
+				1401DAC02443431100DE677F /* AuthenticatorViewController.swift */,
+				1401DAC22443433100DE677F /* RowDetailViewController.swift */,
+				1401DAC9244343FE00DE677F /* AuthenticatorModel.swift */,
 			);
 			path = Authenticator;
+			sourceTree = "<group>";
+		};
+		1401DAB82443399200DE677F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1401DA882440D46B00DE677F /* LaunchScreen.storyboard */,
+				1401DA7C2440D46800DE677F /* SceneDelegate.swift */,
+				1401DA802440D46800DE677F /* Main.storyboard */,
+				1401DA7A2440D46800DE677F /* AppDelegate.swift */,
+				1401DA862440D46B00DE677F /* Assets.xcassets */,
+				1401DA832440D46800DE677F /* Authenticator.xcdatamodeld */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		1401DABD2443406B00DE677F /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				1401DABA2443405C00DE677F /* AuthenticationList+CoreDataProperties.swift */,
+				1401DAB92443405C00DE677F /* AuthenticationList+CoreDataClass.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		1401DAC8244343CC00DE677F /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				1401DAC52443436E00DE677F /* Exrentions.swift */,
+				1401DAC42443436E00DE677F /* Protocols.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		1403CC2B244AFD920054160F /* CustomComponents */ = {
+			isa = PBXGroup;
+			children = (
+				1403CC27244A35C60054160F /* CustomTextField.swift */,
+				1403CC29244AFCF90054160F /* CustomLabel.swift */,
+			);
+			path = CustomComponents;
+			sourceTree = "<group>";
+		};
+		141917CE245483D100EE125D /* ScanQR */ = {
+			isa = PBXGroup;
+			children = (
+				141917CF245483EC00EE125D /* ScanQrViewController.swift */,
+			);
+			path = ScanQR;
+			sourceTree = "<group>";
+		};
+		14F740F0244774300052244C /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				14F740F12447743D0052244C /* Lato-Light.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		A9BF4EE2A6484A861A2F363B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B1087AF21F7B4953349EB22F /* Pods-Authenticator.debug.xcconfig */,
+				E105FBA28569813673C1F6B7 /* Pods-Authenticator.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -77,9 +182,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1401DA8E2440D46B00DE677F /* Build configuration list for PBXNativeTarget "Authenticator" */;
 			buildPhases = (
+				4B7726BED0DE94C42DDBA854 /* [CP] Check Pods Manifest.lock */,
 				1401DA732440D46800DE677F /* Sources */,
 				1401DA742440D46800DE677F /* Frameworks */,
 				1401DA752440D46800DE677F /* Resources */,
+				FA006DE2083CAAFDD5B0FA18 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -131,19 +238,72 @@
 				1401DA8A2440D46B00DE677F /* LaunchScreen.storyboard in Resources */,
 				1401DA872440D46B00DE677F /* Assets.xcassets in Resources */,
 				1401DA822440D46800DE677F /* Main.storyboard in Resources */,
+				14F740F22447743D0052244C /* Lato-Light.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4B7726BED0DE94C42DDBA854 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Authenticator-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FA006DE2083CAAFDD5B0FA18 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Authenticator/Pods-Authenticator-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Authenticator/Pods-Authenticator-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Authenticator/Pods-Authenticator-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1401DA732440D46800DE677F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1401DA7F2440D46800DE677F /* ViewController.swift in Sources */,
+				1401DABC2443405C00DE677F /* AuthenticationList+CoreDataProperties.swift in Sources */,
+				1401DABB2443405C00DE677F /* AuthenticationList+CoreDataClass.swift in Sources */,
+				1401DAC62443436E00DE677F /* Protocols.swift in Sources */,
 				1401DA852440D46800DE677F /* Authenticator.xcdatamodeld in Sources */,
+				1401DAC12443431200DE677F /* AuthenticatorViewController.swift in Sources */,
 				1401DA7B2440D46800DE677F /* AppDelegate.swift in Sources */,
+				1401DABF244342CC00DE677F /* CustomCell.swift in Sources */,
+				1401DAC32443433100DE677F /* RowDetailViewController.swift in Sources */,
+				1403CC28244A35C60054160F /* CustomTextField.swift in Sources */,
+				1403CC2A244AFCF90054160F /* CustomLabel.swift in Sources */,
+				1401DACA244343FE00DE677F /* AuthenticatorModel.swift in Sources */,
+				141917D0245483EC00EE125D /* ScanQrViewController.swift in Sources */,
+				1401DAC72443436E00DE677F /* Exrentions.swift in Sources */,
 				1401DA7D2440D46800DE677F /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -286,6 +446,7 @@
 		};
 		1401DA8F2440D46B00DE677F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B1087AF21F7B4953349EB22F /* Pods-Authenticator.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -304,6 +465,7 @@
 		};
 		1401DA902440D46B00DE677F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E105FBA28569813673C1F6B7 /* Pods-Authenticator.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
