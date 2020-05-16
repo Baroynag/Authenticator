@@ -144,7 +144,7 @@
 		1490048D246DBC8D00F91500 /* UserExperience */ = {
 			isa = PBXGroup;
 			children = (
-				1490048F246DBCCC00F91500 /* AccountDetailScreen */,
+				1490048F246DBCCC00F91500 /* AccountAddScreen */,
 				1490048E246DBCBF00F91500 /* MainScreen */,
 			);
 			path = UserExperience;
@@ -159,13 +159,13 @@
 			path = MainScreen;
 			sourceTree = "<group>";
 		};
-		1490048F246DBCCC00F91500 /* AccountDetailScreen */ = {
+		1490048F246DBCCC00F91500 /* AccountAddScreen */ = {
 			isa = PBXGroup;
 			children = (
 				1401DAC22443433100DE677F /* RowDetailViewController.swift */,
 				141917CE245483D100EE125D /* ScanQR */,
 			);
-			path = AccountDetailScreen;
+			path = AccountAddScreen;
 			sourceTree = "<group>";
 		};
 		14900490246DBD6700F91500 /* Model */ = {

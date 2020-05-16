@@ -22,8 +22,9 @@ extension UIColor{
     }
     
     static func fucsiaColor() -> UIColor{
-        return UIColor(red: 1, green: 0.196, blue: 0.392, alpha: 0.3)
+       return UIColor(red: 1, green: 0.196, blue: 0.392, alpha: 1)
     }
+    
 }
 
 extension AuthenticatorViewController: VC2Delegate {
@@ -74,7 +75,12 @@ extension UIViewController{
 extension UILabel{
     
     func customize(fontSize: CGFloat){
+        var text = "label"
             
+            if self.text != nil {
+                text = self.text!
+            }
+        
         let font = UIFont(name: "Lato-Light", size: fontSize)
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.alignment = .center
@@ -86,14 +92,11 @@ extension UILabel{
             .paragraphStyle: paragraphStyle
         ]
         
-        var text = "label"
-        
-        if self.text != nil {
-            text = self.text!
-        }
-        
         let attributedText = NSMutableAttributedString(string: text, attributes: attributes)
        
+        
+    
+        
         self.attributedText =  attributedText
         self.translatesAutoresizingMaskIntoConstraints = false
         self.backgroundColor = .systemBackground

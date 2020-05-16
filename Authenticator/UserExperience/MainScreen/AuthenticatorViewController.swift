@@ -24,9 +24,11 @@ class AuthenticatorViewController: UIViewController, UITableViewDelegate, UITabl
         button.backgroundColor = .clear
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setImage(UIImage(named: "addButton"), for: .normal)
+        button.addTarget(self, action: #selector(pressAddButton), for: .touchUpInside)
+        button.layer.cornerRadius = 40
+        button.layer.masksToBounds = true
         return button
-    //        button.addTarget(self, action: #selector(doThisWhenButtonIsTapped(_:)), for: .touchUpInside)
-        }()
+    }()
 
 //    MARK: - Inits
     override func viewDidLoad() {
@@ -43,14 +45,18 @@ class AuthenticatorViewController: UIViewController, UITableViewDelegate, UITabl
 
 //    MARK: - Handlers
     @objc func pressAddButton(){
-        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        alert.addAction(UIAlertAction(title: "Scan barcode", style: .default) { _ in
-            self.pushScanQrViewController()
-        })
-        alert.addAction(UIAlertAction(title: "Add manually", style: .default) { _ in
-            self.pushDetailViewController(text: nil, state: .add)
-        })
-        present(alert, animated: true)
+        self.pushDetailViewController(text: nil, state: .add)
+        
+//        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+//        alert.addAction(UIAlertAction(title: "Scan barcode", style: .default) { _ in
+//            self.pushScanQrViewController()
+//        })
+//        alert.addAction(UIAlertAction(title: "Add manually", style: .default) { _ in
+//            self.pushDetailViewController(text: nil, state: .add)
+//        })
+        
+       
+//        present(alert, animated: true)
     }
 
 //    MARK: - Functions
@@ -71,14 +77,12 @@ class AuthenticatorViewController: UIViewController, UITableViewDelegate, UITabl
             addButton.heightAnchor.constraint(equalToConstant: 80),
             addButton.widthAnchor.constraint(equalToConstant: 80)
             ])
-        addButton.layer.cornerRadius = 40
-        addButton.layer.masksToBounds = true
     }
     
     private func configureNavBar() {
         setupNavigationController()
         navigationItem.title = "Authenticator"
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(pressAddButton))
+
     }
     
     private func pushDetailViewController(text: String?, state: States){
@@ -86,14 +90,18 @@ class AuthenticatorViewController: UIViewController, UITableViewDelegate, UITabl
         self.delegate = rowDetailViewController
         self.delegate?.setEditedText(text: text, state: state)
         rowDetailViewController.delegate = self
-        navigationController?.pushViewController(rowDetailViewController, animated: true)
+        rowDetailViewController.modalPresentationStyle = .fullScreen
+        self.present(rowDetailViewController, animated: true, completion: nil)
+        
     }
     
-    private func pushScanQrViewController(){
-        let scanQrViewController = ScanQrViewController()
-        scanQrViewController.delegate = self
-        navigationController?.pushViewController(scanQrViewController, animated: true)
-    }
+//    private func pushScanQrViewController(){
+//        let scanQrViewController = ScanQrViewController()
+//        scanQrViewController.delegate = self
+//        navigationController?.pushViewController(scanQrViewController, animated: true)
+//    scanQrViewController.modalPresentationStyle = .fullScreen
+//    self.present(scanQrViewController, animated: true, completion: nil)
+//    }
     
     private func fetchData(){
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {return}
