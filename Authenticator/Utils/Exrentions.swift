@@ -59,10 +59,11 @@ extension RowDetailViewController: AuthenticatorViewControllerDelegate {
 
 extension UIViewController{
     func setupNavigationController(){
+        let font = UIFont(name: "Lato-Light", size: 24)
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
         appearance.backgroundColor = UIColor.systemBackground
-        appearance.titleTextAttributes = [.foregroundColor: UIColor.systemBlue]
+        appearance.titleTextAttributes = [.foregroundColor: UIColor.black, .font: font!,]
         navigationItem.standardAppearance = appearance
         navigationItem.scrollEdgeAppearance = appearance
         navigationItem.compactAppearance = appearance
@@ -76,7 +77,7 @@ extension UILabel{
             
         let font = UIFont(name: "Lato-Light", size: fontSize)
         let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.alignment = .left
+        paragraphStyle.alignment = .center
         paragraphStyle.firstLineHeadIndent = 15.0
 
         let attributes: [NSAttributedString.Key: Any] = [

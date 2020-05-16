@@ -21,8 +21,6 @@
 		1401DAC62443436E00DE677F /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1401DAC42443436E00DE677F /* Protocols.swift */; };
 		1401DAC72443436E00DE677F /* Exrentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1401DAC52443436E00DE677F /* Exrentions.swift */; };
 		1401DACA244343FE00DE677F /* AuthenticatorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1401DAC9244343FE00DE677F /* AuthenticatorModel.swift */; };
-		1403CC28244A35C60054160F /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1403CC27244A35C60054160F /* CustomTextField.swift */; };
-		1403CC2A244AFCF90054160F /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1403CC29244AFCF90054160F /* CustomLabel.swift */; };
 		141917D0245483EC00EE125D /* ScanQrViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141917CF245483EC00EE125D /* ScanQrViewController.swift */; };
 		14F740F22447743D0052244C /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 14F740F12447743D0052244C /* Lato-Light.ttf */; };
 		FD6CF9FFA6037CDAEBC06627 /* Pods_Authenticator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67D87C916A1E254B6ABFAF7D /* Pods_Authenticator.framework */; };
@@ -45,8 +43,6 @@
 		1401DAC42443436E00DE677F /* Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		1401DAC52443436E00DE677F /* Exrentions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Exrentions.swift; sourceTree = "<group>"; };
 		1401DAC9244343FE00DE677F /* AuthenticatorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatorModel.swift; sourceTree = "<group>"; };
-		1403CC27244A35C60054160F /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
-		1403CC29244AFCF90054160F /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
 		141917CF245483EC00EE125D /* ScanQrViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanQrViewController.swift; sourceTree = "<group>"; };
 		14F740F12447743D0052244C /* Lato-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Light.ttf"; sourceTree = "<group>"; };
 		67D87C916A1E254B6ABFAF7D /* Pods_Authenticator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Authenticator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -95,17 +91,13 @@
 		1401DA792440D46800DE677F /* Authenticator */ = {
 			isa = PBXGroup;
 			children = (
-				141917CE245483D100EE125D /* ScanQR */,
-				1403CC2B244AFD920054160F /* CustomComponents */,
+				1490048D246DBC8D00F91500 /* UserExperience */,
 				14F740F0244774300052244C /* Fonts */,
 				1401DAC8244343CC00DE677F /* Utils */,
 				1401DAB82443399200DE677F /* Resources */,
 				1401DABD2443406B00DE677F /* Data */,
 				1401DA8B2440D46B00DE677F /* Info.plist */,
-				1401DABE244342CC00DE677F /* CustomCell.swift */,
-				1401DAC02443431100DE677F /* AuthenticatorViewController.swift */,
-				1401DAC22443433100DE677F /* RowDetailViewController.swift */,
-				1401DAC9244343FE00DE677F /* AuthenticatorModel.swift */,
+				14900490246DBD6700F91500 /* Model */,
 			);
 			path = Authenticator;
 			sourceTree = "<group>";
@@ -141,21 +133,47 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
-		1403CC2B244AFD920054160F /* CustomComponents */ = {
-			isa = PBXGroup;
-			children = (
-				1403CC27244A35C60054160F /* CustomTextField.swift */,
-				1403CC29244AFCF90054160F /* CustomLabel.swift */,
-			);
-			path = CustomComponents;
-			sourceTree = "<group>";
-		};
 		141917CE245483D100EE125D /* ScanQR */ = {
 			isa = PBXGroup;
 			children = (
 				141917CF245483EC00EE125D /* ScanQrViewController.swift */,
 			);
 			path = ScanQR;
+			sourceTree = "<group>";
+		};
+		1490048D246DBC8D00F91500 /* UserExperience */ = {
+			isa = PBXGroup;
+			children = (
+				1490048F246DBCCC00F91500 /* AccountDetailScreen */,
+				1490048E246DBCBF00F91500 /* MainScreen */,
+			);
+			path = UserExperience;
+			sourceTree = "<group>";
+		};
+		1490048E246DBCBF00F91500 /* MainScreen */ = {
+			isa = PBXGroup;
+			children = (
+				1401DABE244342CC00DE677F /* CustomCell.swift */,
+				1401DAC02443431100DE677F /* AuthenticatorViewController.swift */,
+			);
+			path = MainScreen;
+			sourceTree = "<group>";
+		};
+		1490048F246DBCCC00F91500 /* AccountDetailScreen */ = {
+			isa = PBXGroup;
+			children = (
+				1401DAC22443433100DE677F /* RowDetailViewController.swift */,
+				141917CE245483D100EE125D /* ScanQR */,
+			);
+			path = AccountDetailScreen;
+			sourceTree = "<group>";
+		};
+		14900490246DBD6700F91500 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1401DAC9244343FE00DE677F /* AuthenticatorModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		14F740F0244774300052244C /* Fonts */ = {
@@ -299,8 +317,6 @@
 				1401DA7B2440D46800DE677F /* AppDelegate.swift in Sources */,
 				1401DABF244342CC00DE677F /* CustomCell.swift in Sources */,
 				1401DAC32443433100DE677F /* RowDetailViewController.swift in Sources */,
-				1403CC28244A35C60054160F /* CustomTextField.swift in Sources */,
-				1403CC2A244AFCF90054160F /* CustomLabel.swift in Sources */,
 				1401DACA244343FE00DE677F /* AuthenticatorModel.swift in Sources */,
 				141917D0245483EC00EE125D /* ScanQrViewController.swift in Sources */,
 				1401DAC72443436E00DE677F /* Exrentions.swift in Sources */,

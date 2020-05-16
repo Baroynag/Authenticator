@@ -13,21 +13,19 @@ import Base32
 class CustomCell: UITableViewCell {
     
     // MARK: - Properties
-    
+    private var countDown = 30
     private let duration = 30
     private var timer: Timer?
-    private var countDown = 30
-    
     private var key = ""
     private var issuer = ""
     
     public var authItem: Authenticator?{
         didSet{
             guard let authItem = authItem else {return}
-            accountLabel.text = authItem.account
-            passLabel.text = "otp"
             guard let authKey = authItem.key else {return}
             guard let authIssuer = authItem.account else {return}
+            accountLabel.text = authItem.account
+            passLabel.text = "otp"
             key = authKey
             issuer = authIssuer
             let token = testToken(name: issuer, issuer: issuer, secretString: key)
@@ -65,13 +63,14 @@ class CustomCell: UITableViewCell {
     // MARK: - Functions
     
     private func setupView(){
+        contentView.backgroundColor = .systemBackground
         
         accountLabel.customize(fontSize: 24)
         addSubview(accountLabel)
         
         accountLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            accountLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            accountLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 8),
             accountLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
             accountLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
             accountLabel.heightAnchor.constraint(equalToConstant: 24)
@@ -81,7 +80,7 @@ class CustomCell: UITableViewCell {
         addSubview(passLabel)
         passLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            passLabel.topAnchor.constraint(equalTo: accountLabel.bottomAnchor),
+            passLabel.topAnchor.constraint(equalTo: accountLabel.bottomAnchor, constant: 8),
             passLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
             passLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
             passLabel.heightAnchor.constraint(equalToConstant: 48)
@@ -91,7 +90,7 @@ class CustomCell: UITableViewCell {
         addSubview(descriptionLabel)
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            descriptionLabel.topAnchor.constraint(equalTo: passLabel.bottomAnchor),
+            descriptionLabel.topAnchor.constraint(equalTo: passLabel.bottomAnchor, constant: 8),
             descriptionLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
             descriptionLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
             descriptionLabel.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
