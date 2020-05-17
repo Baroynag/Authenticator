@@ -95,14 +95,6 @@ class AuthenticatorViewController: UIViewController, UITableViewDelegate, UITabl
         
     }
     
-//    private func pushScanQrViewController(){
-//        let scanQrViewController = ScanQrViewController()
-//        scanQrViewController.delegate = self
-//        navigationController?.pushViewController(scanQrViewController, animated: true)
-//    scanQrViewController.modalPresentationStyle = .fullScreen
-//    self.present(scanQrViewController, animated: true, completion: nil)
-//    }
-    
     private func fetchData(){
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {return}
         let managedContext = appDelegate.persistentContainer.viewContext

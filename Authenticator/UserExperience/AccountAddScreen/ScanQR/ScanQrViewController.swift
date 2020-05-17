@@ -15,7 +15,7 @@ class ScanQrViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
     
     var captureSession: AVCaptureSession!
     var previewLayer: AVCaptureVideoPreviewLayer!
-    weak var delegate: VC2Delegate?
+    weak var delegate: AddItemDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -87,6 +87,7 @@ class ScanQrViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
         if (captureSession?.isRunning == true) {
             captureSession.stopRunning()
         }
+        
     }
 
     func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
@@ -97,7 +98,7 @@ class ScanQrViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
             guard let readableObject = metadataObject as? AVMetadataMachineReadableCodeObject else { return }
             guard let stringValue = readableObject.stringValue else { return }
             AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
-            dismiss(animated: true)
+            self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
             found(code: stringValue)
             
         } else {
@@ -116,8 +117,7 @@ class ScanQrViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
         authItem.key = getQueryStringParameter(url: code, param: "secret")
         authItem.timeBased = true
         
-        delegate?.titleDidChange(newAuthItem: authItem)
-        
+        delegate?.createNewItem(newAuthItem: authItem)
         self.present(alert, animated: true)
         
      }

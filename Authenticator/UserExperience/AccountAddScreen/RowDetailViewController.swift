@@ -10,11 +10,11 @@
 import UIKit
 
 
-class RowDetailViewController: UIViewController /*, UITextFieldDelegate*/ {
+class RowDetailViewController: UIViewController {
     
     // MARK: - Properties
 
-    weak var delegate: VC2Delegate?
+    weak var delegate: AddItemDelegate?
     
     private var isTimeBased = true
 
@@ -23,11 +23,16 @@ class RowDetailViewController: UIViewController /*, UITextFieldDelegate*/ {
     let textFieldHeigth = 80.0
     var textFieldWidth: Double = 0.0
     
-    private var accountTextField = UITextField()
-    private var keyTextField = UITextField()
-    
-    let accountTextFieldBorder = CALayer()
-    let keyTextFieldBorder = CALayer()
+//    TODO: - make subcass of UITextField with borders
+//    private var accountTextField = UITextField()
+//    private var keyTextField = UITextField()
+//
+//    let accountTextFieldBorder = CALayer()
+//    let keyTextFieldBorder = CALayer()
+//
+  
+    private var accountTextField = UITextFieldWithBottomBorder()
+    private var keyTextField = UITextFieldWithBottomBorder()
     
     let createButton: UIButton = {
         let button = UIButton()
@@ -73,8 +78,6 @@ class RowDetailViewController: UIViewController /*, UITextFieldDelegate*/ {
         return button
     }()
     
-    
-    
     private let switchControl: UISwitch = {
         let swtch = UISwitch(frame: CGRect(x: 0, y:  5, width: 50, height: 50))
         swtch.isOn = true
@@ -92,11 +95,15 @@ class RowDetailViewController: UIViewController /*, UITextFieldDelegate*/ {
     
     private let switchLabel: UILabel = {
         let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.backgroundColor = .systemBackground
         return label
     }()
     
     private let orLabel: UILabel = {
         let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.backgroundColor = .systemBackground
         return label
     }()
     
@@ -107,9 +114,11 @@ class RowDetailViewController: UIViewController /*, UITextFieldDelegate*/ {
         }
     }
     
+    
     // MARK: - Inits
     override func viewDidLoad() {
         super.viewDidLoad()
+
         setupView()
     }
     
@@ -120,14 +129,13 @@ class RowDetailViewController: UIViewController /*, UITextFieldDelegate*/ {
         navigationItem.title = "Добавить аккаунт"
         setupTextField(textField: accountTextField, placeholderText: "Аккаунт", tag: 1)
         setupTextField(textField: keyTextField, placeholderText: "Секретный ключ", tag: 2)
-        switchLabel.customize(fontSize: 18)
-        switchLabel.text = "Time-based"
-        
-        orLabel.customize(fontSize: 18)
-        orLabel.text = "или"
+        switchLabel.setLabelAtributedText(fontSize: 18, text: "Time-based", aligment: .center, indent: 0.0)
+        orLabel.setLabelAtributedText(fontSize: 18, text: "или", aligment: .center, indent: 0.0)
     }
     
     private func setupView() {
+        let tapGesture = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
+        view.addGestureRecognizer(tapGesture)
         setupNavigationController()
         view.backgroundColor = .systemGray5
         setupLayouts()
@@ -135,20 +143,18 @@ class RowDetailViewController: UIViewController /*, UITextFieldDelegate*/ {
     }
     
     private func setupLayouts(){
+
         view.backgroundColor = UIColor.systemBackground
         
         textFieldWidth = Double(view.frame.width) - offsetX * 2
         
-        accountTextField = UITextField(frame: CGRect(x: offsetX, y: offsetY*2, width: textFieldWidth, height: textFieldHeigth))
+        accountTextField = UITextFieldWithBottomBorder(frame: CGRect(x: offsetX, y: offsetY*2, width: textFieldWidth, height: textFieldHeigth))
         view.addSubview(accountTextField)
-        createBorder(textField: accountTextField, color: UIColor.systemGray2, borderWidth: 2.0, border: accountTextFieldBorder)
-        accountTextField.layer.addSublayer(accountTextFieldBorder)
+        accountTextField.returnKeyType = UIReturnKeyType.next
         
-        keyTextField = UITextField(frame: CGRect(x: offsetX, y: textFieldHeigth + offsetY * 2, width: textFieldWidth, height: textFieldHeigth))
+        keyTextField = UITextFieldWithBottomBorder(frame: CGRect(x: offsetX, y: textFieldHeigth + offsetY * 2, width: textFieldWidth, height: textFieldHeigth))
         view.addSubview(keyTextField)
-        createBorder(textField: keyTextField, color: UIColor.systemGray2, borderWidth: 2.0, border: keyTextFieldBorder)
-        keyTextField.layer.addSublayer(keyTextFieldBorder)
-      
+        
         view.addSubview(switchLabel)
         NSLayoutConstraint.activate([
             switchLabel.topAnchor.constraint(equalTo: keyTextField.bottomAnchor, constant: 24),
@@ -210,15 +216,7 @@ class RowDetailViewController: UIViewController /*, UITextFieldDelegate*/ {
         textField.tag = tag
         textField.delegate = self
     }
-    
-    func createBorder(textField: UITextField, color: UIColor, borderWidth: CGFloat, border: CALayer) -> Void {
-        border.backgroundColor = color.cgColor
-        border.frame = CGRect(x: 0.0, y: textField.frame.size.height - borderWidth, width: textField.frame.size.width, height: borderWidth);
-    }
-    
-    func updateBorder(color: UIColor, border: CALayer) -> Void {
-        border.backgroundColor = color.cgColor
-    }
+
     
     // MARK: - Handlers
     
@@ -227,8 +225,8 @@ class RowDetailViewController: UIViewController /*, UITextFieldDelegate*/ {
         authItem.account = accountTextField.text
         authItem.key = keyTextField.text
         authItem.timeBased = isTimeBased
-        delegate?.titleDidChange(newAuthItem: authItem)
-        self.navigationController?.popViewController(animated: true)
+        delegate?.createNewItem(newAuthItem: authItem)
+        dismiss(animated: true, completion: nil)
     }
     
     @objc private func switchValueChanged(_ sender:UISwitch!){
@@ -238,13 +236,12 @@ class RowDetailViewController: UIViewController /*, UITextFieldDelegate*/ {
     @objc private func handleScanButton(){
         
         let scanQrViewController = ScanQrViewController()
-//        scanQrViewController.delegate = self
+        scanQrViewController.delegate = self
         scanQrViewController.modalPresentationStyle = .fullScreen
         self.present(scanQrViewController, animated: true, completion: nil)
     }
     
     @objc private func handleCancelButton(){
-        print ("11111")
         dismiss(animated: true, completion: nil)
     }
  
@@ -252,24 +249,33 @@ class RowDetailViewController: UIViewController /*, UITextFieldDelegate*/ {
 
 
 extension RowDetailViewController: UITextFieldDelegate{
-   func textFieldDidBeginEditing(_ textField: UITextField) {
-        switch textField.tag {
-        case 1:
-            updateBorder(color: .fucsiaColor(), border: accountTextFieldBorder)
-        case 2:
-            updateBorder(color: .fucsiaColor(), border: keyTextFieldBorder)
-        default:
-            break
-        }
+   
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        guard let bottomBorderTextField = textField as? UITextFieldWithBottomBorder else { return }
+        bottomBorderTextField.updateBorder(color: .fucsiaColor())
     }
-
+ 
     func textFieldDidEndEditing(_ textField: UITextField) {
-        switch textField.tag {
-        case 1:
-            updateBorder(color: .systemGray2, border: accountTextFieldBorder)
-        default:
-            updateBorder(color: .systemGray2, border: keyTextFieldBorder)
-        }
+        guard let bottomBorderTextField = textField as? UITextFieldWithBottomBorder else { return }
+        bottomBorderTextField.updateBorder(color: .systemGray2)
     }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool
+    {
+        if let nextField = textField.superview?.viewWithTag(textField.tag + 1) as? UITextField {
+            nextField.becomeFirstResponder()
+        } else {
+            textField.resignFirstResponder()
+            return true
+        }
+        return false
+    }
+    
 }
     
+extension RowDetailViewController: AddItemDelegate{
+    
+    func createNewItem(newAuthItem: Authenticator) {
+        self.delegate?.createNewItem(newAuthItem: newAuthItem)
+    }
+}

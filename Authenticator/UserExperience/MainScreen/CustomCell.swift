@@ -24,29 +24,40 @@ class CustomCell: UITableViewCell {
             guard let authItem = authItem else {return}
             guard let authKey = authItem.key else {return}
             guard let authIssuer = authItem.account else {return}
-            accountLabel.text = authItem.account
-            passLabel.text = "otp"
+            if let account = authItem.account{
+                accountLabel.setLabelAtributedText(fontSize: 24, text: account, aligment: .center, indent: 0.0)
+            }
             key = authKey
             issuer = authIssuer
             let token = testToken(name: issuer, issuer: issuer, secretString: key)
-            passLabel.text = token?.currentPassword
+            if let keyText = token?.currentPassword{
+                passLabel.setLabelAtributedText(fontSize: 50, text: keyText,  aligment: .center, indent: 0.0)
+            }
             startTimer()
         }
     }
     
     private let accountLabel: UILabel = {
         let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.backgroundColor = .systemBackground
         return label
     }()
     
     private let passLabel: UILabel = {
         let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.backgroundColor = .systemBackground
         return label
     }()
     
     private let descriptionLabel: UILabel = {
         let label = UILabel()
-        label.text = "Пароль обновиться через 30 с."
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.backgroundColor = .systemBackground
+        let text = "Пароль обновиться через 30 с."
+        label.setLabelAtributedText(fontSize: 16, text: text, aligment: .center, indent: 0.0)
+        
         return label
     }()
     
@@ -64,10 +75,8 @@ class CustomCell: UITableViewCell {
     
     private func setupView(){
         contentView.backgroundColor = .systemBackground
-        
-        accountLabel.customize(fontSize: 24)
+  
         addSubview(accountLabel)
-        
         accountLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             accountLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 8),
@@ -76,7 +85,6 @@ class CustomCell: UITableViewCell {
             accountLabel.heightAnchor.constraint(equalToConstant: 24)
             ])
         
-        passLabel.customize(fontSize: 48)
         addSubview(passLabel)
         passLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -86,7 +94,6 @@ class CustomCell: UITableViewCell {
             passLabel.heightAnchor.constraint(equalToConstant: 48)
          ])
         
-        descriptionLabel.customize(fontSize: 16)
         addSubview(descriptionLabel)
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -110,7 +117,9 @@ class CustomCell: UITableViewCell {
         if countDown == 0 {
             countDown = 30
             let token = testToken(name: issuer, issuer: issuer, secretString: key)
-            passLabel.text = token?.currentPassword
+            if let text = token?.currentPassword {
+                passLabel.setLabelAtributedText(fontSize: 50, text: text,  aligment: .center, indent: 0.0)
+            }
         }
     }
 
