@@ -30,20 +30,9 @@ extension UIColor{
 extension AuthenticatorViewController: AddItemDelegate {
     func createNewItem(newAuthItem: Authenticator) {
 
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {return}
-        let managedContext = appDelegate.persistentContainer.viewContext
-        let entry = NSEntityDescription.entity(forEntityName: "AuthenticationList", in: managedContext)!
-        let item = NSManagedObject(entity: entry, insertInto: managedContext)
-        item.setValue(newAuthItem.account, forKey: "account")
-        item.setValue(newAuthItem.key, forKey: "key")
-        item.setValue(newAuthItem.timeBased, forKey: "timeBased")
-        do{
-            try managedContext.save()
-            authList.append(item)
-        } catch let error as NSError{
-            print ("failure ", error)
-        }
+        AuthenticatorModel.shared.addOneItem(newAuthItem: newAuthItem)
         tableView.reloadData()
+
     }
 }
 

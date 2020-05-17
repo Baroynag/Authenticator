@@ -13,7 +13,7 @@ import CoreData
 class AuthenticatorViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
   
 //    MARK: - Properties
-    var authList: [NSManagedObject] = []
+    
     let cellId = "cellId"
     var tableView = UITableView()
     
@@ -46,17 +46,6 @@ class AuthenticatorViewController: UIViewController, UITableViewDelegate, UITabl
 //    MARK: - Handlers
     @objc func pressAddButton(){
         self.pushDetailViewController(text: nil, state: .add)
-        
-//        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-//        alert.addAction(UIAlertAction(title: "Scan barcode", style: .default) { _ in
-//            self.pushScanQrViewController()
-//        })
-//        alert.addAction(UIAlertAction(title: "Add manually", style: .default) { _ in
-//            self.pushDetailViewController(text: nil, state: .add)
-//        })
-        
-       
-//        present(alert, animated: true)
     }
 
 //    MARK: - Functions
@@ -92,18 +81,10 @@ class AuthenticatorViewController: UIViewController, UITableViewDelegate, UITabl
         rowDetailViewController.delegate = self
         rowDetailViewController.modalPresentationStyle = .fullScreen
         self.present(rowDetailViewController, animated: true, completion: nil)
-        
     }
     
     private func fetchData(){
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {return}
-        let managedContext = appDelegate.persistentContainer.viewContext
-        let fetchREquest = NSFetchRequest<NSManagedObject>(entityName: "AuthenticationList")
-        do{
-            authList = try managedContext.fetch(fetchREquest)
-        } catch let error as NSError{
-            print ("Failed to fetch items ", error)
-        }
+        AuthenticatorModel.shared.loadData()
     }
     
 }
@@ -113,8 +94,8 @@ class AuthenticatorViewController: UIViewController, UITableViewDelegate, UITabl
 extension AuthenticatorViewController {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return authList.count
-        }
+        return AuthenticatorModel.shared.authList.count
+    }
         
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -123,9 +104,14 @@ extension AuthenticatorViewController {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! CustomCell
-        if let account = authList[indexPath.row].value(forKey: "account") as? String,
-            let key = authList[indexPath.row].value(forKey: "key")  as? String,
-            let timeBased = authList[indexPath.row].value(forKey: "timeBased") as? Bool
+        
+        let item = AuthenticatorModel.shared.authList[indexPath.row]
+
+//        TODO: refactor
+//
+        if let account = item.value(forKey: "account") as? String,
+            let key = item.value(forKey: "key")  as? String,
+            let timeBased = item.value(forKey: "timeBased") as? Bool
         {
             var authItem = Authenticator()
             authItem.account = account
@@ -143,29 +129,10 @@ extension AuthenticatorViewController{
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
             
         if editingStyle == .delete {
-            guard let account = authList[indexPath.row].value(forKey: "account") as? String
-                else { return}
-            let appDelegate = UIApplication.shared.delegate as! AppDelegate
-            let context = appDelegate.persistentContainer.viewContext
-            let request = NSFetchRequest<NSFetchRequestResult>(entityName: "AuthenticationList")
-            request.predicate = NSPredicate(format:"account = %@", account as CVarArg)
-            let result = try? context.fetch(request)
-            let resultData = result as! [NSManagedObject]
-            for object in resultData {
-                context.delete(object)
-            }
-            do {
-                try context.save()
-                print("TABLEVIEW-EDIT: saved!")
-            } catch let error as NSError  {
-                print("Could not save \(error), \(error.userInfo)")
-            } catch {
-                print("general error")
-            }
-     
-            authList.remove(at: indexPath.row)
+            AuthenticatorModel.shared.deleteData(index: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
+        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
