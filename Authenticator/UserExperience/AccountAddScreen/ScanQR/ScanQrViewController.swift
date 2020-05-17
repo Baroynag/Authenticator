@@ -99,31 +99,30 @@ class ScanQrViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
             guard let stringValue = readableObject.stringValue else { return }
             AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
             self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
-            found(code: stringValue)
+            found(urlString: stringValue)
             
-        } else {
-
-            dismiss(animated: true)}
+        } else { dismiss(animated: true)}
         
     }
 
-    func found(code: String) {
-       
-        let alert = UIAlertController(title: "Scanned code", message: code, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+    func found(urlString: String) {
 
-        var authItem = Authenticator()
-        authItem.account = getQueryStringParameter(url: code, param: "issuer")
-        authItem.key = getQueryStringParameter(url: code, param: "secret")
-        authItem.timeBased = true
+        /*otpauth://totp/VK:id132504071?secret=25PXK6NNGXI4OH7L&issuer=VK*/
         
-        delegate?.createNewItem(newAuthItem: authItem)
-        self.present(alert, animated: true)
-        
-     }
+        if let url = URLComponents(string: urlString) {
+            var authItem = Authenticator()
+            authItem.issuer    = getQueryStringParameter(url: url, param: "issuer")
+            authItem.key       = getQueryStringParameter(url: url, param: "secret")
+            authItem.account   = url.path.replacingOccurrences(of: "/", with: "")
+            authItem.timeBased = true
+            
+            print("SQAN authItem.issuer = \(authItem.issuer )")
+            print("SQAN authItem.account = \(authItem.account )")
+            delegate?.createNewItem(newAuthItem: authItem)
+        }
+   }
 
-    func getQueryStringParameter(url: String, param: String) -> String? {
-      guard let url = URLComponents(string: url) else { return nil }
+    func getQueryStringParameter(url: URLComponents, param: String) -> String? {
       return url.queryItems?.first(where: { $0.name == param })?.value
     }
     

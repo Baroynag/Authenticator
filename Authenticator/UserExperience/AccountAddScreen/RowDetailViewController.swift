@@ -23,15 +23,8 @@ class RowDetailViewController: UIViewController {
     let textFieldHeigth = 80.0
     var textFieldWidth: Double = 0.0
     
-//    TODO: - make subcass of UITextField with borders
-//    private var accountTextField = UITextField()
-//    private var keyTextField = UITextField()
-//
-//    let accountTextFieldBorder = CALayer()
-//    let keyTextFieldBorder = CALayer()
-//
-  
-    private var accountTextField = UITextFieldWithBottomBorder()
+
+    private var issuerTextField = UITextFieldWithBottomBorder()
     private var keyTextField = UITextFieldWithBottomBorder()
     
     let createButton: UIButton = {
@@ -110,7 +103,7 @@ class RowDetailViewController: UIViewController {
     public var editedText: String? {
         didSet{
             guard let editedText = editedText else {return}
-            accountTextField.text = editedText
+            issuerTextField.text = editedText
         }
     }
     
@@ -127,7 +120,7 @@ class RowDetailViewController: UIViewController {
     private func setupControllers(){
         setupNavigationController()
         navigationItem.title = "Добавить аккаунт"
-        setupTextField(textField: accountTextField, placeholderText: "Аккаунт", tag: 1)
+        setupTextField(textField: issuerTextField, placeholderText: "Аккаунт", tag: 1)
         setupTextField(textField: keyTextField, placeholderText: "Секретный ключ", tag: 2)
         switchLabel.setLabelAtributedText(fontSize: 18, text: "Time-based", aligment: .center, indent: 0.0)
         orLabel.setLabelAtributedText(fontSize: 18, text: "или", aligment: .center, indent: 0.0)
@@ -148,9 +141,9 @@ class RowDetailViewController: UIViewController {
         
         textFieldWidth = Double(view.frame.width) - offsetX * 2
         
-        accountTextField = UITextFieldWithBottomBorder(frame: CGRect(x: offsetX, y: offsetY*2, width: textFieldWidth, height: textFieldHeigth))
-        view.addSubview(accountTextField)
-        accountTextField.returnKeyType = UIReturnKeyType.next
+        issuerTextField = UITextFieldWithBottomBorder(frame: CGRect(x: offsetX, y: offsetY*2, width: textFieldWidth, height: textFieldHeigth))
+        view.addSubview(issuerTextField)
+        issuerTextField.returnKeyType = UIReturnKeyType.next
         
         keyTextField = UITextFieldWithBottomBorder(frame: CGRect(x: offsetX, y: textFieldHeigth + offsetY * 2, width: textFieldWidth, height: textFieldHeigth))
         view.addSubview(keyTextField)
@@ -222,7 +215,7 @@ class RowDetailViewController: UIViewController {
     
     @objc private func handleSave(){
         var authItem = Authenticator()
-        authItem.account = accountTextField.text
+        authItem.issuer = issuerTextField.text
         authItem.key = keyTextField.text
         authItem.timeBased = isTimeBased
         delegate?.createNewItem(newAuthItem: authItem)

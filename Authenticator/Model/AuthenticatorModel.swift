@@ -12,8 +12,9 @@ import UIKit
 
 struct Authenticator{
     
-    var account: String?
+    var issuer: String?
     var key: String?
+    var account: String = ""
     var timeBased: Bool = true
     
 }
@@ -39,10 +40,17 @@ class AuthenticatorModel {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {return}
         let managedContext = appDelegate.persistentContainer.viewContext
         let entry = NSEntityDescription.entity(forEntityName: "AuthenticationList", in: managedContext)!
+        
         let item = NSManagedObject(entity: entry, insertInto: managedContext)
-        item.setValue(newAuthItem.account, forKey: "account")
-        item.setValue(newAuthItem.key, forKey: "key")
+        
+        item.setValue(newAuthItem.issuer,    forKey: "issuer")
+        item.setValue(newAuthItem.key,       forKey: "key")
+        item.setValue(newAuthItem.account,   forKey: "account")
         item.setValue(newAuthItem.timeBased, forKey: "timeBased")
+        
+        
+        print("SAVE authItem.issuer = \(newAuthItem.issuer )")
+        print("SAVE authItem.account = \(newAuthItem.account )")
         do{
             try managedContext.save()
             authList.append(item)

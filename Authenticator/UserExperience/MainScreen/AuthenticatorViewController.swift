@@ -109,13 +109,15 @@ extension AuthenticatorViewController {
 
 //        TODO: refactor
 //
-        if let account = item.value(forKey: "account") as? String,
+        if  let account = item.value(forKey: "account") as? String,
             let key = item.value(forKey: "key")  as? String,
+            let issuer = item.value(forKey: "issuer") as? String,
             let timeBased = item.value(forKey: "timeBased") as? Bool
         {
             var authItem = Authenticator()
             authItem.account = account
             authItem.key = key
+            authItem.issuer = issuer
             authItem.timeBased = timeBased
             cell.authItem = authItem
         }

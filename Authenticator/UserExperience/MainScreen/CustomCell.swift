@@ -18,24 +18,40 @@ class CustomCell: UITableViewCell {
     private var timer: Timer?
     private var key = ""
     private var issuer = ""
+    private var account = ""
     
     public var authItem: Authenticator?{
         didSet{
             guard let authItem = authItem else {return}
+            
             guard let authKey = authItem.key else {return}
-            guard let authIssuer = authItem.account else {return}
-            if let account = authItem.account{
-                accountLabel.setLabelAtributedText(fontSize: 24, text: account, aligment: .center, indent: 0.0)
-            }
-            key = authKey
-            issuer = authIssuer
-            let token = testToken(name: issuer, issuer: issuer, secretString: key)
+            guard let authIssuer = authItem.issuer else {return}
+
+            print ("authItem.account \(authItem.account)")
+            print ("authIssuer \(authIssuer)")
+            
+            issuerLabel.setLabelAtributedText(fontSize: 24, text: authIssuer, aligment: .center, indent: 0.0)
+            
+            accountLabel.setLabelAtributedText(fontSize: 16, text: authItem.account, aligment: .center, indent: 0.0, color: .fucsiaColor())
+            
+            
+//            TODO: refacor
+            let token = testToken(name: authIssuer, issuer: authIssuer, secretString: authKey)
+            
             if let keyText = token?.currentPassword{
-                passLabel.setLabelAtributedText(fontSize: 50, text: keyText,  aligment: .center, indent: 0.0)
+            passLabel.setLabelAtributedText(fontSize: 50, text: keyText,  aligment: .center, indent: 0.0)
             }
+            
             startTimer()
         }
     }
+    
+    private let issuerLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.backgroundColor = .systemBackground
+        return label
+    }()
     
     private let accountLabel: UILabel = {
         let label = UILabel()
@@ -57,8 +73,16 @@ class CustomCell: UITableViewCell {
         label.backgroundColor = .systemBackground
         let text = "Пароль обновиться через 30 с."
         label.setLabelAtributedText(fontSize: 16, text: text, aligment: .center, indent: 0.0)
-        
         return label
+    }()
+    
+    let copyButton: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = .clear
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setImage(UIImage(named: "copyButton"), for: .normal)
+        button.addTarget(self, action: #selector(handleCopyButton), for: .touchUpInside)
+        return button
     }()
     
     // MARK: - Inits
@@ -76,31 +100,45 @@ class CustomCell: UITableViewCell {
     private func setupView(){
         contentView.backgroundColor = .systemBackground
   
-        addSubview(accountLabel)
-        accountLabel.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(issuerLabel)
         NSLayoutConstraint.activate([
-            accountLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 8),
-            accountLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
-            accountLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
-            accountLabel.heightAnchor.constraint(equalToConstant: 24)
+            issuerLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 8),
+            issuerLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
+            issuerLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
+            issuerLabel.heightAnchor.constraint(equalToConstant: 24)
             ])
         
         addSubview(passLabel)
-        passLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            passLabel.topAnchor.constraint(equalTo: accountLabel.bottomAnchor, constant: 8),
+            passLabel.topAnchor.constraint(equalTo: issuerLabel.bottomAnchor, constant: 8),
             passLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
             passLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
             passLabel.heightAnchor.constraint(equalToConstant: 48)
          ])
         
-        addSubview(descriptionLabel)
-        descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(accountLabel)
+        
         NSLayoutConstraint.activate([
-            descriptionLabel.topAnchor.constraint(equalTo: passLabel.bottomAnchor, constant: 8),
+            accountLabel.topAnchor.constraint(equalTo: passLabel.bottomAnchor, constant: 8),
+            accountLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
+            accountLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
+            accountLabel.heightAnchor.constraint(equalToConstant: 24)
+            ])
+        
+        addSubview(descriptionLabel)
+        NSLayoutConstraint.activate([
+            descriptionLabel.topAnchor.constraint(equalTo: accountLabel.bottomAnchor, constant: 8),
             descriptionLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
             descriptionLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
             descriptionLabel.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
+         ])
+        
+        addSubview(copyButton)
+        NSLayoutConstraint.activate([
+            copyButton.centerYAnchor.constraint(equalTo: safeAreaLayoutGuide.centerYAnchor),
+            copyButton.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant:  -16),
+            copyButton.heightAnchor.constraint(equalToConstant: 32),
+            copyButton.widthAnchor.constraint(equalToConstant: 32)
          ])
 
     }
@@ -121,6 +159,12 @@ class CustomCell: UITableViewCell {
                 passLabel.setLabelAtributedText(fontSize: 50, text: text,  aligment: .center, indent: 0.0)
             }
         }
+    }
+    
+    @objc private func handleCopyButton(){
+        let pasteboard = UIPasteboard.general
+        pasteboard.string = passLabel.text
+        print(passLabel.text)
     }
 
 }

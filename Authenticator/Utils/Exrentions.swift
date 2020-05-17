@@ -84,5 +84,23 @@ extension UILabel{
 
     }
     
+    func setLabelAtributedText(fontSize: CGFloat, text: String, aligment: NSTextAlignment, indent: CGFloat, color: UIColor){
+        
+        let font = UIFont(name: "Lato-Light", size: fontSize)
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.alignment = aligment
+        paragraphStyle.firstLineHeadIndent = indent
+
+        let attributes: [NSAttributedString.Key: Any] = [
+            .font: font!,
+            .foregroundColor: color,
+            .paragraphStyle: paragraphStyle
+        ]
+        let attributedText = NSMutableAttributedString(string: text, attributes: attributes)
+        self.attributedText =  attributedText
+
+    }
+    
+    
 }
 
