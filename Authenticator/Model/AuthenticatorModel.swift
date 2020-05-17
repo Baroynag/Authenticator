@@ -47,10 +47,6 @@ class AuthenticatorModel {
         item.setValue(newAuthItem.key,       forKey: "key")
         item.setValue(newAuthItem.account,   forKey: "account")
         item.setValue(newAuthItem.timeBased, forKey: "timeBased")
-        
-        
-        print("SAVE authItem.issuer = \(newAuthItem.issuer )")
-        print("SAVE authItem.account = \(newAuthItem.account )")
         do{
             try managedContext.save()
             authList.append(item)

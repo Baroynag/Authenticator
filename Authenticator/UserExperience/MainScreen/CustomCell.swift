@@ -23,12 +23,8 @@ class CustomCell: UITableViewCell {
     public var authItem: Authenticator?{
         didSet{
             guard let authItem = authItem else {return}
-            
             guard let authKey = authItem.key else {return}
             guard let authIssuer = authItem.issuer else {return}
-
-            print ("authItem.account \(authItem.account)")
-            print ("authIssuer \(authIssuer)")
             
             issuerLabel.setLabelAtributedText(fontSize: 24, text: authIssuer, aligment: .center, indent: 0.0)
             
@@ -164,7 +160,6 @@ class CustomCell: UITableViewCell {
     @objc private func handleCopyButton(){
         let pasteboard = UIPasteboard.general
         pasteboard.string = passLabel.text
-        print(passLabel.text)
     }
 
 }

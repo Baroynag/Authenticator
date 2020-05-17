@@ -115,9 +115,6 @@ class ScanQrViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
             authItem.key       = getQueryStringParameter(url: url, param: "secret")
             authItem.account   = url.path.replacingOccurrences(of: "/", with: "")
             authItem.timeBased = true
-            
-            print("SQAN authItem.issuer = \(authItem.issuer )")
-            print("SQAN authItem.account = \(authItem.account )")
             delegate?.createNewItem(newAuthItem: authItem)
         }
    }
