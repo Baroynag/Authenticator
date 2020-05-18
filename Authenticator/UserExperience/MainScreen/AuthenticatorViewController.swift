@@ -16,9 +16,7 @@ class AuthenticatorViewController: UIViewController, UITableViewDelegate, UITabl
     
     let cellId = "cellId"
     var tableView = UITableView()
-    
-    weak var delegate: AuthenticatorViewControllerDelegate?
-    
+   
     let addButton: UIButton = {
         let button = UIButton()
         button.backgroundColor = .clear
@@ -76,8 +74,7 @@ class AuthenticatorViewController: UIViewController, UITableViewDelegate, UITabl
     
     private func pushDetailViewController(text: String?, state: States){
         let rowDetailViewController = RowDetailViewController()
-        self.delegate = rowDetailViewController
-        self.delegate?.setEditedText(text: text, state: state)
+        
         rowDetailViewController.delegate = self
         rowDetailViewController.modalPresentationStyle = .fullScreen
         self.present(rowDetailViewController, animated: true, completion: nil)
@@ -122,6 +119,8 @@ extension AuthenticatorViewController {
             cell.authItem = authItem
         }
         
+        cell.copyButton.tag = indexPath.row
+        cell.delgate = self
         return cell
     }
 }
@@ -144,3 +143,14 @@ extension AuthenticatorViewController{
  
 }
 
+
+
+extension AuthenticatorViewController: CopyPassToClipBoardDelegate {
+    
+    func pressCopyButton(otp: String) {
+        print ("otp = \(otp)")
+        let pasteboard = UIPasteboard.general
+        pasteboard.string = otp
+    }
+
+}

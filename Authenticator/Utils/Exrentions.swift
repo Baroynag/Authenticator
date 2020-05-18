@@ -36,12 +36,7 @@ extension AuthenticatorViewController: AddItemDelegate {
     }
 }
 
-extension RowDetailViewController: AuthenticatorViewControllerDelegate {
-    func setEditedText(text: String?, state: States) {
-        guard let text = text else {return}
-        editedText = text
-    }
-}
+
 
 extension UIViewController{
     func setupNavigationController(){

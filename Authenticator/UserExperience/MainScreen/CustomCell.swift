@@ -20,6 +20,8 @@ class CustomCell: UITableViewCell {
     private var issuer = ""
     private var account = ""
     
+    var delgate: CopyPassToClipBoardDelegate?
+    
     public var authItem: Authenticator?{
         didSet{
             guard let authItem = authItem else {return}
@@ -77,7 +79,7 @@ class CustomCell: UITableViewCell {
         button.backgroundColor = .clear
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setImage(UIImage(named: "copyButton"), for: .normal)
-        button.addTarget(self, action: #selector(handleCopyButton), for: .touchUpInside)
+//        button.addTarget(self, action: #selector(handleCopyButton), for: .touchUpInside)
         return button
     }()
     
@@ -95,7 +97,7 @@ class CustomCell: UITableViewCell {
     
     private func setupView(){
         contentView.backgroundColor = .systemBackground
-  
+        
         addSubview(issuerLabel)
         NSLayoutConstraint.activate([
             issuerLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 8),
@@ -129,6 +131,7 @@ class CustomCell: UITableViewCell {
             descriptionLabel.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
          ])
         
+        copyButton.addTarget(self, action: #selector(handleCopyButton), for: .touchUpInside)
         addSubview(copyButton)
         NSLayoutConstraint.activate([
             copyButton.centerYAnchor.constraint(equalTo: safeAreaLayoutGuide.centerYAnchor),
@@ -147,7 +150,7 @@ class CustomCell: UITableViewCell {
     
     @objc private func updateLabel (){
         countDown -= 1
-       descriptionLabel.text = "Пароль обновиться через " + String(countDown) + "с."
+        descriptionLabel.text = "Пароль обновиться через " + String(countDown) + "с."
         if countDown == 0 {
             countDown = 30
             let token = testToken(name: issuer, issuer: issuer, secretString: key)
@@ -158,8 +161,10 @@ class CustomCell: UITableViewCell {
     }
     
     @objc private func handleCopyButton(){
-        let pasteboard = UIPasteboard.general
-        pasteboard.string = passLabel.text
+        print("passLabel.text\(passLabel.text)")
+        if let otp = passLabel.text {
+            delgate?.pressCopyButton(otp: otp)
+        }
     }
 
 }

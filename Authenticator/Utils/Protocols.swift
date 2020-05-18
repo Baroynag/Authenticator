@@ -8,8 +8,8 @@
 
 import UIKit
 
-protocol AuthenticatorViewControllerDelegate : class {
-  func setEditedText(text: String?, state: States)
+protocol CopyPassToClipBoardDelegate : class {
+    func pressCopyButton(otp: String)
 }
 
 protocol AddItemDelegate : class {
