@@ -28,6 +28,9 @@ class CustomCell: UITableViewCell {
             guard let authKey = authItem.key else {return}
             guard let authIssuer = authItem.issuer else {return}
             
+            key = authKey
+            issuer = authIssuer
+            
             issuerLabel.setLabelAtributedText(fontSize: 24, text: authIssuer, aligment: .center, indent: 0.0)
             
             accountLabel.setLabelAtributedText(fontSize: 16, text: authItem.account, aligment: .center, indent: 0.0, color: .fucsiaColor())
@@ -172,7 +175,7 @@ class CustomCell: UITableViewCell {
 extension CustomCell{
     
     func testToken(name: String, issuer: String, secretString: String) -> Token? {
-
+        
         guard let secretData = MF_Base32Codec.data(fromBase32String: secretString),
             !secretData.isEmpty else {
                 print("Invalid secret")
