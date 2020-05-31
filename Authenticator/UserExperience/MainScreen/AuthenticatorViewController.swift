@@ -36,10 +36,6 @@ class AuthenticatorViewController: UIViewController, UITableViewDelegate, UITabl
         setupAddButton()
         fetchData()
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-     }
 
 //    MARK: - Handlers
     @objc func pressAddButton(){
