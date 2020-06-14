@@ -34,8 +34,8 @@ class InterfaceController: WKInterfaceController {
  
     override func didAppear() {
         super.didAppear()
-        print(#function)
-        sendMessage()
+//        print(#function)
+//        sendMessage()
     }
     
     override func willActivate() {
@@ -52,20 +52,22 @@ class InterfaceController: WKInterfaceController {
     }
     
     func sendMessage() {
-        print("sendMessage")
+        print("sendMessage start")
         let timestamp = NSDate().timeIntervalSince1970
         let dictionary: [String: Double] = ["watchAwake": timestamp]
                        
         session.sendMessage(dictionary, replyHandler: { (response) in
             self.items = response
-                print("response\(response)")
+            print("response\(self.items.count)")
             }, errorHandler: { (error) in
                 print("Error sending message: %@", error)
             })
+        print("sendMessage end")
     }
     
     private func updateTable() {
         table.setNumberOfRows(items.count, withRowType: "SotpWRow")
+        print ("updateTabe \(items.count)")
         for (i, item) in items.enumerated() {
             if let row = table.rowController(at: i) as? SOTPWatchRow {
                 row.accountLabel.setText(item.key)
@@ -77,7 +79,7 @@ class InterfaceController: WKInterfaceController {
 //    MARK: Handlers
     
     @IBAction func tapUpdateButton() {
-//        sendMessage()
+        sendMessage()
     }
 
 }

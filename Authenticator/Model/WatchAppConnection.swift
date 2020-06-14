@@ -14,7 +14,6 @@ class WatchAppConnection: NSObject{
     static let shared = WatchAppConnection()
     private let session = WCSession.default
     
-    
     override init() {
         super.init()
         print("init")
@@ -39,10 +38,7 @@ class WatchAppConnection: NSObject{
             }
         }
     }
-    
-
 }
-
 
 extension WatchAppConnection: WCSessionDelegate {
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
@@ -62,19 +58,12 @@ extension WatchAppConnection: WCSessionDelegate {
         self.session.activate()
     }
     
-    func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String : Any]) {
-        print("iPhone didReceiveApplicationContext")
-        if let watchAwakeAt = applicationContext["watchAwakeAt"] as? Double{
-            print("watchAwakeAt = \(watchAwakeAt)")
-            sendDataToWatch()
-        }
-    }
-    
     func session(_ session: WCSession, didReceiveMessage message: [String : Any], replyHandler: @escaping ([String : Any]) -> Void) {
          
-         if let watchAwakeAt = message["watchAwake"] as? Double{
+        if let watchAwakeAt = message["watchAwake"] as? Double{
+            let dictionary = AuthenticatorModel.shared.loadDataForWatch()
             print ("iPhone watchAwakeAt\(watchAwakeAt)")
-            replyHandler(["vk" :  "12345"])
+            replyHandler(dictionary)
         }
     }
 

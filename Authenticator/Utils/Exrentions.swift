@@ -26,17 +26,13 @@ extension UIColor{
     
 }
 
-
 extension AuthenticatorViewController: AddItemDelegate {
     func createNewItem(newAuthItem: Authenticator) {
 
         AuthenticatorModel.shared.addOneItem(newAuthItem: newAuthItem)
         tableView.reloadData()
-
     }
 }
-
-
 
 extension UIViewController{
     func setupNavigationController(){

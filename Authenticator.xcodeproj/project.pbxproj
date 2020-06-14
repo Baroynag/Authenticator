@@ -31,9 +31,8 @@
 		14543DB324853A05008E7DA8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14543DB224853A05008E7DA8 /* Assets.xcassets */; };
 		14543DB724853A05008E7DA8 /* SOTPWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 14543D9D24853A03008E7DA8 /* SOTPWatch.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		14543DC124853B24008E7DA8 /* SOTPWatchRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14543DC024853B24008E7DA8 /* SOTPWatchRow.swift */; };
-		14543DC324868D75008E7DA8 /* SOTPWatchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14543DC224868D75008E7DA8 /* SOTPWatchModel.swift */; };
 		14543DC82486E02D008E7DA8 /* WatchAppConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14543DC72486E02D008E7DA8 /* WatchAppConnection.swift */; };
-		14543DCA2487F1CE008E7DA8 /* IphoneAppConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14543DC92487F1CE008E7DA8 /* IphoneAppConnection.swift */; };
+		14543E1B24968363008E7DA8 /* TokenGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14543E1A24968363008E7DA8 /* TokenGenerator.swift */; };
 		14F740F22447743D0052244C /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 14F740F12447743D0052244C /* Lato-Light.ttf */; };
 		FD6CF9FFA6037CDAEBC06627 /* Pods_Authenticator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67D87C916A1E254B6ABFAF7D /* Pods_Authenticator.framework */; };
 /* End PBXBuildFile section */
@@ -109,12 +108,11 @@
 		14543DB224853A05008E7DA8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		14543DB424853A05008E7DA8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14543DC024853B24008E7DA8 /* SOTPWatchRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SOTPWatchRow.swift; sourceTree = "<group>"; };
-		14543DC224868D75008E7DA8 /* SOTPWatchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SOTPWatchModel.swift; sourceTree = "<group>"; };
 		14543DC42486DCBE008E7DA8 /* SOTPWatch ExtensionDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "SOTPWatch ExtensionDebug.entitlements"; sourceTree = "<group>"; };
 		14543DC52486DCD4008E7DA8 /* AuthenticatorDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AuthenticatorDebug.entitlements; sourceTree = "<group>"; };
 		14543DC62486DD66008E7DA8 /* SOTPWatchDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SOTPWatchDebug.entitlements; sourceTree = "<group>"; };
 		14543DC72486E02D008E7DA8 /* WatchAppConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchAppConnection.swift; sourceTree = "<group>"; };
-		14543DC92487F1CE008E7DA8 /* IphoneAppConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IphoneAppConnection.swift; sourceTree = "<group>"; };
+		14543E1A24968363008E7DA8 /* TokenGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenGenerator.swift; sourceTree = "<group>"; };
 		14F740F12447743D0052244C /* Lato-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Light.ttf"; sourceTree = "<group>"; };
 		67D87C916A1E254B6ABFAF7D /* Pods_Authenticator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Authenticator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1087AF21F7B4953349EB22F /* Pods-Authenticator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Authenticator.debug.xcconfig"; path = "Target Support Files/Pods-Authenticator/Pods-Authenticator.debug.xcconfig"; sourceTree = "<group>"; };
@@ -245,8 +243,6 @@
 				14543DB224853A05008E7DA8 /* Assets.xcassets */,
 				14543DB424853A05008E7DA8 /* Info.plist */,
 				14543DC024853B24008E7DA8 /* SOTPWatchRow.swift */,
-				14543DC224868D75008E7DA8 /* SOTPWatchModel.swift */,
-				14543DC92487F1CE008E7DA8 /* IphoneAppConnection.swift */,
 			);
 			path = "SOTPWatch Extension";
 			sourceTree = "<group>";
@@ -283,6 +279,7 @@
 			children = (
 				1401DAC9244343FE00DE677F /* AuthenticatorModel.swift */,
 				14543DC72486E02D008E7DA8 /* WatchAppConnection.swift */,
+				14543E1A24968363008E7DA8 /* TokenGenerator.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -491,6 +488,7 @@
 				1401DAC32443433100DE677F /* RowDetailViewController.swift in Sources */,
 				1405D88B24719BF10065509B /* UITextFieldWithBottomBorder.swift in Sources */,
 				1401DACA244343FE00DE677F /* AuthenticatorModel.swift in Sources */,
+				14543E1B24968363008E7DA8 /* TokenGenerator.swift in Sources */,
 				141917D0245483EC00EE125D /* ScanQrViewController.swift in Sources */,
 				14543DC82486E02D008E7DA8 /* WatchAppConnection.swift in Sources */,
 				1401DAC72443436E00DE677F /* Exrentions.swift in Sources */,
@@ -503,8 +501,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				14543DB124853A04008E7DA8 /* ExtensionDelegate.swift in Sources */,
-				14543DC324868D75008E7DA8 /* SOTPWatchModel.swift in Sources */,
-				14543DCA2487F1CE008E7DA8 /* IphoneAppConnection.swift in Sources */,
 				14543DAF24853A04008E7DA8 /* InterfaceController.swift in Sources */,
 				14543DC124853B24008E7DA8 /* SOTPWatchRow.swift in Sources */,
 			);
