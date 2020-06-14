@@ -16,10 +16,11 @@ class AuthenticatorViewController: UIViewController, UITableViewDelegate, UITabl
     
     let cellId = "cellId"
     var tableView = UITableView()
-   
+    
     let addButton: UIButton = {
         let button = UIButton()
         button.backgroundColor = .clear
+//        button.backgroundColor = .blue
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setImage(UIImage(named: "addButton"), for: .normal)
         button.addTarget(self, action: #selector(pressAddButton), for: .touchUpInside)
@@ -35,10 +36,13 @@ class AuthenticatorViewController: UIViewController, UITableViewDelegate, UITabl
         createTable()
         setupAddButton()
         fetchData()
+        
+        
     }
 
 //    MARK: - Handlers
     @objc func pressAddButton(){
+
         self.pushDetailViewController(text: nil, state: .add)
     }
 
@@ -79,6 +83,8 @@ class AuthenticatorViewController: UIViewController, UITableViewDelegate, UITabl
     private func fetchData(){
         AuthenticatorModel.shared.loadData()
     }
+    
+    
     
 }
 
@@ -138,8 +144,6 @@ extension AuthenticatorViewController{
     }
  
 }
-
-
 
 extension AuthenticatorViewController: CopyPassToClipBoardDelegate {
     
