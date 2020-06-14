@@ -13,6 +13,9 @@ import WatchConnectivity
 class InterfaceController: WKInterfaceController {
     
     //    MARK: Properties
+    private var countDown = 30
+    private let duration = 30
+    private var timer: Timer?
     @IBOutlet var table: WKInterfaceTable!
     private var session = WCSession.default
     
@@ -29,13 +32,11 @@ class InterfaceController: WKInterfaceController {
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
         print("awake")
-//        items.updateValue("start", forKey: "000000")
     }
  
     override func didAppear() {
         super.didAppear()
-//        print(#function)
-//        sendMessage()
+        
     }
     
     override func willActivate() {
@@ -52,7 +53,6 @@ class InterfaceController: WKInterfaceController {
     }
     
     func sendMessage() {
-        print("sendMessage start")
         let timestamp = NSDate().timeIntervalSince1970
         let dictionary: [String: Double] = ["watchAwake": timestamp]
                        
@@ -62,57 +62,60 @@ class InterfaceController: WKInterfaceController {
             }, errorHandler: { (error) in
                 print("Error sending message: %@", error)
             })
-        print("sendMessage end")
     }
     
     private func updateTable() {
         table.setNumberOfRows(items.count, withRowType: "SotpWRow")
-        print ("updateTabe \(items.count)")
         for (i, item) in items.enumerated() {
             if let row = table.rowController(at: i) as? SOTPWatchRow {
                 row.accountLabel.setText(item.key)
                 row.passLabel.setText(item.value as? String)
+                row.passLabel.setTextColor(UIColor.fucsiaColor())
+                row.detailLabel.setText("Действителен 30 с.")
             }
         }
+    }
+    
+    private func startTimer(){
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateLabel), userInfo: nil, repeats: true)
     }
     
 //    MARK: Handlers
     
     @IBAction func tapUpdateButton() {
         sendMessage()
+        startTimer()
     }
+    
+    @objc private func updateLabel (){
+        if items.count == 0 { return}
+        countDown -= 1
+        let text = "Действителен " + String(countDown) + "с."
+        for i in 0...items.count - 1 {
+            if let row = table.rowController(at: i) as? SOTPWatchRow {
+                row.detailLabel.setText(text)
+            }
+        }
 
-}
-
-
-/*protocol SyncWithPhoneDelegate {
-    func syncWithPhone(syncValue: [String : Any]) 
-}
-
-
-extension InterfaceController: SyncWithPhoneDelegate{
-    func syncWithPhone(syncValue: [String : Any]) {
-        print ("syncWatch")
-//        var index = 0
-//        for (account, key) in SOTPWatchModel.shared.authList{
-//            guard let row = table?.rowController(at: index) as? SOTPWatchRow else {continue}
-//            row.accountLabel.setText(account)
-//            if let key = key as? String{
-//                row.passLabel.setText(key)
-//
-//            }
-//            index += 1
-//        }
+        if countDown == 0 {
+            countDown = 30
+            sendMessage()
+        }
     }
-   
-}*/
-
-
+}
 
 extension InterfaceController: WCSessionDelegate {
     
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
         print("activationDidCompleteWith activationState:\(activationState.rawValue) error:\(String(describing: error))")
+    }
+    
+}
+
+extension UIColor{
+
+    static func fucsiaColor() -> UIColor{
+       return UIColor(red: 1, green: 0.196, blue: 0.392, alpha: 1)
     }
     
 }
