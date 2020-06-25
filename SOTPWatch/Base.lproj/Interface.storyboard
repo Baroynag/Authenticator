@@ -11,11 +11,6 @@
             <objects>
                 <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="SOTPWatch" customModuleProvider="target">
                     <items>
-                        <button width="1" alignment="left" title="Update" id="Lys-6b-XdI">
-                            <connections>
-                                <action selector="tapUpdateButton" destination="AgC-eL-Hgc" id="ORd-9a-rQq"/>
-                            </connections>
-                        </button>
                         <table alignment="left" id="ink-2G-hTL">
                             <items>
                                 <tableRow identifier="SotpWRow" id="c4z-9v-idE" customClass="SOTPWatchRow" customModule="SOTPWatch_Extension">

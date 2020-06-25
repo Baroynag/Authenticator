@@ -16,6 +16,7 @@ class InterfaceController: WKInterfaceController {
     private var countDown = 30
     private let duration = 30
     private var timer: Timer?
+    
     @IBOutlet var table: WKInterfaceTable!
     private var session = WCSession.default
     
@@ -36,20 +37,13 @@ class InterfaceController: WKInterfaceController {
  
     override func didAppear() {
         super.didAppear()
-        
     }
     
     override func willActivate() {
         super.willActivate()
         print("willActivate")
-        if isSuported() {
-            session.delegate = self
-            session.activate()
-        }
-    }
- 
-    private func isSuported() -> Bool {
-        return WCSession.isSupported()
+        sendMessage()
+        startTimer()
     }
     
     func sendMessage() {
@@ -58,7 +52,7 @@ class InterfaceController: WKInterfaceController {
                        
         session.sendMessage(dictionary, replyHandler: { (response) in
             self.items = response
-            print("response\(self.items.count)")
+            
             }, errorHandler: { (error) in
                 print("Error sending message: %@", error)
             })
@@ -82,10 +76,6 @@ class InterfaceController: WKInterfaceController {
     
 //    MARK: Handlers
     
-    @IBAction func tapUpdateButton() {
-        sendMessage()
-        startTimer()
-    }
     
     @objc private func updateLabel (){
         if items.count == 0 { return}
@@ -104,16 +94,7 @@ class InterfaceController: WKInterfaceController {
     }
 }
 
-extension InterfaceController: WCSessionDelegate {
-    
-    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
-        print("activationDidCompleteWith activationState:\(activationState.rawValue) error:\(String(describing: error))")
-    }
-    
-}
-
 extension UIColor{
-
     static func fucsiaColor() -> UIColor{
        return UIColor(red: 1, green: 0.196, blue: 0.392, alpha: 1)
     }

@@ -160,7 +160,6 @@ class CustomCell: UITableViewCell {
     }
     
     @objc private func handleCopyButton(){
-        print("passLabel.text\(passLabel.text)")
         if let otp = passLabel.text {
             delgate?.pressCopyButton(otp: otp)
         }

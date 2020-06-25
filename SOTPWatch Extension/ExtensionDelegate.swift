@@ -7,12 +7,20 @@
 //
 
 import WatchKit
+import WatchConnectivity
 
 class ExtensionDelegate: NSObject, WKExtensionDelegate {
 
+    private var session = WCSession.default
+    
     func applicationDidFinishLaunching() {
         // Perform any final initialization of your application.
-
+       
+        if isSuported() {
+            session.delegate = self
+            session.activate()
+        }
+    
     }
     
     func applicationDidBecomeActive() {
@@ -54,4 +62,18 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate {
         }
     }
 
+
+    private func isSuported() -> Bool {
+        return WCSession.isSupported()
+    }
+
+}
+
+
+extension ExtensionDelegate: WCSessionDelegate {
+    
+    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+        print("activationDidCompleteWith activationState:\(activationState.rawValue) error:\(String(describing: error))")
+    }
+    
 }

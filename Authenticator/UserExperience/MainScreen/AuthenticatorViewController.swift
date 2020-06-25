@@ -135,11 +135,14 @@ extension AuthenticatorViewController{
             AuthenticatorModel.shared.deleteData(index: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
-        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 180
+    }
+    
+    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        return true
     }
  
 }
