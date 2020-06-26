@@ -18,19 +18,19 @@
                                         <items>
                                             <group width="1" height="0.29999999999999999" alignment="left" id="vtG-PN-eln">
                                                 <items>
-                                                    <label width="1" height="1" alignment="left" text="Label" textAlignment="center" id="fus-sy-CsC"/>
+                                                    <label width="1" height="1" alignment="left" textAlignment="center" id="fus-sy-CsC"/>
                                                 </items>
                                             </group>
                                             <group width="1" height="0.29999999999999999" alignment="left" id="RvW-QV-Zg3">
                                                 <items>
-                                                    <label width="1" height="1" alignment="left" text="Label" textAlignment="center" id="hf9-q1-ODr">
-                                                        <fontDescription key="font" style="UICTFontTextStyleTitle2"/>
+                                                    <label width="1" height="1" alignment="left" text="Загрузка..." textAlignment="center" id="hf9-q1-ODr">
+                                                        <fontDescription key="font" style="UICTFontTextStyleTitle3"/>
                                                     </label>
                                                 </items>
                                             </group>
                                             <group width="1" height="0.29999999999999999" alignment="left" id="mHR-3y-DZl">
                                                 <items>
-                                                    <label width="1" height="1" alignment="left" text="Label" textAlignment="center" id="aHZ-6s-9pE">
+                                                    <label width="1" height="1" alignment="left" textAlignment="center" id="aHZ-6s-9pE">
                                                         <fontDescription key="font" type="system" pointSize="12"/>
                                                     </label>
                                                 </items>

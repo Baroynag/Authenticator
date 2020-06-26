@@ -37,6 +37,11 @@ class InterfaceController: WKInterfaceController {
  
     override func didAppear() {
         super.didAppear()
+        table.setNumberOfRows(1, withRowType: "SotpWRow")
+        if let row = table.rowController(at: 0) as? SOTPWatchRow {
+            row.passLabel.setText("Загрузка...")
+            row.passLabel.setTextColor(UIColor.fucsiaColor())
+        }
     }
     
     override func willActivate() {
