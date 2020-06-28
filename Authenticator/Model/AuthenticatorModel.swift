@@ -58,21 +58,21 @@ class AuthenticatorModel {
     
     func deleteData(index: Int){
         
-        guard let account = authList[index].value(forKey: "account") as? String else { return}
+        guard let issuer = authList[index].value(forKey: "issuer") as? String else { return}
         authList.remove(at: index)
         
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {return}
         let context = appDelegate.persistentContainer.viewContext
         
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "AuthenticationList")
-        request.predicate = NSPredicate(format:"account = %@", account as CVarArg)
+        request.predicate = NSPredicate(format:"issuer = %@", issuer as CVarArg)
         let result = try? context.fetch(request)
         let resultData = result as! [NSManagedObject]
-                
+        print (resultData)
         for object in resultData {
                 context.delete(object)
         }
-        
+
         do {
             try context.save()
                 print("saved!")

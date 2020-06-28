@@ -14,7 +14,6 @@ class InterfaceController: WKInterfaceController {
     
     //    MARK: Properties
     private var countDown = 30
-    private let duration = 30
     private var timer: Timer?
     
     @IBOutlet var table: WKInterfaceTable!

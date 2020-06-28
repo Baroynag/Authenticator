@@ -12,7 +12,6 @@ class CustomCell: UITableViewCell {
     
     // MARK: - Properties
     private var countDown = 30
-    private let duration = 30
     private var timer: Timer?
     private var key = ""
     private var issuer = ""
