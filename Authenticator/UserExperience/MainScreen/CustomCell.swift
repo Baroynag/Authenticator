@@ -7,14 +7,11 @@
 //
 
 import UIKit
-import OneTimePassword
-import Base32
 
 class CustomCell: UITableViewCell {
     
     // MARK: - Properties
     private var countDown = 30
-    private let duration = 30
     private var timer: Timer?
     private var key = ""
     private var issuer = ""
@@ -35,9 +32,7 @@ class CustomCell: UITableViewCell {
             
             accountLabel.setLabelAtributedText(fontSize: 16, text: authItem.account, aligment: .center, indent: 0.0, color: .fucsiaColor())
             
-            
-//            TODO: refacor
-            let token = testToken(name: authIssuer, issuer: authIssuer, secretString: authKey)
+            let token = TokenGenerator.shared.createToken(name: authIssuer, issuer: authIssuer, secretString: authKey)
             
             if let keyText = token?.currentPassword{
             passLabel.setLabelAtributedText(fontSize: 50, text: keyText,  aligment: .center, indent: 0.0)
@@ -156,7 +151,7 @@ class CustomCell: UITableViewCell {
         descriptionLabel.text = "Пароль обновиться через " + String(countDown) + "с."
         if countDown == 0 {
             countDown = 30
-            let token = testToken(name: issuer, issuer: issuer, secretString: key)
+            let token = TokenGenerator.shared.createToken(name: issuer, issuer: issuer, secretString: key)
             if let text = token?.currentPassword {
                 passLabel.setLabelAtributedText(fontSize: 50, text: text,  aligment: .center, indent: 0.0)
             }
@@ -164,35 +159,9 @@ class CustomCell: UITableViewCell {
     }
     
     @objc private func handleCopyButton(){
-        print("passLabel.text\(passLabel.text)")
         if let otp = passLabel.text {
             delgate?.pressCopyButton(otp: otp)
         }
     }
 
-}
-
-extension CustomCell{
-    
-    func testToken(name: String, issuer: String, secretString: String) -> Token? {
-        
-        guard let secretData = MF_Base32Codec.data(fromBase32String: secretString),
-            !secretData.isEmpty else {
-                print("Invalid secret")
-                return nil
-        }
-
-        guard let generator = Generator(
-            factor: .timer(period: 30),
-            secret: secretData,
-            algorithm: .sha1,
-            digits: 6) else {
-                print("Invalid generator parameters")
-                return nil
-        }
-
-        let token = Token(name: name, issuer: issuer, generator: generator)
-
-        return token
-    }
 }

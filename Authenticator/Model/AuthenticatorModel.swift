@@ -9,6 +9,7 @@
 import Foundation
 import CoreData
 import UIKit
+import OneTimePassword
 
 struct Authenticator{
     
@@ -28,9 +29,9 @@ class AuthenticatorModel {
     func loadData(){
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {return}
         let managedContext = appDelegate.persistentContainer.viewContext
-        let fetchREquest = NSFetchRequest<NSManagedObject>(entityName: "AuthenticationList")
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "AuthenticationList")
         do{
-            authList = try managedContext.fetch(fetchREquest)
+            authList = try managedContext.fetch(fetchRequest)
         } catch let error as NSError{
             print ("Failed to fetch items ", error)
         }
@@ -53,26 +54,25 @@ class AuthenticatorModel {
         } catch let error as NSError{
             print ("failure ", error)
         }
-        
-
     }
     
     func deleteData(index: Int){
         
-        guard let account = authList[index].value(forKey: "account") as? String else { return}
+        guard let issuer = authList[index].value(forKey: "issuer") as? String else { return}
         authList.remove(at: index)
         
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {return}
         let context = appDelegate.persistentContainer.viewContext
+        
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "AuthenticationList")
-        request.predicate = NSPredicate(format:"account = %@", account as CVarArg)
+        request.predicate = NSPredicate(format:"issuer = %@", issuer as CVarArg)
         let result = try? context.fetch(request)
         let resultData = result as! [NSManagedObject]
-                
+        print (resultData)
         for object in resultData {
                 context.delete(object)
         }
-        
+
         do {
             try context.save()
                 print("saved!")
@@ -83,4 +83,22 @@ class AuthenticatorModel {
             }
     }
     
+    
+    func loadDataForWatch() -> [String: String] {
+        loadData()
+        var dictionary: [String: String] = [:]
+        for index in 0...self.authList.count - 1{
+            
+            if let authIssuer = authList[index].value(forKey: "issuer") as? String,
+                let authKey = authList[index].value(forKey: "key")  as? String
+            {
+                let token = TokenGenerator.shared.createToken(name: authIssuer, issuer: authIssuer, secretString: authKey)
+            
+                if let tokenPass = token?.currentPassword{
+                    dictionary.updateValue(tokenPass, forKey: authIssuer)
+                }
+            }
+        }
+        return dictionary
+    }
 }

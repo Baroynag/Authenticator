@@ -16,10 +16,11 @@ class AuthenticatorViewController: UIViewController, UITableViewDelegate, UITabl
     
     let cellId = "cellId"
     var tableView = UITableView()
-   
+    
     let addButton: UIButton = {
         let button = UIButton()
         button.backgroundColor = .clear
+//        button.backgroundColor = .blue
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setImage(UIImage(named: "addButton"), for: .normal)
         button.addTarget(self, action: #selector(pressAddButton), for: .touchUpInside)
@@ -35,14 +36,13 @@ class AuthenticatorViewController: UIViewController, UITableViewDelegate, UITabl
         createTable()
         setupAddButton()
         fetchData()
+        
+        
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-     }
 
 //    MARK: - Handlers
     @objc func pressAddButton(){
+
         self.pushDetailViewController(text: nil, state: .add)
     }
 
@@ -83,6 +83,8 @@ class AuthenticatorViewController: UIViewController, UITableViewDelegate, UITabl
     private func fetchData(){
         AuthenticatorModel.shared.loadData()
     }
+    
+    
     
 }
 
@@ -133,17 +135,17 @@ extension AuthenticatorViewController{
             AuthenticatorModel.shared.deleteData(index: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
-        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 180
-        
+    }
+    
+    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        return true
     }
  
 }
-
-
 
 extension AuthenticatorViewController: CopyPassToClipBoardDelegate {
     

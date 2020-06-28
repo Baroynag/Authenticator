@@ -23,9 +23,61 @@
 		1401DACA244343FE00DE677F /* AuthenticatorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1401DAC9244343FE00DE677F /* AuthenticatorModel.swift */; };
 		1405D88B24719BF10065509B /* UITextFieldWithBottomBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1405D88A24719BF10065509B /* UITextFieldWithBottomBorder.swift */; };
 		141917D0245483EC00EE125D /* ScanQrViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141917CF245483EC00EE125D /* ScanQrViewController.swift */; };
+		14543DA124853A03008E7DA8 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14543D9F24853A03008E7DA8 /* Interface.storyboard */; };
+		14543DA324853A04008E7DA8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14543DA224853A04008E7DA8 /* Assets.xcassets */; };
+		14543DAA24853A04008E7DA8 /* SOTPWatch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 14543DA924853A04008E7DA8 /* SOTPWatch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		14543DAF24853A04008E7DA8 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14543DAE24853A04008E7DA8 /* InterfaceController.swift */; };
+		14543DB124853A04008E7DA8 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14543DB024853A04008E7DA8 /* ExtensionDelegate.swift */; };
+		14543DB324853A05008E7DA8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14543DB224853A05008E7DA8 /* Assets.xcassets */; };
+		14543DB724853A05008E7DA8 /* SOTPWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 14543D9D24853A03008E7DA8 /* SOTPWatch.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		14543DC124853B24008E7DA8 /* SOTPWatchRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14543DC024853B24008E7DA8 /* SOTPWatchRow.swift */; };
+		14543DC82486E02D008E7DA8 /* WatchAppConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14543DC72486E02D008E7DA8 /* WatchAppConnection.swift */; };
+		14543E1B24968363008E7DA8 /* TokenGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14543E1A24968363008E7DA8 /* TokenGenerator.swift */; };
 		14F740F22447743D0052244C /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 14F740F12447743D0052244C /* Lato-Light.ttf */; };
 		FD6CF9FFA6037CDAEBC06627 /* Pods_Authenticator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67D87C916A1E254B6ABFAF7D /* Pods_Authenticator.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		14543DAB24853A04008E7DA8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1401DA6F2440D46700DE677F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 14543DA824853A04008E7DA8;
+			remoteInfo = "SOTPWatch Extension";
+		};
+		14543DB524853A05008E7DA8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1401DA6F2440D46700DE677F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 14543D9C24853A03008E7DA8;
+			remoteInfo = SOTPWatch;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		14543DB824853A05008E7DA8 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				14543DB724853A05008E7DA8 /* SOTPWatch.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		14543DBB24853A05008E7DA8 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				14543DAA24853A04008E7DA8 /* SOTPWatch Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		1401DA772440D46800DE677F /* Authenticator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Authenticator.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -46,6 +98,21 @@
 		1401DAC9244343FE00DE677F /* AuthenticatorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatorModel.swift; sourceTree = "<group>"; };
 		1405D88A24719BF10065509B /* UITextFieldWithBottomBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldWithBottomBorder.swift; sourceTree = "<group>"; };
 		141917CF245483EC00EE125D /* ScanQrViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanQrViewController.swift; sourceTree = "<group>"; };
+		14543D9D24853A03008E7DA8 /* SOTPWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SOTPWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		14543DA024853A03008E7DA8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		14543DA224853A04008E7DA8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		14543DA424853A04008E7DA8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		14543DA924853A04008E7DA8 /* SOTPWatch Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "SOTPWatch Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		14543DAE24853A04008E7DA8 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		14543DB024853A04008E7DA8 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		14543DB224853A05008E7DA8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		14543DB424853A05008E7DA8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		14543DC024853B24008E7DA8 /* SOTPWatchRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SOTPWatchRow.swift; sourceTree = "<group>"; };
+		14543DC42486DCBE008E7DA8 /* SOTPWatch ExtensionDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "SOTPWatch ExtensionDebug.entitlements"; sourceTree = "<group>"; };
+		14543DC52486DCD4008E7DA8 /* AuthenticatorDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AuthenticatorDebug.entitlements; sourceTree = "<group>"; };
+		14543DC62486DD66008E7DA8 /* SOTPWatchDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SOTPWatchDebug.entitlements; sourceTree = "<group>"; };
+		14543DC72486E02D008E7DA8 /* WatchAppConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchAppConnection.swift; sourceTree = "<group>"; };
+		14543E1A24968363008E7DA8 /* TokenGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenGenerator.swift; sourceTree = "<group>"; };
 		14F740F12447743D0052244C /* Lato-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Light.ttf"; sourceTree = "<group>"; };
 		67D87C916A1E254B6ABFAF7D /* Pods_Authenticator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Authenticator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1087AF21F7B4953349EB22F /* Pods-Authenticator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Authenticator.debug.xcconfig"; path = "Target Support Files/Pods-Authenticator/Pods-Authenticator.debug.xcconfig"; sourceTree = "<group>"; };
@@ -58,6 +125,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				FD6CF9FFA6037CDAEBC06627 /* Pods_Authenticator.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		14543DA624853A04008E7DA8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,6 +150,8 @@
 			isa = PBXGroup;
 			children = (
 				1401DA792440D46800DE677F /* Authenticator */,
+				14543D9E24853A03008E7DA8 /* SOTPWatch */,
+				14543DAD24853A04008E7DA8 /* SOTPWatch Extension */,
 				1401DA782440D46800DE677F /* Products */,
 				A9BF4EE2A6484A861A2F363B /* Pods */,
 				0D520F5E198E7DE48BC30C63 /* Frameworks */,
@@ -86,6 +162,8 @@
 			isa = PBXGroup;
 			children = (
 				1401DA772440D46800DE677F /* Authenticator.app */,
+				14543D9D24853A03008E7DA8 /* SOTPWatch.app */,
+				14543DA924853A04008E7DA8 /* SOTPWatch Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -93,6 +171,7 @@
 		1401DA792440D46800DE677F /* Authenticator */ = {
 			isa = PBXGroup;
 			children = (
+				14543DC52486DCD4008E7DA8 /* AuthenticatorDebug.entitlements */,
 				1490048D246DBC8D00F91500 /* UserExperience */,
 				14F740F0244774300052244C /* Fonts */,
 				1401DAC8244343CC00DE677F /* Utils */,
@@ -144,6 +223,30 @@
 			path = ScanQR;
 			sourceTree = "<group>";
 		};
+		14543D9E24853A03008E7DA8 /* SOTPWatch */ = {
+			isa = PBXGroup;
+			children = (
+				14543DC62486DD66008E7DA8 /* SOTPWatchDebug.entitlements */,
+				14543D9F24853A03008E7DA8 /* Interface.storyboard */,
+				14543DA224853A04008E7DA8 /* Assets.xcassets */,
+				14543DA424853A04008E7DA8 /* Info.plist */,
+			);
+			path = SOTPWatch;
+			sourceTree = "<group>";
+		};
+		14543DAD24853A04008E7DA8 /* SOTPWatch Extension */ = {
+			isa = PBXGroup;
+			children = (
+				14543DC42486DCBE008E7DA8 /* SOTPWatch ExtensionDebug.entitlements */,
+				14543DAE24853A04008E7DA8 /* InterfaceController.swift */,
+				14543DB024853A04008E7DA8 /* ExtensionDelegate.swift */,
+				14543DB224853A05008E7DA8 /* Assets.xcassets */,
+				14543DB424853A05008E7DA8 /* Info.plist */,
+				14543DC024853B24008E7DA8 /* SOTPWatchRow.swift */,
+			);
+			path = "SOTPWatch Extension";
+			sourceTree = "<group>";
+		};
 		1490048D246DBC8D00F91500 /* UserExperience */ = {
 			isa = PBXGroup;
 			children = (
@@ -175,6 +278,8 @@
 			isa = PBXGroup;
 			children = (
 				1401DAC9244343FE00DE677F /* AuthenticatorModel.swift */,
+				14543DC72486E02D008E7DA8 /* WatchAppConnection.swift */,
+				14543E1A24968363008E7DA8 /* TokenGenerator.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -208,15 +313,51 @@
 				1401DA742440D46800DE677F /* Frameworks */,
 				1401DA752440D46800DE677F /* Resources */,
 				FA006DE2083CAAFDD5B0FA18 /* [CP] Embed Pods Frameworks */,
+				14543DB824853A05008E7DA8 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				14543DB624853A05008E7DA8 /* PBXTargetDependency */,
 			);
 			name = Authenticator;
 			productName = Authenticator;
 			productReference = 1401DA772440D46800DE677F /* Authenticator.app */;
 			productType = "com.apple.product-type.application";
+		};
+		14543D9C24853A03008E7DA8 /* SOTPWatch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 14543DBF24853A05008E7DA8 /* Build configuration list for PBXNativeTarget "SOTPWatch" */;
+			buildPhases = (
+				14543D9B24853A03008E7DA8 /* Resources */,
+				14543DBB24853A05008E7DA8 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				14543DAC24853A04008E7DA8 /* PBXTargetDependency */,
+			);
+			name = SOTPWatch;
+			productName = SOTPWatch;
+			productReference = 14543D9D24853A03008E7DA8 /* SOTPWatch.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		14543DA824853A04008E7DA8 /* SOTPWatch Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 14543DBE24853A05008E7DA8 /* Build configuration list for PBXNativeTarget "SOTPWatch Extension" */;
+			buildPhases = (
+				14543DA524853A04008E7DA8 /* Sources */,
+				14543DA624853A04008E7DA8 /* Frameworks */,
+				14543DA724853A04008E7DA8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "SOTPWatch Extension";
+			productName = "SOTPWatch Extension";
+			productReference = 14543DA924853A04008E7DA8 /* SOTPWatch Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -224,12 +365,18 @@
 		1401DA6F2440D46700DE677F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1140;
+				LastSwiftUpdateCheck = 1150;
 				LastUpgradeCheck = 1140;
 				ORGANIZATIONNAME = "Anzhela Baroyan";
 				TargetAttributes = {
 					1401DA762440D46800DE677F = {
 						CreatedOnToolsVersion = 11.4;
+					};
+					14543D9C24853A03008E7DA8 = {
+						CreatedOnToolsVersion = 11.5;
+					};
+					14543DA824853A04008E7DA8 = {
+						CreatedOnToolsVersion = 11.5;
 					};
 				};
 			};
@@ -247,6 +394,8 @@
 			projectRoot = "";
 			targets = (
 				1401DA762440D46800DE677F /* Authenticator */,
+				14543D9C24853A03008E7DA8 /* SOTPWatch */,
+				14543DA824853A04008E7DA8 /* SOTPWatch Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -260,6 +409,23 @@
 				1401DA872440D46B00DE677F /* Assets.xcassets in Resources */,
 				1401DA822440D46800DE677F /* Main.storyboard in Resources */,
 				14F740F22447743D0052244C /* Lato-Light.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		14543D9B24853A03008E7DA8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				14543DA324853A04008E7DA8 /* Assets.xcassets in Resources */,
+				14543DA124853A03008E7DA8 /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		14543DA724853A04008E7DA8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				14543DB324853A05008E7DA8 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,13 +488,38 @@
 				1401DAC32443433100DE677F /* RowDetailViewController.swift in Sources */,
 				1405D88B24719BF10065509B /* UITextFieldWithBottomBorder.swift in Sources */,
 				1401DACA244343FE00DE677F /* AuthenticatorModel.swift in Sources */,
+				14543E1B24968363008E7DA8 /* TokenGenerator.swift in Sources */,
 				141917D0245483EC00EE125D /* ScanQrViewController.swift in Sources */,
+				14543DC82486E02D008E7DA8 /* WatchAppConnection.swift in Sources */,
 				1401DAC72443436E00DE677F /* Exrentions.swift in Sources */,
 				1401DA7D2440D46800DE677F /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		14543DA524853A04008E7DA8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				14543DB124853A04008E7DA8 /* ExtensionDelegate.swift in Sources */,
+				14543DAF24853A04008E7DA8 /* InterfaceController.swift in Sources */,
+				14543DC124853B24008E7DA8 /* SOTPWatchRow.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		14543DAC24853A04008E7DA8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 14543DA824853A04008E7DA8 /* SOTPWatch Extension */;
+			targetProxy = 14543DAB24853A04008E7DA8 /* PBXContainerItemProxy */;
+		};
+		14543DB624853A05008E7DA8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 14543D9C24853A03008E7DA8 /* SOTPWatch */;
+			targetProxy = 14543DB524853A05008E7DA8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		1401DA802440D46800DE677F /* Main.storyboard */ = {
@@ -345,6 +536,14 @@
 				1401DA892440D46B00DE677F /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		14543D9F24853A03008E7DA8 /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				14543DA024853A03008E7DA8 /* Base */,
+			);
+			name = Interface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -469,6 +668,7 @@
 			baseConfigurationReference = B1087AF21F7B4953349EB22F /* Pods-Authenticator.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Authenticator/AuthenticatorDebug.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 883M88478B;
 				INFOPLIST_FILE = Authenticator/Info.plist;
@@ -502,6 +702,90 @@
 			};
 			name = Release;
 		};
+		14543DB924853A05008E7DA8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SOTPWatch/SOTPWatchDebug.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 883M88478B;
+				IBSC_MODULE = SOTPWatch_Extension;
+				INFOPLIST_FILE = SOTPWatch/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = arm.Angy.SOTP.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 6.2;
+			};
+			name = Debug;
+		};
+		14543DBA24853A05008E7DA8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 883M88478B;
+				IBSC_MODULE = SOTPWatch_Extension;
+				INFOPLIST_FILE = SOTPWatch/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = arm.Angy.SOTP.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 6.2;
+			};
+			name = Release;
+		};
+		14543DBC24853A05008E7DA8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_ENTITLEMENTS = "SOTPWatch Extension/SOTPWatch ExtensionDebug.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 883M88478B;
+				INFOPLIST_FILE = "SOTPWatch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = arm.Angy.SOTP.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 6.2;
+			};
+			name = Debug;
+		};
+		14543DBD24853A05008E7DA8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 883M88478B;
+				INFOPLIST_FILE = "SOTPWatch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = arm.Angy.SOTP.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 6.2;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -519,6 +803,24 @@
 			buildConfigurations = (
 				1401DA8F2440D46B00DE677F /* Debug */,
 				1401DA902440D46B00DE677F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		14543DBE24853A05008E7DA8 /* Build configuration list for PBXNativeTarget "SOTPWatch Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				14543DBC24853A05008E7DA8 /* Debug */,
+				14543DBD24853A05008E7DA8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		14543DBF24853A05008E7DA8 /* Build configuration list for PBXNativeTarget "SOTPWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				14543DB924853A05008E7DA8 /* Debug */,
+				14543DBA24853A05008E7DA8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

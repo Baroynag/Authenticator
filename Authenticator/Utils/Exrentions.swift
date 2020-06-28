@@ -16,27 +16,20 @@ enum States{
 }
 
 extension UIColor{
-    static func rgb(red: CGFloat, green: CGFloat, blue: CGFloat) -> UIColor{
-        return UIColor(red: red/255, green: green/255, blue: blue/255, alpha: 1)
-    }
-    
+
     static func fucsiaColor() -> UIColor{
        return UIColor(red: 1, green: 0.196, blue: 0.392, alpha: 1)
     }
     
 }
 
-
 extension AuthenticatorViewController: AddItemDelegate {
     func createNewItem(newAuthItem: Authenticator) {
 
         AuthenticatorModel.shared.addOneItem(newAuthItem: newAuthItem)
         tableView.reloadData()
-
     }
 }
-
-
 
 extension UIViewController{
     func setupNavigationController(){
