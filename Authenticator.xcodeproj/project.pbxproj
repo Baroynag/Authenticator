@@ -23,6 +23,7 @@
 		1401DACA244343FE00DE677F /* AuthenticatorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1401DAC9244343FE00DE677F /* AuthenticatorModel.swift */; };
 		1405D88B24719BF10065509B /* UITextFieldWithBottomBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1405D88A24719BF10065509B /* UITextFieldWithBottomBorder.swift */; };
 		141917D0245483EC00EE125D /* ScanQrViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141917CF245483EC00EE125D /* ScanQrViewController.swift */; };
+		1434357024A91F2E00935297 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1434356F24A91F2E00935297 /* SettingsViewController.swift */; };
 		14543DA124853A03008E7DA8 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14543D9F24853A03008E7DA8 /* Interface.storyboard */; };
 		14543DA324853A04008E7DA8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14543DA224853A04008E7DA8 /* Assets.xcassets */; };
 		14543DAA24853A04008E7DA8 /* SOTPWatch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 14543DA924853A04008E7DA8 /* SOTPWatch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -98,6 +99,7 @@
 		1401DAC9244343FE00DE677F /* AuthenticatorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatorModel.swift; sourceTree = "<group>"; };
 		1405D88A24719BF10065509B /* UITextFieldWithBottomBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldWithBottomBorder.swift; sourceTree = "<group>"; };
 		141917CF245483EC00EE125D /* ScanQrViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanQrViewController.swift; sourceTree = "<group>"; };
+		1434356F24A91F2E00935297 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		14543D9D24853A03008E7DA8 /* SOTPWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SOTPWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14543DA024853A03008E7DA8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		14543DA224853A04008E7DA8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -223,6 +225,14 @@
 			path = ScanQR;
 			sourceTree = "<group>";
 		};
+		1434356A24A91E9500935297 /* SettingsScreen */ = {
+			isa = PBXGroup;
+			children = (
+				1434356F24A91F2E00935297 /* SettingsViewController.swift */,
+			);
+			path = SettingsScreen;
+			sourceTree = "<group>";
+		};
 		14543D9E24853A03008E7DA8 /* SOTPWatch */ = {
 			isa = PBXGroup;
 			children = (
@@ -250,6 +260,7 @@
 		1490048D246DBC8D00F91500 /* UserExperience */ = {
 			isa = PBXGroup;
 			children = (
+				1434356A24A91E9500935297 /* SettingsScreen */,
 				1490048F246DBCCC00F91500 /* AccountAddScreen */,
 				1490048E246DBCBF00F91500 /* MainScreen */,
 			);
@@ -485,6 +496,7 @@
 				1401DAC12443431200DE677F /* AuthenticatorViewController.swift in Sources */,
 				1401DA7B2440D46800DE677F /* AppDelegate.swift in Sources */,
 				1401DABF244342CC00DE677F /* CustomCell.swift in Sources */,
+				1434357024A91F2E00935297 /* SettingsViewController.swift in Sources */,
 				1401DAC32443433100DE677F /* RowDetailViewController.swift in Sources */,
 				1405D88B24719BF10065509B /* UITextFieldWithBottomBorder.swift in Sources */,
 				1401DACA244343FE00DE677F /* AuthenticatorModel.swift in Sources */,

@@ -20,7 +20,6 @@ class AuthenticatorViewController: UIViewController, UITableViewDelegate, UITabl
     let addButton: UIButton = {
         let button = UIButton()
         button.backgroundColor = .clear
-//        button.backgroundColor = .blue
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setImage(UIImage(named: "addButton"), for: .normal)
         button.addTarget(self, action: #selector(pressAddButton), for: .touchUpInside)
@@ -37,15 +36,19 @@ class AuthenticatorViewController: UIViewController, UITableViewDelegate, UITabl
         setupAddButton()
         fetchData()
         
-        
     }
 
 //    MARK: - Handlers
     @objc func pressAddButton(){
-
-        self.pushDetailViewController(text: nil, state: .add)
+      self.pushDetailViewController(text: nil, state: .add)
     }
 
+    @objc func settingsTapped(){
+        let settingsViewController = SettingsViewController()
+        settingsViewController.modalPresentationStyle = .fullScreen
+        self.present(settingsViewController, animated: true, completion: nil)
+    }
+    
 //    MARK: - Functions
     func createTable(){
         tableView = UITableView(frame: view.bounds, style: .plain)
@@ -65,11 +68,13 @@ class AuthenticatorViewController: UIViewController, UITableViewDelegate, UITabl
             addButton.widthAnchor.constraint(equalToConstant: 80)
             ])
     }
-    
+
     private func configureNavBar() {
         setupNavigationController()
         navigationItem.title = "Authenticator"
-
+        let barButtonItem = UIBarButtonItem(image: UIImage(named: "settings"), style: .done, target: self, action: #selector(settingsTapped))
+        barButtonItem.tintColor = .fucsiaColor()
+        navigationItem.rightBarButtonItem = barButtonItem
     }
     
     private func pushDetailViewController(text: String?, state: States){

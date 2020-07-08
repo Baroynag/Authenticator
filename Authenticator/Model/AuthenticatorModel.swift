@@ -101,4 +101,42 @@ class AuthenticatorModel {
         }
         return dictionary
     }
+    
+
+    func saveDataToFile() -> [NSManagedObject]{
+        print(#function)
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {return []}
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "AuthenticationList")
+        do{
+            authList = try managedContext.fetch(fetchRequest)
+        } catch let error as NSError{
+            print ("Failed to fetch items ", error)
+        }
+        return authList
+    }
+    
+    
+    func convertToJSONArray(objectsArray: [NSManagedObject]) -> [[String: Any]] {
+        
+        var jsonArray: [[String: Any]] = []
+        
+        for item in objectsArray {
+            var dictionary: [String: Any] = [:]
+            for attribute in item.entity.attributesByName {
+          
+                if let value = item.value(forKey: attribute.key) {
+                    dictionary[attribute.key] = value
+                }
+            }
+            jsonArray.append(dictionary)
+        }
+        
+//        print("--------")
+//        print(jsonArray)
+//        print("--------")
+        
+        return jsonArray
+        
+    }
 }
