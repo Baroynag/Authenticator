@@ -192,7 +192,6 @@ class RowDetailViewController: UIViewController {
         NSLayoutConstraint.activate([
             cancelButton.topAnchor.constraint(equalTo: scanQRButton.bottomAnchor, constant: 24),
             cancelButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            cancelButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             cancelButton.heightAnchor.constraint(equalToConstant: 80),
             cancelButton.widthAnchor.constraint(equalToConstant: 80)
         ])

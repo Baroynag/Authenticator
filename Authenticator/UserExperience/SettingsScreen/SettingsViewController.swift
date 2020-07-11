@@ -9,7 +9,6 @@
 import UIKit
 import MobileCoreServices
 import QuickLookThumbnailing
-import Zip
 
 class SettingsViewController: UIViewController {
 
@@ -40,6 +39,16 @@ class SettingsViewController: UIViewController {
         return button
     }()
     
+    let cancelButton: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = .clear
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setImage(UIImage(named: "cancelButton"), for: .normal)
+        button.addTarget(self, action: #selector(handleCancelButton), for: .touchUpInside)
+        button.layer.cornerRadius = 40
+        button.layer.masksToBounds = true
+        return button
+    }()
     
 //    MARK: Inits
     override func viewDidLoad() {
@@ -53,7 +62,7 @@ class SettingsViewController: UIViewController {
         
         view.addSubview(saveButton)
         NSLayoutConstraint.activate([
-            saveButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 24),
+            saveButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 48),
             saveButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 24),
             saveButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -24),
             saveButton.heightAnchor.constraint(equalToConstant: 40)
@@ -64,6 +73,14 @@ class SettingsViewController: UIViewController {
             loadButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 24),
             loadButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -24),
             loadButton.heightAnchor.constraint(equalToConstant: 40)
+        ])
+        
+        view.addSubview(cancelButton)
+        NSLayoutConstraint.activate([
+            cancelButton.topAnchor.constraint(equalTo: loadButton.bottomAnchor, constant: 48),
+            cancelButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            cancelButton.heightAnchor.constraint(equalToConstant: 80),
+            cancelButton.widthAnchor.constraint(equalToConstant: 80)
         ])
     }
     
@@ -79,8 +96,7 @@ class SettingsViewController: UIViewController {
             guard let jsonResponse = (try? JSONSerialization.jsonObject(with: jsonData)) as? [[String:Any]] else {
                 print("Json serialization error")
                 return}
-            
-            print (jsonResponse)
+            AuthenticatorModel.shared.saveDataBromBackupToCoreData(backupData: jsonResponse)
             
         } catch{
             print(error.localizedDescription)
@@ -127,6 +143,9 @@ class SettingsViewController: UIViewController {
         self.present(documentPicker, animated: true, completion: nil)
     }
 
+    @objc private func handleCancelButton(){
+        dismiss(animated: true, completion: nil)
+    }
 }
 
 extension SettingsViewController: UIDocumentPickerDelegate {
