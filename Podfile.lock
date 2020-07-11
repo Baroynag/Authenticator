@@ -2,23 +2,19 @@ PODS:
   - Base32 (1.1.2)
   - OneTimePassword (3.2.0):
     - Base32 (~> 1.1.2)
-  - Zip (1.1.0)
 
 DEPENDENCIES:
   - OneTimePassword (~> 3.2)
-  - Zip (~> 1.1)
 
 SPEC REPOS:
   trunk:
     - Base32
     - OneTimePassword
-    - Zip
 
 SPEC CHECKSUMS:
   Base32: 163c298644d184e89ca4e00a996bad6bf5166390
   OneTimePassword: c00ecc908e67e6c5bfda9d50b0b2e4696d0b066e
-  Zip: 8877eede3dda76bcac281225c20e71c25270774c
 
-PODFILE CHECKSUM: 9a96bc7f2cf89870640d7514c94d87653295330a
+PODFILE CHECKSUM: 70ab339b334eae6145d844009c6d7d723ff23450
 
 COCOAPODS: 1.9.1
