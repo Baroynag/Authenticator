@@ -199,10 +199,12 @@ fi
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/Base32/Base32.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/OneTimePassword/OneTimePassword.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/Zip/Zip.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/Base32/Base32.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/OneTimePassword/OneTimePassword.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/Zip/Zip.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then
   wait

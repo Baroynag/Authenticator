@@ -9,6 +9,7 @@
 import UIKit
 import MobileCoreServices
 import QuickLookThumbnailing
+import Zip
 
 class SettingsViewController: UIViewController {
 
@@ -66,19 +67,41 @@ class SettingsViewController: UIViewController {
         ])
     }
     
+    func getFileContent (fileURL: URL){
+        print(#function)
+        do{
+            let data = try String(contentsOf: fileURL)
+            
+            guard let jsonData = data.data(using: .utf8) else {
+                print("Error to upload file")
+                return}
+
+            guard let jsonResponse = (try? JSONSerialization.jsonObject(with: jsonData)) as? [[String:Any]] else {
+                print("Json serialization error")
+                return}
+            
+            print (jsonResponse)
+            
+        } catch{
+            print(error.localizedDescription)
+        }
+        
+    }
+    
     func saveBackupFile(){
 
         let objects = AuthenticatorModel.shared.saveDataToFile()
         let jsonData = AuthenticatorModel.shared.convertToJSONArray(objectsArray: objects)
+        let temporaryFolder = FileManager.default.temporaryDirectory
+        let tempFileName = "sotpbackup.sotp"
+        let temporaryFilePath = temporaryFolder.appendingPathComponent(tempFileName)
         
         if let jsonString = try? JSONSerialization.data(withJSONObject: jsonData) {
-
-            let documentsDirectoryURL = try! FileManager().url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
-            let file2ShareURL = documentsDirectoryURL.appendingPathComponent("sotpbackup.txt")
-           
+     
             do{
-                try jsonString.write(to: file2ShareURL)
-                let activityViewController = UIActivityViewController(activityItems: [file2ShareURL], applicationActivities: nil)
+                try jsonString.write(to: temporaryFilePath)
+                
+                let activityViewController = UIActivityViewController(activityItems: [temporaryFilePath], applicationActivities: nil)
                 activityViewController.popoverPresentationController?.sourceView = self.view
                 self.present(activityViewController, animated: true, completion: nil)
             }
@@ -88,7 +111,6 @@ class SettingsViewController: UIViewController {
         }
         
     }
- 
             
             
 //    MARK: - Handlers
@@ -98,62 +120,28 @@ class SettingsViewController: UIViewController {
     
     @objc func handleLoadFromBackup(){
         
-        let documentPicker: UIDocumentPickerViewController = UIDocumentPickerViewController(documentTypes: [String(kUTTypePlainText)], in: UIDocumentPickerMode.import)
+        let documentPicker: UIDocumentPickerViewController = UIDocumentPickerViewController(documentTypes: [String(kUTTypePlainText), String(kUTTypeData)], in: UIDocumentPickerMode.import)
         documentPicker.delegate = self
         
         documentPicker.modalPresentationStyle = UIModalPresentationStyle.fullScreen
         self.present(documentPicker, animated: true, completion: nil)
-        
     }
 
 }
 
-
 extension SettingsViewController: UIDocumentPickerDelegate {
     
-    func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
-        guard let selectedFileURL = urls.first else {
-            return
-        }
+    func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]){
         
-        let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-        let sandboxFileURL = dir.appendingPathComponent(selectedFileURL.lastPathComponent)
-        do{
-            let data = try String(contentsOf: sandboxFileURL)
-            
-            guard let jsonData = data.data(using: .utf8) else {return}
-            print("jsonData")
-            print(jsonData)
-            guard let jsonResponse = (try? JSONSerialization.jsonObject(with: jsonData)) as? [[String:Any]] else {return}
-            
-            print("jsonResponse")
-            print(jsonResponse)
-            
-        }
-        catch{
-            print(error.localizedDescription)
-        }
- 
-        print("Task completed")
+        guard let selectedFileURL = urls.first else {return}
         
-        /*if FileManager.default.fileExists(atPath: sandboxFileURL.path) {
-            print("Already exists! Do nothing")
+        if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first{
+            let filePath = dir.appendingPathComponent(selectedFileURL.lastPathComponent)
+            getFileContent(fileURL: filePath)
         }
-        else {
-            
-            do {
-                try FileManager.default.copyItem(at: selectedFileURL, to: sandboxFileURL)
-                
-                print("Copied file!")
-            }
-            catch {
-                print("Error: \(error)")
-            }
-        }*/
     }
     
     func documentPickerWasCancelled(_ controller: UIDocumentPickerViewController) {
-        print("view was cancelled")
         dismiss(animated: true, completion: nil)
     }
     
