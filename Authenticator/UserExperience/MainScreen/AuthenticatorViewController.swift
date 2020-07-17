@@ -46,7 +46,10 @@ class AuthenticatorViewController: UIViewController, UITableViewDelegate, UITabl
     @objc func settingsTapped(){
         let settingsViewController = SettingsViewController()
         settingsViewController.modalPresentationStyle = .fullScreen
-        self.present(settingsViewController, animated: true, completion: nil)
+        settingsViewController.delegate = self
+//        self.present(settingsViewController, animated: true, completion: nil)
+        
+        navigationController?.pushViewController(settingsViewController, animated: true)
     }
     
 //    MARK: - Functions

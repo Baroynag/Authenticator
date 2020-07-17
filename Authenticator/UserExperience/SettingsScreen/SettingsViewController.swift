@@ -8,11 +8,13 @@
 
 import UIKit
 import MobileCoreServices
-import QuickLookThumbnailing
+import RNCryptor
 
 class SettingsViewController: UIViewController {
 
 //    MARK: - Properties
+    weak var delegate: AddItemDelegate?
+    
     let saveButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -88,46 +90,96 @@ class SettingsViewController: UIViewController {
         print(#function)
         do{
             let data = try String(contentsOf: fileURL)
-            
-            guard let jsonData = data.data(using: .utf8) else {
+            let decriptedText = decrypt(encryptedText: data, password: "password")
+           
+            guard let jsonData = decriptedText.data(using: .utf8) else {
                 print("Error to upload file")
                 return}
 
             guard let jsonResponse = (try? JSONSerialization.jsonObject(with: jsonData)) as? [[String:Any]] else {
                 print("Json serialization error")
                 return}
-            AuthenticatorModel.shared.saveDataBromBackupToCoreData(backupData: jsonResponse)
-            
+            print("-----save")
+            self.saveDataBromBackupToCoreData(backupData: jsonResponse)
+            print("-----save")
         } catch{
             print(error.localizedDescription)
         }
         
     }
     
+    func encrypt(plainText : String, password: String) -> String {
+            let data: Data = plainText.data(using: .utf8)!
+            let encryptedData = RNCryptor.encrypt(data: data, withPassword: password)
+            let encryptedString : String = encryptedData.base64EncodedString() // getting base64encoded string of encrypted data.
+            return encryptedString
+    }
+    
+    func decrypt(encryptedText : String, password: String) -> String {
+            do  {
+                let data: Data = Data(base64Encoded: encryptedText)! // Just get data from encrypted base64Encoded string.
+                let decryptedData = try RNCryptor.decrypt(data: data, withPassword: password)
+                let decryptedString = String(data: decryptedData, encoding: .utf8) // Getting original string, using same .utf8 encoding option,which we used for encryption.
+                return decryptedString ?? ""
+            }
+            catch {
+                return "FAILED"
+            }
+    }
+
+    
     func saveBackupFile(){
 
-        let objects = AuthenticatorModel.shared.saveDataToFile()
-        let jsonData = AuthenticatorModel.shared.convertToJSONArray(objectsArray: objects)
+    
+        let password = getPassword()
+       
+        let objectsFromDatabase = AuthenticatorModel.shared.saveDataToFile()
+        let jsonArray = AuthenticatorModel.shared.convertToJSONArray(objectsArray: objectsFromDatabase)
         let temporaryFolder = FileManager.default.temporaryDirectory
         let tempFileName = "sotpbackup.sotp"
         let temporaryFilePath = temporaryFolder.appendingPathComponent(tempFileName)
         
-        if let jsonString = try? JSONSerialization.data(withJSONObject: jsonData) {
+        if let jsonData = try? JSONSerialization.data(withJSONObject: jsonArray) {
      
-            do{
-                try jsonString.write(to: temporaryFilePath)
-                
-                let activityViewController = UIActivityViewController(activityItems: [temporaryFilePath], applicationActivities: nil)
-                activityViewController.popoverPresentationController?.sourceView = self.view
-                self.present(activityViewController, animated: true, completion: nil)
-            }
-            catch {
-                print(error.localizedDescription)
+            if let jsonString = String(data: jsonData, encoding: .utf8){
+                let encryptedText = encrypt(plainText: jsonString, password: password)
+                do{
+//                    try encryptedText.write(to: temporaryFilePath)
+                    try encryptedText.write(to: temporaryFilePath, atomically: true, encoding: .utf8)
+                    let activityViewController = UIActivityViewController(activityItems: [temporaryFilePath], applicationActivities: nil)
+                    activityViewController.popoverPresentationController?.sourceView = self.view
+                    self.present(activityViewController, animated: true, completion: nil)
+                }
+                catch {
+                    print(error.localizedDescription)
+                }
             }
         }
         
     }
+           
+    func saveDataBromBackupToCoreData(backupData: [[String:Any]]) {
+    
+        var newItem = Authenticator()
+        
+        for item in backupData{
+            newItem.account = item["account"] as? String ?? ""
+            newItem.key = item["key"] as? String ?? ""
+            newItem.issuer = item["issuer"] as? String ?? ""
+            newItem.timeBased = item["timeBased"] as? Bool ?? false
+            delegate?.createNewItem(newAuthItem: newItem)
             
+            print(newItem)
+        }
+    }
+    
+    func getPassword() -> String{
+        let passwordViewController = PasswordViewController()
+        passwordViewController.modalPresentationStyle = .fullScreen
+        self.present(passwordViewController, animated: true, completion: nil)
+//        navigationController?.pushViewController(passwordViewController, animated: true)
+        return "pasword"
+    }
             
 //    MARK: - Handlers
     @objc func handleSaveToBackup(){

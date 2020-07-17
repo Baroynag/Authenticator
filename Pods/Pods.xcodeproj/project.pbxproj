@@ -7,28 +7,39 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		11C69AAB7B5C7782FD161AB660A9B36E /* OneTimePassword-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 3DE8D10FF7E34D62F323BD8F466449F3 /* OneTimePassword-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		13E7FEE8B33A0316C205DD42A9FB2AAF /* Pods-Authenticator-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 326E44986126EB8FA15BC0B886F23268 /* Pods-Authenticator-dummy.m */; };
-		2D82D0D91B210E21180717AA0C3595FF /* Base32-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B8F31ABDE4072B7E2EAAB86C3CDBD320 /* Base32-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3ED4DBB5C21479AFD58D8459EC8DFA99 /* Pods-Authenticator-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 87BA8F45DD9795018D6EC2AEFE2CF836 /* Pods-Authenticator-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		511E743F4F2B53ADF7A24BEDEA7EC044 /* MF_Base32Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E4BEE928B8DD62F496D14C88B27450D /* MF_Base32Additions.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		5D9AA394EDC07AD7906D9C4C156DEBDC /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D07F71B987E53D8BFCC73F8448F0FE /* Token.swift */; };
-		6D5BD13E0EB6B1FEBD19628E03193B71 /* PersistentToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81D799AB39B287639BC0770A6586884 /* PersistentToken.swift */; };
-		7D1E81168513B1380170800E1326496F /* MF_Base32Additions.h in Headers */ = {isa = PBXBuildFile; fileRef = 9EA201023AE1D46F1B7D55A7B55EA584 /* MF_Base32Additions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B8E6E85E4C2851148AF41ABC687BAD50 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9F2534EA4389ECB12585679F42D59E /* Keychain.swift */; };
-		C19F313D5FB5C6C9B3D10F67D65AB35A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CCBDC82B97943A4EDFD15152061DBC8 /* Foundation.framework */; };
-		C8797B3A1B7992921CFA6A67EE976703 /* OneTimePassword-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D730E8EFA7D6FDC3E9DE3E77E9D6B104 /* OneTimePassword-dummy.m */; };
+		11C69AAB7B5C7782FD161AB660A9B36E /* OneTimePassword-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = AE93A2111E9AC5A97D29B37D4687A506 /* OneTimePassword-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		18E56F1093C2D68AEA3497968E2948D4 /* Pods-Authenticator-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 326E44986126EB8FA15BC0B886F23268 /* Pods-Authenticator-dummy.m */; };
+		1DA384FB7CDA6A89664EFC29290F51FC /* RNCryptor-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 44703832625E914A750DC1B559070DCE /* RNCryptor-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		275ABEB51B3E6CFB1F99DC846CF08578 /* RNCryptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F89D8B121D8FA84EF2481BF72E75570 /* RNCryptor.swift */; };
+		2D82D0D91B210E21180717AA0C3595FF /* Base32-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 84CBADECCE750E5BD82C58E38AB32796 /* Base32-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		36AC8E4868BD5C97410702782309235B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CCBDC82B97943A4EDFD15152061DBC8 /* Foundation.framework */; };
+		511E743F4F2B53ADF7A24BEDEA7EC044 /* MF_Base32Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 54FFA0EF6CF188D4E06ABADEAE7F1A1E /* MF_Base32Additions.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		5D9AA394EDC07AD7906D9C4C156DEBDC /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A038EAFEB8FDF6CC643F240046653DC /* Token.swift */; };
+		6820B3638809F3914194216BB5A3C2A2 /* RNCryptor-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B2D18A05FF579834928730F56652EF /* RNCryptor-dummy.m */; };
+		6D5BD13E0EB6B1FEBD19628E03193B71 /* PersistentToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AEB21B8B98E624E22AD696A9841365 /* PersistentToken.swift */; };
+		7D1E81168513B1380170800E1326496F /* MF_Base32Additions.h in Headers */ = {isa = PBXBuildFile; fileRef = 5543B293812033A22C11EE81FB80C96E /* MF_Base32Additions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AC0C086158B6ED384187A3FEC728B6FD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CCBDC82B97943A4EDFD15152061DBC8 /* Foundation.framework */; };
+		B8E6E85E4C2851148AF41ABC687BAD50 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDA5D9F6F069CA5DC255DA0BB5D5FE8 /* Keychain.swift */; };
+		C4FA7CBC8246AA67F7AA3DDD559E4E7E /* Pods-Authenticator-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 87BA8F45DD9795018D6EC2AEFE2CF836 /* Pods-Authenticator-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C8797B3A1B7992921CFA6A67EE976703 /* OneTimePassword-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CECAA44F3517A153A9454EE3288B096 /* OneTimePassword-dummy.m */; };
 		D2E798F2D34899A31A75B21318683D6D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CCBDC82B97943A4EDFD15152061DBC8 /* Foundation.framework */; };
 		DFAEF2EF0BB1931895F378FA70922E71 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CCBDC82B97943A4EDFD15152061DBC8 /* Foundation.framework */; };
-		E85B6C6EEA0B359FCA211590C50283DB /* Base32-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 80C789B126242CE166D2A70411D7CE72 /* Base32-dummy.m */; };
-		F82C12FD8FF0CAF108287CCDA49B53C4 /* Token+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BACCCA3EC4734F284E1783B46750189 /* Token+URL.swift */; };
+		E85B6C6EEA0B359FCA211590C50283DB /* Base32-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C0D5A82428D4CFCAA5123B55ECA2A34 /* Base32-dummy.m */; };
+		F82C12FD8FF0CAF108287CCDA49B53C4 /* Token+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317B4914A7EC6AE9A8063942BD9D96F3 /* Token+URL.swift */; };
 		FAB2F12A6887DEA32DFE63C07E22DEF8 /* Base32.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAC4CB71E695884358032E06E073F0E2 /* Base32.framework */; };
-		FE710FCC741E0782881D33BA5BF63D4F /* Generator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E2F3B6D0D85149E6815BF134386E78 /* Generator.swift */; };
-		FE9D5B2135C1DEFAD549F2A7099BC873 /* Crypto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A77D5E146CED433A7802A1131A866CF /* Crypto.swift */; };
+		FE710FCC741E0782881D33BA5BF63D4F /* Generator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDEB896226A975F6BD17D277A0CDE87 /* Generator.swift */; };
+		FE9D5B2135C1DEFAD549F2A7099BC873 /* Crypto.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6309A7D4100843B8509D8BBF08DDA3 /* Crypto.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		0A3965A82F8A5D26B3435CCE9ED5FFB6 /* PBXContainerItemProxy */ = {
+		0E3D35B05C76DEB43690521F4F2E8650 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 95112DAAC9DFD5F5CD5C033048965C8B;
+			remoteInfo = OneTimePassword;
+		};
+		1C0D52EC8F39B3295C4418968018F906 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
@@ -42,53 +53,62 @@
 			remoteGlobalIDString = D0BA37D2EF11B7E7BF1DCA4BAF1B213E;
 			remoteInfo = Base32;
 		};
-		BEF280FEE6C0165C1D621842B04C910D /* PBXContainerItemProxy */ = {
+		FCD6C915506C67D1875160DEEED18AFC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 95112DAAC9DFD5F5CD5C033048965C8B;
-			remoteInfo = OneTimePassword;
+			remoteGlobalIDString = 05CCA2AD142519DF6FED0979BACBC149;
+			remoteInfo = RNCryptor;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		053CF90BA43D569597E4FF75AF32246F /* Base32-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Base32-prefix.pch"; sourceTree = "<group>"; };
+		097A001BAE827A9BE795F9AE00E41139 /* OneTimePassword.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = OneTimePassword.debug.xcconfig; sourceTree = "<group>"; };
 		09C5506A5E9F6A14741B489054B8DD72 /* Pods-Authenticator-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Authenticator-acknowledgements.plist"; sourceTree = "<group>"; };
-		0CD93814146FDF42B60A9581D027536B /* OneTimePassword.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = OneTimePassword.modulemap; sourceTree = "<group>"; };
-		12D07F71B987E53D8BFCC73F8448F0FE /* Token.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Token.swift; path = Sources/Token.swift; sourceTree = "<group>"; };
-		19FA3FD557E04BA173D3BD5B313134A3 /* Base32.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Base32.release.xcconfig; sourceTree = "<group>"; };
+		18B2D18A05FF579834928730F56652EF /* RNCryptor-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "RNCryptor-dummy.m"; sourceTree = "<group>"; };
+		1C370C210D2E4FA3825C09D182B0C573 /* RNCryptor-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "RNCryptor-Info.plist"; sourceTree = "<group>"; };
+		1F010F644582892565FD271C3EBF3F29 /* Base32.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Base32.debug.xcconfig; sourceTree = "<group>"; };
+		1F464A1E74891E60A01890B3CBE31316 /* OneTimePassword-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "OneTimePassword-Info.plist"; sourceTree = "<group>"; };
 		219F6D5D3E3D4D1CADC9A16265379562 /* Pods-Authenticator-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Authenticator-Info.plist"; sourceTree = "<group>"; };
+		317B4914A7EC6AE9A8063942BD9D96F3 /* Token+URL.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Token+URL.swift"; path = "Sources/Token+URL.swift"; sourceTree = "<group>"; };
 		326E44986126EB8FA15BC0B886F23268 /* Pods-Authenticator-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Authenticator-dummy.m"; sourceTree = "<group>"; };
-		3A77D5E146CED433A7802A1131A866CF /* Crypto.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Crypto.swift; path = Sources/Crypto.swift; sourceTree = "<group>"; };
-		3DE8D10FF7E34D62F323BD8F466449F3 /* OneTimePassword-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "OneTimePassword-umbrella.h"; sourceTree = "<group>"; };
-		4BACCCA3EC4734F284E1783B46750189 /* Token+URL.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Token+URL.swift"; path = "Sources/Token+URL.swift"; sourceTree = "<group>"; };
+		3C0D5A82428D4CFCAA5123B55ECA2A34 /* Base32-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Base32-dummy.m"; sourceTree = "<group>"; };
+		3CC78136D459AFF44C3DC000C4C44C61 /* Base32-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Base32-Info.plist"; sourceTree = "<group>"; };
+		413FB0BB4BFDFEC410E79FD44584AD8A /* RNCryptor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = RNCryptor.release.xcconfig; sourceTree = "<group>"; };
+		44703832625E914A750DC1B559070DCE /* RNCryptor-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RNCryptor-umbrella.h"; sourceTree = "<group>"; };
+		45C89DEAB17D02971F97EF01DAC4ABDF /* Base32.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Base32.modulemap; sourceTree = "<group>"; };
+		49AEB21B8B98E624E22AD696A9841365 /* PersistentToken.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PersistentToken.swift; path = Sources/PersistentToken.swift; sourceTree = "<group>"; };
+		4CECAA44F3517A153A9454EE3288B096 /* OneTimePassword-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "OneTimePassword-dummy.m"; sourceTree = "<group>"; };
 		50F81942B51A2D5CCB4F7536BBAE3D9E /* Pods_Authenticator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Authenticator.framework; path = "Pods-Authenticator.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		511A2E197C1D4EA34EF7E31273F73BAE /* Base32.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Base32.release.xcconfig; sourceTree = "<group>"; };
 		51A00C2F716CDD827796A55C068758B8 /* Pods-Authenticator.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Authenticator.modulemap"; sourceTree = "<group>"; };
+		54FFA0EF6CF188D4E06ABADEAE7F1A1E /* MF_Base32Additions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MF_Base32Additions.m; path = Base32/MF_Base32Additions.m; sourceTree = "<group>"; };
+		5543B293812033A22C11EE81FB80C96E /* MF_Base32Additions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MF_Base32Additions.h; path = Base32/MF_Base32Additions.h; sourceTree = "<group>"; };
+		5744FC2A3BE293AA3D92553FFFB194C0 /* RNCryptor.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = RNCryptor.modulemap; sourceTree = "<group>"; };
 		5CCBDC82B97943A4EDFD15152061DBC8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		6B929FD495B2508F66E35CC57C245D05 /* OneTimePassword.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = OneTimePassword.debug.xcconfig; sourceTree = "<group>"; };
+		5F89D8B121D8FA84EF2481BF72E75570 /* RNCryptor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RNCryptor.swift; path = Sources/RNCryptor/RNCryptor.swift; sourceTree = "<group>"; };
 		6E086F96ECE89E9E8ABFB1EF67773B3A /* Pods-Authenticator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Authenticator.debug.xcconfig"; sourceTree = "<group>"; };
-		79F0C1F573879768C2C2F71713E5725E /* Base32.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Base32.debug.xcconfig; sourceTree = "<group>"; };
-		7E4BEE928B8DD62F496D14C88B27450D /* MF_Base32Additions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MF_Base32Additions.m; path = Base32/MF_Base32Additions.m; sourceTree = "<group>"; };
-		80C789B126242CE166D2A70411D7CE72 /* Base32-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Base32-dummy.m"; sourceTree = "<group>"; };
+		84CBADECCE750E5BD82C58E38AB32796 /* Base32-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Base32-umbrella.h"; sourceTree = "<group>"; };
 		87BA8F45DD9795018D6EC2AEFE2CF836 /* Pods-Authenticator-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Authenticator-umbrella.h"; sourceTree = "<group>"; };
-		8C9F2534EA4389ECB12585679F42D59E /* Keychain.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Keychain.swift; path = Sources/Keychain.swift; sourceTree = "<group>"; };
+		8A038EAFEB8FDF6CC643F240046653DC /* Token.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Token.swift; path = Sources/Token.swift; sourceTree = "<group>"; };
+		8E323FCC27AF7F7DFD08A9395FE1EB3A /* OneTimePassword.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = OneTimePassword.modulemap; sourceTree = "<group>"; };
+		8EEAFA4856EAA367048845A0EBD1292A /* RNCryptor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = RNCryptor.debug.xcconfig; sourceTree = "<group>"; };
+		9707D9CFC5A54C652A6526C3DCB0788D /* OneTimePassword.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = OneTimePassword.release.xcconfig; sourceTree = "<group>"; };
 		9B912B55704624B0325A1092E97EBBC5 /* Pods-Authenticator-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Authenticator-frameworks.sh"; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		9EA201023AE1D46F1B7D55A7B55EA584 /* MF_Base32Additions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MF_Base32Additions.h; path = Base32/MF_Base32Additions.h; sourceTree = "<group>"; };
-		9FCD5A538BB919C56413722138F8EF8B /* OneTimePassword.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = OneTimePassword.release.xcconfig; sourceTree = "<group>"; };
 		A7FC6E9384C0645805FE2930F120ED93 /* Base32.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Base32.framework; path = Base32.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B7E2F3B6D0D85149E6815BF134386E78 /* Generator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Generator.swift; path = Sources/Generator.swift; sourceTree = "<group>"; };
-		B81D799AB39B287639BC0770A6586884 /* PersistentToken.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PersistentToken.swift; path = Sources/PersistentToken.swift; sourceTree = "<group>"; };
-		B8F31ABDE4072B7E2EAAB86C3CDBD320 /* Base32-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Base32-umbrella.h"; sourceTree = "<group>"; };
+		AE93A2111E9AC5A97D29B37D4687A506 /* OneTimePassword-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "OneTimePassword-umbrella.h"; sourceTree = "<group>"; };
+		BFDEB896226A975F6BD17D277A0CDE87 /* Generator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Generator.swift; path = Sources/Generator.swift; sourceTree = "<group>"; };
 		CBF9342F5616866B5CB1B2BDD816F165 /* Pods-Authenticator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Authenticator.release.xcconfig"; sourceTree = "<group>"; };
 		D0FC452484D2858856CDA2DFE0DF259F /* Pods-Authenticator-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Authenticator-acknowledgements.markdown"; sourceTree = "<group>"; };
-		D29AC9D13897B2D49EE2AF8C267C3AD5 /* Base32-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Base32-prefix.pch"; sourceTree = "<group>"; };
-		D730E8EFA7D6FDC3E9DE3E77E9D6B104 /* OneTimePassword-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "OneTimePassword-dummy.m"; sourceTree = "<group>"; };
+		D16C2112713E2BF604371F947BFB6087 /* OneTimePassword-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "OneTimePassword-prefix.pch"; sourceTree = "<group>"; };
 		DAC4CB71E695884358032E06E073F0E2 /* Base32.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Base32.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		DC2B5FF7A7A74863F11086C9BCACF028 /* OneTimePassword-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "OneTimePassword-prefix.pch"; sourceTree = "<group>"; };
 		DC67FC8D16BFAF646F28DF2719456F60 /* OneTimePassword.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = OneTimePassword.framework; path = OneTimePassword.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F5C6841813550A78257403420106599D /* Base32-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Base32-Info.plist"; sourceTree = "<group>"; };
-		FBCF6A5D153CC523CD22C2DC548D3BEB /* Base32.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Base32.modulemap; sourceTree = "<group>"; };
-		FE6123FFCF4ACDDE56F22BF792EA6AE7 /* OneTimePassword-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "OneTimePassword-Info.plist"; sourceTree = "<group>"; };
+		ED5139B2B7F51D97133A18421B964A0D /* RNCryptor-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RNCryptor-prefix.pch"; sourceTree = "<group>"; };
+		ED6309A7D4100843B8509D8BBF08DDA3 /* Crypto.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Crypto.swift; path = Sources/Crypto.swift; sourceTree = "<group>"; };
+		EFDA5D9F6F069CA5DC255DA0BB5D5FE8 /* Keychain.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Keychain.swift; path = Sources/Keychain.swift; sourceTree = "<group>"; };
+		F6320389F628433B78C81FB217A0485D /* RNCryptor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = RNCryptor.framework; path = RNCryptor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +121,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D641814EE8177481B49C1DA9104C05C3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				36AC8E4868BD5C97410702782309235B /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F47B75A50289CC9CC8E156FCACF0044A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -109,45 +137,40 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F6222E69267367344E64F63D02B18823 /* Frameworks */ = {
+		F86AEC3BBDAD327DBF21F68CD210E068 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C19F313D5FB5C6C9B3D10F67D65AB35A /* Foundation.framework in Frameworks */,
+				AC0C086158B6ED384187A3FEC728B6FD /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		03DD8286DEF52ED1FC9E17D028A347D4 /* Support Files */ = {
+		1F3C360C93F6E6E93186C43D0941F957 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				FBCF6A5D153CC523CD22C2DC548D3BEB /* Base32.modulemap */,
-				80C789B126242CE166D2A70411D7CE72 /* Base32-dummy.m */,
-				F5C6841813550A78257403420106599D /* Base32-Info.plist */,
-				D29AC9D13897B2D49EE2AF8C267C3AD5 /* Base32-prefix.pch */,
-				B8F31ABDE4072B7E2EAAB86C3CDBD320 /* Base32-umbrella.h */,
-				79F0C1F573879768C2C2F71713E5725E /* Base32.debug.xcconfig */,
-				19FA3FD557E04BA173D3BD5B313134A3 /* Base32.release.xcconfig */,
+				45C89DEAB17D02971F97EF01DAC4ABDF /* Base32.modulemap */,
+				3C0D5A82428D4CFCAA5123B55ECA2A34 /* Base32-dummy.m */,
+				3CC78136D459AFF44C3DC000C4C44C61 /* Base32-Info.plist */,
+				053CF90BA43D569597E4FF75AF32246F /* Base32-prefix.pch */,
+				84CBADECCE750E5BD82C58E38AB32796 /* Base32-umbrella.h */,
+				1F010F644582892565FD271C3EBF3F29 /* Base32.debug.xcconfig */,
+				511A2E197C1D4EA34EF7E31273F73BAE /* Base32.release.xcconfig */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/Base32";
 			sourceTree = "<group>";
 		};
-		12B451B9C6174CC2076B0CEE76582405 /* Support Files */ = {
+		26294D5BC2C3D47D8F12B5E206528425 /* RNCryptor */ = {
 			isa = PBXGroup;
 			children = (
-				0CD93814146FDF42B60A9581D027536B /* OneTimePassword.modulemap */,
-				D730E8EFA7D6FDC3E9DE3E77E9D6B104 /* OneTimePassword-dummy.m */,
-				FE6123FFCF4ACDDE56F22BF792EA6AE7 /* OneTimePassword-Info.plist */,
-				DC2B5FF7A7A74863F11086C9BCACF028 /* OneTimePassword-prefix.pch */,
-				3DE8D10FF7E34D62F323BD8F466449F3 /* OneTimePassword-umbrella.h */,
-				6B929FD495B2508F66E35CC57C245D05 /* OneTimePassword.debug.xcconfig */,
-				9FCD5A538BB919C56413722138F8EF8B /* OneTimePassword.release.xcconfig */,
+				5F89D8B121D8FA84EF2481BF72E75570 /* RNCryptor.swift */,
+				75CBAA067FF4441152BE01D3DE5FEFCB /* Support Files */,
 			);
-			name = "Support Files";
-			path = "../Target Support Files/OneTimePassword";
+			name = RNCryptor;
+			path = RNCryptor;
 			sourceTree = "<group>";
 		};
 		2E993C6E2DF4DA7FD4A00B01A48161CD /* Targets Support Files */ = {
@@ -166,40 +189,71 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		6B6FADFC1861576858E9393987C134F4 /* Base32 */ = {
+		3E3906A8C0CF6D73D9DF39C4978CFAEA /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				9EA201023AE1D46F1B7D55A7B55EA584 /* MF_Base32Additions.h */,
-				7E4BEE928B8DD62F496D14C88B27450D /* MF_Base32Additions.m */,
-				03DD8286DEF52ED1FC9E17D028A347D4 /* Support Files */,
+				8E323FCC27AF7F7DFD08A9395FE1EB3A /* OneTimePassword.modulemap */,
+				4CECAA44F3517A153A9454EE3288B096 /* OneTimePassword-dummy.m */,
+				1F464A1E74891E60A01890B3CBE31316 /* OneTimePassword-Info.plist */,
+				D16C2112713E2BF604371F947BFB6087 /* OneTimePassword-prefix.pch */,
+				AE93A2111E9AC5A97D29B37D4687A506 /* OneTimePassword-umbrella.h */,
+				097A001BAE827A9BE795F9AE00E41139 /* OneTimePassword.debug.xcconfig */,
+				9707D9CFC5A54C652A6526C3DCB0788D /* OneTimePassword.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/OneTimePassword";
+			sourceTree = "<group>";
+		};
+		537455B7817BB0CFC4C3BDF0C3154961 /* Base32 */ = {
+			isa = PBXGroup;
+			children = (
+				5543B293812033A22C11EE81FB80C96E /* MF_Base32Additions.h */,
+				54FFA0EF6CF188D4E06ABADEAE7F1A1E /* MF_Base32Additions.m */,
+				1F3C360C93F6E6E93186C43D0941F957 /* Support Files */,
 			);
 			name = Base32;
 			path = Base32;
 			sourceTree = "<group>";
 		};
-		853C1588CEF09479FA667B228F1C59DB /* OneTimePassword */ = {
+		75CBAA067FF4441152BE01D3DE5FEFCB /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				3A77D5E146CED433A7802A1131A866CF /* Crypto.swift */,
-				B7E2F3B6D0D85149E6815BF134386E78 /* Generator.swift */,
-				8C9F2534EA4389ECB12585679F42D59E /* Keychain.swift */,
-				B81D799AB39B287639BC0770A6586884 /* PersistentToken.swift */,
-				12D07F71B987E53D8BFCC73F8448F0FE /* Token.swift */,
-				4BACCCA3EC4734F284E1783B46750189 /* Token+URL.swift */,
-				12B451B9C6174CC2076B0CEE76582405 /* Support Files */,
+				5744FC2A3BE293AA3D92553FFFB194C0 /* RNCryptor.modulemap */,
+				18B2D18A05FF579834928730F56652EF /* RNCryptor-dummy.m */,
+				1C370C210D2E4FA3825C09D182B0C573 /* RNCryptor-Info.plist */,
+				ED5139B2B7F51D97133A18421B964A0D /* RNCryptor-prefix.pch */,
+				44703832625E914A750DC1B559070DCE /* RNCryptor-umbrella.h */,
+				8EEAFA4856EAA367048845A0EBD1292A /* RNCryptor.debug.xcconfig */,
+				413FB0BB4BFDFEC410E79FD44584AD8A /* RNCryptor.release.xcconfig */,
 			);
-			name = OneTimePassword;
-			path = OneTimePassword;
+			name = "Support Files";
+			path = "../Target Support Files/RNCryptor";
 			sourceTree = "<group>";
 		};
-		AB3A36A22E149E529EA3ECD1AF10F889 /* Products */ = {
+		7DCE1407665D867C021325D9FCDDB69D /* Products */ = {
 			isa = PBXGroup;
 			children = (
 				A7FC6E9384C0645805FE2930F120ED93 /* Base32.framework */,
 				DC67FC8D16BFAF646F28DF2719456F60 /* OneTimePassword.framework */,
 				50F81942B51A2D5CCB4F7536BBAE3D9E /* Pods_Authenticator.framework */,
+				F6320389F628433B78C81FB217A0485D /* RNCryptor.framework */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		9F347567035EF1E50313A10016A0A178 /* OneTimePassword */ = {
+			isa = PBXGroup;
+			children = (
+				ED6309A7D4100843B8509D8BBF08DDA3 /* Crypto.swift */,
+				BFDEB896226A975F6BD17D277A0CDE87 /* Generator.swift */,
+				EFDA5D9F6F069CA5DC255DA0BB5D5FE8 /* Keychain.swift */,
+				49AEB21B8B98E624E22AD696A9841365 /* PersistentToken.swift */,
+				8A038EAFEB8FDF6CC643F240046653DC /* Token.swift */,
+				317B4914A7EC6AE9A8063942BD9D96F3 /* Token+URL.swift */,
+				3E3906A8C0CF6D73D9DF39C4978CFAEA /* Support Files */,
+			);
+			name = OneTimePassword;
+			path = OneTimePassword;
 			sourceTree = "<group>";
 		};
 		B96420B574308A3399CE9B2DCC9E83A6 /* Pods-Authenticator */ = {
@@ -219,11 +273,12 @@
 			path = "Target Support Files/Pods-Authenticator";
 			sourceTree = "<group>";
 		};
-		CD46AEC30473C25F1EB30183CB41420D /* Pods */ = {
+		C1C47ADB4DC6EA3284BEEA0FD46B9B02 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				6B6FADFC1861576858E9393987C134F4 /* Base32 */,
-				853C1588CEF09479FA667B228F1C59DB /* OneTimePassword */,
+				537455B7817BB0CFC4C3BDF0C3154961 /* Base32 */,
+				9F347567035EF1E50313A10016A0A178 /* OneTimePassword */,
+				26294D5BC2C3D47D8F12B5E206528425 /* RNCryptor */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -233,8 +288,8 @@
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
 				E63166DCCC37BA17946DBC80929DF133 /* Frameworks */,
-				CD46AEC30473C25F1EB30183CB41420D /* Pods */,
-				AB3A36A22E149E529EA3ECD1AF10F889 /* Products */,
+				C1C47ADB4DC6EA3284BEEA0FD46B9B02 /* Pods */,
+				7DCE1407665D867C021325D9FCDDB69D /* Products */,
 				2E993C6E2DF4DA7FD4A00B01A48161CD /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
@@ -251,11 +306,19 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		8AD524BCAEB148BE53DB473C5BEC69ED /* Headers */ = {
+		12ECAFAA0446553A06F671713D5E366F /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3ED4DBB5C21479AFD58D8459EC8DFA99 /* Pods-Authenticator-umbrella.h in Headers */,
+				1DA384FB7CDA6A89664EFC29290F51FC /* RNCryptor-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		60A1D3E2F019280336B28A638673FEA4 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C4FA7CBC8246AA67F7AA3DDD559E4E7E /* Pods-Authenticator-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,6 +342,24 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		05CCA2AD142519DF6FED0979BACBC149 /* RNCryptor */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 244C8495B4807405AC4E43E3331BC3A5 /* Build configuration list for PBXNativeTarget "RNCryptor" */;
+			buildPhases = (
+				12ECAFAA0446553A06F671713D5E366F /* Headers */,
+				EEEEB8560A2AE3CD4C881C83C69E384E /* Sources */,
+				D641814EE8177481B49C1DA9104C05C3 /* Frameworks */,
+				859C8E8E4FAA8DADC5BD9446520301C3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RNCryptor;
+			productName = RNCryptor;
+			productReference = F6320389F628433B78C81FB217A0485D /* RNCryptor.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		95112DAAC9DFD5F5CD5C033048965C8B /* OneTimePassword */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 077CDEA593B16B16F4E5F310C564BBA5 /* Build configuration list for PBXNativeTarget "OneTimePassword" */;
@@ -318,18 +399,19 @@
 		};
 		F26C0BD6713BF4D4E51E026FC8E0B09B /* Pods-Authenticator */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 85F51880F68A553568BD1B4D451BE85A /* Build configuration list for PBXNativeTarget "Pods-Authenticator" */;
+			buildConfigurationList = 29237B8145EF1048F05F04C7ED42DE95 /* Build configuration list for PBXNativeTarget "Pods-Authenticator" */;
 			buildPhases = (
-				8AD524BCAEB148BE53DB473C5BEC69ED /* Headers */,
-				D351E8480536445DA949C3E2A76273A0 /* Sources */,
-				F6222E69267367344E64F63D02B18823 /* Frameworks */,
-				73516FF09CB6694C115B5030C4AE2A56 /* Resources */,
+				60A1D3E2F019280336B28A638673FEA4 /* Headers */,
+				D60D65C7E2BE2122932883319B8151ED /* Sources */,
+				F86AEC3BBDAD327DBF21F68CD210E068 /* Frameworks */,
+				52385203CC0FB375C162559B1543C09B /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				6ED24AC47671092BE20D034F1AEB3B37 /* PBXTargetDependency */,
-				AFC6C6071E1CF346CB70BC63FF1AE6A2 /* PBXTargetDependency */,
+				BD0301FC7E341826A2F68EB90D8C26BC /* PBXTargetDependency */,
+				7090627A1545DB68B4FB45967E09D82E /* PBXTargetDependency */,
+				27A46D3B29B73A6E63E78B3E61834957 /* PBXTargetDependency */,
 			);
 			name = "Pods-Authenticator";
 			productName = "Pods-Authenticator";
@@ -354,19 +436,27 @@
 				Base,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
-			productRefGroup = AB3A36A22E149E529EA3ECD1AF10F889 /* Products */;
+			productRefGroup = 7DCE1407665D867C021325D9FCDDB69D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				D0BA37D2EF11B7E7BF1DCA4BAF1B213E /* Base32 */,
 				95112DAAC9DFD5F5CD5C033048965C8B /* OneTimePassword */,
 				F26C0BD6713BF4D4E51E026FC8E0B09B /* Pods-Authenticator */,
+				05CCA2AD142519DF6FED0979BACBC149 /* RNCryptor */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		73516FF09CB6694C115B5030C4AE2A56 /* Resources */ = {
+		52385203CC0FB375C162559B1543C09B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		859C8E8E4FAA8DADC5BD9446520301C3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -413,28 +503,43 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D351E8480536445DA949C3E2A76273A0 /* Sources */ = {
+		D60D65C7E2BE2122932883319B8151ED /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				13E7FEE8B33A0316C205DD42A9FB2AAF /* Pods-Authenticator-dummy.m in Sources */,
+				18E56F1093C2D68AEA3497968E2948D4 /* Pods-Authenticator-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EEEEB8560A2AE3CD4C881C83C69E384E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6820B3638809F3914194216BB5A3C2A2 /* RNCryptor-dummy.m in Sources */,
+				275ABEB51B3E6CFB1F99DC846CF08578 /* RNCryptor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		6ED24AC47671092BE20D034F1AEB3B37 /* PBXTargetDependency */ = {
+		27A46D3B29B73A6E63E78B3E61834957 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = Base32;
-			target = D0BA37D2EF11B7E7BF1DCA4BAF1B213E /* Base32 */;
-			targetProxy = 0A3965A82F8A5D26B3435CCE9ED5FFB6 /* PBXContainerItemProxy */;
+			name = RNCryptor;
+			target = 05CCA2AD142519DF6FED0979BACBC149 /* RNCryptor */;
+			targetProxy = FCD6C915506C67D1875160DEEED18AFC /* PBXContainerItemProxy */;
 		};
-		AFC6C6071E1CF346CB70BC63FF1AE6A2 /* PBXTargetDependency */ = {
+		7090627A1545DB68B4FB45967E09D82E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = OneTimePassword;
 			target = 95112DAAC9DFD5F5CD5C033048965C8B /* OneTimePassword */;
-			targetProxy = BEF280FEE6C0165C1D621842B04C910D /* PBXContainerItemProxy */;
+			targetProxy = 0E3D35B05C76DEB43690521F4F2E8650 /* PBXContainerItemProxy */;
+		};
+		BD0301FC7E341826A2F68EB90D8C26BC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Base32;
+			target = D0BA37D2EF11B7E7BF1DCA4BAF1B213E /* Base32 */;
+			targetProxy = 1C0D52EC8F39B3295C4418968018F906 /* PBXContainerItemProxy */;
 		};
 		E75764E2A4B077801DB746C746694DEA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -509,82 +614,7 @@
 			};
 			name = Debug;
 		};
-		5939023536729A2979A9A474F71C5ACF /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9FCD5A538BB919C56413722138F8EF8B /* OneTimePassword.release.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/OneTimePassword/OneTimePassword-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/OneTimePassword/OneTimePassword-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/OneTimePassword/OneTimePassword.modulemap";
-				PRODUCT_MODULE_NAME = OneTimePassword;
-				PRODUCT_NAME = OneTimePassword;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		5D7703633689FAD0B2A83FF119042027 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = CBF9342F5616866B5CB1B2BDD816F165 /* Pods-Authenticator.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-Authenticator/Pods-Authenticator-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-Authenticator/Pods-Authenticator.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		8098668BF4629AB8D95D1EB263B0DF85 /* Debug */ = {
+		377BA02A6C5BC11736C6E353F12BEF76 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6E086F96ECE89E9E8ABFB1EF67773B3A /* Pods-Authenticator.debug.xcconfig */;
 			buildSettings = {
@@ -622,9 +652,81 @@
 			};
 			name = Debug;
 		};
+		5939023536729A2979A9A474F71C5ACF /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9707D9CFC5A54C652A6526C3DCB0788D /* OneTimePassword.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/OneTimePassword/OneTimePassword-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/OneTimePassword/OneTimePassword-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/OneTimePassword/OneTimePassword.modulemap";
+				PRODUCT_MODULE_NAME = OneTimePassword;
+				PRODUCT_NAME = OneTimePassword;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		7CA5C8FFC46FFCF7A1668944A693C7B3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 413FB0BB4BFDFEC410E79FD44584AD8A /* RNCryptor.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/RNCryptor/RNCryptor-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/RNCryptor/RNCryptor-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/RNCryptor/RNCryptor.modulemap";
+				PRODUCT_MODULE_NAME = RNCryptor;
+				PRODUCT_NAME = RNCryptor;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		93E3AA1A831EEFE17137B5B027037ADC /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 79F0C1F573879768C2C2F71713E5725E /* Base32.debug.xcconfig */;
+			baseConfigurationReference = 1F010F644582892565FD271C3EBF3F29 /* Base32.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -656,6 +758,45 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
+		};
+		A5EB15CAD7732703AF1164A5BAA9414A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CBF9342F5616866B5CB1B2BDD816F165 /* Pods-Authenticator.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Authenticator/Pods-Authenticator-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Authenticator/Pods-Authenticator.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
 		};
 		B01D14FDC83DCF9D4BE53066BEA96D05 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -719,7 +860,7 @@
 		};
 		B5FF9DFCB6E183AB3A02AE7026792EFD /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6B929FD495B2508F66E35CC57C245D05 /* OneTimePassword.debug.xcconfig */;
+			baseConfigurationReference = 097A001BAE827A9BE795F9AE00E41139 /* OneTimePassword.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -754,7 +895,7 @@
 		};
 		C3D1A24271BD5391BD13C5FA47F04534 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 19FA3FD557E04BA173D3BD5B313134A3 /* Base32.release.xcconfig */;
+			baseConfigurationReference = 511A2E197C1D4EA34EF7E31273F73BAE /* Base32.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -788,6 +929,41 @@
 			};
 			name = Release;
 		};
+		CE73D6CD1C3896EA28C80C06CEFD5FE8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8EEAFA4856EAA367048845A0EBD1292A /* RNCryptor.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/RNCryptor/RNCryptor-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/RNCryptor/RNCryptor-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/RNCryptor/RNCryptor.modulemap";
+				PRODUCT_MODULE_NAME = RNCryptor;
+				PRODUCT_NAME = RNCryptor;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -796,6 +972,24 @@
 			buildConfigurations = (
 				B5FF9DFCB6E183AB3A02AE7026792EFD /* Debug */,
 				5939023536729A2979A9A474F71C5ACF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		244C8495B4807405AC4E43E3331BC3A5 /* Build configuration list for PBXNativeTarget "RNCryptor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CE73D6CD1C3896EA28C80C06CEFD5FE8 /* Debug */,
+				7CA5C8FFC46FFCF7A1668944A693C7B3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		29237B8145EF1048F05F04C7ED42DE95 /* Build configuration list for PBXNativeTarget "Pods-Authenticator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				377BA02A6C5BC11736C6E353F12BEF76 /* Debug */,
+				A5EB15CAD7732703AF1164A5BAA9414A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -814,15 +1008,6 @@
 			buildConfigurations = (
 				93E3AA1A831EEFE17137B5B027037ADC /* Debug */,
 				C3D1A24271BD5391BD13C5FA47F04534 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		85F51880F68A553568BD1B4D451BE85A /* Build configuration list for PBXNativeTarget "Pods-Authenticator" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				8098668BF4629AB8D95D1EB263B0DF85 /* Debug */,
-				5D7703633689FAD0B2A83FF119042027 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

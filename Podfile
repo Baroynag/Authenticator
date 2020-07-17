@@ -5,6 +5,6 @@ target 'Authenticator' do
 
   pod 'OneTimePassword', '~> 3.2'
 
-  #  pod 'CryptoSwift', '~> 1.2.0'
+  pod 'RNCryptor', '~> 5.0'
 
 end

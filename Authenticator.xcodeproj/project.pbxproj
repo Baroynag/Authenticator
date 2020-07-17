@@ -22,6 +22,7 @@
 		1401DAC72443436E00DE677F /* Exrentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1401DAC52443436E00DE677F /* Exrentions.swift */; };
 		1401DACA244343FE00DE677F /* AuthenticatorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1401DAC9244343FE00DE677F /* AuthenticatorModel.swift */; };
 		1405D88B24719BF10065509B /* UITextFieldWithBottomBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1405D88A24719BF10065509B /* UITextFieldWithBottomBorder.swift */; };
+		14129F7624C0C92200644739 /* PasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14129F7524C0C92200644739 /* PasswordViewController.swift */; };
 		141917D0245483EC00EE125D /* ScanQrViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141917CF245483EC00EE125D /* ScanQrViewController.swift */; };
 		1434357024A91F2E00935297 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1434356F24A91F2E00935297 /* SettingsViewController.swift */; };
 		14543DA124853A03008E7DA8 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14543D9F24853A03008E7DA8 /* Interface.storyboard */; };
@@ -98,6 +99,7 @@
 		1401DAC52443436E00DE677F /* Exrentions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Exrentions.swift; sourceTree = "<group>"; };
 		1401DAC9244343FE00DE677F /* AuthenticatorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatorModel.swift; sourceTree = "<group>"; };
 		1405D88A24719BF10065509B /* UITextFieldWithBottomBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldWithBottomBorder.swift; sourceTree = "<group>"; };
+		14129F7524C0C92200644739 /* PasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordViewController.swift; sourceTree = "<group>"; };
 		141917CF245483EC00EE125D /* ScanQrViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanQrViewController.swift; sourceTree = "<group>"; };
 		1434356F24A91F2E00935297 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		14543D9D24853A03008E7DA8 /* SOTPWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SOTPWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -236,6 +238,7 @@
 			isa = PBXGroup;
 			children = (
 				1434356F24A91F2E00935297 /* SettingsViewController.swift */,
+				14129F7524C0C92200644739 /* PasswordViewController.swift */,
 			);
 			path = SettingsScreen;
 			sourceTree = "<group>";
@@ -502,6 +505,7 @@
 				1401DAC62443436E00DE677F /* Protocols.swift in Sources */,
 				1401DA852440D46800DE677F /* Authenticator.xcdatamodeld in Sources */,
 				1401DAC12443431200DE677F /* AuthenticatorViewController.swift in Sources */,
+				14129F7624C0C92200644739 /* PasswordViewController.swift in Sources */,
 				1401DA7B2440D46800DE677F /* AppDelegate.swift in Sources */,
 				1401DABF244342CC00DE677F /* CustomCell.swift in Sources */,
 				1434357024A91F2E00935297 /* SettingsViewController.swift in Sources */,

@@ -100,13 +100,6 @@ class RowDetailViewController: UIViewController {
         return label
     }()
     
-    public var editedText: String? {
-        didSet{
-            guard let editedText = editedText else {return}
-            issuerTextField.text = editedText
-        }
-    }
-    
     
     // MARK: - Inits
     override func viewDidLoad() {
