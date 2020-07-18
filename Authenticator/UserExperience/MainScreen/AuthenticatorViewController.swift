@@ -48,8 +48,9 @@ class AuthenticatorViewController: UIViewController, UITableViewDelegate, UITabl
         settingsViewController.modalPresentationStyle = .fullScreen
         settingsViewController.delegate = self
 //        self.present(settingsViewController, animated: true, completion: nil)
-        
+       
         navigationController?.pushViewController(settingsViewController, animated: true)
+       
     }
     
 //    MARK: - Functions

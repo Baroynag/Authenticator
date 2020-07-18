@@ -128,23 +128,22 @@ class SettingsViewController: UIViewController {
     }
 
     
-    func saveBackupFile(){
-
-    
-        let password = getPassword()
-       
+    func saveBackupFile(password: String){
+        
+        print("saveBackupFile---  \(Thread.current))")
+        
         let objectsFromDatabase = AuthenticatorModel.shared.saveDataToFile()
         let jsonArray = AuthenticatorModel.shared.convertToJSONArray(objectsArray: objectsFromDatabase)
         let temporaryFolder = FileManager.default.temporaryDirectory
         let tempFileName = "sotpbackup.sotp"
         let temporaryFilePath = temporaryFolder.appendingPathComponent(tempFileName)
-        
+        print("444")
         if let jsonData = try? JSONSerialization.data(withJSONObject: jsonArray) {
-     
+            print("555")
             if let jsonString = String(data: jsonData, encoding: .utf8){
-                let encryptedText = encrypt(plainText: jsonString, password: password)
+                let encryptedText = encrypt(plainText: jsonString, password: "password")
                 do{
-//                    try encryptedText.write(to: temporaryFilePath)
+                    print("666")
                     try encryptedText.write(to: temporaryFilePath, atomically: true, encoding: .utf8)
                     let activityViewController = UIActivityViewController(activityItems: [temporaryFilePath], applicationActivities: nil)
                     activityViewController.popoverPresentationController?.sourceView = self.view
@@ -173,17 +172,30 @@ class SettingsViewController: UIViewController {
         }
     }
     
-    func getPassword() -> String{
+    func getPassword() -> String?{
+       
+        print("Start getPassword")
+        var enteredPassword: String?
         let passwordViewController = PasswordViewController()
         passwordViewController.modalPresentationStyle = .fullScreen
-        self.present(passwordViewController, animated: true, completion: nil)
-//        navigationController?.pushViewController(passwordViewController, animated: true)
-        return "pasword"
+        navigationController?.pushViewController(passwordViewController, animated: true)
+        passwordViewController.callBack = { password in
+            print("password---  \(Thread.current))")
+            enteredPassword = password
+        }
+        print("getPassword  enteredPassword = \(enteredPassword)")
+        
+        return enteredPassword
+        
     }
             
 //    MARK: - Handlers
     @objc func handleSaveToBackup(){
-        saveBackupFile()
+        print(#function)
+        if let password = getPassword(){
+            print("handleSaveToBackup  \(password)")
+           saveBackupFile(password: password)
+        }
     }
     
     @objc func handleLoadFromBackup(){
@@ -217,3 +229,5 @@ extension SettingsViewController: UIDocumentPickerDelegate {
     }
     
 }
+
+

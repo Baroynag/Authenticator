@@ -35,6 +35,7 @@
 		14543DC124853B24008E7DA8 /* SOTPWatchRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14543DC024853B24008E7DA8 /* SOTPWatchRow.swift */; };
 		14543DC82486E02D008E7DA8 /* WatchAppConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14543DC72486E02D008E7DA8 /* WatchAppConnection.swift */; };
 		14543E1B24968363008E7DA8 /* TokenGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14543E1A24968363008E7DA8 /* TokenGenerator.swift */; };
+		14B7E31E24C3237F00A2E9F3 /* PasswordError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B7E31D24C3237F00A2E9F3 /* PasswordError.swift */; };
 		14F740F22447743D0052244C /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 14F740F12447743D0052244C /* Lato-Light.ttf */; };
 		FD6CF9FFA6037CDAEBC06627 /* Pods_Authenticator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67D87C916A1E254B6ABFAF7D /* Pods_Authenticator.framework */; };
 /* End PBXBuildFile section */
@@ -117,6 +118,7 @@
 		14543DC62486DD66008E7DA8 /* SOTPWatchDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SOTPWatchDebug.entitlements; sourceTree = "<group>"; };
 		14543DC72486E02D008E7DA8 /* WatchAppConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchAppConnection.swift; sourceTree = "<group>"; };
 		14543E1A24968363008E7DA8 /* TokenGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenGenerator.swift; sourceTree = "<group>"; };
+		14B7E31D24C3237F00A2E9F3 /* PasswordError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordError.swift; sourceTree = "<group>"; };
 		14F740F12447743D0052244C /* Lato-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Light.ttf"; sourceTree = "<group>"; };
 		67D87C916A1E254B6ABFAF7D /* Pods_Authenticator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Authenticator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1087AF21F7B4953349EB22F /* Pods-Authenticator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Authenticator.debug.xcconfig"; path = "Target Support Files/Pods-Authenticator/Pods-Authenticator.debug.xcconfig"; sourceTree = "<group>"; };
@@ -301,6 +303,7 @@
 				1401DAC9244343FE00DE677F /* AuthenticatorModel.swift */,
 				14543DC72486E02D008E7DA8 /* WatchAppConnection.swift */,
 				14543E1A24968363008E7DA8 /* TokenGenerator.swift */,
+				14B7E31D24C3237F00A2E9F3 /* PasswordError.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -517,6 +520,7 @@
 				14543DC82486E02D008E7DA8 /* WatchAppConnection.swift in Sources */,
 				1401DAC72443436E00DE677F /* Exrentions.swift in Sources */,
 				1401DA7D2440D46800DE677F /* SceneDelegate.swift in Sources */,
+				14B7E31E24C3237F00A2E9F3 /* PasswordError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

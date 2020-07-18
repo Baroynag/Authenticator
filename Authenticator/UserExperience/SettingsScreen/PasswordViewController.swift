@@ -8,49 +8,43 @@
 
 import UIKit
 
-enum PasswordError: Error {
-    case empty
-    case short
-    case notConfirmed
-    case different
-}
+
 
 class PasswordViewController: UIViewController {
     
     //    MARK:- Properties
-
     
-    let offsetX = 24.0
-    let offsetY = 64.0
-    let textFieldHeigth = 80.0
-    var textFieldWidth: Double = 0.0
+    public var callBack: ((String) -> ())?
+    
+    private let offsetX = 24.0
+    private let offsetY = 64.0
+    private let textFieldHeigth = 80.0
+    private var textFieldWidth: Double = 0.0
     
     private var passwordTextField = UITextFieldWithBottomBorder()
     private var confirmPasswordTextField = UITextFieldWithBottomBorder()
     
-    let confirmButton: UIButton = {
+    private let confirmButton: UIButton = {
         let button = UIButton()
         button.backgroundColor = .fucsiaColor()
         button.setTitle("OK", for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
-         
         button.addTarget(self, action: #selector(handleConfirmButton), for: .touchUpInside)
         button.layer.cornerRadius = 10
         button.layer.masksToBounds = true
         return button
      }()
     
-    
     //    MARK: Inits
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .orange
+        print("pass VC")
         setupView()
     }
     
     //  MARK:- Functions
     private func setupView(){
-        
-        
         view.backgroundColor = UIColor.systemBackground
         
         textFieldWidth = Double(view.frame.width) - offsetX * 2
@@ -86,33 +80,8 @@ class PasswordViewController: UIViewController {
         textField.delegate = self
         textField.isSecureTextEntry = true
     }
-    
-    func cheackPassword(passOne: String?, passTwo: String?) throws -> Bool {
-        
-        guard let passOne = passOne else {
-            throw PasswordError.empty
-        }
-        
-        guard let passTwo = passTwo else{
-            throw PasswordError.notConfirmed
-        }
-        
-        if passOne == "" {
-            throw PasswordError.empty
-        }
-        
-        if passTwo == "" {
-            throw PasswordError.notConfirmed
-        }
-        
-        if passOne != passTwo {
-            throw PasswordError.different
-        }
-        
-        return true
-    }
-    
-    func showErrorAlert(errorText: String){
+ 
+    private func showErrorAlert(errorText: String){
         let alert = UIAlertController(title: "", message: errorText, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: nil))
         self.present(alert, animated: true, completion: nil)
@@ -121,23 +90,19 @@ class PasswordViewController: UIViewController {
     //    MARK: - Handlers
     @objc private func handleConfirmButton(){
         do{
-            let isValidPassword = try cheackPassword(passOne: passwordTextField.text, passTwo: confirmPasswordTextField.text)
+            let isValidPassword = try PasswordError.cheackPassword(passOne: passwordTextField.text, passTwo: confirmPasswordTextField.text)
             if isValidPassword {
-                dismiss(animated: true, completion: nil)
+                if let password = passwordTextField.text{
+                    callBack?(password)
+                }
+                navigationController?.popViewController(animated: true)
+//                dismiss(animated: true, completion: nil)
             }
-        } catch PasswordError.empty{
-            showErrorAlert(errorText: "Введие пароль!")
-        } catch PasswordError.notConfirmed{
-            showErrorAlert(errorText: "Введие подтверждение пароля!")
-        } catch PasswordError.different{
-            showErrorAlert(errorText: "Введенные пароли не совпадают")
-        } catch{
-            showErrorAlert(errorText: "Неизвестная ошибка")
+        } catch {
+            showErrorAlert(errorText: error.localizedDescription)
         }
-        
     }
 }
-
 
 extension PasswordViewController: UITextFieldDelegate{
    
