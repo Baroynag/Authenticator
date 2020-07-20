@@ -44,12 +44,12 @@ extension UIViewController{
             navTextColor = UIColor.black
         } else { navTextColor = UIColor.white}
         
-         appearance.titleTextAttributes = [.foregroundColor: navTextColor, .font: font!]
+        appearance.titleTextAttributes = [.foregroundColor: navTextColor, .font: font!]
         
         navigationItem.standardAppearance = appearance
         navigationItem.scrollEdgeAppearance = appearance
         navigationItem.compactAppearance = appearance
-        self.navigationController?.navigationBar.tintColor = UIColor.systemBlue
+        self.navigationController?.navigationBar.tintColor = navTextColor
     }
 }
 
@@ -92,3 +92,21 @@ extension UILabel{
     
 }
 
+
+extension UINavigationController {
+
+    public func pushViewController(viewController: UIViewController, animated: Bool, completion: (() -> Void)?) {
+        CATransaction.begin()
+        CATransaction.setCompletionBlock(completion)
+        pushViewController(viewController, animated: animated)
+        CATransaction.commit()
+  }
+
+    
+    func popViewController(animated: Bool = true, completion: @escaping () -> Void) {
+        CATransaction.begin()
+        CATransaction.setCompletionBlock(completion)
+        popViewController(animated: animated)
+        CATransaction.commit()
+    }
+}

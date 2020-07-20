@@ -135,19 +135,5 @@ class AuthenticatorModel {
         return jsonArray
         
     }
-    
-//    func saveDataBromBackupToCoreData(backupData: [[String:Any]]) {
-//
-//        var newItem = Authenticator()
-//
-//        for item in backupData{
-//            newItem.account = item["account"] as? String ?? ""
-//            newItem.key = item["key"] as? String ?? ""
-//            newItem.issuer = item["issuer"] as? String ?? ""
-//            newItem.timeBased = item["timeBased"] as? Bool ?? false
-//
-//            addOneItem(newAuthItem: newItem)
-//            print(newItem)
-//        }
-//    }
+  
 }

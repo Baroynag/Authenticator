@@ -92,11 +92,12 @@ class PasswordViewController: UIViewController {
         do{
             let isValidPassword = try PasswordError.cheackPassword(passOne: passwordTextField.text, passTwo: confirmPasswordTextField.text)
             if isValidPassword {
-                if let password = passwordTextField.text{
-                    callBack?(password)
-                }
-                navigationController?.popViewController(animated: true)
-//                dismiss(animated: true, completion: nil)
+                
+                navigationController?.popViewController(completion: {  [weak self] in
+                    if let password = self?.passwordTextField.text{
+                        self?.callBack?(password)
+                    }
+                })
             }
         } catch {
             showErrorAlert(errorText: error.localizedDescription)

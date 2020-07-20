@@ -60,6 +60,10 @@ class SettingsViewController: UIViewController {
     
 //    MARK: Functions
     private func setupView(){
+        
+        setupNavigationController()
+        navigationItem.title = "Настройки"
+        
         view.backgroundColor = UIColor.systemBackground
         
         view.addSubview(saveButton)
@@ -86,11 +90,51 @@ class SettingsViewController: UIViewController {
         ])
     }
     
-    func getFileContent (fileURL: URL){
+    func promptForPassword(completion: @escaping (String?) -> ()){
+        let alert = UIAlertController(title: "Введите пароль", message: nil, preferredStyle: .alert)
+
+        alert.addTextField { (textField: UITextField) in
+            textField.isSecureTextEntry = true
+            
+            textField.placeholder = "Пароль"
+            textField.addTarget(self,
+                action: #selector(self.textFieldDidChange),
+                for: .editingChanged
+            )
+        }
+        
+        let cancelAction = UIAlertAction(title: "Отмена", style: .default)
+        
+        let submitAction = UIAlertAction(title: "Ок", style: .default) { [unowned alert] _ in
+            if let answer = alert.textFields?[0]{
+                if let pass = answer.text{
+                    if pass == ""{
+                        cancelAction.isEnabled = false
+                        print ("пароль не может быть пустым")
+                    } else {
+                        completion(pass)
+                    }
+                }
+            }
+        }
+        submitAction.isEnabled = false
+      
+        alert.addAction(submitAction)
+        alert.addAction(cancelAction)
+        present(alert, animated: true)
+    }
+    
+    
+    func getFileContent (fileURL: URL, password: String){
+//TODO: вывести сообщение
+        if password == "" {
+           return
+        }
+        
         print(#function)
         do{
             let data = try String(contentsOf: fileURL)
-            let decriptedText = decrypt(encryptedText: data, password: "password")
+            let decriptedText = decrypt(encryptedText: data, password: password)
            
             guard let jsonData = decriptedText.data(using: .utf8) else {
                 print("Error to upload file")
@@ -99,9 +143,7 @@ class SettingsViewController: UIViewController {
             guard let jsonResponse = (try? JSONSerialization.jsonObject(with: jsonData)) as? [[String:Any]] else {
                 print("Json serialization error")
                 return}
-            print("-----save")
             self.saveDataBromBackupToCoreData(backupData: jsonResponse)
-            print("-----save")
         } catch{
             print(error.localizedDescription)
         }
@@ -111,15 +153,15 @@ class SettingsViewController: UIViewController {
     func encrypt(plainText : String, password: String) -> String {
             let data: Data = plainText.data(using: .utf8)!
             let encryptedData = RNCryptor.encrypt(data: data, withPassword: password)
-            let encryptedString : String = encryptedData.base64EncodedString() // getting base64encoded string of encrypted data.
+            let encryptedString : String = encryptedData.base64EncodedString()
             return encryptedString
     }
     
     func decrypt(encryptedText : String, password: String) -> String {
             do  {
-                let data: Data = Data(base64Encoded: encryptedText)! // Just get data from encrypted base64Encoded string.
+                let data: Data = Data(base64Encoded: encryptedText)!
                 let decryptedData = try RNCryptor.decrypt(data: data, withPassword: password)
-                let decryptedString = String(data: decryptedData, encoding: .utf8) // Getting original string, using same .utf8 encoding option,which we used for encryption.
+                let decryptedString = String(data: decryptedData, encoding: .utf8)
                 return decryptedString ?? ""
             }
             catch {
@@ -136,7 +178,7 @@ class SettingsViewController: UIViewController {
         let temporaryFilePath = temporaryFolder.appendingPathComponent(tempFileName)
         if let jsonData = try? JSONSerialization.data(withJSONObject: jsonArray) {
             if let jsonString = String(data: jsonData, encoding: .utf8){
-                let encryptedText = encrypt(plainText: jsonString, password: "password")
+                let encryptedText = encrypt(plainText: jsonString, password: password)
                 do{
                     try encryptedText.write(to: temporaryFilePath, atomically: true, encoding: .utf8)
                     let activityViewController = UIActivityViewController(activityItems: [temporaryFilePath], applicationActivities: nil)
@@ -161,19 +203,27 @@ class SettingsViewController: UIViewController {
             newItem.issuer = item["issuer"] as? String ?? ""
             newItem.timeBased = item["timeBased"] as? Bool ?? false
             delegate?.createNewItem(newAuthItem: newItem)
-            
             print(newItem)
         }
     }
     
     func getPassword(completion: @escaping (String?) -> () ){
-      
         let passwordViewController = PasswordViewController()
         passwordViewController.modalPresentationStyle = .fullScreen
-        navigationController?.pushViewController(passwordViewController, animated: true)
-        passwordViewController.callBack = { password in
-           completion(password)
+        navigationController?.pushViewController(viewController: passwordViewController, animated: true, completion: {
+                passwordViewController.callBack = completion
+        })
+    }
+    
+    private func chooseDocument(completion: @escaping(Bool) -> ()){
+        let documentPicker: UIDocumentPickerViewController = UIDocumentPickerViewController(documentTypes: [String(kUTTypePlainText), String(kUTTypeData)], in: UIDocumentPickerMode.import)
+        documentPicker.delegate = self
+               
+        documentPicker.modalPresentationStyle = UIModalPresentationStyle.fullScreen
+        self.present(documentPicker, animated: true) {
+            completion(true)
         }
+    
     }
             
 //    MARK: - Handlers
@@ -181,35 +231,56 @@ class SettingsViewController: UIViewController {
         print(#function)
         getPassword { [weak self ](pass) in
             if let pass = pass{
+                print ("pass = \(pass)")
                 self?.saveBackupFile(password: pass)
             }
         }
-
     }
     
     @objc func handleLoadFromBackup(){
-        
-        let documentPicker: UIDocumentPickerViewController = UIDocumentPickerViewController(documentTypes: [String(kUTTypePlainText), String(kUTTypeData)], in: UIDocumentPickerMode.import)
-        documentPicker.delegate = self
-        
-        documentPicker.modalPresentationStyle = UIModalPresentationStyle.fullScreen
-        self.present(documentPicker, animated: true, completion: nil)
+        chooseDocument { (isEnded) in
+                print ("isEnded")
+        }
     }
 
     @objc private func handleCancelButton(){
         dismiss(animated: true, completion: nil)
     }
+    
+    @objc private func textFieldDidChange(sender: AnyObject) {
+        if let tf = sender as? UITextField{
+            var responderList: UIResponder = tf
+        
+            while !(responderList is UIAlertController) {
+                if let resp = responderList.next{
+                    responderList = resp
+                }
+            }
+            if let alert = responderList as? UIAlertController{
+                (alert.actions[0] as UIAlertAction).isEnabled = (tf.text != "")
+            }
+        }
+    }
+    
+    
 }
 
 extension SettingsViewController: UIDocumentPickerDelegate {
     
     func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]){
-        
+        print("documentPicker")
         guard let selectedFileURL = urls.first else {return}
         
         if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first{
             let filePath = dir.appendingPathComponent(selectedFileURL.lastPathComponent)
-            getFileContent(fileURL: filePath)
+         
+            dismiss(animated: true) { [weak self ] in
+                self?.promptForPassword { (pass) in
+                    if let pass = pass{
+                        self?.getFileContent(fileURL: filePath, password: pass)
+                    }
+                }
+            }
         }
     }
     
