@@ -2,7 +2,7 @@
 //  AuthenticationList+CoreDataProperties.swift
 //  Authenticator
 //
-//  Created by Anzhela Baroyan on 12.04.2020.
+//  Created by Anzhela Baroyan on 21.07.2020.
 //  Copyright © 2020 Anzhela Baroyan. All rights reserved.
 //
 //
@@ -18,7 +18,9 @@ extension AuthenticationList {
     }
 
     @NSManaged public var account: String?
-    @NSManaged public var timeBased: Bool
+    @NSManaged public var issuer: String?
     @NSManaged public var key: String?
+    @NSManaged public var timeBased: Bool
+    @NSManaged public var id: UUID?
 
 }

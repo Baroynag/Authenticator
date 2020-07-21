@@ -43,7 +43,7 @@ class AuthenticatorModel {
         let entry = NSEntityDescription.entity(forEntityName: "AuthenticationList", in: managedContext)!
         
         let item = NSManagedObject(entity: entry, insertInto: managedContext)
-        
+        item.setValue(UUID(),                forKey: "id")
         item.setValue(newAuthItem.issuer,    forKey: "issuer")
         item.setValue(newAuthItem.key,       forKey: "key")
         item.setValue(newAuthItem.account,   forKey: "account")
