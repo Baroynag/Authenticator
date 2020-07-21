@@ -19,18 +19,19 @@ class CustomCell: UITableViewCell {
     
     var delgate: CopyPassToClipBoardDelegate?
     
-    public var authItem: Authenticator?{
+    public var authItem: AuthenticatorItem?{
         didSet{
             guard let authItem = authItem else {return}
-            guard let authKey = authItem.key else {return}
-            guard let authIssuer = authItem.issuer else {return}
-            
+            let authKey = authItem.key ?? ""
+            let authIssuer = authItem.issuer ?? ""
+            let account = authItem.account ?? ""
+
             key = authKey
             issuer = authIssuer
             
             issuerLabel.setLabelAtributedText(fontSize: 24, text: authIssuer, aligment: .center, indent: 0.0)
             
-            accountLabel.setLabelAtributedText(fontSize: 16, text: authItem.account, aligment: .center, indent: 0.0, color: .fucsiaColor())
+            accountLabel.setLabelAtributedText(fontSize: 16, text: account, aligment: .center, indent: 0.0, color: .fucsiaColor())
             
             let token = TokenGenerator.shared.createToken(name: authIssuer, issuer: authIssuer, secretString: authKey)
             

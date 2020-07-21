@@ -171,11 +171,10 @@ class SettingsViewController: UIViewController {
     
     func saveBackupFile(password: String){
         
-        let objectsFromDatabase = AuthenticatorModel.shared.saveDataToFile()
-        let jsonArray = AuthenticatorModel.shared.convertToJSONArray(objectsArray: objectsFromDatabase)
+        let jsonArray = AuthenticatorModel.shared.convertCoreDataObjectsToJSONArray()
         let temporaryFolder = FileManager.default.temporaryDirectory
-        let tempFileName = "sotpbackup.sotp"
-        let temporaryFilePath = temporaryFolder.appendingPathComponent(tempFileName)
+        let temporaryFilePath = temporaryFolder.appendingPathComponent("sotpbackup.sotp")
+        
         if let jsonData = try? JSONSerialization.data(withJSONObject: jsonArray) {
             if let jsonString = String(data: jsonData, encoding: .utf8){
                 let encryptedText = encrypt(plainText: jsonString, password: password)
@@ -194,16 +193,14 @@ class SettingsViewController: UIViewController {
     }
            
     func saveDataBromBackupToCoreData(backupData: [[String:Any]]) {
-    
-        var newItem = Authenticator()
         
         for item in backupData{
-            newItem.account = item["account"] as? String ?? ""
-            newItem.key = item["key"] as? String ?? ""
-            newItem.issuer = item["issuer"] as? String ?? ""
-            newItem.timeBased = item["timeBased"] as? Bool ?? false
-            delegate?.createNewItem(newAuthItem: newItem)
-            print(newItem)
+            let account   = item["account"]   as? String ?? ""
+            let key       = item["key"]       as? String ?? ""
+            let issuer    = item["issuer"]    as? String ?? ""
+            let timeBased = item["timeBased"] as? Bool   ?? false
+            
+            delegate?.createNewItem(account: account, issuer: issuer, key: key, timeBased: timeBased)
         }
     }
     

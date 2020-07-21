@@ -206,11 +206,8 @@ class RowDetailViewController: UIViewController {
     // MARK: - Handlers
     
     @objc private func handleSave(){
-        var authItem = Authenticator()
-        authItem.issuer = issuerTextField.text
-        authItem.key = keyTextField.text
-        authItem.timeBased = isTimeBased
-        delegate?.createNewItem(newAuthItem: authItem)
+        delegate?.createNewItem(account: "", issuer: issuerTextField.text, key: keyTextField.text, timeBased: isTimeBased)
+        
         dismiss(animated: true, completion: nil)
     }
     
@@ -259,8 +256,8 @@ extension RowDetailViewController: UITextFieldDelegate{
 }
     
 extension RowDetailViewController: AddItemDelegate{
-    
-    func createNewItem(newAuthItem: Authenticator) {
-        self.delegate?.createNewItem(newAuthItem: newAuthItem)
+    func createNewItem(account: String?, issuer: String?, key: String?, timeBased: Bool) {
+        self.delegate?.createNewItem(account: account, issuer: issuer, key: key, timeBased: timeBased)
     }
+ 
 }

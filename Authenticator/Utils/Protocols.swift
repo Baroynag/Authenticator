@@ -14,5 +14,5 @@ protocol CopyPassToClipBoardDelegate : class {
 
 protocol AddItemDelegate : class {
 
-    func createNewItem (newAuthItem: Authenticator)
+    func createNewItem (account: String?, issuer: String?, key: String?, timeBased: Bool)
 }

@@ -8,7 +8,6 @@
 
 
 import UIKit
-import CoreData
 
 class AuthenticatorViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
   
@@ -47,10 +46,7 @@ class AuthenticatorViewController: UIViewController, UITableViewDelegate, UITabl
         let settingsViewController = SettingsViewController()
         settingsViewController.modalPresentationStyle = .fullScreen
         settingsViewController.delegate = self
-//        self.present(settingsViewController, animated: true, completion: nil)
-       
         navigationController?.pushViewController(settingsViewController, animated: true)
-       
     }
     
 //    MARK: - Functions
@@ -93,8 +89,6 @@ class AuthenticatorViewController: UIViewController, UITableViewDelegate, UITabl
         AuthenticatorModel.shared.loadData()
     }
     
-    
-    
 }
 
 
@@ -102,7 +96,7 @@ class AuthenticatorViewController: UIViewController, UITableViewDelegate, UITabl
 extension AuthenticatorViewController {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return AuthenticatorModel.shared.authList.count
+        return AuthenticatorModel.shared.authenticatorItemsList?.count ?? 0
     }
         
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -111,27 +105,15 @@ extension AuthenticatorViewController {
         
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             
+        // TODO: force unwrap
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! CustomCell
         
-        let item = AuthenticatorModel.shared.authList[indexPath.row]
-
-//        TODO: refactor
-//
-        if  let account = item.value(forKey: "account") as? String,
-            let key = item.value(forKey: "key")  as? String,
-            let issuer = item.value(forKey: "issuer") as? String,
-            let timeBased = item.value(forKey: "timeBased") as? Bool
-        {
-            var authItem = Authenticator()
-            authItem.account = account
-            authItem.key = key
-            authItem.issuer = issuer
-            authItem.timeBased = timeBased
-            cell.authItem = authItem
+        if let item = AuthenticatorModel.shared.authenticatorItemsList?[indexPath.row]{
+            cell.authItem = item
+            cell.copyButton.tag = indexPath.row
+            cell.delgate = self
         }
         
-        cell.copyButton.tag = indexPath.row
-        cell.delgate = self
         return cell
     }
 }

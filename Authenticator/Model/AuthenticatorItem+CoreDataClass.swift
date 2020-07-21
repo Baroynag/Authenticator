@@ -1,5 +1,5 @@
 //
-//  AuthenticationList+CoreDataClass.swift
+//  AuthenticatorItem+CoreDataClass.swift
 //  Authenticator
 //
 //  Created by Anzhela Baroyan on 21.07.2020.
@@ -11,6 +11,6 @@ import Foundation
 import CoreData
 
 
-public class AuthenticationList: NSManagedObject {
+public class AuthenticatorItem: NSManagedObject {
 
 }

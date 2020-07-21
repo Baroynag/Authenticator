@@ -1,5 +1,5 @@
 //
-//  AuthenticationList+CoreDataProperties.swift
+//  AuthenticatorItem+CoreDataProperties.swift
 //  Authenticator
 //
 //  Created by Anzhela Baroyan on 21.07.2020.
@@ -11,10 +11,10 @@ import Foundation
 import CoreData
 
 
-extension AuthenticationList {
+extension AuthenticatorItem {
 
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<AuthenticationList> {
-        return NSFetchRequest<AuthenticationList>(entityName: "AuthenticationList")
+    @nonobjc public class func fetchRequest() -> NSFetchRequest<AuthenticatorItem> {
+        return NSFetchRequest<AuthenticatorItem>(entityName: "AuthenticatorItem")
     }
 
     @NSManaged public var account: String?

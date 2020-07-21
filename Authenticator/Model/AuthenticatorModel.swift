@@ -8,89 +8,66 @@
 
 import Foundation
 import CoreData
-import UIKit
 import OneTimePassword
-
-struct Authenticator{
-    
-    var issuer: String?
-    var key: String?
-    var account: String = ""
-    var timeBased: Bool = true
-    
-}
 
 class AuthenticatorModel {
 
     static let shared = AuthenticatorModel()
     
-    var authList: [NSManagedObject] = []
+    private let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
+    public var authenticatorItemsList: [AuthenticatorItem]?
     
     func loadData(){
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {return}
-        let managedContext = appDelegate.persistentContainer.viewContext
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "AuthenticationList")
         do{
-            authList = try managedContext.fetch(fetchRequest)
-        } catch let error as NSError{
-            print ("Failed to fetch items ", error)
+            self.authenticatorItemsList = try context.fetch(AuthenticatorItem.fetchRequest())
+        } catch{
+            print("Ошибка загрузки данных: \(error.localizedDescription)")
         }
     }
     
-    func addOneItem(newAuthItem: Authenticator){
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {return}
-        let managedContext = appDelegate.persistentContainer.viewContext
-        let entry = NSEntityDescription.entity(forEntityName: "AuthenticationList", in: managedContext)!
-        
-        let item = NSManagedObject(entity: entry, insertInto: managedContext)
-        item.setValue(UUID(),                forKey: "id")
-        item.setValue(newAuthItem.issuer,    forKey: "issuer")
-        item.setValue(newAuthItem.key,       forKey: "key")
-        item.setValue(newAuthItem.account,   forKey: "account")
-        item.setValue(newAuthItem.timeBased, forKey: "timeBased")
+    func addOneItem(account: String?, issuer: String?, key: String?, timeBased: Bool){
+        let authItem = AuthenticatorItem(context: context)
+        authItem.id        = UUID()
+        authItem.account   = account
+        authItem.issuer    = issuer
+        authItem.key       = key
+        authItem.timeBased = timeBased
+        authenticatorItemsList?.append(authItem)
         do{
-            try managedContext.save()
-            authList.append(item)
-        } catch let error as NSError{
-            print ("failure ", error)
+            try self.context.save()
+        } catch{
+            print("Ошибка при сохранении данных \(error.localizedDescription)")
         }
     }
+    
     
     func deleteData(index: Int){
         
-        guard let issuer = authList[index].value(forKey: "issuer") as? String else { return}
-        authList.remove(at: index)
-        
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {return}
-        let context = appDelegate.persistentContainer.viewContext
-        
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "AuthenticationList")
-        request.predicate = NSPredicate(format:"issuer = %@", issuer as CVarArg)
-        let result = try? context.fetch(request)
-        let resultData = result as! [NSManagedObject]
-        print (resultData)
-        for object in resultData {
-                context.delete(object)
-        }
-
-        do {
-            try context.save()
-                print("saved!")
-            } catch let error as NSError  {
-                print("Could not save \(error), \(error.userInfo)")
+        if let itemToRemove = authenticatorItemsList?[index]{
+            self.context.delete(itemToRemove)
+            authenticatorItemsList?.remove(at: index)
+            
+            do {
+                try context.save()
             } catch {
-                print("general error")
+                print("Ошибка при сохранении \(error.localizedDescription)")
             }
+        }
     }
     
     
     func loadDataForWatch() -> [String: String] {
+        
         loadData()
+        
+        guard let authenticatorItemsList = authenticatorItemsList else {return [:] }
         var dictionary: [String: String] = [:]
-        for index in 0...self.authList.count - 1{
+        
+        for index in 0...authenticatorItemsList.count - 1{
             
-            if let authIssuer = authList[index].value(forKey: "issuer") as? String,
-                let authKey = authList[index].value(forKey: "key")  as? String
+            if let authIssuer = authenticatorItemsList[index].value(forKey: "issuer") as? String,
+                let authKey = authenticatorItemsList[index].value(forKey: "key")  as? String
             {
                 let token = TokenGenerator.shared.createToken(name: authIssuer, issuer: authIssuer, secretString: authKey)
             
@@ -102,36 +79,27 @@ class AuthenticatorModel {
         return dictionary
     }
     
-
-    func saveDataToFile() -> [NSManagedObject]{
-        print(#function)
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {return []}
-        let managedContext = appDelegate.persistentContainer.viewContext
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "AuthenticationList")
-        do{
-            authList = try managedContext.fetch(fetchRequest)
-        } catch let error as NSError{
-            print ("Failed to fetch items ", error)
-        }
-        return authList
-    }
-    
-    
-    func convertToJSONArray(objectsArray: [NSManagedObject]) -> [[String: Any]] {
+    func convertCoreDataObjectsToJSONArray() -> [[String: Any]] {
         
         var jsonArray: [[String: Any]] = []
         
-        for item in objectsArray {
+        guard let authenticatorItemsList = authenticatorItemsList else {return [[:]] }
+        
+        for item in authenticatorItemsList {
             var dictionary: [String: Any] = [:]
             for attribute in item.entity.attributesByName {
-          
-                if let value = item.value(forKey: attribute.key) {
-                    dictionary[attribute.key] = value
+                if attribute.key != "id"{
+                    if let value = item.value(forKey: attribute.key) {
+                        dictionary[attribute.key] = value
+                    }
+                } else{
+                    if let id = item.id?.uuidString {
+                        dictionary[attribute.key] = id
+                    }
                 }
             }
             jsonArray.append(dictionary)
         }
-        
         return jsonArray
         
     }

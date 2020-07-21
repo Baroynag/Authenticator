@@ -110,12 +110,12 @@ class ScanQrViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
         /*otpauth://totp/VK:id132504071?secret=25PXK6NNGXI4OH7L&issuer=VK*/
         
         if let url = URLComponents(string: urlString) {
-            var authItem = Authenticator()
-            authItem.issuer    = getQueryStringParameter(url: url, param: "issuer")
-            authItem.key       = getQueryStringParameter(url: url, param: "secret")
-            authItem.account   = url.path.replacingOccurrences(of: "/", with: "")
-            authItem.timeBased = true
-            delegate?.createNewItem(newAuthItem: authItem)
+            
+            let account   = url.path.replacingOccurrences(of: "/", with: "")
+            let issuer    = getQueryStringParameter(url: url, param: "issuer")
+            let key       = getQueryStringParameter(url: url, param: "secret")
+            delegate?.createNewItem(account: account, issuer: issuer, key: key, timeBased: true)
+            
         }
    }
 
