@@ -15,6 +15,9 @@ class CustomCell: UITableViewCell {
     private var key = ""
     private var issuer = ""
     private var account = ""
+    private var copyCountDown = 0
+    private var isCopyCountPressed = false
+    var passLabelText = ""
     
     var delgate: CopyPassToClipBoardDelegate?
     
@@ -35,7 +38,8 @@ class CustomCell: UITableViewCell {
             let token = TokenGenerator.shared.createToken(name: authIssuer, issuer: authIssuer, secretString: authKey)
             
             if let keyText = token?.currentPassword{
-            passLabel.setLabelAtributedText(fontSize: 50, text: keyText,  aligment: .center, indent: 0.0)
+                passLabelText = keyText
+                passLabel.setLabelAtributedText(fontSize: 48, text: keyText,  aligment: .center, indent: 0.0)
             }
             
             updateTimerInfoLabel()
@@ -77,7 +81,6 @@ class CustomCell: UITableViewCell {
         button.backgroundColor = .clear
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setImage(UIImage(named: "copyButton"), for: .normal)
-//        button.addTarget(self, action: #selector(handleCopyButton), for: .touchUpInside)
         return button
     }()
     
@@ -140,22 +143,49 @@ class CustomCell: UITableViewCell {
 
     }
     
+    private func startCopy(){
+        copyCountDown = 5
+        isCopyCountPressed = true
+        passLabel.setLabelAtributedText(fontSize: 40, text: "Copied",  aligment: .center, indent: 0.0)
+    }
+
+    private func endCopy(){
+        copyCountDown = 0
+        isCopyCountPressed = false
+        passLabel.setLabelAtributedText(fontSize: 48, text: passLabelText,  aligment: .center, indent: 0.0)
+    }
+    
     // MARK: - Handlers
     
     @objc public func updateTimerInfoLabel (){
         countDown -= 1
         descriptionLabel.text = NSLocalizedString("Refresh in ", comment: "") + String(countDown) + NSLocalizedString("s.", comment: "")
+        
+        if isCopyCountPressed{
+            copyCountDown -= 1
+            if copyCountDown == 0 {
+                endCopy()
+            }
+        }
+        
         if countDown == 0 {
             countDown = 30
             let token = TokenGenerator.shared.createToken(name: issuer, issuer: issuer, secretString: key)
             if let text = token?.currentPassword {
                 passLabel.setLabelAtributedText(fontSize: 50, text: text,  aligment: .center, indent: 0.0)
+                passLabelText = text
             }
         }
+        
+        
     }
     
     @objc private func handleCopyButton(){
+       
         if let otp = passLabel.text {
+
+            startCopy()
+                
             delgate?.pressCopyButton(otp: otp)
         }
     }
