@@ -31,7 +31,7 @@ class RowDetailViewController: UIViewController {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = .fucsiaColor()
-        button.setTitle("Создать", for: .normal)
+        button.setTitle(NSLocalizedString("Create", comment: "") , for: .normal)
         button.layer.cornerRadius = 30
         button.clipsToBounds = true
         button.setTitleColor(.white, for: .normal)
@@ -54,7 +54,7 @@ class RowDetailViewController: UIViewController {
              .underlineStyle: NSUnderlineStyle.single.rawValue,
              .paragraphStyle: paragraphStyle
         ]
-        let attributedText = NSMutableAttributedString(string: "Сканировать\nQR код", attributes: attributes)
+        let attributedText = NSMutableAttributedString(string: NSLocalizedString("Scan QR Code", comment: "") , attributes: attributes)
         button.addTarget(self, action: #selector(handleScanButton), for: .touchUpInside)
         button.setAttributedTitle(attributedText, for: .normal)
         return button
@@ -112,11 +112,11 @@ class RowDetailViewController: UIViewController {
     
     private func setupControllers(){
         setupNavigationController()
-        navigationItem.title = "Добавить аккаунт"
-        setupTextField(textField: issuerTextField, placeholderText: "Аккаунт", tag: 1)
-        setupTextField(textField: keyTextField, placeholderText: "Секретный ключ", tag: 2)
-        switchLabel.setLabelAtributedText(fontSize: 18, text: "Time-based", aligment: .center, indent: 0.0)
-        orLabel.setLabelAtributedText(fontSize: 18, text: "или", aligment: .center, indent: 0.0)
+        navigationItem.title = NSLocalizedString("Add new account", comment: "")
+        setupTextField(textField: issuerTextField, placeholderText: NSLocalizedString("Account", comment: "") , tag: 1)
+        setupTextField(textField: keyTextField, placeholderText: NSLocalizedString("Secret key", comment: "") , tag: 2)
+        switchLabel.setLabelAtributedText(fontSize: 18, text: NSLocalizedString("Time-based", comment: ""), aligment: .center, indent: 0.0)
+        orLabel.setLabelAtributedText(fontSize: 18, text: NSLocalizedString("or", comment: ""), aligment: .center, indent: 0.0)
     }
     
     private func setupView() {
@@ -175,7 +175,7 @@ class RowDetailViewController: UIViewController {
         
         view.addSubview(scanQRButton)
         NSLayoutConstraint.activate([
-            scanQRButton.topAnchor.constraint(equalTo: orLabel.bottomAnchor, constant: 24),
+            scanQRButton.topAnchor.constraint(equalTo: orLabel.bottomAnchor, constant: 16),
             scanQRButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             scanQRButton.heightAnchor.constraint(equalToConstant: 100),
             scanQRButton.widthAnchor.constraint(equalToConstant: 160)
@@ -183,7 +183,7 @@ class RowDetailViewController: UIViewController {
         
         view.addSubview(cancelButton)
         NSLayoutConstraint.activate([
-            cancelButton.topAnchor.constraint(equalTo: scanQRButton.bottomAnchor, constant: 24),
+            cancelButton.topAnchor.constraint(equalTo: scanQRButton.bottomAnchor, constant: 8),
             cancelButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             cancelButton.heightAnchor.constraint(equalToConstant: 80),
             cancelButton.widthAnchor.constraint(equalToConstant: 80)
@@ -205,7 +205,7 @@ class RowDetailViewController: UIViewController {
     
     // MARK: - Handlers
     
-    @objc private func handleSave(){
+    @objc private func handleSave() {
         delegate?.createNewItem(account: "", issuer: issuerTextField.text, key: keyTextField.text, timeBased: isTimeBased)
         
         dismiss(animated: true, completion: nil)

@@ -68,7 +68,7 @@ class CustomCell: UITableViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.backgroundColor = .systemBackground
-        let text = "Пароль обновиться через 30 с."
+        let text = NSLocalizedString("Refresh in 30 s.", comment: "")
         label.setLabelAtributedText(fontSize: 16, text: text, aligment: .center, indent: 0.0)
         return label
     }()
@@ -102,7 +102,7 @@ class CustomCell: UITableViewCell {
             issuerLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 8),
             issuerLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
             issuerLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
-            issuerLabel.heightAnchor.constraint(equalToConstant: 24)
+            issuerLabel.heightAnchor.constraint(equalToConstant: 28)
             ])
         
         addSubview(passLabel)
@@ -149,7 +149,7 @@ class CustomCell: UITableViewCell {
     
     @objc private func updateLabel (){
         countDown -= 1
-        descriptionLabel.text = "Пароль обновиться через " + String(countDown) + "с."
+        descriptionLabel.text = NSLocalizedString("Refresh in ", comment: "") + String(countDown) + NSLocalizedString("s.", comment: "")
         if countDown == 0 {
             countDown = 30
             let token = TokenGenerator.shared.createToken(name: issuer, issuer: issuer, secretString: key)

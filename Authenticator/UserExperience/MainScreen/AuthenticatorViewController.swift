@@ -71,7 +71,7 @@ class AuthenticatorViewController: UIViewController, UITableViewDelegate, UITabl
 
     private func configureNavBar() {
         setupNavigationController()
-        navigationItem.title = "Authenticator"
+        navigationItem.title =  NSLocalizedString("Authenticator", comment: "") 
         let barButtonItem = UIBarButtonItem(image: UIImage(named: "settings"), style: .done, target: self, action: #selector(settingsTapped))
         barButtonItem.tintColor = .fucsiaColor()
         navigationItem.rightBarButtonItem = barButtonItem

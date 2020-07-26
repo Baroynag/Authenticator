@@ -20,11 +20,14 @@ extension PasswordError: LocalizedError {
     public var errorDescription: String? {
         switch self {
             case .emptyPassword:
-                return NSLocalizedString("Пароль не может быть пустым", comment: "")
+                return NSLocalizedString("Password can't be empty", comment: "")
+//                return NSLocalizedString("Пароль не может быть пустым", comment: "")
             case .notConfirmedPassword:
-                return NSLocalizedString("Введие подтверждение пароля!", comment: "")
+                return NSLocalizedString("Confirm the password!", comment: "")
+//                return NSLocalizedString("Введие подтверждение пароля!", comment: "")
             case .differentPasswords:
-                return NSLocalizedString("Введенные пароли не совпадают", comment: "")
+                return NSLocalizedString("Passwords do not match", comment: "")
+//                return NSLocalizedString("Введенные пароли не совпадают", comment: "")
        }
     }
     

@@ -19,7 +19,7 @@ class SettingsViewController: UIViewController {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = .fucsiaColor()
-        button.setTitle("Выгрузить данные в архив", for: .normal)
+        button.setTitle(NSLocalizedString("Create backup", comment: "") , for: .normal)
         button.layer.cornerRadius = 10
         button.clipsToBounds = true
         button.setTitleColor(.white, for: .normal)
@@ -32,23 +32,12 @@ class SettingsViewController: UIViewController {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = .fucsiaColor()
-        button.setTitle("Загрузить данные из архива", for: .normal)
+        button.setTitle(NSLocalizedString("Load from backup", comment: "") , for: .normal)
         button.layer.cornerRadius = 10
         button.clipsToBounds = true
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = UIFont(name: "Lato-Light", size: 18)
         button.addTarget(self, action: #selector(handleLoadFromBackup), for: .touchUpInside)
-        return button
-    }()
-    
-    let cancelButton: UIButton = {
-        let button = UIButton()
-        button.backgroundColor = .clear
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.setImage(UIImage(named: "cancelButton"), for: .normal)
-        button.addTarget(self, action: #selector(handleCancelButton), for: .touchUpInside)
-        button.layer.cornerRadius = 40
-        button.layer.masksToBounds = true
         return button
     }()
     
@@ -62,7 +51,7 @@ class SettingsViewController: UIViewController {
     private func setupView(){
         
         setupNavigationController()
-        navigationItem.title = "Настройки"
+        navigationItem.title = NSLocalizedString("Settings", comment: "")
         
         view.backgroundColor = UIColor.systemBackground
         
@@ -80,37 +69,28 @@ class SettingsViewController: UIViewController {
             loadButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -24),
             loadButton.heightAnchor.constraint(equalToConstant: 40)
         ])
-        
-        view.addSubview(cancelButton)
-        NSLayoutConstraint.activate([
-            cancelButton.topAnchor.constraint(equalTo: loadButton.bottomAnchor, constant: 48),
-            cancelButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            cancelButton.heightAnchor.constraint(equalToConstant: 80),
-            cancelButton.widthAnchor.constraint(equalToConstant: 80)
-        ])
     }
     
     func promptForPassword(completion: @escaping (String?) -> ()){
-        let alert = UIAlertController(title: "Введите пароль", message: nil, preferredStyle: .alert)
+        let alert = UIAlertController(title: NSLocalizedString("Enter password", comment: "") , message: nil, preferredStyle: .alert)
 
         alert.addTextField { (textField: UITextField) in
             textField.isSecureTextEntry = true
             
-            textField.placeholder = "Пароль"
+            textField.placeholder = NSLocalizedString("Password", comment: "")
             textField.addTarget(self,
                 action: #selector(self.textFieldDidChange),
                 for: .editingChanged
             )
         }
         
-        let cancelAction = UIAlertAction(title: "Отмена", style: .default)
+        let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: "") , style: .default)
         
-        let submitAction = UIAlertAction(title: "Ок", style: .default) { [unowned alert] _ in
+        let submitAction = UIAlertAction(title: NSLocalizedString("Ok", comment: "") , style: .default) { [unowned alert] _ in
             if let answer = alert.textFields?[0]{
                 if let pass = answer.text{
                     if pass == ""{
                         cancelAction.isEnabled = false
-                        print ("пароль не может быть пустым")
                     } else {
                         completion(pass)
                     }
@@ -126,7 +106,7 @@ class SettingsViewController: UIViewController {
     
     
     func getFileContent (fileURL: URL, password: String){
-//TODO: вывести сообщение
+        //TODO: вывести сообщение
         if password == "" {
            return
         }
@@ -158,15 +138,15 @@ class SettingsViewController: UIViewController {
     }
     
     func decrypt(encryptedText : String, password: String) -> String {
-            do  {
-                let data: Data = Data(base64Encoded: encryptedText)!
-                let decryptedData = try RNCryptor.decrypt(data: data, withPassword: password)
-                let decryptedString = String(data: decryptedData, encoding: .utf8)
-                return decryptedString ?? ""
-            }
-            catch {
-                return "FAILED"
-            }
+        do  {
+            let data: Data = Data(base64Encoded: encryptedText)!
+            let decryptedData = try RNCryptor.decrypt(data: data, withPassword: password)
+            let decryptedString = String(data: decryptedData, encoding: .utf8)
+            return decryptedString ?? ""
+        }
+        catch {
+            return "FAILED"
+        }
     }
     
     func saveBackupFile(password: String){

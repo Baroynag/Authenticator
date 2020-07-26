@@ -27,7 +27,7 @@ class PasswordViewController: UIViewController {
     private let confirmButton: UIButton = {
         let button = UIButton()
         button.backgroundColor = .fucsiaColor()
-        button.setTitle("OK", for: .normal)
+        button.setTitle(NSLocalizedString("Ok", comment: "") , for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(handleConfirmButton), for: .touchUpInside)
         button.layer.cornerRadius = 10
@@ -39,7 +39,6 @@ class PasswordViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .orange
-        print("pass VC")
         setupView()
     }
     
@@ -57,8 +56,8 @@ class PasswordViewController: UIViewController {
         view.addSubview(confirmPasswordTextField)
         
         
-        setupTextField(textField: passwordTextField, placeholderText: "Пароль", tag: 1)
-             setupTextField(textField: confirmPasswordTextField, placeholderText: "Подтвердите пароль", tag: 2)
+        setupTextField(textField: passwordTextField, placeholderText: NSLocalizedString("Password", comment: "") , tag: 1)
+             setupTextField(textField: confirmPasswordTextField, placeholderText: NSLocalizedString("Confirm password", comment: "") , tag: 2)
         
         view.addSubview(confirmButton)
         NSLayoutConstraint.activate([
@@ -83,7 +82,7 @@ class PasswordViewController: UIViewController {
  
     private func showErrorAlert(errorText: String){
         let alert = UIAlertController(title: "", message: errorText, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: NSLocalizedString(NSLocalizedString("Ok", comment: "") , comment: "Default action"), style: .default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
     

@@ -26,11 +26,9 @@ extension UIColor{
 extension AuthenticatorViewController: AddItemDelegate {
     func createNewItem(account: String?, issuer: String?, key: String?, timeBased: Bool) {
         AuthenticatorModel.shared.addOneItem(account: account, issuer: issuer, key: key, timeBased: timeBased)
-        tableView.reloadData()
-//        DispatchQueue.main.async { [weak self] in
-//            self?.tableView.reloadData()
-//        }
-        
+        DispatchQueue.main.async { [weak self] in
+            self?.tableView.reloadData()
+        }
     }
 
 }

@@ -1,0 +1,57 @@
+/* No comment provided by engineer. */
+"Authenticator" = "Аутентификатор";
+
+/* No comment provided by engineer. */
+"Cancel" = "Отмена";
+
+/* No comment provided by engineer. */
+"Confirm password" = "Подтвердите пароль";
+
+/* No comment provided by engineer. */
+"Create" = "Создать";
+
+/* No comment provided by engineer. */
+"Create backup" = "Выгрузить резервную копию";
+
+/* No comment provided by engineer. */
+"Enter password" = "Введите пароль";
+
+/* No comment provided by engineer. */
+"Load from backup" = "Загрузить из резервной копии";
+
+/* Default action */
+"Ok" = "Ок";
+
+/* No comment provided by engineer. */
+"or" = "или";
+
+/* No comment provided by engineer. */
+"Password" = "Пароль";
+
+/* No comment provided by engineer. */
+"Password can't be empty" = "Пароль не может быть пустым!";
+
+/* No comment provided by engineer. */
+"Passwords do not match" = "Введенные пароли не совпадают";
+
+/* No comment provided by engineer. */
+"Refresh in " = "Обновиться через ";
+
+/* No comment provided by engineer. */
+"Refresh in 30 s." = "Обновиться через 30 с.";
+
+/* No comment provided by engineer. */
+"s." = "с.";
+
+/* No comment provided by engineer. */
+"Scan QR Code" = "Сканировать QR код";
+
+/* No comment provided by engineer. */
+"Secret key" = "Секретный ключ";
+
+/* No comment provided by engineer. */
+"Settings" = "Настройки";
+
+/* No comment provided by engineer. */
+"Time-based" = "Фактор времени";
+
