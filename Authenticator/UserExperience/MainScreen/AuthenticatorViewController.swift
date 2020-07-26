@@ -9,12 +9,13 @@
 
 import UIKit
 
-class AuthenticatorViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class AuthenticatorViewController: UIViewController {
   
 //    MARK: - Properties
     
     let cellId = "cellId"
     var tableView = UITableView()
+    var timer: Timer?
     
     let addButton: UIButton = {
         let button = UIButton()
@@ -34,6 +35,7 @@ class AuthenticatorViewController: UIViewController, UITableViewDelegate, UITabl
         createTable()
         setupAddButton()
         fetchData()
+        createTimer()
         
     }
 
@@ -93,7 +95,7 @@ class AuthenticatorViewController: UIViewController, UITableViewDelegate, UITabl
 
 
 //    MARK: - UITableViewDataSource
-extension AuthenticatorViewController {
+extension AuthenticatorViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return AuthenticatorModel.shared.authenticatorItemsList?.count ?? 0
@@ -119,7 +121,7 @@ extension AuthenticatorViewController {
 }
 
 //    MARK: - UITableViewDelegate
-extension AuthenticatorViewController{
+extension AuthenticatorViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
             
         if editingStyle == .delete {
@@ -147,3 +149,40 @@ extension AuthenticatorViewController: CopyPassToClipBoardDelegate {
     }
 
 }
+
+// MARK: - Timer
+extension AuthenticatorViewController {
+
+    private func createTimer() {
+        
+        if timer == nil {
+            
+            let timer = Timer(timeInterval: 1.0,
+                              target: self,
+                              selector: #selector(updateTimer),
+                              userInfo: nil,
+                              repeats: true)
+            
+            RunLoop.current.add(timer, forMode: .common)
+           
+            timer.tolerance = 0.1
+      
+            self.timer = timer
+        }
+    }
+  
+    @objc func updateTimer() {
+    
+        guard let visibleRowsIndexPaths = tableView.indexPathsForVisibleRows else {
+            return
+        }
+    
+        for indexPath in visibleRowsIndexPaths {
+            if let cell = tableView.cellForRow(at: indexPath) as? CustomCell {
+                cell.updateTimerInfoLabel()
+            }
+        }
+    }
+    
+}
+

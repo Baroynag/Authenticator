@@ -12,7 +12,6 @@ class CustomCell: UITableViewCell {
     
     // MARK: - Properties
     private var countDown = 30
-    private var timer: Timer?
     private var key = ""
     private var issuer = ""
     private var account = ""
@@ -39,7 +38,7 @@ class CustomCell: UITableViewCell {
             passLabel.setLabelAtributedText(fontSize: 50, text: keyText,  aligment: .center, indent: 0.0)
             }
             
-            startTimer()
+            updateTimerInfoLabel()
         }
     }
     
@@ -141,13 +140,9 @@ class CustomCell: UITableViewCell {
 
     }
     
-    private func startTimer(){
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateLabel), userInfo: nil, repeats: true)
-    }
-    
     // MARK: - Handlers
     
-    @objc private func updateLabel (){
+    @objc public func updateTimerInfoLabel (){
         countDown -= 1
         descriptionLabel.text = NSLocalizedString("Refresh in ", comment: "") + String(countDown) + NSLocalizedString("s.", comment: "")
         if countDown == 0 {
