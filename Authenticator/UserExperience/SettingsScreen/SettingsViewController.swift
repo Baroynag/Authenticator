@@ -114,7 +114,7 @@ class SettingsViewController: UIViewController {
         print(#function)
         do{
             let data = try String(contentsOf: fileURL)
-            let decriptedText = decrypt(encryptedText: data, password: password)
+            let decriptedText = RNCryptor.decrypt(encryptedText: data, password: password)
            
             guard let jsonData = decriptedText.data(using: .utf8) else {
                 print("Error to upload file")
@@ -130,25 +130,6 @@ class SettingsViewController: UIViewController {
         
     }
     
-    func encrypt(plainText : String, password: String) -> String {
-            let data: Data = plainText.data(using: .utf8)!
-            let encryptedData = RNCryptor.encrypt(data: data, withPassword: password)
-            let encryptedString : String = encryptedData.base64EncodedString()
-            return encryptedString
-    }
-    
-    func decrypt(encryptedText : String, password: String) -> String {
-        do  {
-            let data: Data = Data(base64Encoded: encryptedText)!
-            let decryptedData = try RNCryptor.decrypt(data: data, withPassword: password)
-            let decryptedString = String(data: decryptedData, encoding: .utf8)
-            return decryptedString ?? ""
-        }
-        catch {
-            return "FAILED"
-        }
-    }
-    
     func saveBackupFile(password: String){
         
         let jsonArray = AuthenticatorModel.shared.convertCoreDataObjectsToJSONArray()
@@ -157,7 +138,7 @@ class SettingsViewController: UIViewController {
         
         if let jsonData = try? JSONSerialization.data(withJSONObject: jsonArray) {
             if let jsonString = String(data: jsonData, encoding: .utf8){
-                let encryptedText = encrypt(plainText: jsonString, password: password)
+                let encryptedText = RNCryptor.encrypt(plainText: jsonString, password: password)
                 do{
                     try encryptedText.write(to: temporaryFilePath, atomically: true, encoding: .utf8)
                     let activityViewController = UIActivityViewController(activityItems: [temporaryFilePath], applicationActivities: nil)
@@ -208,7 +189,6 @@ class SettingsViewController: UIViewController {
         print(#function)
         getPassword { [weak self ](pass) in
             if let pass = pass{
-                print ("pass = \(pass)")
                 self?.saveBackupFile(password: pass)
             }
         }
@@ -239,13 +219,12 @@ class SettingsViewController: UIViewController {
         }
     }
     
-    
 }
 
 extension SettingsViewController: UIDocumentPickerDelegate {
     
     func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]){
-        print("documentPicker")
+        
         guard let selectedFileURL = urls.first else {return}
         
         if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first{
