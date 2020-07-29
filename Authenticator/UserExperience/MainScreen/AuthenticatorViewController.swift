@@ -81,10 +81,9 @@ class AuthenticatorViewController: UIViewController {
     
     private func pushDetailViewController(text: String?, state: States){
         let rowDetailViewController = RowDetailViewController()
-        
         rowDetailViewController.delegate = self
         rowDetailViewController.modalPresentationStyle = .fullScreen
-        self.present(rowDetailViewController, animated: true, completion: nil)
+        navigationController?.pushViewController(rowDetailViewController, animated: true)
     }
     
     private func fetchData(){
@@ -107,7 +106,6 @@ extension AuthenticatorViewController: UITableViewDataSource {
         
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             
-        // TODO: force unwrap
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! CustomCell
         
         if let item = AuthenticatorModel.shared.authenticatorItemsList?[indexPath.row]{

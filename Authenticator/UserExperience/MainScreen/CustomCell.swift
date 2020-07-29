@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class CustomCell: UITableViewCell {
     
@@ -147,6 +148,7 @@ class CustomCell: UITableViewCell {
         copyCountDown = 5
         isCopyCountPressed = true
         passLabel.setLabelAtributedText(fontSize: 40, text: "Copied",  aligment: .center, indent: 0.0)
+        AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
     }
 
     private func endCopy(){

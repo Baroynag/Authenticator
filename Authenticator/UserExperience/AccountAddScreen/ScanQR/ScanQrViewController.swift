@@ -19,11 +19,9 @@ class ScanQrViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        print ("viewDidLoad")
-        
+
         view.backgroundColor = UIColor.black
-        
+        self.navigationController?.navigationBar.isTranslucent = true
         captureSession = AVCaptureSession()
 
         guard let videoCaptureDevice = AVCaptureDevice.default(for: .video) else { return }
@@ -32,7 +30,7 @@ class ScanQrViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
         do {
             videoInput = try AVCaptureDeviceInput(device: videoCaptureDevice)
         } catch {
-            print ("1")
+            print (NSLocalizedString("Capture error \(error.localizedDescription)", comment: ""))
             return
         }
 
@@ -73,7 +71,6 @@ class ScanQrViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        print ("viewWillAppear")
         if (captureSession?.isRunning == false) {
             captureSession.startRunning()
         }
@@ -82,8 +79,6 @@ class ScanQrViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        print ("viewWillDisappear")
-
         if (captureSession?.isRunning == true) {
             captureSession.stopRunning()
         }
@@ -93,22 +88,19 @@ class ScanQrViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
     func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
         captureSession.stopRunning()
 
-        print ("metadataOutput")
         if let metadataObject = metadataObjects.first {
             guard let readableObject = metadataObject as? AVMetadataMachineReadableCodeObject else { return }
             guard let stringValue = readableObject.stringValue else { return }
             AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
-            self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
+            navigationController?.popToRootViewController(animated: true)
             found(urlString: stringValue)
             
-        } else { dismiss(animated: true)}
+        } else { navigationController?.popToRootViewController(animated: true)}
         
     }
 
     func found(urlString: String) {
 
-        /*otpauth://totp/VK:id132504071?secret=25PXK6NNGXI4OH7L&issuer=VK*/
-        
         if let url = URLComponents(string: urlString) {
             
             let account   = url.path.replacingOccurrences(of: "/", with: "")

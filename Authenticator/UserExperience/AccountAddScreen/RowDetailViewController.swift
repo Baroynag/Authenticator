@@ -208,7 +208,7 @@ class RowDetailViewController: UIViewController {
     @objc private func handleSave() {
         delegate?.createNewItem(account: "", issuer: issuerTextField.text, key: keyTextField.text, timeBased: isTimeBased)
         
-        dismiss(animated: true, completion: nil)
+        navigationController?.popViewController(animated: true)
     }
     
     @objc private func switchValueChanged(_ sender:UISwitch!){
@@ -220,11 +220,12 @@ class RowDetailViewController: UIViewController {
         let scanQrViewController = ScanQrViewController()
         scanQrViewController.delegate = self
         scanQrViewController.modalPresentationStyle = .fullScreen
-        self.present(scanQrViewController, animated: true, completion: nil)
+
+       navigationController?.pushViewController(scanQrViewController, animated: true)
     }
     
     @objc private func handleCancelButton(){
-        dismiss(animated: true, completion: nil)
+        navigationController?.popViewController(animated: true)
     }
  
 }
@@ -252,7 +253,6 @@ extension RowDetailViewController: UITextFieldDelegate{
         }
         return false
     }
-    
 }
     
 extension RowDetailViewController: AddItemDelegate{
