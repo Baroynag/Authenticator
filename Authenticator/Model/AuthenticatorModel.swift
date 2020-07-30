@@ -103,5 +103,22 @@ class AuthenticatorModel {
         return jsonArray
         
     }
+    
+    public func isAnyData() -> Bool{
+        let count = AuthenticatorModel.shared.authenticatorItemsList?.count ?? 0
+        return count > 0
+    }
+    
+    public func saveDataBromBackupToCoreData(backupData: [[String:Any]]) {
+        
+        for item in backupData{
+            let account   = item["account"]   as? String ?? ""
+            let key       = item["key"]       as? String ?? ""
+            let issuer    = item["issuer"]    as? String ?? ""
+            let timeBased = item["timeBased"] as? Bool   ?? false
+            
+            self.addOneItem(account: account, issuer: issuer, key: key, timeBased: timeBased)
+        }
+    }
   
 }

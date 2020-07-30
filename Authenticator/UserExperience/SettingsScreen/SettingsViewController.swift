@@ -13,7 +13,7 @@ import RNCryptor
 class SettingsViewController: UIViewController {
 
 //    MARK: - Properties
-    weak var delegate: AddItemDelegate?
+    weak var delegate: RefreshTableDelegate?
     
     let saveButton: UIButton = {
         let button = UIButton()
@@ -104,66 +104,27 @@ class SettingsViewController: UIViewController {
         present(alert, animated: true)
     }
     
-    
-    func getFileContent (fileURL: URL, password: String){
-        //TODO: вывести сообщение
-        if password == "" {
-           return
-        }
+      
+    func saveBackupToFile(password: String){
         
-        print(#function)
-        do{
-            let data = try String(contentsOf: fileURL)
-            let decriptedText = RNCryptor.decrypt(encryptedText: data, password: password)
-           
-            guard let jsonData = decriptedText.data(using: .utf8) else {
-                print("Error to upload file")
-                return}
-
-            guard let jsonResponse = (try? JSONSerialization.jsonObject(with: jsonData)) as? [[String:Any]] else {
-                print("Json serialization error")
-                return}
-            self.saveDataBromBackupToCoreData(backupData: jsonResponse)
-        } catch{
-            print(error.localizedDescription)
-        }
+        //TODO: add error message
+        guard let backupData = Backup.getEncriptedData(password: password) else {return}
         
-    }
-    
-    func saveBackupFile(password: String){
-        
-        let jsonArray = AuthenticatorModel.shared.convertCoreDataObjectsToJSONArray()
         let temporaryFolder = FileManager.default.temporaryDirectory
         let temporaryFilePath = temporaryFolder.appendingPathComponent("sotpbackup.sotp")
-        
-        if let jsonData = try? JSONSerialization.data(withJSONObject: jsonArray) {
-            if let jsonString = String(data: jsonData, encoding: .utf8){
-                let encryptedText = RNCryptor.encrypt(plainText: jsonString, password: password)
-                do{
-                    try encryptedText.write(to: temporaryFilePath, atomically: true, encoding: .utf8)
-                    let activityViewController = UIActivityViewController(activityItems: [temporaryFilePath], applicationActivities: nil)
+
+        do{
+            try backupData.write(to: temporaryFilePath, atomically: true, encoding: .utf8)
+            let activityViewController = UIActivityViewController(activityItems: [temporaryFilePath], applicationActivities: nil)
                     activityViewController.popoverPresentationController?.sourceView = self.view
-                    self.present(activityViewController, animated: true, completion: nil)
-                }
-                catch {
-                    print(error.localizedDescription)
-                }
+            self.present(activityViewController, animated: true, completion: nil)
             }
-        }
+            catch {
+                print(error.localizedDescription)
+            }
         
     }
-           
-    func saveDataBromBackupToCoreData(backupData: [[String:Any]]) {
-        
-        for item in backupData{
-            let account   = item["account"]   as? String ?? ""
-            let key       = item["key"]       as? String ?? ""
-            let issuer    = item["issuer"]    as? String ?? ""
-            let timeBased = item["timeBased"] as? Bool   ?? false
-            
-            delegate?.createNewItem(account: account, issuer: issuer, key: key, timeBased: timeBased)
-        }
-    }
+ 
     
     func getPassword(completion: @escaping (String?) -> () ){
         let passwordViewController = PasswordViewController()
@@ -189,14 +150,14 @@ class SettingsViewController: UIViewController {
         print(#function)
         getPassword { [weak self ](pass) in
             if let pass = pass{
-                self?.saveBackupFile(password: pass)
+                self?.saveBackupToFile(password: pass)
             }
         }
     }
     
     @objc func handleLoadFromBackup(){
-        chooseDocument { (isEnded) in
-                print ("isEnded")
+        chooseDocument {(isEnded) in
+            print ("isEnded")
         }
     }
 
@@ -233,7 +194,9 @@ extension SettingsViewController: UIDocumentPickerDelegate {
             dismiss(animated: true) { [weak self ] in
                 self?.promptForPassword { (pass) in
                     if let pass = pass{
-                        self?.getFileContent(fileURL: filePath, password: pass)
+                        Backup.getFileContent(fileURL: filePath, password: pass)
+                        self?.delegate?.refresh()
+                        self?.navigationController?.popToRootViewController(animated: true)
                     }
                 }
             }

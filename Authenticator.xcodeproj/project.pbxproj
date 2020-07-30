@@ -35,6 +35,8 @@
 		14543E1B24968363008E7DA8 /* TokenGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14543E1A24968363008E7DA8 /* TokenGenerator.swift */; };
 		1463409724CCC23E008ECFBD /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1463409524CCC23E008ECFBD /* Localizable.strings */; };
 		1463409A24CE0763008ECFBD /* RNCryptorExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1463409924CE0763008ECFBD /* RNCryptorExtention.swift */; };
+		146CE3A724D1B9AB00DDC45C /* GreetingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146CE3A624D1B9AB00DDC45C /* GreetingViewController.swift */; };
+		146CE3AA24D3369600DDC45C /* Backup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146CE3A924D3369600DDC45C /* Backup.swift */; };
 		14B61B5B24C71DD400A08A14 /* AuthenticatorItem+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B61B5924C71DD400A08A14 /* AuthenticatorItem+CoreDataClass.swift */; };
 		14B61B5C24C71DD400A08A14 /* AuthenticatorItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B61B5A24C71DD400A08A14 /* AuthenticatorItem+CoreDataProperties.swift */; };
 		14B7E31E24C3237F00A2E9F3 /* PasswordError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B7E31D24C3237F00A2E9F3 /* PasswordError.swift */; };
@@ -121,6 +123,8 @@
 		1463409624CCC23E008ECFBD /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1463409824CDC706008ECFBD /* hy-AM */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "hy-AM"; path = "hy-AM.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		1463409924CE0763008ECFBD /* RNCryptorExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RNCryptorExtention.swift; sourceTree = "<group>"; };
+		146CE3A624D1B9AB00DDC45C /* GreetingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingViewController.swift; sourceTree = "<group>"; };
+		146CE3A924D3369600DDC45C /* Backup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Backup.swift; sourceTree = "<group>"; };
 		14B61B5924C71DD400A08A14 /* AuthenticatorItem+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthenticatorItem+CoreDataClass.swift"; sourceTree = "<group>"; };
 		14B61B5A24C71DD400A08A14 /* AuthenticatorItem+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthenticatorItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		14B61B5D24CCB13B00A08A14 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
@@ -225,6 +229,7 @@
 				1401DAC42443436E00DE677F /* Protocols.swift */,
 				1405D88A24719BF10065509B /* UITextFieldWithBottomBorder.swift */,
 				1463409924CE0763008ECFBD /* RNCryptorExtention.swift */,
+				146CE3A924D3369600DDC45C /* Backup.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -270,12 +275,21 @@
 			path = "SOTPWatch Extension";
 			sourceTree = "<group>";
 		};
+		146CE3A824D1B9BB00DDC45C /* GreetingScreen */ = {
+			isa = PBXGroup;
+			children = (
+				146CE3A624D1B9AB00DDC45C /* GreetingViewController.swift */,
+			);
+			path = GreetingScreen;
+			sourceTree = "<group>";
+		};
 		1490048D246DBC8D00F91500 /* UserExperience */ = {
 			isa = PBXGroup;
 			children = (
 				1434356A24A91E9500935297 /* SettingsScreen */,
 				1490048F246DBCCC00F91500 /* AccountAddScreen */,
 				1490048E246DBCBF00F91500 /* MainScreen */,
+				146CE3A824D1B9BB00DDC45C /* GreetingScreen */,
 			);
 			path = UserExperience;
 			sourceTree = "<group>";
@@ -509,6 +523,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				146CE3A724D1B9AB00DDC45C /* GreetingViewController.swift in Sources */,
 				1401DAC62443436E00DE677F /* Protocols.swift in Sources */,
 				1401DA852440D46800DE677F /* Authenticator.xcdatamodeld in Sources */,
 				1401DAC12443431200DE677F /* AuthenticatorViewController.swift in Sources */,
@@ -523,6 +538,7 @@
 				14543E1B24968363008E7DA8 /* TokenGenerator.swift in Sources */,
 				141917D0245483EC00EE125D /* ScanQrViewController.swift in Sources */,
 				14543DC82486E02D008E7DA8 /* WatchAppConnection.swift in Sources */,
+				146CE3AA24D3369600DDC45C /* Backup.swift in Sources */,
 				1401DAC72443436E00DE677F /* Exrentions.swift in Sources */,
 				14B61B5B24C71DD400A08A14 /* AuthenticatorItem+CoreDataClass.swift in Sources */,
 				1401DA7D2440D46800DE677F /* SceneDelegate.swift in Sources */,

@@ -30,7 +30,16 @@ extension AuthenticatorViewController: AddItemDelegate {
             self?.tableView.reloadData()
         }
     }
+}
 
+extension AuthenticatorViewController: RefreshTableDelegate {
+    func refresh() {
+        DispatchQueue.main.async { [weak self] in
+            self?.tableView.reloadData()
+        }
+    }
+    
+    
 }
 
 extension UIViewController{

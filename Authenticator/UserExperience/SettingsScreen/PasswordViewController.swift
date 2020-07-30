@@ -92,7 +92,7 @@ class PasswordViewController: UIViewController {
             let isValidPassword = try PasswordError.cheackPassword(passOne: passwordTextField.text, passTwo: confirmPasswordTextField.text)
             if isValidPassword {
                 
-                navigationController?.popViewController(completion: {  [weak self] in
+                navigationController?.popViewController(completion: { [weak self] in
                     if let password = self?.passwordTextField.text{
                         self?.callBack?(password)
                     }

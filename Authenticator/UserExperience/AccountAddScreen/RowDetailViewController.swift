@@ -208,7 +208,7 @@ class RowDetailViewController: UIViewController {
     @objc private func handleSave() {
         delegate?.createNewItem(account: "", issuer: issuerTextField.text, key: keyTextField.text, timeBased: isTimeBased)
         
-        navigationController?.popViewController(animated: true)
+        self.navigationController?.popToRootViewController(animated: true)
     }
     
     @objc private func switchValueChanged(_ sender:UISwitch!){
@@ -225,7 +225,7 @@ class RowDetailViewController: UIViewController {
     }
     
     @objc private func handleCancelButton(){
-        navigationController?.popViewController(animated: true)
+       self.navigationController?.popToRootViewController(animated: true)
     }
  
 }

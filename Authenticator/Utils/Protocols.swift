@@ -16,3 +16,8 @@ protocol AddItemDelegate : class {
 
     func createNewItem (account: String?, issuer: String?, key: String?, timeBased: Bool)
 }
+
+protocol RefreshTableDelegate : class {
+
+    func refresh ()
+}

@@ -17,7 +17,7 @@ class AuthenticatorViewController: UIViewController {
     var tableView = UITableView()
     var timer: Timer?
     
-    let addButton: UIButton = {
+    private let addButton: UIButton = {
         let button = UIButton()
         button.backgroundColor = .clear
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -31,20 +31,23 @@ class AuthenticatorViewController: UIViewController {
 //    MARK: - Inits
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureNavBar()
-        createTable()
-        setupAddButton()
-        fetchData()
-        createTimer()
         
+       configureNavBar()
+       createTable()
+       setupAddButton()
+       createTimer()
+        
+        if needShowGreetingScreen(){
+            showGreetingScreen()
+        }
     }
 
 //    MARK: - Handlers
-    @objc func pressAddButton(){
+    @objc private func pressAddButton(){
       self.pushDetailViewController(text: nil, state: .add)
     }
 
-    @objc func settingsTapped(){
+    @objc private func settingsTapped(){
         let settingsViewController = SettingsViewController()
         settingsViewController.modalPresentationStyle = .fullScreen
         settingsViewController.delegate = self
@@ -52,7 +55,7 @@ class AuthenticatorViewController: UIViewController {
     }
     
 //    MARK: - Functions
-    func createTable(){
+    private func createTable(){
         tableView = UITableView(frame: view.bounds, style: .plain)
         tableView.register(CustomCell.self, forCellReuseIdentifier: cellId)
         tableView.delegate = self
@@ -86,9 +89,18 @@ class AuthenticatorViewController: UIViewController {
         navigationController?.pushViewController(rowDetailViewController, animated: true)
     }
     
-    private func fetchData(){
+    private func needShowGreetingScreen() -> Bool{
         AuthenticatorModel.shared.loadData()
+        return !AuthenticatorModel.shared.isAnyData()
     }
+    
+    private func showGreetingScreen() {
+        let greetingViewController = GreetingViewController()
+        greetingViewController.delegate = self
+        greetingViewController.modalPresentationStyle = .fullScreen
+        navigationController?.pushViewController(greetingViewController, animated: true)
+    }
+
     
 }
 
