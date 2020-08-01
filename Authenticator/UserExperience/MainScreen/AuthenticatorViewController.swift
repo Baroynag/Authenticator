@@ -158,7 +158,6 @@ extension AuthenticatorViewController: UITableViewDelegate{
 extension AuthenticatorViewController: CopyPassToClipBoardDelegate {
     
     func pressCopyButton(otp: String) {
-        print ("otp = \(otp)")
         let pasteboard = UIPasteboard.general
         pasteboard.string = otp
     }

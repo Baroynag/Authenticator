@@ -17,27 +17,58 @@ class AuthenticatorModel {
     private let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     public var authenticatorItemsList: [AuthenticatorItem]?
+    private var filteredItems: [AuthenticatorItem]?
     
     func loadData(){
         do{
             self.authenticatorItemsList = try context.fetch(AuthenticatorItem.fetchRequest())
         } catch{
-            print("Ошибка загрузки данных: \(error.localizedDescription)")
+            print(NSLocalizedString("Core data load error", comment: "") ,  error.localizedDescription)
         }
     }
     
+    func isRecordExist(account: String, issuer: String, key: String, timeBased: Bool) -> Bool{
+        
+        let request = AuthenticatorItem.fetchRequest() as NSFetchRequest<AuthenticatorItem>
+        
+        
+        let predicate = NSPredicate(
+            format: "account = %@ AND issuer = %@ AND key = %@ AND timeBased =  %d",
+            account, issuer, key, timeBased)
+        
+        request.predicate = predicate
+        
+        do{
+            self.filteredItems = try context.fetch(request)
+            if filteredItems?.count ?? 0  > 0 {
+                return true
+            }
+        } catch{
+            print(NSLocalizedString("Core data load error", comment: "") ,  error.localizedDescription)
+        }
+        
+        return false
+    }
+    
     func addOneItem(account: String?, issuer: String?, key: String?, timeBased: Bool){
+        
+       if isRecordExist(account: account ?? "", issuer: issuer ?? "", key: key ?? "", timeBased: timeBased){
+            print("exis!!!")
+            return
+        }
+        
         let authItem = AuthenticatorItem(context: context)
         authItem.id        = UUID()
         authItem.account   = account
         authItem.issuer    = issuer
         authItem.key       = key
         authItem.timeBased = timeBased
+        
         authenticatorItemsList?.append(authItem)
         do{
             try self.context.save()
         } catch{
-            print("Ошибка при сохранении данных \(error.localizedDescription)")
+            print(NSLocalizedString("Core data save error", comment: "") ,  error.localizedDescription)
         }
     }
     
@@ -51,7 +82,7 @@ class AuthenticatorModel {
             do {
                 try context.save()
             } catch {
-                print("Ошибка при сохранении \(error.localizedDescription)")
+               print(NSLocalizedString("Core data delete error", comment: "") ,  error.localizedDescription)
             }
         }
     }

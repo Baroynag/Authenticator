@@ -33,18 +33,16 @@ class Backup{
            return
         }
         
-        print(#function)
         do{
             let data = try String(contentsOf: fileURL)
             let decriptedText = RNCryptor.decrypt(encryptedText: data, password: password)
-           print (decriptedText)
             guard let jsonData = decriptedText.data(using: .utf8) else {
-                print("Error to upload file")
+                print(NSLocalizedString("Error to upload file", comment: ""))
                 return}
 
             guard let jsonResponse = (try? JSONSerialization.jsonObject(with: jsonData)) as? [[String:Any]] else {
-                print("Json serialization error")
-                return}
+                    print(NSLocalizedString("Json serialization error", comment: ""))
+                    return}
             AuthenticatorModel.shared.saveDataBromBackupToCoreData(backupData: jsonResponse)
         } catch{
             print(error.localizedDescription)
