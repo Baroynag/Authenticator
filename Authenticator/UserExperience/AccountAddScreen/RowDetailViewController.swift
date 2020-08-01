@@ -105,7 +105,7 @@ class RowDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setupView()
+        self.setupView()
     }
     
     // MARK: Functions
@@ -120,9 +120,13 @@ class RowDetailViewController: UIViewController {
     }
     
     private func setupView() {
+        
         let tapGesture = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
         view.addGestureRecognizer(tapGesture)
         setupNavigationController()
+        
+        self.navigationController?.navigationBar.isHidden = true
+        
         view.backgroundColor = .systemGray5
         setupLayouts()
         setupControllers()
@@ -201,14 +205,29 @@ class RowDetailViewController: UIViewController {
         textField.tag = tag
         textField.delegate = self
     }
+    
+    private func showAlert(){
+        let alert = UIAlertController(title: NSLocalizedString("Wrong secret key", comment: ""), message: NSLocalizedString("Please enter correct secret key", comment: ""), preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: NSLocalizedString("Ok", comment: "") , style: .default)
+        alert.addAction(okAction)
+        present(alert, animated: true)
+    }
 
     
     // MARK: - Handlers
     
     @objc private func handleSave() {
-        delegate?.createNewItem(account: "", issuer: issuerTextField.text, key: keyTextField.text, timeBased: isTimeBased)
         
-        self.navigationController?.popToRootViewController(animated: true)
+        if let key = keyTextField.text{
+            if TokenGenerator.shared.isValidSecretKey(secretKey: key){
+                delegate?.createNewItem(account: "", issuer: issuerTextField.text, key: keyTextField.text, timeBased: isTimeBased)
+                self.navigationController?.popToRootViewController(animated: true)
+            } else{
+                showAlert()
+            }
+        }
+            
     }
     
     @objc private func switchValueChanged(_ sender:UISwitch!){

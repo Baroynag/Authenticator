@@ -50,6 +50,7 @@ class SettingsViewController: UIViewControllerWithDocumentPicker {
     private func setupView(){
         
         setupNavigationController()
+        self.navigationController?.navigationBar.isHidden = false
         navigationItem.title = NSLocalizedString("Settings", comment: "")
         
         view.backgroundColor = UIColor.systemBackground

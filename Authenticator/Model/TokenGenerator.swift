@@ -32,5 +32,18 @@ class TokenGenerator {
 
         return token
     }
+    
+    func isValidSecretKey(secretKey: String) -> Bool{
+        
+        if secretKey.isEmpty {return false}
+        
+        guard let _ = MF_Base32Codec.data(fromBase32String: secretKey) else {
+            return false
+        }
+        
+        return true
+            
+        
+    }
 
 }

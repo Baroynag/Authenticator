@@ -44,6 +44,8 @@ class PasswordViewController: UIViewController {
     
     //  MARK:- Functions
     private func setupView(){
+        self.navigationController?.navigationBar.isHidden = false
+        
         view.backgroundColor = UIColor.systemBackground
         
         textFieldWidth = Double(view.frame.width) - offsetX * 2

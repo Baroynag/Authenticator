@@ -32,14 +32,19 @@ class AuthenticatorViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       configureNavBar()
-       createTable()
-       setupAddButton()
-       createTimer()
+        configureNavBar()
+        createTable()
+        setupAddButton()
+        createTimer()
         
         if needShowGreetingScreen(){
             showGreetingScreen()
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.isHidden = false
     }
 
 //    MARK: - Handlers
