@@ -206,12 +206,15 @@ class RowDetailViewController: UIViewController {
         textField.delegate = self
     }
     
-    private func showAlert(){
-        let alert = UIAlertController(title: NSLocalizedString("Wrong secret key", comment: ""), message: NSLocalizedString("Please enter correct secret key", comment: ""), preferredStyle: .alert)
+    private func showAlert(alertTitle: String, alertMessage: String){
+        let alert = UIAlertController(title: NSLocalizedString(alertTitle, comment: ""), message: NSLocalizedString(alertMessage, comment: ""), preferredStyle: .alert)
         
         let okAction = UIAlertAction(title: NSLocalizedString("Ok", comment: "") , style: .default)
         alert.addAction(okAction)
-        present(alert, animated: true)
+
+        if presentedViewController == nil{
+            navigationController?.present(alert, animated: true, completion: nil)
+        }
     }
 
     
@@ -219,14 +222,21 @@ class RowDetailViewController: UIViewController {
     
     @objc private func handleSave() {
         
+        if let issuer = issuerTextField.text{
+            if issuer.isEmpty{
+                showAlert(alertTitle: "Wrong account", alertMessage: "Please enter correct account")
+            }
+        }
         if let key = keyTextField.text{
             if TokenGenerator.shared.isValidSecretKey(secretKey: key){
                 delegate?.createNewItem(account: "", issuer: issuerTextField.text, key: keyTextField.text, timeBased: isTimeBased)
                 self.navigationController?.popToRootViewController(animated: true)
             } else{
-                showAlert()
+                showAlert(alertTitle: "Wrong secret", alertMessage: "Please enter correct secret key")
             }
         }
+        
+        
             
     }
     
@@ -246,7 +256,6 @@ class RowDetailViewController: UIViewController {
     @objc private func handleCancelButton(){
        self.navigationController?.popToRootViewController(animated: true)
     }
- 
 }
 
 
