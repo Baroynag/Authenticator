@@ -50,7 +50,7 @@ class AuthenticatorViewController: UIViewController {
     @objc private func settingsTapped(){
         let settingsViewController = SettingsViewController()
         settingsViewController.modalPresentationStyle = .fullScreen
-        settingsViewController.delegate = self
+        settingsViewController.refreshTableDelegate = self
         navigationController?.pushViewController(settingsViewController, animated: true)
     }
     
@@ -96,12 +96,12 @@ class AuthenticatorViewController: UIViewController {
     
     private func showGreetingScreen() {
         let greetingViewController = GreetingViewController()
-        greetingViewController.delegate = self
+        greetingViewController.addItemDelegate = self
+        greetingViewController.refreshTableDelegate = self
         greetingViewController.modalPresentationStyle = .fullScreen
         navigationController?.pushViewController(greetingViewController, animated: true)
     }
-
-    
+  
 }
 
 

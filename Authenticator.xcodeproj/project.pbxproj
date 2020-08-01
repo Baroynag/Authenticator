@@ -37,6 +37,7 @@
 		1463409A24CE0763008ECFBD /* RNCryptorExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1463409924CE0763008ECFBD /* RNCryptorExtention.swift */; };
 		146CE3A724D1B9AB00DDC45C /* GreetingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146CE3A624D1B9AB00DDC45C /* GreetingViewController.swift */; };
 		146CE3AA24D3369600DDC45C /* Backup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146CE3A924D3369600DDC45C /* Backup.swift */; };
+		146CE3AC24D34C3100DDC45C /* UIViewControllerWithDocumentPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146CE3AB24D34C3100DDC45C /* UIViewControllerWithDocumentPicker.swift */; };
 		14B61B5B24C71DD400A08A14 /* AuthenticatorItem+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B61B5924C71DD400A08A14 /* AuthenticatorItem+CoreDataClass.swift */; };
 		14B61B5C24C71DD400A08A14 /* AuthenticatorItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B61B5A24C71DD400A08A14 /* AuthenticatorItem+CoreDataProperties.swift */; };
 		14B7E31E24C3237F00A2E9F3 /* PasswordError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B7E31D24C3237F00A2E9F3 /* PasswordError.swift */; };
@@ -125,6 +126,7 @@
 		1463409924CE0763008ECFBD /* RNCryptorExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RNCryptorExtention.swift; sourceTree = "<group>"; };
 		146CE3A624D1B9AB00DDC45C /* GreetingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingViewController.swift; sourceTree = "<group>"; };
 		146CE3A924D3369600DDC45C /* Backup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Backup.swift; sourceTree = "<group>"; };
+		146CE3AB24D34C3100DDC45C /* UIViewControllerWithDocumentPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerWithDocumentPicker.swift; sourceTree = "<group>"; };
 		14B61B5924C71DD400A08A14 /* AuthenticatorItem+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthenticatorItem+CoreDataClass.swift"; sourceTree = "<group>"; };
 		14B61B5A24C71DD400A08A14 /* AuthenticatorItem+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthenticatorItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		14B61B5D24CCB13B00A08A14 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
@@ -226,6 +228,7 @@
 			isa = PBXGroup;
 			children = (
 				1401DAC52443436E00DE677F /* Exrentions.swift */,
+				146CE3AB24D34C3100DDC45C /* UIViewControllerWithDocumentPicker.swift */,
 				1401DAC42443436E00DE677F /* Protocols.swift */,
 				1405D88A24719BF10065509B /* UITextFieldWithBottomBorder.swift */,
 				1463409924CE0763008ECFBD /* RNCryptorExtention.swift */,
@@ -534,6 +537,7 @@
 				1434357024A91F2E00935297 /* SettingsViewController.swift in Sources */,
 				1401DAC32443433100DE677F /* RowDetailViewController.swift in Sources */,
 				1405D88B24719BF10065509B /* UITextFieldWithBottomBorder.swift in Sources */,
+				146CE3AC24D34C3100DDC45C /* UIViewControllerWithDocumentPicker.swift in Sources */,
 				1401DACA244343FE00DE677F /* AuthenticatorModel.swift in Sources */,
 				14543E1B24968363008E7DA8 /* TokenGenerator.swift in Sources */,
 				141917D0245483EC00EE125D /* ScanQrViewController.swift in Sources */,

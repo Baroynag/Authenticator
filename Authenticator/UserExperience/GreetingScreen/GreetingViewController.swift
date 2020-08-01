@@ -8,10 +8,10 @@
 
 import UIKit
 
-class GreetingViewController: UIViewController {
+class GreetingViewController: UIViewControllerWithDocumentPicker {
 
     //    MARK: - Properties
-    weak var delegate: AddItemDelegate?
+    weak var addItemDelegate: AddItemDelegate?
     
     private let imageView: UIImageView = {
          let im = UIImage(named: "greeting")
@@ -87,13 +87,15 @@ class GreetingViewController: UIViewController {
     //    MARK: - Handlers
     @objc private func handleCreate() {
         let rowDetailViewController = RowDetailViewController()
-        rowDetailViewController.delegate = delegate
+        rowDetailViewController.delegate = addItemDelegate
         rowDetailViewController.modalPresentationStyle = .fullScreen
         navigationController?.pushViewController(rowDetailViewController, animated: true)
     }
 
     @objc private func handleLoad() {
-       
+       chooseDocument {(isEnded) in
+           print ("isEnded")
+       }
     }
     
     //    MARK: - Functions
