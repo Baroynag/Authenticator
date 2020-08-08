@@ -19,8 +19,9 @@ class ScanQrViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+   
         view.backgroundColor = UIColor.black
+        self.navigationController?.navigationBar.isHidden = false
         self.navigationController?.navigationBar.isTranslucent = true
         captureSession = AVCaptureSession()
 
