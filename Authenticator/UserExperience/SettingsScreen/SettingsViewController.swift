@@ -40,6 +40,19 @@ class SettingsViewController: UIViewControllerWithDocumentPicker {
         return button
     }()
     
+    let buyButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.backgroundColor = .fucsiaColor()
+        button.setTitle(NSLocalizedString("Support this app", comment: "") , for: .normal)
+        button.layer.cornerRadius = 10
+        button.clipsToBounds = true
+        button.setTitleColor(.white, for: .normal)
+        button.titleLabel?.font = UIFont(name: "Lato-Light", size: 18)
+        button.addTarget(self, action: #selector(handleBuy), for: .touchUpInside)
+        return button
+    }()
+    
 //    MARK: Inits
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,6 +81,14 @@ class SettingsViewController: UIViewControllerWithDocumentPicker {
             loadButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 24),
             loadButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -24),
             loadButton.heightAnchor.constraint(equalToConstant: 40)
+        ])
+        
+        view.addSubview(buyButton)
+        NSLayoutConstraint.activate([
+            buyButton.topAnchor.constraint(equalTo: loadButton.bottomAnchor, constant: 24),
+            buyButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 24),
+            buyButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -24),
+            buyButton.heightAnchor.constraint(equalToConstant: 40)
         ])
     }
       
@@ -115,6 +136,11 @@ class SettingsViewController: UIViewControllerWithDocumentPicker {
         chooseDocument {(isEnded) in
             print ("isEnded")
         }
+    }
+    
+    @objc func handleBuy(){
+        let purchaseViewController = PurchaseViewController()
+        navigationController?.pushViewController(purchaseViewController, animated: true)
     }
     
 }
