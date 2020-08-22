@@ -12,11 +12,7 @@ import StoreKit
 class PurchaseViewController: UIViewController {
 
     //    MARK: - Properties
-    
-    let productId = "am.baroynag.SOTP.PremiumUser"
-    var purchasesProdact: SKProduct?
-    
-    
+
     private var activityIndicator = UIActivityIndicatorView(style: .large)
     
     private let imageView: UIImageView = {
@@ -75,13 +71,16 @@ class PurchaseViewController: UIViewController {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = false
         setupLayout()
-        
         activityIndicator.hidesWhenStopped = true
-        SKPaymentQueue.default().add(self)
-        fetchPayment()
+
     }
     
     //    MARK: - Functions
+    private func updateInterface(products: [SKProduct]) {
+        updateButton(purchaseButton, with: products[0])
+       
+    }
+    
     private func setupLayout(){
         
         view.backgroundColor = UIColor.systemBackground
@@ -140,40 +139,38 @@ class PurchaseViewController: UIViewController {
         
     }
     
-    private func fetchPayment(){
-        if SKPaymentQueue.canMakePayments(){
-            print(#function)
-            let request = SKProductsRequest(productIdentifiers: [productId])
-            request.delegate = self
-            request.start()
-        }
-    }
-    
    //    MARK: - Handlers
     @objc private func handlePurchase() {
-//        showSpinner()
         print(#function)
-    
-        guard let prodact = purchasesProdact else {return}
-        if SKPaymentQueue.canMakePayments(){
-            let payment = SKPayment(product: prodact)
-            SKPaymentQueue.default().add(self)
-            SKPaymentQueue.default().add(payment)
+
+        showSpinner()
+        self.purchaseButton.isEnabled = false
+        Purchases.default.purchaseProduct(productId: "am.baroynag.SOTP.HeartSticker") { [weak self] _ in
+            
+            self?.hideSpinner()
+            self?.purchaseButton.isEnabled = true
+            print("end")
+            
         }
+        
         
     }
     
+    
     @objc func handleRestore(){
-        print(#function)
-        SKPaymentQueue.default().add(self)
-        SKPaymentQueue.default().restoreCompletedTransactions()
 
     }
 
 }
 
+
 extension PurchaseViewController {
 
+    func updateButton(_ button: UIButton, with product: SKProduct) {
+          let title = "\(product.title ?? product.productIdentifier) for \(product.localizedPrice)"
+          button.setTitle(title, for: .normal)
+      }
+    
     func showSpinner() {
         DispatchQueue.main.async {
             self.activityIndicator.startAnimating()
@@ -186,59 +183,5 @@ extension PurchaseViewController {
             self.activityIndicator.stopAnimating()
         }
     }
-    
-    private func finishTransaction(transaction: SKPaymentTransaction){
-        print(#function)
-        SKPaymentQueue.default().finishTransaction(transaction)
-        SKPaymentQueue.default().remove(self)
-    }
    
-}
-
-extension PurchaseViewController: SKPaymentTransactionObserver{
-    
-    func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
-      
-        for transaction in transactions{
-              print(transaction.transactionState)
-            
-            switch transaction.transactionState {
-                
-                case .deferred:
-                    print ("deferred:")
-                    finishTransaction(transaction: transaction)
-                case .failed:
-                    print ("failed:")
-                    print(transaction.error as NSError?)
-                    finishTransaction(transaction: transaction)
-                case .purchased:
-                    print ("purchased:")
-                    finishTransaction(transaction: transaction)
-                case .purchasing:
-                    print ("purchasing:")
-                case .restored:
-                    finishTransaction(transaction: transaction)
-                    descriprionTextField.text = "restored"
-                    print ("restored:")
-                @unknown default: print ("default:")
-                
-            }
-            
-            
-        }
-    }
-}
-
-extension PurchaseViewController: SKProductsRequestDelegate{
-    func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
-        
-        if let prodact = response.products.first{
-            purchasesProdact = prodact
-            print(prodact.price)
-            print(prodact.localizedTitle)
-            
-        }
-    }
-    
-    
 }

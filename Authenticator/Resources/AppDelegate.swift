@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import StoreKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,6 +18,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if !WatchAppConnection.shared.isSuported() {
             print("WCSession not supported")
         }
+        
+        iapSetup()
+        
         return true
     }
 
@@ -58,6 +62,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
             }
         }
+    }
+    
+    func iapSetup(){
+        
+        Purchases.default.initialize { [weak self] result in
+            print (#function)
+            guard let self = self else { return }
+            
+            switch result {
+                case let .success(products):
+                    print ("success")
+                default:
+                    print ("default")
+                    break
+            }
+        }
+        
+      
     }
 
 }
