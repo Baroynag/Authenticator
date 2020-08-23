@@ -68,17 +68,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         Purchases.default.initialize { [weak self] result in
             print (#function)
-            guard let self = self else { return }
+            guard self != nil else { return }
             
             switch result {
-                case let .success(products):
+            case .success(_):
                     print ("success")
                 default:
                     print ("default")
                     break
             }
         }
-        
       
     }
 
