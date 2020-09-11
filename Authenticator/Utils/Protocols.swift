@@ -21,3 +21,7 @@ protocol RefreshTableDelegate : class {
 
     func refresh ()
 }
+
+protocol pressPurchaseDelegate : class {
+    func pressPurchaseButton()
+}

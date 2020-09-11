@@ -8,10 +8,11 @@
 
 import UIKit
 
-class GreetingViewController: UIViewControllerWithDocumentPicker {
-
+class GreetingViewController: UIViewController{
+    
     //    MARK: - Properties
     weak var addItemDelegate: AddItemDelegate?
+    weak var refreshTableDelegate: RefreshTableDelegate?
     
     private let imageView: UIImageView = {
          let im = UIImage(named: "greeting")
@@ -93,9 +94,7 @@ class GreetingViewController: UIViewControllerWithDocumentPicker {
     }
 
     @objc private func handleLoad() {
-       chooseDocument {(isEnded) in
-           print ("isEnded")
-       }
+        self.chooseDocument(vcWithDocumentPicker: self)
     }
     
     //    MARK: - Functions

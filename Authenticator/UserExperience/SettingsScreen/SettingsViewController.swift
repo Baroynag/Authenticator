@@ -9,7 +9,7 @@
 import UIKit
 import MobileCoreServices
 import RNCryptor
-
+/*
 class SettingsViewController: UIViewControllerWithDocumentPicker {
 
 //    MARK: - Properties
@@ -144,3 +144,4 @@ class SettingsViewController: UIViewControllerWithDocumentPicker {
     }
     
 }
+*/

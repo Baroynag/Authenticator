@@ -88,22 +88,69 @@ class PasswordViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
+    func validatePassword(completion: @escaping (String?) -> () ){
+       do{
+           let isValidPassword = try PasswordError.cheackPassword(passOne: passwordTextField.text, passTwo: confirmPasswordTextField.text)
+           if isValidPassword {
+                   if let password = self.passwordTextField.text{
+                       print("11111")
+//                       self.saveBackupToFile(password: password)
+                    completion(password)
+                   }
+            
+           }
+       } catch {
+           showErrorAlert(errorText: error.localizedDescription)
+       }
+    }
+    
     //    MARK: - Handlers
     @objc private func handleConfirmButton(){
-        do{
-            let isValidPassword = try PasswordError.cheackPassword(passOne: passwordTextField.text, passTwo: confirmPasswordTextField.text)
-            if isValidPassword {
-                
-                navigationController?.popViewController(completion: { [weak self] in
-                    if let password = self?.passwordTextField.text{
-                        self?.callBack?(password)
-                    }
-                })
+        
+        validatePassword { [weak self ](pass) in
+            if let pass = pass{
+                self?.saveBackupToFile(password: pass)
             }
-        } catch {
-            showErrorAlert(errorText: error.localizedDescription)
         }
+
     }
+    
+    
+    private func saveBackupToFile(password: String){
+        
+        //TODO: add error message
+        guard let backupFile = Backup.getEncriptedData(password: password) else {return}
+        
+        let temporaryFolder = FileManager.default.temporaryDirectory
+        let temporaryFilePath = temporaryFolder.appendingPathComponent("sotpbackup.sotp")
+
+        do{
+            try backupFile.write(to: temporaryFilePath, atomically: true, encoding: .utf8)
+            let activityViewController = UIActivityViewController(activityItems: [temporaryFilePath], applicationActivities: nil)
+                    activityViewController.popoverPresentationController?.sourceView = self.view
+            self.present(activityViewController, animated: true)
+
+            activityViewController.completionWithItemsHandler = {
+                (activityType: UIActivity.ActivityType?, completed: Bool, arrayReturnedItems: [Any]?, error: Error?) in
+                
+                if completed {
+                    self.dismiss(animated: true, completion: nil)
+                } else { print("cancel") }
+                
+                if let shareError = error {
+                    print("error while sharing: \(shareError.localizedDescription)")
+                }
+            }
+            
+            }
+            catch {
+                print(error.localizedDescription)
+        }
+       
+        
+    }
+    
+    
 }
 
 extension PasswordViewController: UITextFieldDelegate{
