@@ -94,7 +94,10 @@ class GreetingViewController: UIViewController{
     }
 
     @objc private func handleLoad() {
-        self.chooseDocument(vcWithDocumentPicker: self)
+    
+        self.chooseDocument(vcWithDocumentPicker: self) {
+                print("chooseDocument end")
+        }
     }
     
     //    MARK: - Functions

@@ -122,7 +122,10 @@ class SettingsTableViewController: UITableViewController {
             self.present(passwordViewController, animated: true)
             
         } else if indexPath.row == 1{
-            self.chooseDocument(vcWithDocumentPicker: self)
+            
+            self.chooseDocument(vcWithDocumentPicker: self) {
+                    print("chooseDocument end")
+            }
         } else if  indexPath.row == 2{
             print ("22")
         }  else if  indexPath.row == 3{

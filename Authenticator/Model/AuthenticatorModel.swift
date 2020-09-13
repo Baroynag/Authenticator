@@ -137,6 +137,7 @@ class AuthenticatorModel {
     
     public func isAnyData() -> Bool{
         let count = AuthenticatorModel.shared.authenticatorItemsList?.count ?? 0
+        print("count = \(count)")
         return count > 0
     }
     
@@ -150,6 +151,11 @@ class AuthenticatorModel {
             
             self.addOneItem(account: account, issuer: issuer, key: key, timeBased: timeBased)
         }
+    }
+    
+    public func isAnyRecords() -> Bool{
+        loadData()
+        return isAnyData()
     }
   
 }

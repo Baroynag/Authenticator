@@ -16,11 +16,25 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
                 guard let winScene = (scene as? UIWindowScene) else { return }
         
-
+        
         let navController = UINavigationController(rootViewController: AuthenticatorViewController())
+        let rootScreen = AuthenticatorViewController()
+        navController.viewControllers = [rootScreen]
+        
+        if !AuthenticatorModel.shared.isAnyRecords(){
+            let greetingScreen = GreetingViewController()
+            greetingScreen.addItemDelegate = rootScreen
+            navController.viewControllers = [rootScreen,greetingScreen]
+        print("not any record")
+        }
+        else {
+            print("is any record")
+        }
+        
         window = UIWindow(windowScene: winScene)
         window?.rootViewController = navController
         window?.makeKeyAndVisible()
+        
         
     }
 

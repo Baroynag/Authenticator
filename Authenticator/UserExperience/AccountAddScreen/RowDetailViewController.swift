@@ -231,6 +231,8 @@ class RowDetailViewController: UIViewController {
             if TokenGenerator.shared.isValidSecretKey(secretKey: key){
                 delegate?.createNewItem(account: "", issuer: issuerTextField.text, key: keyTextField.text, timeBased: isTimeBased)
                 self.navigationController?.popToRootViewController(animated: true)
+                  
+                
             } else{
                 showAlert(alertTitle: "Wrong secret", alertMessage: "Please enter correct secret key")
             }

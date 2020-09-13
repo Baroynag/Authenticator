@@ -36,10 +36,7 @@ class AuthenticatorViewController: UIViewController {
         createTable()
         setupAddButton()
         createTimer()
-        
-        if needShowGreetingScreen(){
-            showGreetingScreen()
-        }
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -53,7 +50,6 @@ class AuthenticatorViewController: UIViewController {
     }
 
     @objc private func settingsTapped(){
-//        let settingsViewController = SettingsViewController()
         let settingsViewController = SettingsTableViewController()
         settingsViewController.modalPresentationStyle = .fullScreen
         settingsViewController.refreshTableDelegate = self
@@ -95,19 +91,6 @@ class AuthenticatorViewController: UIViewController {
         navigationController?.pushViewController(rowDetailViewController, animated: true)
     }
     
-    private func needShowGreetingScreen() -> Bool{
-        AuthenticatorModel.shared.loadData()
-        return !AuthenticatorModel.shared.isAnyData()
-    }
-    
-    private func showGreetingScreen() {
-        let greetingViewController = GreetingViewController()
-        greetingViewController.addItemDelegate = self
-       // greetingViewController.refreshTableDelegate = self
-        greetingViewController.modalPresentationStyle = .fullScreen
-        navigationController?.pushViewController(greetingViewController, animated: true)
-    }
-  
 }
 
 

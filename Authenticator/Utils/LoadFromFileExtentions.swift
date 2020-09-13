@@ -1,22 +1,13 @@
 //
-//  BackupUtils.swift
+//  LoadFromFileExtentions.swift
 //  Authenticator
 //
 //  Created by Anzhela Baroyan on 07.09.2020.
 //  Copyright © 2020 Anzhela Baroyan. All rights reserved.
 //
 
-//
-//  UIViewControllerWithDocumentPicker.swift
-//  Authenticator
-//
-//  Created by Anzhela Baroyan on 30.07.2020.
-//  Copyright © 2020 Anzhela Baroyan. All rights reserved.
-//
-
 import UIKit
 import MobileCoreServices
-
 
 extension UIAlertController{
     
@@ -24,10 +15,8 @@ extension UIAlertController{
          let alert = UIAlertController(title: NSLocalizedString("Enter password", comment: "") , message: nil, preferredStyle: .alert)
 
          alert.addTextField { (textField: UITextField) in
-             textField.isSecureTextEntry = true
-
-             textField.placeholder = NSLocalizedString("Password", comment: "")
-             
+            textField.isSecureTextEntry = true
+            textField.placeholder = NSLocalizedString("Password", comment: "")
          }
 
          let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: "") , style: .default)
@@ -51,13 +40,11 @@ extension UIAlertController{
      }
 
     class public func alertWithOk(title: String) -> UIAlertController{
-         let alert = UIAlertController(title: title, message: nil, preferredStyle: .alert)
-
+        let alert = UIAlertController(title: title, message: nil, preferredStyle: .alert)
         let submitAction = UIAlertAction(title: NSLocalizedString("Ok", comment: "") , style: .default)
         alert.addAction(submitAction)
-         return alert
-     }
-
+        return alert
+    }
     
 }
 
@@ -65,14 +52,15 @@ extension UIAlertController{
 
 extension UIViewController{
    
-    public func chooseDocument(vcWithDocumentPicker: UIViewController){
+    public func chooseDocument(vcWithDocumentPicker: UIViewController, completion: ()->()){
         if let vc = vcWithDocumentPicker as? UIDocumentPickerDelegate {
             let documentPicker: UIDocumentPickerViewController = UIDocumentPickerViewController(documentTypes: [String(kUTTypePlainText), String(kUTTypeData)], in: UIDocumentPickerMode.import)
             
             documentPicker.delegate = vc
 
             documentPicker.modalPresentationStyle = UIModalPresentationStyle.fullScreen
-            vcWithDocumentPicker.present(documentPicker, animated: true) 
+            vcWithDocumentPicker.present(documentPicker, animated: true)
+            completion()
         }
     }
 }
@@ -95,12 +83,13 @@ extension SettingsTableViewController: UIDocumentPickerDelegate{
                     if let pass = pass{
                         if Backup.getFileContent(fileURL: filePath, password: pass){
                             self?.refreshTableDelegate?.refresh()
+                            
                             title = NSLocalizedString("Data loaded", comment: "")
                         }
                     }
                     let alert = UIAlertController.alertWithOk(title: title)
                     self?.present(alert, animated: true)
-
+                   
                 }
                 self?.present(promtForPassword, animated: true)
                 
@@ -122,7 +111,7 @@ extension GreetingViewController: UIDocumentPickerDelegate{
         
         guard let selectedFileURL = urls.first else {return}
         
-        var title = NSLocalizedString("Wrong password", comment: "")
+        let title = NSLocalizedString("Wrong password", comment: "")
         
         if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first{
             let filePath = dir.appendingPathComponent(selectedFileURL.lastPathComponent)
@@ -134,12 +123,12 @@ extension GreetingViewController: UIDocumentPickerDelegate{
                     if let pass = pass{
                         if Backup.getFileContent(fileURL: filePath, password: pass){
                             self?.refreshTableDelegate?.refresh()
-                            title = NSLocalizedString("Data loaded", comment: "")
+                            self?.navigationController?.popToRootViewController(animated: true)
+                        } else{
+                            let alert = UIAlertController.alertWithOk(title: title)
+                            self?.present(alert, animated: true)
                         }
                     }
-                    let alert = UIAlertController.alertWithOk(title: title)
-                    self?.present(alert, animated: true)
-
                 }
                 self?.present(promtForPassword, animated: true)
                 
