@@ -40,6 +40,7 @@
 		1463409A24CE0763008ECFBD /* RNCryptorExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1463409924CE0763008ECFBD /* RNCryptorExtention.swift */; };
 		146CE3A724D1B9AB00DDC45C /* GreetingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146CE3A624D1B9AB00DDC45C /* GreetingViewController.swift */; };
 		146CE3AA24D3369600DDC45C /* Backup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146CE3A924D3369600DDC45C /* Backup.swift */; };
+		149619112517CE2E00B46D7B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1496190F2517CE2E00B46D7B /* Localizable.strings */; };
 		14B61B5B24C71DD400A08A14 /* AuthenticatorItem+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B61B5924C71DD400A08A14 /* AuthenticatorItem+CoreDataClass.swift */; };
 		14B61B5C24C71DD400A08A14 /* AuthenticatorItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B61B5A24C71DD400A08A14 /* AuthenticatorItem+CoreDataProperties.swift */; };
 		14B7E31E24C3237F00A2E9F3 /* PasswordError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B7E31D24C3237F00A2E9F3 /* PasswordError.swift */; };
@@ -133,6 +134,9 @@
 		1463409924CE0763008ECFBD /* RNCryptorExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RNCryptorExtention.swift; sourceTree = "<group>"; };
 		146CE3A624D1B9AB00DDC45C /* GreetingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingViewController.swift; sourceTree = "<group>"; };
 		146CE3A924D3369600DDC45C /* Backup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Backup.swift; sourceTree = "<group>"; };
+		1496190D2517CB5500B46D7B /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Interface.strings; sourceTree = "<group>"; };
+		1496190E2517CB6500B46D7B /* hy-AM */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "hy-AM"; path = "hy-AM.lproj/Interface.strings"; sourceTree = "<group>"; };
+		149619102517CE2E00B46D7B /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		14B61B5924C71DD400A08A14 /* AuthenticatorItem+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthenticatorItem+CoreDataClass.swift"; sourceTree = "<group>"; };
 		14B61B5A24C71DD400A08A14 /* AuthenticatorItem+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthenticatorItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		14B7E31D24C3237F00A2E9F3 /* PasswordError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordError.swift; sourceTree = "<group>"; };
@@ -212,6 +216,7 @@
 				1401DAC8244343CC00DE677F /* Utils */,
 				1401DAB82443399200DE677F /* Resources */,
 				1401DA8B2440D46B00DE677F /* Info.plist */,
+				1496190F2517CE2E00B46D7B /* Localizable.strings */,
 				14900490246DBD6700F91500 /* Model */,
 			);
 			path = Authenticator;
@@ -443,6 +448,8 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
+				"hy-AM",
 			);
 			mainGroup = 1401DA6E2440D46700DE677F;
 			productRefGroup = 1401DA782440D46800DE677F /* Products */;
@@ -461,6 +468,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				149619112517CE2E00B46D7B /* Localizable.strings in Resources */,
 				1401DA8A2440D46B00DE677F /* LaunchScreen.storyboard in Resources */,
 				1401DA872440D46B00DE677F /* Assets.xcassets in Resources */,
 				1401DA822440D46800DE677F /* Main.storyboard in Resources */,
@@ -610,8 +618,18 @@
 			isa = PBXVariantGroup;
 			children = (
 				14543DA024853A03008E7DA8 /* Base */,
+				1496190D2517CB5500B46D7B /* ru */,
+				1496190E2517CB6500B46D7B /* hy-AM */,
 			);
 			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
+		1496190F2517CE2E00B46D7B /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				149619102517CE2E00B46D7B /* ru */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

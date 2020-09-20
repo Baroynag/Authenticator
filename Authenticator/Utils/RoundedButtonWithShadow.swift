@@ -21,14 +21,13 @@ final class RoundedButtonWithShadow: UIButton {
             shadowLayer.path = UIBezierPath(roundedRect: bounds, cornerRadius: 25).cgPath
             shadowLayer.fillColor = UIColor.fucsiaColor().cgColor
 
-            shadowLayer.shadowColor = UIColor.darkGray.cgColor
+            shadowLayer.shadowColor = CGColor(srgbRed: 1, green: 0.2, blue: 0.39, alpha: 0.3)
             shadowLayer.shadowPath = shadowLayer.path
-            shadowLayer.shadowOffset = CGSize(width: 2.0, height: 2.0)
-            shadowLayer.shadowOpacity = 0.8
-            shadowLayer.shadowRadius = 2
+            shadowLayer.shadowOffset = CGSize(width: 0.0, height: 8.0)
+            shadowLayer.shadowOpacity = 1
+            shadowLayer.shadowRadius = 12
 
             layer.insertSublayer(shadowLayer, at: 0)
-            //layer.insertSublayer(shadowLayer, below: nil) // also works
         }
     }
 
