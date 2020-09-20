@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="16097" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="16097.2" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
     <device id="watch38"/>
     <dependencies>
+        <deployment identifier="watchOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="16012"/>
     </dependencies>
@@ -11,27 +12,34 @@
             <objects>
                 <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="SOTPWatch" customModuleProvider="target">
                     <items>
-                        <table alignment="center" verticalAlignment="center" id="ink-2G-hTL">
+                        <table alignment="left" id="ink-2G-hTL">
                             <items>
                                 <tableRow identifier="SotpWRow" id="c4z-9v-idE" customClass="SOTPWatchRow" customModule="SOTPWatch_Extension">
-                                    <group key="rootItem" width="1" height="145" alignment="left" layout="vertical" id="I4K-Fe-XGC">
+                                    <group key="rootItem" width="1" height="102" alignment="left" layout="vertical" id="I4K-Fe-XGC">
                                         <items>
-                                            <group width="1" height="0.29999999999999999" alignment="left" id="vtG-PN-eln">
+                                            <group width="1" height="0.20000000000000001" alignment="left" id="vtG-PN-eln">
                                                 <items>
-                                                    <label width="1" height="1" alignment="left" textAlignment="center" id="fus-sy-CsC"/>
-                                                </items>
-                                            </group>
-                                            <group width="1" height="0.29999999999999999" alignment="left" id="RvW-QV-Zg3">
-                                                <items>
-                                                    <label width="1" height="1" alignment="left" text="Load..." textAlignment="center" id="hf9-q1-ODr">
-                                                        <fontDescription key="font" style="UICTFontTextStyleTitle3"/>
+                                                    <label width="1" height="1" alignment="left" text="Google" textAlignment="center" id="fus-sy-CsC">
+                                                        <fontDescription key="font" type="system" pointSize="17"/>
                                                     </label>
                                                 </items>
                                             </group>
-                                            <group width="1" height="0.29999999999999999" alignment="left" id="mHR-3y-DZl">
+                                            <group width="1" height="0.59999999999999998" alignment="left" layout="vertical" id="RvW-QV-Zg3">
                                                 <items>
-                                                    <label width="1" height="1" alignment="left" textAlignment="center" id="aHZ-6s-9pE">
-                                                        <fontDescription key="font" type="system" pointSize="12"/>
+                                                    <label width="1" height="30" alignment="left" text="123456" textAlignment="center" id="hf9-q1-ODr">
+                                                        <fontDescription key="font" type="system" pointSize="20"/>
+                                                    </label>
+                                                    <label width="1" height="20" alignment="left" text="test@mail" textAlignment="center" id="Fqf-yn-Gjs">
+                                                        <color key="textColor" red="1" green="0.1960784314" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                        <fontDescription key="font" type="system" pointSize="14"/>
+                                                    </label>
+                                                </items>
+                                            </group>
+                                            <group width="1" height="0.10000000000000001" alignment="left" id="mHR-3y-DZl">
+                                                <items>
+                                                    <label width="1" height="1" alignment="left" text="Oбновится через 30 с" textAlignment="center" id="aHZ-6s-9pE">
+                                                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="font" type="system" pointSize="10"/>
                                                     </label>
                                                 </items>
                                             </group>
@@ -51,7 +59,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="-131" y="32"/>
+            <point key="canvasLocation" x="-469" y="33"/>
         </scene>
     </scenes>
 </document>

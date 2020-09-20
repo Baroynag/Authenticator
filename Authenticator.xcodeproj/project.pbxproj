@@ -25,6 +25,7 @@
 		1430EA8D24DEF79900B75CF6 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1430EA8C24DEF79900B75CF6 /* StoreKit.framework */; };
 		1430EA8F24DF0E0800B75CF6 /* Purchases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1430EA8E24DF0E0800B75CF6 /* Purchases.swift */; };
 		1430EA9124DF0FCA00B75CF6 /* PurchaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1430EA9024DF0FCA00B75CF6 /* PurchaseViewController.swift */; };
+		143D098825168F2B00C30041 /* RoundedButtonWithShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143D098725168F2B00C30041 /* RoundedButtonWithShadow.swift */; };
 		144B48A024FC10510086DA04 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144B489F24FC10510086DA04 /* SettingsTableViewController.swift */; };
 		14543DA124853A03008E7DA8 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14543D9F24853A03008E7DA8 /* Interface.storyboard */; };
 		14543DA324853A04008E7DA8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14543DA224853A04008E7DA8 /* Assets.xcassets */; };
@@ -36,7 +37,6 @@
 		14543DC124853B24008E7DA8 /* SOTPWatchRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14543DC024853B24008E7DA8 /* SOTPWatchRow.swift */; };
 		14543DC82486E02D008E7DA8 /* WatchAppConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14543DC72486E02D008E7DA8 /* WatchAppConnection.swift */; };
 		14543E1B24968363008E7DA8 /* TokenGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14543E1A24968363008E7DA8 /* TokenGenerator.swift */; };
-		1463409724CCC23E008ECFBD /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1463409524CCC23E008ECFBD /* Localizable.strings */; };
 		1463409A24CE0763008ECFBD /* RNCryptorExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1463409924CE0763008ECFBD /* RNCryptorExtention.swift */; };
 		146CE3A724D1B9AB00DDC45C /* GreetingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146CE3A624D1B9AB00DDC45C /* GreetingViewController.swift */; };
 		146CE3AA24D3369600DDC45C /* Backup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146CE3A924D3369600DDC45C /* Backup.swift */; };
@@ -113,6 +113,7 @@
 		1430EA8C24DEF79900B75CF6 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		1430EA8E24DF0E0800B75CF6 /* Purchases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Purchases.swift; sourceTree = "<group>"; };
 		1430EA9024DF0FCA00B75CF6 /* PurchaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseViewController.swift; sourceTree = "<group>"; };
+		143D098725168F2B00C30041 /* RoundedButtonWithShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButtonWithShadow.swift; sourceTree = "<group>"; };
 		144B489F24FC10510086DA04 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		14543D9D24853A03008E7DA8 /* SOTPWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SOTPWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14543DA024853A03008E7DA8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
@@ -129,17 +130,11 @@
 		14543DC62486DD66008E7DA8 /* SOTPWatchDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SOTPWatchDebug.entitlements; sourceTree = "<group>"; };
 		14543DC72486E02D008E7DA8 /* WatchAppConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchAppConnection.swift; sourceTree = "<group>"; };
 		14543E1A24968363008E7DA8 /* TokenGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenGenerator.swift; sourceTree = "<group>"; };
-		1463409624CCC23E008ECFBD /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
-		1463409824CDC706008ECFBD /* hy-AM */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "hy-AM"; path = "hy-AM.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		1463409924CE0763008ECFBD /* RNCryptorExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RNCryptorExtention.swift; sourceTree = "<group>"; };
 		146CE3A624D1B9AB00DDC45C /* GreetingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingViewController.swift; sourceTree = "<group>"; };
 		146CE3A924D3369600DDC45C /* Backup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Backup.swift; sourceTree = "<group>"; };
 		14B61B5924C71DD400A08A14 /* AuthenticatorItem+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthenticatorItem+CoreDataClass.swift"; sourceTree = "<group>"; };
 		14B61B5A24C71DD400A08A14 /* AuthenticatorItem+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthenticatorItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		14B61B5D24CCB13B00A08A14 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
-		14B61B5E24CCB13B00A08A14 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Interface.strings; sourceTree = "<group>"; };
-		14B61B5F24CCB16200A08A14 /* hy-AM */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "hy-AM"; path = "hy-AM.lproj/Main.strings"; sourceTree = "<group>"; };
-		14B61B6024CCB16200A08A14 /* hy-AM */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "hy-AM"; path = "hy-AM.lproj/Interface.strings"; sourceTree = "<group>"; };
 		14B7E31D24C3237F00A2E9F3 /* PasswordError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordError.swift; sourceTree = "<group>"; };
 		14CB6D6624FC19D600316ED7 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
 		14CB6D6824FC2AD100316ED7 /* SettingsTableViewCellWithButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCellWithButton.swift; sourceTree = "<group>"; };
@@ -217,7 +212,6 @@
 				1401DAC8244343CC00DE677F /* Utils */,
 				1401DAB82443399200DE677F /* Resources */,
 				1401DA8B2440D46B00DE677F /* Info.plist */,
-				1463409524CCC23E008ECFBD /* Localizable.strings */,
 				14900490246DBD6700F91500 /* Model */,
 			);
 			path = Authenticator;
@@ -246,6 +240,7 @@
 				1463409924CE0763008ECFBD /* RNCryptorExtention.swift */,
 				146CE3A924D3369600DDC45C /* Backup.swift */,
 				1430EA8E24DF0E0800B75CF6 /* Purchases.swift */,
+				143D098725168F2B00C30041 /* RoundedButtonWithShadow.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -448,8 +443,6 @@
 			knownRegions = (
 				en,
 				Base,
-				ru,
-				"hy-AM",
 			);
 			mainGroup = 1401DA6E2440D46700DE677F;
 			productRefGroup = 1401DA782440D46800DE677F /* Products */;
@@ -468,7 +461,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1463409724CCC23E008ECFBD /* Localizable.strings in Resources */,
 				1401DA8A2440D46B00DE677F /* LaunchScreen.storyboard in Resources */,
 				1401DA872440D46B00DE677F /* Assets.xcassets in Resources */,
 				1401DA822440D46800DE677F /* Main.storyboard in Resources */,
@@ -544,6 +536,7 @@
 			files = (
 				146CE3A724D1B9AB00DDC45C /* GreetingViewController.swift in Sources */,
 				1401DAC62443436E00DE677F /* Protocols.swift in Sources */,
+				143D098825168F2B00C30041 /* RoundedButtonWithShadow.swift in Sources */,
 				1401DA852440D46800DE677F /* Authenticator.xcdatamodeld in Sources */,
 				1401DAC12443431200DE677F /* AuthenticatorViewController.swift in Sources */,
 				14129F7624C0C92200644739 /* PasswordViewController.swift in Sources */,
@@ -601,8 +594,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				1401DA812440D46800DE677F /* Base */,
-				14B61B5D24CCB13B00A08A14 /* ru */,
-				14B61B5F24CCB16200A08A14 /* hy-AM */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -619,19 +610,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				14543DA024853A03008E7DA8 /* Base */,
-				14B61B5E24CCB13B00A08A14 /* ru */,
-				14B61B6024CCB16200A08A14 /* hy-AM */,
 			);
 			name = Interface.storyboard;
-			sourceTree = "<group>";
-		};
-		1463409524CCC23E008ECFBD /* Localizable.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1463409624CCC23E008ECFBD /* ru */,
-				1463409824CDC706008ECFBD /* hy-AM */,
-			);
-			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

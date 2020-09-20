@@ -22,14 +22,12 @@ class GreetingViewController: UIViewController{
          return iv
      }()
     
-    private var  topImageContainerView = UIView()
-    
     private let greetingLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.backgroundColor = .systemBackground
         let text = NSLocalizedString("Welcome to", comment: "")
-        label.setLabelAtributedText(fontSize: 28, text: text, aligment: .center, indent: 0.0)
+        label.setLabelAtributedText(fontSize: 24, text: text, aligment: .center, indent: 0.0)
         return label
     }()
     
@@ -38,7 +36,7 @@ class GreetingViewController: UIViewController{
         label.translatesAutoresizingMaskIntoConstraints = false
         label.backgroundColor = .systemBackground
         let text = NSLocalizedString("SOTP", comment: "")
-        label.setLabelAtributedText(fontSize: 28, text: text, aligment: .center, indent: 0.0, color: .fucsiaColor())
+        label.setLabelAtributedText(fontSize: 32, text: text, aligment: .center, indent: 0.0, color: .fucsiaColor())
         return label
     }()
     
@@ -47,32 +45,26 @@ class GreetingViewController: UIViewController{
         label.translatesAutoresizingMaskIntoConstraints = false
         label.backgroundColor = .systemBackground
         let text = NSLocalizedString("Setup one time password", comment: "")
-        label.setLabelAtributedText(fontSize: 23, text: text, aligment: .center, indent: 0.0)
+        label.setLabelAtributedText(fontSize: 20, text: text, aligment: .center, indent: 0.0)
         return label
     }()
     
-    let createButton: UIButton = {
-        let button = UIButton()
+    let createButton: RoundedButtonWithShadow = {
+        let button = RoundedButtonWithShadow(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.backgroundColor = .fucsiaColor()
         button.setTitle(NSLocalizedString("Create", comment: "") , for: .normal)
-        button.layer.cornerRadius = 30
-        button.clipsToBounds = true
         button.setTitleColor(.white, for: .normal)
-        button.titleLabel?.font = UIFont(name: "Lato-Light", size: 18)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
         button.addTarget(self, action: #selector(handleCreate), for: .touchUpInside)
         return button
     }()
     
-    let loadButton: UIButton = {
-            let button = UIButton()
+    let loadButton: RoundedButtonWithShadow = {
+            let button = RoundedButtonWithShadow(type: .system)
             button.translatesAutoresizingMaskIntoConstraints = false
-            button.backgroundColor = .fucsiaColor()
             button.setTitle(NSLocalizedString("Load from backup", comment: "") , for: .normal)
-            button.layer.cornerRadius = 30
-            button.clipsToBounds = true
             button.setTitleColor(.white, for: .normal)
-            button.titleLabel?.font = UIFont(name: "Lato-Light", size: 18)
+            button.titleLabel?.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
             button.addTarget(self, action: #selector(handleLoad), for: .touchUpInside)
             return button
         }()
@@ -103,40 +95,33 @@ class GreetingViewController: UIViewController{
     //    MARK: - Functions
     private func setupLayout(){
         
-        view.backgroundColor = UIColor.systemBackground
        
-        view.addSubview(topImageContainerView)
-         topImageContainerView.translatesAutoresizingMaskIntoConstraints = false
-         NSLayoutConstraint.activate([
-            topImageContainerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 32),
-            topImageContainerView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-             topImageContainerView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-             topImageContainerView.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor, multiplier: 0.4)
-          ])
+       
 
-         
-         topImageContainerView.addSubview(imageView)
-         NSLayoutConstraint.activate([
-             imageView.topAnchor.constraint(equalTo: topImageContainerView.topAnchor),
-             imageView.centerXAnchor.constraint(equalTo: topImageContainerView.centerXAnchor),
-             imageView.heightAnchor.constraint(equalTo: topImageContainerView.heightAnchor, multiplier: 0.8)
+        loadButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        view.backgroundColor = UIColor.systemBackground
+   
+        view.addSubview(imageView)
+        NSLayoutConstraint.activate([
+            imageView.topAnchor.constraint(lessThanOrEqualTo: view.topAnchor, constant: 145),
+            imageView.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
+            imageView.heightAnchor.constraint(lessThanOrEqualToConstant: 199)
          ])
      
         view.addSubview(greetingLabel)
         NSLayoutConstraint.activate([
-            greetingLabel.topAnchor.constraint(equalTo: topImageContainerView.bottomAnchor, constant: 16),
-            greetingLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            greetingLabel.widthAnchor.constraint(equalToConstant: 160)
+            greetingLabel.topAnchor.constraint(lessThanOrEqualTo: imageView.bottomAnchor, constant: 19),
+            greetingLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
         view.addSubview(sotpLabel)
         NSLayoutConstraint.activate([
-            sotpLabel.topAnchor.constraint(equalTo: greetingLabel.bottomAnchor, constant: 4),
-            sotpLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            sotpLabel.widthAnchor.constraint(equalToConstant: 160)
+            sotpLabel.topAnchor.constraint(lessThanOrEqualTo: greetingLabel.bottomAnchor, constant: 14),
+            sotpLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
         view.addSubview(setupLabel)
         NSLayoutConstraint.activate([
-            setupLabel.topAnchor.constraint(equalTo: sotpLabel.bottomAnchor, constant: 8),
+            setupLabel.topAnchor.constraint(lessThanOrEqualTo: sotpLabel.bottomAnchor, constant: 8),
             setupLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             setupLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             setupLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
@@ -144,18 +129,18 @@ class GreetingViewController: UIViewController{
      
         view.addSubview(createButton)
         NSLayoutConstraint.activate([
-            createButton.topAnchor.constraint(equalTo: setupLabel.bottomAnchor, constant: 24),
+            createButton.topAnchor.constraint(lessThanOrEqualTo: setupLabel.bottomAnchor, constant: 30),
             createButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            createButton.heightAnchor.constraint(equalToConstant: 60),
-            createButton.widthAnchor.constraint(equalToConstant: 250)
+            createButton.heightAnchor.constraint(equalToConstant: 50),
+            createButton.widthAnchor.constraint(equalToConstant: 320)
         ])
         
         view.addSubview(loadButton)
         NSLayoutConstraint.activate([
-            loadButton.topAnchor.constraint(equalTo: createButton.bottomAnchor, constant: 24),
+            loadButton.topAnchor.constraint(lessThanOrEqualTo: createButton.bottomAnchor, constant: 22),
             loadButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            loadButton.heightAnchor.constraint(equalToConstant: 60),
-            loadButton.widthAnchor.constraint(equalToConstant: 250)
+            loadButton.heightAnchor.constraint(equalToConstant: 50),
+            loadButton.widthAnchor.constraint(equalToConstant: 320)
         ])
     }
 }

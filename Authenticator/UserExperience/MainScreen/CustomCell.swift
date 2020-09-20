@@ -12,7 +12,6 @@ import AVFoundation
 class CustomCell: UITableViewCell {
     
     // MARK: - Properties
-    private var countDown = 30
     private var key = ""
     private var issuer = ""
     private var account = ""
@@ -160,8 +159,13 @@ class CustomCell: UITableViewCell {
     // MARK: - Handlers
     
     @objc public func updateTimerInfoLabel (){
-        countDown -= 1
-        descriptionLabel.text = NSLocalizedString("Refresh in ", comment: "") + String(countDown) + NSLocalizedString("s.", comment: "")
+        let countDown = Int(NSDate().timeIntervalSince1970) % 30
+        var timeLabel = String(30 - countDown)
+        
+        if countDown == 0 {
+            timeLabel = "1"
+        }
+        descriptionLabel.text = NSLocalizedString("Refresh in ", comment: "") + timeLabel + NSLocalizedString("s.", comment: "")
         
         if isCopyCountPressed{
             copyCountDown -= 1
@@ -171,7 +175,7 @@ class CustomCell: UITableViewCell {
         }
         
         if countDown == 0 {
-            countDown = 30
+            
             let token = TokenGenerator.shared.createToken(name: issuer, issuer: issuer, secretString: key)
             if let text = token?.currentPassword {
                 passLabel.setLabelAtributedText(fontSize: 50, text: text,  aligment: .center, indent: 0.0)
