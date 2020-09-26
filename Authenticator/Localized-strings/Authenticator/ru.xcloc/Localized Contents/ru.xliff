@@ -30,14 +30,17 @@
     <body>
       <trans-unit id="Account" xml:space="preserve">
         <source>Account</source>
+        <target>Логин</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
-      <trans-unit id="Add new account" xml:space="preserve">
-        <source>Add new account</source>
+      <trans-unit id="Add account" xml:space="preserve">
+        <source>Add account</source>
+        <target>Добавить аккаунт</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Authenticator" xml:space="preserve">
         <source>Authenticator</source>
+        <target>Аутентификатор</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Buy SOTP Authenticator and support this project" xml:space="preserve">
@@ -50,6 +53,7 @@
       </trans-unit>
       <trans-unit id="Cancel" xml:space="preserve">
         <source>Cancel</source>
+        <target>Отмена</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Capture error (error.localizedDescription)" xml:space="preserve">
@@ -58,10 +62,12 @@
       </trans-unit>
       <trans-unit id="Confirm password" xml:space="preserve">
         <source>Confirm password</source>
+        <target>Поддтвердите пароль</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Confirm the password!" xml:space="preserve">
         <source>Confirm the password!</source>
+        <target>Поддтвердите пароль</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Core data delete error" xml:space="preserve">
@@ -83,11 +89,11 @@
       </trans-unit>
       <trans-unit id="Data loaded" xml:space="preserve">
         <source>Data loaded</source>
-        <target>Добро пожаловать в</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Enter password" xml:space="preserve">
         <source>Enter password</source>
+        <target>Введите пароль</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Error to upload file" xml:space="preserve">
@@ -100,7 +106,6 @@
       </trans-unit>
       <trans-unit id="Load from backup" xml:space="preserve">
         <source>Load from backup</source>
-        <target>Загрузить из резервной копии</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Ok" xml:space="preserve">
@@ -113,14 +118,22 @@
       </trans-unit>
       <trans-unit id="Password" xml:space="preserve">
         <source>Password</source>
+        <target>Пароль</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Password can't be empty" xml:space="preserve">
         <source>Password can't be empty</source>
+        <target>Пароль не может быть пустым</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Passwords do not match" xml:space="preserve">
         <source>Passwords do not match</source>
+        <target>Пароли не совпадают</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Please enter correct account" xml:space="preserve">
+        <source>Please enter correct account</source>
+        <target>Введите правильный аккаунт</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Refresh in " xml:space="preserve">
@@ -141,14 +154,17 @@
       </trans-unit>
       <trans-unit id="Scan QR Code" xml:space="preserve">
         <source>Scan QR Code</source>
+        <target>Сканировать QR код</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Secret key" xml:space="preserve">
         <source>Secret key</source>
+        <target>Секретный ключ</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Settings" xml:space="preserve">
         <source>Settings</source>
+        <target>Настройки</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Setup one time password" xml:space="preserve">
@@ -158,6 +174,7 @@
       </trans-unit>
       <trans-unit id="Time-based" xml:space="preserve">
         <source>Time-based</source>
+        <target>Фактор времени</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Welcome to" xml:space="preserve">
@@ -165,12 +182,19 @@
         <target>Добро пожаловать в</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
+      <trans-unit id="Wrong account" xml:space="preserve">
+        <source>Wrong account</source>
+        <target>Не правильный аккаунт</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
       <trans-unit id="Wrong password" xml:space="preserve">
         <source>Wrong password</source>
+        <target>Не правильный пароль</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="or" xml:space="preserve">
         <source>or</source>
+        <target>или</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="s." xml:space="preserve">
@@ -181,7 +205,7 @@
         <source>Введенные пароли не совпадают</source>
         <note>No comment provided by engineer.</note>
       </trans-unit>
-      <trans-unit id="Введие подтверждение пароля!" xml:space="preserve">
+      <trans-unit id="Введите подтверждение пароля!" xml:space="preserve">
         <source>Введие подтверждение пароля!</source>
         <note>No comment provided by engineer.</note>
       </trans-unit>

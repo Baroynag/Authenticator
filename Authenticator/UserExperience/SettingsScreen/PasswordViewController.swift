@@ -14,7 +14,7 @@ class PasswordViewController: UIViewController {
     
     //    MARK:- Properties
     
-    public var callBack: ((String) -> ())?
+//    public var callBack: ((String) -> ())?
     
     private let offsetX = 24.0
     private let offsetY = 64.0
@@ -162,7 +162,7 @@ extension PasswordViewController: UITextFieldDelegate{
  
     func textFieldDidEndEditing(_ textField: UITextField) {
         guard let bottomBorderTextField = textField as? UITextFieldWithBottomBorder else { return }
-        bottomBorderTextField.updateBorder(color: .systemGray2)
+        bottomBorderTextField.updateBorder(color: .graySOTPColor())
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool

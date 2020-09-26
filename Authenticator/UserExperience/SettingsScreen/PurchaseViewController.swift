@@ -81,9 +81,6 @@ class PurchaseViewController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = UIColor.systemBackground
         button.setImage(UIImage(named: "close"), for: .normal)
-//        button.layer.cornerRadius = 10
-//        button.layer.borderWidth  = 1.0
-//        button.layer.borderColor = UIColor.gray.cgColor
         button.clipsToBounds = true
         button.addTarget(self, action: #selector(handleCancel), for: .touchUpInside)
         return button
@@ -156,8 +153,8 @@ class PurchaseViewController: UIViewController {
         
         view.addSubview(cancelButton)
         NSLayoutConstraint.activate([
-            cancelButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 8),
-            cancelButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -8),
+            cancelButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
+            cancelButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
             cancelButton.heightAnchor.constraint(equalToConstant: 16),
             cancelButton.widthAnchor.constraint(equalToConstant: 16)
         ])

@@ -10,16 +10,17 @@
 import UIKit
 
 
-class RowDetailViewController: UIViewController {
+class AddAccountViewController: UIViewController {
     
     // MARK: - Properties
 
     weak var delegate: AddItemDelegate?
+    public var callBack: (()->())?
     
     private var isTimeBased = true
 
     let offsetX = 24.0
-    let offsetY = 64.0
+    let offsetY = 60.0
     let textFieldHeigth = 80.0
     var textFieldWidth: Double = 0.0
     
@@ -27,15 +28,21 @@ class RowDetailViewController: UIViewController {
     private var issuerTextField = UITextFieldWithBottomBorder()
     private var keyTextField = UITextFieldWithBottomBorder()
     
-    let createButton: UIButton = {
-        let button = UIButton()
+    private let titleLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.backgroundColor = .systemBackground
+        let text = NSLocalizedString("Add account", comment: "")
+        label.setLabelAtributedText(fontSize: 24, text: text, aligment: .center, indent: 0.0)
+        return label
+    }()
+    
+    let createButton: RoundedButtonWithShadow = {
+        let button = RoundedButtonWithShadow(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.backgroundColor = .fucsiaColor()
         button.setTitle(NSLocalizedString("Create", comment: "") , for: .normal)
-        button.layer.cornerRadius = 30
-        button.clipsToBounds = true
         button.setTitleColor(.white, for: .normal)
-        button.titleLabel?.font = UIFont(name: "Lato-Light", size: 18)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
         button.addTarget(self, action: #selector(handleSave), for: .touchUpInside)
         return button
     }()
@@ -45,11 +52,11 @@ class RowDetailViewController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitleColor(.black, for: .normal)
         button.titleLabel!.lineBreakMode = .byWordWrapping
-        let font = UIFont(name: "Lato-Light", size: 18)
+        let font = UIFont.systemFont(ofSize: 17, weight: .regular)
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.alignment = .center
         let attributes: [NSAttributedString.Key: Any] = [
-             .font: font!,
+             .font: font,
              .foregroundColor: UIColor.label,
              .underlineStyle: NSUnderlineStyle.single.rawValue,
              .paragraphStyle: paragraphStyle
@@ -62,12 +69,11 @@ class RowDetailViewController: UIViewController {
     
     let cancelButton: UIButton = {
         let button = UIButton()
-        button.backgroundColor = .clear
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setImage(UIImage(named: "cancelButton"), for: .normal)
+        button.backgroundColor = UIColor.systemBackground
+        button.setImage(UIImage(named: "close"), for: .normal)
+        button.clipsToBounds = true
         button.addTarget(self, action: #selector(handleCancelButton), for: .touchUpInside)
-        button.layer.cornerRadius = 40
-        button.layer.masksToBounds = true
         return button
     }()
     
@@ -103,8 +109,8 @@ class RowDetailViewController: UIViewController {
     
     // MARK: - Inits
     override func viewDidLoad() {
+        print(#function)
         super.viewDidLoad()
-
         self.setupView()
     }
     
@@ -112,21 +118,16 @@ class RowDetailViewController: UIViewController {
     
     private func setupControllers(){
         setupNavigationController()
-        navigationItem.title = NSLocalizedString("Add new account", comment: "")
         setupTextField(textField: issuerTextField, placeholderText: NSLocalizedString("Account", comment: "") , tag: 1)
         setupTextField(textField: keyTextField, placeholderText: NSLocalizedString("Secret key", comment: "") , tag: 2)
         switchLabel.setLabelAtributedText(fontSize: 18, text: NSLocalizedString("Time-based", comment: ""), aligment: .center, indent: 0.0)
-        orLabel.setLabelAtributedText(fontSize: 18, text: NSLocalizedString("or", comment: ""), aligment: .center, indent: 0.0)
+        orLabel.setLabelAtributedText(fontSize: 18, text: NSLocalizedString("or", comment: ""), aligment: .center, indent: 0.0, color: UIColor(red: 0.702, green: 0.686, blue: 0.694, alpha: 1))
     }
     
     private func setupView() {
         
         let tapGesture = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
         view.addGestureRecognizer(tapGesture)
-        setupNavigationController()
-        
-        self.navigationController?.navigationBar.isHidden = true
-        
         view.backgroundColor = .systemGray5
         setupLayouts()
         setupControllers()
@@ -135,6 +136,14 @@ class RowDetailViewController: UIViewController {
     private func setupLayouts(){
 
         view.backgroundColor = UIColor.systemBackground
+    
+        view.addSubview(titleLabel)
+        NSLayoutConstraint.activate([
+            titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 79),
+            titleLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            titleLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
+        ])
+        
         
         textFieldWidth = Double(view.frame.width) - offsetX * 2
         
@@ -161,37 +170,43 @@ class RowDetailViewController: UIViewController {
             switchLayerView.widthAnchor.constraint(equalToConstant: 50)
         ])
         switchLayerView.addSubview(switchControl)
-        
-        view.addSubview(createButton)
-        NSLayoutConstraint.activate([
-            createButton.topAnchor.constraint(equalTo: switchLayerView.bottomAnchor, constant: 24),
-            createButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            createButton.heightAnchor.constraint(equalToConstant: 60),
-            createButton.widthAnchor.constraint(equalToConstant: 250)
-        ])
-        
-        view.addSubview(orLabel)
-        NSLayoutConstraint.activate([
-            orLabel.topAnchor.constraint(equalTo: createButton.bottomAnchor, constant: 24),
-            orLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            orLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
-        ])
-        
+   
         view.addSubview(scanQRButton)
         NSLayoutConstraint.activate([
-            scanQRButton.topAnchor.constraint(equalTo: orLabel.bottomAnchor, constant: 16),
+            scanQRButton.topAnchor.constraint(equalTo: switchLayerView.bottomAnchor, constant: 24),
             scanQRButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             scanQRButton.heightAnchor.constraint(equalToConstant: 100),
             scanQRButton.widthAnchor.constraint(equalToConstant: 160)
         ])
+
+
+        view.addSubview(orLabel)
+        NSLayoutConstraint.activate([
+            orLabel.topAnchor.constraint(equalTo: scanQRButton.bottomAnchor, constant: 8),
+            orLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            orLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
+        ])
+
+
+        view.addSubview(createButton)
+        NSLayoutConstraint.activate([
+            createButton.topAnchor.constraint(equalTo: orLabel.bottomAnchor, constant: 44),
+            createButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            createButton.heightAnchor.constraint(equalToConstant: 50),
+            createButton.widthAnchor.constraint(equalToConstant: 320)
+        ])
+        
+
         
         view.addSubview(cancelButton)
         NSLayoutConstraint.activate([
-            cancelButton.topAnchor.constraint(equalTo: scanQRButton.bottomAnchor, constant: 8),
-            cancelButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            cancelButton.heightAnchor.constraint(equalToConstant: 80),
-            cancelButton.widthAnchor.constraint(equalToConstant: 80)
+            cancelButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
+            cancelButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
+            cancelButton.heightAnchor.constraint(equalToConstant: 16),
+            cancelButton.widthAnchor.constraint(equalToConstant: 16)
         ])
+        
+        
         
     }
 
@@ -207,34 +222,33 @@ class RowDetailViewController: UIViewController {
     }
     
     private func showAlert(alertTitle: String, alertMessage: String){
+        print(alertTitle)
         let alert = UIAlertController(title: NSLocalizedString(alertTitle, comment: ""), message: NSLocalizedString(alertMessage, comment: ""), preferredStyle: .alert)
         
         let okAction = UIAlertAction(title: NSLocalizedString("Ok", comment: "") , style: .default)
         alert.addAction(okAction)
 
-        if presentedViewController == nil{
-            navigationController?.present(alert, animated: true, completion: nil)
-        }
+        self.present(alert, animated: true, completion: nil)
+       
     }
 
     
     // MARK: - Handlers
     
     @objc private func handleSave() {
-        
+
         if let issuer = issuerTextField.text{
             if issuer.isEmpty{
-                showAlert(alertTitle: "Wrong account", alertMessage: "Please enter correct account")
+                showAlert(alertTitle: NSLocalizedString("Wrong account", comment: ""), alertMessage:  NSLocalizedString("Please enter correct account", comment: ""))
             }
         }
         if let key = keyTextField.text{
             if TokenGenerator.shared.isValidSecretKey(secretKey: key){
                 delegate?.createNewItem(account: "", issuer: issuerTextField.text, key: keyTextField.text, timeBased: isTimeBased)
-                self.navigationController?.popToRootViewController(animated: true)
-                  
+                self.dismiss(animated: true, completion: nil)
                 
             } else{
-                showAlert(alertTitle: "Wrong secret", alertMessage: "Please enter correct secret key")
+                 showAlert(alertTitle: NSLocalizedString("Wrong account", comment: ""), alertMessage:  NSLocalizedString("Please enter correct account", comment: ""))
             }
         }
         
@@ -251,17 +265,20 @@ class RowDetailViewController: UIViewController {
         let scanQrViewController = ScanQrViewController()
         scanQrViewController.delegate = self
         scanQrViewController.modalPresentationStyle = .fullScreen
-
-       navigationController?.pushViewController(scanQrViewController, animated: true)
+        self.present(scanQrViewController, animated: true)
     }
     
     @objc private func handleCancelButton(){
-       self.navigationController?.popToRootViewController(animated: true)
+        self.dismiss(animated: true) { [weak self] in
+            print("handleCancelButton")
+//            self?.callBack!()
+        }
+        
     }
 }
 
 
-extension RowDetailViewController: UITextFieldDelegate{
+extension AddAccountViewController: UITextFieldDelegate{
    
     func textFieldDidBeginEditing(_ textField: UITextField) {
         guard let bottomBorderTextField = textField as? UITextFieldWithBottomBorder else { return }
@@ -270,7 +287,7 @@ extension RowDetailViewController: UITextFieldDelegate{
  
     func textFieldDidEndEditing(_ textField: UITextField) {
         guard let bottomBorderTextField = textField as? UITextFieldWithBottomBorder else { return }
-        bottomBorderTextField.updateBorder(color: .systemGray2)
+        bottomBorderTextField.updateBorder(color: .graySOTPColor())
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool
@@ -285,7 +302,7 @@ extension RowDetailViewController: UITextFieldDelegate{
     }
 }
     
-extension RowDetailViewController: AddItemDelegate{
+extension AddAccountViewController: AddItemDelegate{
     func createNewItem(account: String?, issuer: String?, key: String?, timeBased: Bool) {
         self.delegate?.createNewItem(account: account, issuer: issuer, key: key, timeBased: timeBased)
     }

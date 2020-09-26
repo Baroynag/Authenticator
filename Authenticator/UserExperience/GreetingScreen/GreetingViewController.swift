@@ -79,7 +79,7 @@ class GreetingViewController: UIViewController{
     
     //    MARK: - Handlers
     @objc private func handleCreate() {
-        let rowDetailViewController = RowDetailViewController()
+        let rowDetailViewController = AddAccountViewController()
         rowDetailViewController.delegate = addItemDelegate
         rowDetailViewController.modalPresentationStyle = .fullScreen
         navigationController?.pushViewController(rowDetailViewController, animated: true)
@@ -94,10 +94,7 @@ class GreetingViewController: UIViewController{
     
     //    MARK: - Functions
     private func setupLayout(){
-        
-       
-       
-
+     
         loadButton.translatesAutoresizingMaskIntoConstraints = false
         
         view.backgroundColor = UIColor.systemBackground

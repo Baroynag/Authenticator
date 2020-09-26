@@ -21,6 +21,11 @@ extension UIColor{
        return UIColor(red: 1, green: 0.196, blue: 0.392, alpha: 1)
     }
     
+    static func graySOTPColor() -> UIColor{
+       return UIColor(red: 0.835, green: 0.835, blue: 0.878, alpha: 1)
+    }
+    
+    
 }
 
 extension AuthenticatorViewController: AddItemDelegate {

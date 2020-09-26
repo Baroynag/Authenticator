@@ -15,7 +15,7 @@
 		1401DA8A2440D46B00DE677F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1401DA882440D46B00DE677F /* LaunchScreen.storyboard */; };
 		1401DABF244342CC00DE677F /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1401DABE244342CC00DE677F /* CustomCell.swift */; };
 		1401DAC12443431200DE677F /* AuthenticatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1401DAC02443431100DE677F /* AuthenticatorViewController.swift */; };
-		1401DAC32443433100DE677F /* RowDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1401DAC22443433100DE677F /* RowDetailViewController.swift */; };
+		1401DAC32443433100DE677F /* AddAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1401DAC22443433100DE677F /* AddAccountViewController.swift */; };
 		1401DAC62443436E00DE677F /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1401DAC42443436E00DE677F /* Protocols.swift */; };
 		1401DAC72443436E00DE677F /* Exrentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1401DAC52443436E00DE677F /* Exrentions.swift */; };
 		1401DACA244343FE00DE677F /* AuthenticatorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1401DAC9244343FE00DE677F /* AuthenticatorModel.swift */; };
@@ -104,7 +104,7 @@
 		1401DA8B2440D46B00DE677F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1401DABE244342CC00DE677F /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		1401DAC02443431100DE677F /* AuthenticatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatorViewController.swift; sourceTree = "<group>"; };
-		1401DAC22443433100DE677F /* RowDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowDetailViewController.swift; sourceTree = "<group>"; };
+		1401DAC22443433100DE677F /* AddAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountViewController.swift; sourceTree = "<group>"; };
 		1401DAC42443436E00DE677F /* Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		1401DAC52443436E00DE677F /* Exrentions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Exrentions.swift; sourceTree = "<group>"; };
 		1401DAC9244343FE00DE677F /* AuthenticatorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatorModel.swift; sourceTree = "<group>"; };
@@ -325,7 +325,7 @@
 		1490048F246DBCCC00F91500 /* AccountAddScreen */ = {
 			isa = PBXGroup;
 			children = (
-				1401DAC22443433100DE677F /* RowDetailViewController.swift */,
+				1401DAC22443433100DE677F /* AddAccountViewController.swift */,
 				141917CE245483D100EE125D /* ScanQR */,
 			);
 			path = AccountAddScreen;
@@ -552,7 +552,7 @@
 				1401DA7B2440D46800DE677F /* AppDelegate.swift in Sources */,
 				1401DABF244342CC00DE677F /* CustomCell.swift in Sources */,
 				14CB6D6924FC2AD100316ED7 /* SettingsTableViewCellWithButton.swift in Sources */,
-				1401DAC32443433100DE677F /* RowDetailViewController.swift in Sources */,
+				1401DAC32443433100DE677F /* AddAccountViewController.swift in Sources */,
 				1405D88B24719BF10065509B /* UITextFieldWithBottomBorder.swift in Sources */,
 				144B48A024FC10510086DA04 /* SettingsTableViewController.swift in Sources */,
 				1401DACA244343FE00DE677F /* AuthenticatorModel.swift in Sources */,

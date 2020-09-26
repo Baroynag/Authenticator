@@ -31,21 +31,19 @@ class AuthenticatorViewController: UIViewController {
 //    MARK: - Inits
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         configureNavBar()
         createTable()
         setupAddButton()
         createTimer()
-
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.navigationBar.isHidden = false
     }
 
 //    MARK: - Handlers
     @objc private func pressAddButton(){
+        
       self.pushDetailViewController(text: nil, state: .add)
     }
 
@@ -85,10 +83,9 @@ class AuthenticatorViewController: UIViewController {
     }
     
     private func pushDetailViewController(text: String?, state: States){
-        let rowDetailViewController = RowDetailViewController()
+        let rowDetailViewController = AddAccountViewController()
         rowDetailViewController.delegate = self
-        rowDetailViewController.modalPresentationStyle = .fullScreen
-        navigationController?.pushViewController(rowDetailViewController, animated: true)
+        self.present(rowDetailViewController, animated: true)
     }
     
 }

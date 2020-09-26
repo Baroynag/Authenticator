@@ -1,15 +1,63 @@
 /* No comment provided by engineer. */
+"Account" = "Логин";
+
+/* No comment provided by engineer. */
+"Add account" = "Добавить аккаунт";
+
+/* No comment provided by engineer. */
+"Authenticator" = "Аутентификатор";
+
+/* No comment provided by engineer. */
+"Cancel" = "Отмена";
+
+/* No comment provided by engineer. */
+"Confirm password" = "Поддтвердите пароль";
+
+/* No comment provided by engineer. */
+"Confirm the password!" = "Поддтвердите пароль";
+
+/* No comment provided by engineer. */
 "Create" = "Создать";
 
 /* No comment provided by engineer. */
-"Data loaded" = "Добро пожаловать в";
+"Enter password" = "Введите пароль";
 
 /* No comment provided by engineer. */
-"Load from backup" = "Загрузить из резервной копии";
+"or" = "или";
+
+/* No comment provided by engineer. */
+"Password" = "Пароль";
+
+/* No comment provided by engineer. */
+"Password can't be empty" = "Пароль не может быть пустым";
+
+/* No comment provided by engineer. */
+"Passwords do not match" = "Пароли не совпадают";
+
+/* No comment provided by engineer. */
+"Please enter correct account" = "Введите правильный аккаунт";
+
+/* No comment provided by engineer. */
+"Scan QR Code" = "Сканировать QR код";
+
+/* No comment provided by engineer. */
+"Secret key" = "Секретный ключ";
+
+/* No comment provided by engineer. */
+"Settings" = "Настройки";
 
 /* No comment provided by engineer. */
 "Setup one time password" = "Настройте одноразовый пароль";
 
 /* No comment provided by engineer. */
+"Time-based" = "Фактор времени";
+
+/* No comment provided by engineer. */
 "Welcome to" = "Добро пожаловать в";
+
+/* No comment provided by engineer. */
+"Wrong account" = "Не правильный аккаунт";
+
+/* No comment provided by engineer. */
+"Wrong password" = "Не правильный пароль";
 

@@ -25,10 +25,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let greetingScreen = GreetingViewController()
             greetingScreen.addItemDelegate = rootScreen
             navController.viewControllers = [rootScreen,greetingScreen]
-        print("not any record")
-        }
-        else {
-            print("is any record")
         }
         
         window = UIWindow(windowScene: winScene)
