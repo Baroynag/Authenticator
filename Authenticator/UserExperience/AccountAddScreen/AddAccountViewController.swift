@@ -33,7 +33,7 @@ class AddAccountViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.backgroundColor = .systemBackground
         let text = NSLocalizedString("Add account", comment: "")
-        label.setLabelAtributedText(fontSize: 24, text: text, aligment: .center, indent: 0.0)
+        label.setLabelAtributedText(fontSize: 20, text: text, aligment: .center, indent: 0.0)
         return label
     }()
     
