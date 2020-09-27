@@ -56,7 +56,6 @@ class SettingsTableViewCellWithButton: UITableViewCell {
             purchaseButton.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor),
             purchaseButton.heightAnchor.constraint(equalToConstant: 50),
             purchaseButton.widthAnchor.constraint(equalToConstant: 280)
-            
             ])
     }
     

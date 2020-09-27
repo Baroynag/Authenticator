@@ -32,7 +32,6 @@
 		14543DAA24853A04008E7DA8 /* SOTPWatch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 14543DA924853A04008E7DA8 /* SOTPWatch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		14543DAF24853A04008E7DA8 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14543DAE24853A04008E7DA8 /* InterfaceController.swift */; };
 		14543DB124853A04008E7DA8 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14543DB024853A04008E7DA8 /* ExtensionDelegate.swift */; };
-		14543DB324853A05008E7DA8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14543DB224853A05008E7DA8 /* Assets.xcassets */; };
 		14543DB724853A05008E7DA8 /* SOTPWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 14543D9D24853A03008E7DA8 /* SOTPWatch.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		14543DC124853B24008E7DA8 /* SOTPWatchRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14543DC024853B24008E7DA8 /* SOTPWatchRow.swift */; };
 		14543DC82486E02D008E7DA8 /* WatchAppConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14543DC72486E02D008E7DA8 /* WatchAppConnection.swift */; };
@@ -123,7 +122,6 @@
 		14543DA924853A04008E7DA8 /* SOTPWatch Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "SOTPWatch Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		14543DAE24853A04008E7DA8 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
 		14543DB024853A04008E7DA8 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
-		14543DB224853A05008E7DA8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		14543DB424853A05008E7DA8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14543DC024853B24008E7DA8 /* SOTPWatchRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SOTPWatchRow.swift; sourceTree = "<group>"; };
 		14543DC42486DCBE008E7DA8 /* SOTPWatch ExtensionDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "SOTPWatch ExtensionDebug.entitlements"; sourceTree = "<group>"; };
@@ -287,7 +285,6 @@
 				14543DC42486DCBE008E7DA8 /* SOTPWatch ExtensionDebug.entitlements */,
 				14543DAE24853A04008E7DA8 /* InterfaceController.swift */,
 				14543DB024853A04008E7DA8 /* ExtensionDelegate.swift */,
-				14543DB224853A05008E7DA8 /* Assets.xcassets */,
 				14543DB424853A05008E7DA8 /* Info.plist */,
 				14543DC024853B24008E7DA8 /* SOTPWatchRow.swift */,
 			);
@@ -489,7 +486,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				14543DB324853A05008E7DA8 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

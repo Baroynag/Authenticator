@@ -14,8 +14,6 @@ class PasswordViewController: UIViewController {
     
     //    MARK:- Properties
     
-//    public var callBack: ((String) -> ())?
-    
     private let offsetX = 24.0
     private let offsetY = 64.0
     private let textFieldHeigth = 80.0
@@ -30,10 +28,21 @@ class PasswordViewController: UIViewController {
         button.setTitle(NSLocalizedString("Ok", comment: "") , for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(handleConfirmButton), for: .touchUpInside)
-        button.layer.cornerRadius = 10
+        button.layer.cornerRadius = 40
         button.layer.masksToBounds = true
         return button
      }()
+    
+    
+    let cancelButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.backgroundColor = UIColor.systemBackground
+        button.setImage(UIImage(named: "close"), for: .normal)
+        button.clipsToBounds = true
+        button.addTarget(self, action: #selector(handleCancel), for: .touchUpInside)
+        return button
+    }()
     
     //    MARK: Inits
     override func viewDidLoad() {
@@ -67,6 +76,14 @@ class PasswordViewController: UIViewController {
             confirmButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             confirmButton.heightAnchor.constraint(equalToConstant: 80),
             confirmButton.widthAnchor.constraint(equalToConstant: 80)
+        ])
+        
+        view.addSubview(cancelButton)
+        NSLayoutConstraint.activate([
+            cancelButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
+            cancelButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
+            cancelButton.heightAnchor.constraint(equalToConstant: 16),
+            cancelButton.widthAnchor.constraint(equalToConstant: 16)
         ])
     }
     
@@ -113,6 +130,9 @@ class PasswordViewController: UIViewController {
             }
         }
 
+    }
+    @objc func handleCancel(){
+        self.dismiss(animated: true, completion: nil)
     }
     
     

@@ -31,19 +31,20 @@ class PurchaseViewController: UIViewController {
         textField.textColor = UIColor.fucsiaColor()
         textField.font = UIFont(name: "Lato-Light", size: 32)
         textField.textAlignment = .center
-        textField.text = NSLocalizedString("PREMIUM", comment: "")
+        textField.text = NSLocalizedString("Support", comment: "")
         textField.isUserInteractionEnabled = false
         return textField
     }()
     
-    private var descriprionTextField: UITextField = {
-        let textField = UITextField()
+    private var descriprionTextField: UITextView = {
+        let textField = UITextView()
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.backgroundColor = .systemBackground
         textField.textColor = UIColor.label
         textField.font = UIFont(name: "Lato-Light", size: 18)
         textField.textAlignment = .center
-        textField.text = NSLocalizedString("Buy SOTP Authenticator and support this project", comment: "")
+        textField.autocapitalizationType = .words
+        textField.text = NSLocalizedString("Please consider to support this open source project", comment: "")
         textField.isUserInteractionEnabled = false
         return textField
     }()
@@ -126,7 +127,8 @@ class PurchaseViewController: UIViewController {
             descriprionTextField.topAnchor.constraint(equalTo: titleField.bottomAnchor, constant: 8),
             descriprionTextField.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 8),
             descriprionTextField.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -8),
-            descriprionTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+            descriprionTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            descriprionTextField.heightAnchor.constraint(equalToConstant: 100)
         ])
 
         view.addSubview(purchaseButton)

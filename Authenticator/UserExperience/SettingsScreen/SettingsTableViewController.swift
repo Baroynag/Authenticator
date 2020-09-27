@@ -117,8 +117,6 @@ class SettingsTableViewController: UITableViewController {
         if indexPath.row == 0{
             print ("create backup")
             let passwordViewController = PasswordViewController()
-            passwordViewController.modalPresentationStyle = .fullScreen
-                   
             self.present(passwordViewController, animated: true)
             
         } else if indexPath.row == 1{

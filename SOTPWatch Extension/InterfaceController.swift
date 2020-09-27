@@ -37,10 +37,9 @@ class InterfaceController: WKInterfaceController {
     override func didAppear() {
         super.didAppear()
         table.setNumberOfRows(1, withRowType: "SotpWRow")
-//        if let row = table.rowController(at: 0) as? SOTPWatchRow {
-//            row.passLabel.setText("Загрузка...")
-//            row.passLabel.setTextColor(UIColor.fucsiaColor())
-//        }
+        if let row = table.rowController(at: 0) as? SOTPWatchRow {
+            row.passLabel?.setText("Загрузка...")
+        }
     }
     
     override func willActivate() {
@@ -66,9 +65,9 @@ class InterfaceController: WKInterfaceController {
         table.setNumberOfRows(items.count, withRowType: "SotpWRow")
         for (i, item) in items.enumerated() {
             if let row = table.rowController(at: i) as? SOTPWatchRow {
-                row.accountLabel.setText(item.key)
-                row.passLabel.setText(item.value as? String)
-                row.detailLabel.setText("Oбновится через 30с.")
+                row.accountLabel?.setText(item.key)
+                row.passLabel?.setText(item.value as? String)
+                row.detailLabel?.setText("Oбновится через 30с.")
             }
         }
     }
