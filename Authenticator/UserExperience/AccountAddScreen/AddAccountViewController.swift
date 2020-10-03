@@ -9,13 +9,16 @@
 
 import UIKit
 
+protocol AddAccountDelagate: AnyObject {
+    func didTapCreate(account: String?, issuer: String?, key: String?, timeBased: Bool)
+}
 
 class AddAccountViewController: UIViewController {
     
     // MARK: - Properties
 
-    weak var delegate: AddItemDelegate?
-    public var callBack: (()->())?
+    weak var addAccountDelagate: AddAccountDelagate? 
+    weak var refreshTableDelegate: RefreshTableDelegate?
     
     private var isTimeBased = true
 
@@ -244,16 +247,19 @@ class AddAccountViewController: UIViewController {
         }
         if let key = keyTextField.text{
             if TokenGenerator.shared.isValidSecretKey(secretKey: key){
-                delegate?.createNewItem(account: "", issuer: issuerTextField.text, key: keyTextField.text, timeBased: isTimeBased)
+                
+                AuthenticatorModel.shared.addOneItem(account: "", issuer: issuerTextField.text, key: keyTextField.text, timeBased: isTimeBased)
+                
+                addAccountDelagate?.didTapCreate(account: "", issuer: issuerTextField.text, key: keyTextField.text, timeBased: isTimeBased)
+                refreshTableDelegate?.refresh()
+                
                 self.dismiss(animated: true, completion: nil)
                 
             } else{
                  showAlert(alertTitle: NSLocalizedString("Wrong account", comment: ""), alertMessage:  NSLocalizedString("Please enter correct account", comment: ""))
             }
         }
-        
-        
-            
+
     }
     
     @objc private func switchValueChanged(_ sender:UISwitch!){
@@ -269,10 +275,7 @@ class AddAccountViewController: UIViewController {
     }
     
     @objc private func handleCancelButton(){
-        self.dismiss(animated: true) { [weak self] in
-            print("handleCancelButton")
-//            self?.callBack!()
-        }
+        self.dismiss(animated: true)
         
     }
 }
@@ -304,7 +307,8 @@ extension AddAccountViewController: UITextFieldDelegate{
     
 extension AddAccountViewController: AddItemDelegate{
     func createNewItem(account: String?, issuer: String?, key: String?, timeBased: Bool) {
-        self.delegate?.createNewItem(account: account, issuer: issuer, key: key, timeBased: timeBased)
+        
+//        self.delegate?.createNewItem(account: account, issuer: issuer, key: key, timeBased: timeBased)
     }
  
 }

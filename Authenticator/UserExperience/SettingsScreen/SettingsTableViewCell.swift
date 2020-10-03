@@ -20,7 +20,6 @@ class SettingsTableViewCell: UITableViewCell {
     private let cellTitle: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.backgroundColor = .systemBackground
         return label
     }()
     

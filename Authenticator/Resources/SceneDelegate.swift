@@ -23,7 +23,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         if !AuthenticatorModel.shared.isAnyRecords(){
             let greetingScreen = GreetingViewController()
-            greetingScreen.addItemDelegate = rootScreen
+            greetingScreen.delegate = self
             navController.viewControllers = [rootScreen,greetingScreen]
         }
         
@@ -68,3 +68,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 }
 
+
+extension SceneDelegate: GreetingViewControllerDelegate{
+    func didTapCreate(account: String?, issuer: String?, key: String?, timeBased: Bool) {
+
+        window?.rootViewController = UINavigationController(rootViewController: AuthenticatorViewController())
+    }
+    
+
+}

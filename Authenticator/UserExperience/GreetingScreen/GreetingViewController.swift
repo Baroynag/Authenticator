@@ -8,11 +8,15 @@
 
 import UIKit
 
+protocol GreetingViewControllerDelegate: AnyObject {
+    func didTapCreate(account: String?, issuer: String?, key: String?, timeBased: Bool)
+}
+
 class GreetingViewController: UIViewController{
     
     //    MARK: - Properties
-    weak var addItemDelegate: AddItemDelegate?
     weak var refreshTableDelegate: RefreshTableDelegate?
+    weak var delegate: GreetingViewControllerDelegate?
     
     private let imageView: UIImageView = {
          let im = UIImage(named: "greeting")
@@ -80,9 +84,8 @@ class GreetingViewController: UIViewController{
     //    MARK: - Handlers
     @objc private func handleCreate() {
         let rowDetailViewController = AddAccountViewController()
-        rowDetailViewController.delegate = addItemDelegate
-        rowDetailViewController.modalPresentationStyle = .fullScreen
-        navigationController?.pushViewController(rowDetailViewController, animated: true)
+        rowDetailViewController.addAccountDelagate = self
+        self.present(rowDetailViewController, animated: true, completion: nil)
     }
 
     @objc private func handleLoad() {
@@ -141,3 +144,15 @@ class GreetingViewController: UIViewController{
         ])
     }
 }
+
+
+extension GreetingViewController: AddAccountDelagate{
+    func didTapCreate(account: String?, issuer: String?, key: String?, timeBased: Bool) {
+        delegate?.didTapCreate(account: account, issuer: issuer,
+                               key: key, timeBased: timeBased)
+    }
+    
+    
+}
+
+

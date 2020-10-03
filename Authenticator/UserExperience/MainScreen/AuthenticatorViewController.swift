@@ -83,9 +83,9 @@ class AuthenticatorViewController: UIViewController {
     }
     
     private func pushDetailViewController(text: String?, state: States){
-        let rowDetailViewController = AddAccountViewController()
-        rowDetailViewController.delegate = self
-        self.present(rowDetailViewController, animated: true)
+        let addAccountViewController = AddAccountViewController()
+        addAccountViewController.refreshTableDelegate = self
+        self.present(addAccountViewController, animated: true)
     }
     
 }
@@ -177,6 +177,22 @@ extension AuthenticatorViewController {
                 cell.updateTimerInfoLabel()
             }
         }
+    }
+    
+}
+
+
+
+extension AuthenticatorViewController: AddItemDelegate {
+    func createNewItem(account: String?, issuer: String?, key: String?, timeBased: Bool) {
+        AuthenticatorModel.shared.addOneItem(account: account, issuer: issuer, key: key, timeBased: timeBased)
+        self.tableView.reloadData()
+    }
+}
+
+extension AuthenticatorViewController: RefreshTableDelegate {
+    func refresh() {
+      self.tableView.reloadData()
     }
     
 }
