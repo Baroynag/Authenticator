@@ -270,7 +270,6 @@ class AddAccountViewController: UIViewController {
         
         let scanQrViewController = ScanQrViewController()
         scanQrViewController.delegate = self
-//        scanQrViewController.delegate = addAccountDelagate
         scanQrViewController.modalPresentationStyle = .fullScreen
         self.present(scanQrViewController, animated: true)
     }

@@ -16,8 +16,9 @@ class TokenGenerator {
     func createToken(name: String, issuer: String, secretString: String) -> Token? {
     
         guard let secretData = MF_Base32Codec.data(fromBase32String: secretString),
-            !secretData.isEmpty else { print("Invalid secret")
-                return nil}
+            !secretData.isEmpty else {
+            return nil
+        }
 
         guard let generator = Generator(
             factor: .timer(period: 30),
@@ -35,12 +36,13 @@ class TokenGenerator {
     
     func isValidSecretKey(secretKey: String) -> Bool{
         
+        
         if secretKey.isEmpty {return false}
-        
-        guard let _ = MF_Base32Codec.data(fromBase32String: secretKey) else {
-            return false
-        }
-        
+       
+        guard let key = MF_Base32Codec.data(fromBase32String: secretKey),
+            !key.isEmpty else {
+            return false}
+
         return true
             
         
