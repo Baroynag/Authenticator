@@ -31,7 +31,6 @@ class AuthenticatorViewController: UIViewController {
 //    MARK: - Inits
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureNavBar()
         createTable()
         setupAddButton()
         createTimer()
@@ -39,6 +38,7 @@ class AuthenticatorViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        configureNavBar()
     }
 
 //    MARK: - Handlers
@@ -79,6 +79,7 @@ class AuthenticatorViewController: UIViewController {
         navigationItem.title =  NSLocalizedString("Authenticator", comment: "") 
         let barButtonItem = UIBarButtonItem(image: UIImage(named: "settings"), style: .done, target: self, action: #selector(settingsTapped))
         barButtonItem.tintColor = .fucsiaColor()
+        navigationController?.navigationBar.prefersLargeTitles = false
         navigationItem.rightBarButtonItem = barButtonItem
     }
     
@@ -179,15 +180,6 @@ extension AuthenticatorViewController {
         }
     }
     
-}
-
-
-
-extension AuthenticatorViewController: AddItemDelegate {
-    func createNewItem(account: String?, issuer: String?, key: String?, timeBased: Bool) {
-        AuthenticatorModel.shared.addOneItem(account: account, issuer: issuer, key: key, timeBased: timeBased)
-        self.tableView.reloadData()
-    }
 }
 
 extension AuthenticatorViewController: RefreshTableDelegate {

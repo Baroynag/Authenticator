@@ -70,10 +70,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
 extension SceneDelegate: GreetingViewControllerDelegate{
-    func didTapCreate(account: String?, issuer: String?, key: String?, timeBased: Bool) {
 
+    func didTapCreate() {
         window?.rootViewController = UINavigationController(rootViewController: AuthenticatorViewController())
     }
-    
 
 }

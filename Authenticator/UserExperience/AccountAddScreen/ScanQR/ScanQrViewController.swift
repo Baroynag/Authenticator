@@ -93,10 +93,10 @@ class ScanQrViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
             guard let readableObject = metadataObject as? AVMetadataMachineReadableCodeObject else { return }
             guard let stringValue = readableObject.stringValue else { return }
             AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
-            navigationController?.popToRootViewController(animated: true)
+            self.dismiss(animated: true, completion: nil)
             found(urlString: stringValue)
             
-        } else { navigationController?.popToRootViewController(animated: true)}
+        } else { self.dismiss(animated: true, completion: nil)}
         
     }
 

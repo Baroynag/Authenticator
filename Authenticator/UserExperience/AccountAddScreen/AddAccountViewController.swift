@@ -10,7 +10,7 @@
 import UIKit
 
 protocol AddAccountDelagate: AnyObject {
-    func didTapCreate(account: String?, issuer: String?, key: String?, timeBased: Bool)
+    func returnToMainScreeen()
 }
 
 class AddAccountViewController: UIViewController {
@@ -250,7 +250,7 @@ class AddAccountViewController: UIViewController {
                 
                 AuthenticatorModel.shared.addOneItem(account: "", issuer: issuerTextField.text, key: keyTextField.text, timeBased: isTimeBased)
                 
-                addAccountDelagate?.didTapCreate(account: "", issuer: issuerTextField.text, key: keyTextField.text, timeBased: isTimeBased)
+                addAccountDelagate?.returnToMainScreeen()
                 refreshTableDelegate?.refresh()
                 
                 self.dismiss(animated: true, completion: nil)
@@ -270,6 +270,7 @@ class AddAccountViewController: UIViewController {
         
         let scanQrViewController = ScanQrViewController()
         scanQrViewController.delegate = self
+//        scanQrViewController.delegate = addAccountDelagate
         scanQrViewController.modalPresentationStyle = .fullScreen
         self.present(scanQrViewController, animated: true)
     }
@@ -307,8 +308,16 @@ extension AddAccountViewController: UITextFieldDelegate{
     
 extension AddAccountViewController: AddItemDelegate{
     func createNewItem(account: String?, issuer: String?, key: String?, timeBased: Bool) {
+
+        AuthenticatorModel.shared.addOneItem(account: account, issuer: issuer, key: key, timeBased: timeBased)
+
         
-//        self.delegate?.createNewItem(account: account, issuer: issuer, key: key, timeBased: timeBased)
+        if addAccountDelagate != nil{
+            addAccountDelagate?.returnToMainScreeen()
+        } else{
+            refreshTableDelegate?.refresh()
+            self.dismiss(animated: true, completion: nil)
+        }
     }
- 
+
 }

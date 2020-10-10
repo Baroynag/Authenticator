@@ -52,15 +52,16 @@ extension UIAlertController{
 
 extension UIViewController{
    
-    public func chooseDocument(vcWithDocumentPicker: UIViewController, completion: ()->()){
+    public func chooseDocument(vcWithDocumentPicker: UIViewController){
         if let vc = vcWithDocumentPicker as? UIDocumentPickerDelegate {
-            let documentPicker: UIDocumentPickerViewController = UIDocumentPickerViewController(documentTypes: [String(kUTTypePlainText), String(kUTTypeData)], in: UIDocumentPickerMode.import)
+            let documentPicker: UIDocumentPickerViewController = UIDocumentPickerViewController(documentTypes:
+                ["public.item"],
+                in: UIDocumentPickerMode.import)
             
             documentPicker.delegate = vc
 
             documentPicker.modalPresentationStyle = UIModalPresentationStyle.fullScreen
             vcWithDocumentPicker.present(documentPicker, animated: true)
-            completion()
         }
     }
 }
@@ -123,7 +124,7 @@ extension GreetingViewController: UIDocumentPickerDelegate{
                     if let pass = pass{
                         if Backup.getFileContent(fileURL: filePath, password: pass){
                             self?.refreshTableDelegate?.refresh()
-                            self?.navigationController?.popToRootViewController(animated: true)
+                            self?.delegate?.didTapCreate()
                         } else{
                             let alert = UIAlertController.alertWithOk(title: title)
                             self?.present(alert, animated: true)

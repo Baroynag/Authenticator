@@ -28,9 +28,8 @@ class AuthenticatorModel {
     }
     
     func isRecordExist(account: String, issuer: String, key: String, timeBased: Bool) -> Bool{
-        
+      
         let request = AuthenticatorItem.fetchRequest() as NSFetchRequest<AuthenticatorItem>
-        
         
         let predicate = NSPredicate(
             format: "account = %@ AND issuer = %@ AND key = %@ AND timeBased =  %d",
@@ -53,7 +52,6 @@ class AuthenticatorModel {
     func addOneItem(account: String?, issuer: String?, key: String?, timeBased: Bool){
         
        if isRecordExist(account: account ?? "", issuer: issuer ?? "", key: key ?? "", timeBased: timeBased){
-            print("exis!!!")
             return
         }
         

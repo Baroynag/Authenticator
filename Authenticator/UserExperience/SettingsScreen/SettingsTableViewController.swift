@@ -121,9 +121,7 @@ class SettingsTableViewController: UITableViewController {
             
         } else if indexPath.row == 1{
             
-            self.chooseDocument(vcWithDocumentPicker: self) {
-                    print("chooseDocument end")
-            }
+            self.chooseDocument(vcWithDocumentPicker: self) 
         } else if  indexPath.row == 2{
             print ("22")
         }  else if  indexPath.row == 3{

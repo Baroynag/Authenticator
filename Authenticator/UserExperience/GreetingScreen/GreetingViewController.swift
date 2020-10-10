@@ -9,7 +9,7 @@
 import UIKit
 
 protocol GreetingViewControllerDelegate: AnyObject {
-    func didTapCreate(account: String?, issuer: String?, key: String?, timeBased: Bool)
+    func didTapCreate()
 }
 
 class GreetingViewController: UIViewController{
@@ -89,10 +89,7 @@ class GreetingViewController: UIViewController{
     }
 
     @objc private func handleLoad() {
-    
-        self.chooseDocument(vcWithDocumentPicker: self) {
-                print("chooseDocument end")
-        }
+        self.chooseDocument(vcWithDocumentPicker: self) 
     }
     
     //    MARK: - Functions
@@ -147,11 +144,10 @@ class GreetingViewController: UIViewController{
 
 
 extension GreetingViewController: AddAccountDelagate{
-    func didTapCreate(account: String?, issuer: String?, key: String?, timeBased: Bool) {
-        delegate?.didTapCreate(account: account, issuer: issuer,
-                               key: key, timeBased: timeBased)
-    }
     
+    func returnToMainScreeen() {
+        delegate?.didTapCreate()
+    }
     
 }
 
