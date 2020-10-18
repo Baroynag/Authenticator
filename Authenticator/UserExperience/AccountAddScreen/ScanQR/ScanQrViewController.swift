@@ -16,13 +16,19 @@ class ScanQrViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
     var captureSession: AVCaptureSession!
     var previewLayer: AVCaptureVideoPreviewLayer!
     weak var delegate: AddItemDelegate?
+   
+    let cancelButton: UIButton = {
+        let button = UIButton(type: .close)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.backgroundColor = UIColor.systemBackground
+        button.addTarget(self, action: #selector(handleCancelButton), for: .touchUpInside)
+        return button
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
    
-        view.backgroundColor = UIColor.black
-        self.navigationController?.navigationBar.isHidden = false
-        self.navigationController?.navigationBar.isTranslucent = true
+        
         captureSession = AVCaptureSession()
 
         guard let videoCaptureDevice = AVCaptureDevice.default(for: .video) else { return }
@@ -59,6 +65,16 @@ class ScanQrViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
         previewLayer.videoGravity = .resizeAspectFill
         view.layer.addSublayer(previewLayer)
 
+        
+        view.backgroundColor = UIColor.black
+        view.addSubview(cancelButton)
+        NSLayoutConstraint.activate([
+            cancelButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
+            cancelButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
+            cancelButton.heightAnchor.constraint(equalToConstant: 16),
+            cancelButton.widthAnchor.constraint(equalToConstant: 16)
+        ])
+        
         captureSession.startRunning()
     }
 
@@ -122,6 +138,10 @@ class ScanQrViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
 
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .portrait
+    }
+    
+    @objc private func handleCancelButton(){
+        self.dismiss(animated: true)
     }
 }
 

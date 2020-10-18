@@ -17,11 +17,12 @@ class Purchases: NSObject {
     fileprivate var productPurchaseCallback: ((Result<Bool, Error>) -> Void)?
     
     private let productIdentifiers = Set<String>(
-        arrayLiteral: "am.baroynag.SOTP.HeartSticker"
+        arrayLiteral: "am.baroynag.SOTP.OneDollarDonation",
+        "am.baroynag.SOTP.FiveDollarDonation"
     )
 
     private var productRequest: SKProductsRequest?
-    private var products: [String: SKProduct]?
+    public var products: [String: SKProduct]?
 
     func initialize(completion: @escaping (Result<[SKProduct], Error>) -> Void) {
         print(#function)
@@ -79,8 +80,10 @@ extension Purchases: SKProductsRequestDelegate {
 
         var products = [String: SKProduct]()
         for skProduct in response.products {
-            print("Found product: \(skProduct.productIdentifier)")
+         
             products[skProduct.productIdentifier] = skProduct
+            print("Found product: \(skProduct.productIdentifier) ")
+            
         }
 
         self.products = products
@@ -108,8 +111,8 @@ extension SKProduct {
 
     var title: String? {
         switch productIdentifier {
-        case "am.baroynag.SOTP.HeartSticker":
-            return "Buy one heart"
+        case "am.baroynag.SOTP.OneDollarDonation":
+            return "One dollar donation"
         default:
             return nil
         }

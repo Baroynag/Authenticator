@@ -71,11 +71,9 @@ class AddAccountViewController: UIViewController {
     }()
     
     let cancelButton: UIButton = {
-        let button = UIButton()
+        let button = UIButton(type: .close)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = UIColor.systemBackground
-        button.setImage(UIImage(named: "close"), for: .normal)
-        button.clipsToBounds = true
         button.addTarget(self, action: #selector(handleCancelButton), for: .touchUpInside)
         return button
     }()

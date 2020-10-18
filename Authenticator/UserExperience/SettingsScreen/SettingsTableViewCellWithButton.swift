@@ -60,7 +60,6 @@ class SettingsTableViewCellWithButton: UITableViewCell {
     }
     
     @objc func handlePurchase(){
-        print("sdsddsf")
         self.delgate?.pressPurchaseButton()
     }
     
