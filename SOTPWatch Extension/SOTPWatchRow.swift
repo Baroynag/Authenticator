@@ -7,6 +7,7 @@
 //
 
 import WatchKit
+import UIKit
 
 class SOTPWatchRow: NSObject {
 
@@ -14,6 +15,9 @@ class SOTPWatchRow: NSObject {
     
     @IBOutlet var passLabel: WKInterfaceLabel!
     
+    @IBOutlet var acountLogin: WKInterfaceLabel!
+    
     @IBOutlet var detailLabel: WKInterfaceLabel!
+   
     
 }

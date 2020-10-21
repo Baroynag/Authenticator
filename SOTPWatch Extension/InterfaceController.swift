@@ -38,8 +38,7 @@ class InterfaceController: WKInterfaceController {
         super.didAppear()
         table.setNumberOfRows(1, withRowType: "SotpWRow")
         if let row = table.rowController(at: 0) as? SOTPWatchRow {
-            row.passLabel.setText("Загрузка...")
-            row.passLabel.setTextColor(UIColor.fucsiaColor())
+            row.passLabel?.setText("Загрузка...")
         }
     }
     
@@ -66,10 +65,9 @@ class InterfaceController: WKInterfaceController {
         table.setNumberOfRows(items.count, withRowType: "SotpWRow")
         for (i, item) in items.enumerated() {
             if let row = table.rowController(at: i) as? SOTPWatchRow {
-                row.accountLabel.setText(item.key)
-                row.passLabel.setText(item.value as? String)
-                row.passLabel.setTextColor(UIColor.fucsiaColor())
-                row.detailLabel.setText("Действителен 30 с.")
+                row.accountLabel?.setText(item.key)
+                row.passLabel?.setText(item.value as? String)
+                row.detailLabel?.setText("Oбновится через 30с.")
             }
         }
     }
@@ -84,7 +82,7 @@ class InterfaceController: WKInterfaceController {
     @objc private func updateLabel (){
         if items.count == 0 { return}
         countDown -= 1
-        let text = "Действителен " + String(countDown) + "с."
+        let text = "Oбновится через " + String(countDown) + "с."
         for i in 0...items.count - 1 {
             if let row = table.rowController(at: i) as? SOTPWatchRow {
                 row.detailLabel.setText(text)
@@ -98,9 +96,3 @@ class InterfaceController: WKInterfaceController {
     }
 }
 
-extension UIColor{
-    static func fucsiaColor() -> UIColor{
-       return UIColor(red: 1, green: 0.196, blue: 0.392, alpha: 1)
-    }
-    
-}

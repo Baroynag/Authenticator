@@ -1,3 +1,12 @@
-/* Class = "WKInterfaceLabel"; text = "Load..."; ObjectID = "hf9-q1-ODr"; */
-"hf9-q1-ODr.text" = "Загрузка...";
+/* Class = "WKInterfaceLabel"; text = "Oбновится через 30 с"; ObjectID = "aHZ-6s-9pE"; */
+"aHZ-6s-9pE.text" = "Oбновится через 30 с";
+
+/* Class = "WKInterfaceLabel"; text = "test@mail"; ObjectID = "Fqf-yn-Gjs"; */
+"Fqf-yn-Gjs.text" = "test@mail";
+
+/* Class = "WKInterfaceLabel"; text = "Google"; ObjectID = "fus-sy-CsC"; */
+"fus-sy-CsC.text" = "Google";
+
+/* Class = "WKInterfaceLabel"; text = "123456"; ObjectID = "hf9-q1-ODr"; */
+"hf9-q1-ODr.text" = "123456";
 

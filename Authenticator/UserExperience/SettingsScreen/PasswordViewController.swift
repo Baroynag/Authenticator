@@ -14,8 +14,6 @@ class PasswordViewController: UIViewController {
     
     //    MARK:- Properties
     
-    public var callBack: ((String) -> ())?
-    
     private let offsetX = 24.0
     private let offsetY = 64.0
     private let textFieldHeigth = 80.0
@@ -30,10 +28,19 @@ class PasswordViewController: UIViewController {
         button.setTitle(NSLocalizedString("Ok", comment: "") , for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(handleConfirmButton), for: .touchUpInside)
-        button.layer.cornerRadius = 10
+        button.layer.cornerRadius = 40
         button.layer.masksToBounds = true
         return button
      }()
+    
+    
+    let cancelButton: UIButton = {
+        let button = UIButton(type: .close)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.backgroundColor = UIColor.systemBackground
+        button.addTarget(self, action: #selector(handleCancel), for: .touchUpInside)
+        return button
+    }()
     
     //    MARK: Inits
     override func viewDidLoad() {
@@ -68,6 +75,14 @@ class PasswordViewController: UIViewController {
             confirmButton.heightAnchor.constraint(equalToConstant: 80),
             confirmButton.widthAnchor.constraint(equalToConstant: 80)
         ])
+        
+        view.addSubview(cancelButton)
+        NSLayoutConstraint.activate([
+            cancelButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
+            cancelButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
+            cancelButton.heightAnchor.constraint(equalToConstant: 16),
+            cancelButton.widthAnchor.constraint(equalToConstant: 16)
+        ])
     }
     
     private func setupTextField(textField: UITextField, placeholderText: String, tag: Int)  {
@@ -88,22 +103,72 @@ class PasswordViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
+    func validatePassword(completion: @escaping (String?) -> () ){
+       do{
+           let isValidPassword = try PasswordError.cheackPassword(passOne: passwordTextField.text, passTwo: confirmPasswordTextField.text)
+           if isValidPassword {
+                   if let password = self.passwordTextField.text{
+                       print("11111")
+//                       self.saveBackupToFile(password: password)
+                    completion(password)
+                   }
+            
+           }
+       } catch {
+           showErrorAlert(errorText: error.localizedDescription)
+       }
+    }
+    
     //    MARK: - Handlers
     @objc private func handleConfirmButton(){
-        do{
-            let isValidPassword = try PasswordError.cheackPassword(passOne: passwordTextField.text, passTwo: confirmPasswordTextField.text)
-            if isValidPassword {
-                
-                navigationController?.popViewController(completion: { [weak self] in
-                    if let password = self?.passwordTextField.text{
-                        self?.callBack?(password)
-                    }
-                })
+        
+        validatePassword { [weak self ](pass) in
+            if let pass = pass{
+                self?.saveBackupToFile(password: pass)
             }
-        } catch {
-            showErrorAlert(errorText: error.localizedDescription)
         }
+
     }
+    @objc func handleCancel(){
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    
+    private func saveBackupToFile(password: String){
+        
+        //TODO: add error message
+        guard let backupFile = Backup.getEncriptedData(password: password) else {return}
+        
+        let temporaryFolder = FileManager.default.temporaryDirectory
+        let temporaryFilePath = temporaryFolder.appendingPathComponent("sotpbackup.sotp")
+
+        do{
+            try backupFile.write(to: temporaryFilePath, atomically: true, encoding: .utf8)
+            let activityViewController = UIActivityViewController(activityItems: [temporaryFilePath], applicationActivities: nil)
+                    activityViewController.popoverPresentationController?.sourceView = self.view
+            self.present(activityViewController, animated: true)
+
+            activityViewController.completionWithItemsHandler = {
+                (activityType: UIActivity.ActivityType?, completed: Bool, arrayReturnedItems: [Any]?, error: Error?) in
+                
+                if completed {
+                    self.dismiss(animated: true, completion: nil)
+                } else { print("cancel") }
+                
+                if let shareError = error {
+                    print("error while sharing: \(shareError.localizedDescription)")
+                }
+            }
+            
+            }
+            catch {
+                print(error.localizedDescription)
+        }
+       
+        
+    }
+    
+    
 }
 
 extension PasswordViewController: UITextFieldDelegate{
@@ -115,7 +180,7 @@ extension PasswordViewController: UITextFieldDelegate{
  
     func textFieldDidEndEditing(_ textField: UITextField) {
         guard let bottomBorderTextField = textField as? UITextFieldWithBottomBorder else { return }
-        bottomBorderTextField.updateBorder(color: .systemGray2)
+        bottomBorderTextField.updateBorder(color: .graySOTPColor())
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool

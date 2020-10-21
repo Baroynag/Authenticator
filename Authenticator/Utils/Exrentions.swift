@@ -21,26 +21,13 @@ extension UIColor{
        return UIColor(red: 1, green: 0.196, blue: 0.392, alpha: 1)
     }
     
-}
-
-extension AuthenticatorViewController: AddItemDelegate {
-    func createNewItem(account: String?, issuer: String?, key: String?, timeBased: Bool) {
-        AuthenticatorModel.shared.addOneItem(account: account, issuer: issuer, key: key, timeBased: timeBased)
-        DispatchQueue.main.async { [weak self] in
-            self?.tableView.reloadData()
-        }
-    }
-}
-
-extension AuthenticatorViewController: RefreshTableDelegate {
-    func refresh() {
-        DispatchQueue.main.async { [weak self] in
-            self?.tableView.reloadData()
-        }
+    static func graySOTPColor() -> UIColor{
+       return UIColor(red: 0.835, green: 0.835, blue: 0.878, alpha: 1)
     }
     
     
 }
+
 
 extension UIViewController{
     func setupNavigationController(){
@@ -68,13 +55,14 @@ extension UILabel{
     
     func setLabelAtributedText(fontSize: CGFloat, text: String, aligment: NSTextAlignment, indent: CGFloat){
         
-        let font = UIFont(name: "Lato-Light", size: fontSize)
+        let font = UIFont.systemFont(ofSize: fontSize, weight: .light)
+    
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.alignment = aligment
         paragraphStyle.firstLineHeadIndent = indent
 
         let attributes: [NSAttributedString.Key: Any] = [
-            .font: font!,
+            .font: font,
             .foregroundColor: UIColor.label,
             .paragraphStyle: paragraphStyle
         ]
@@ -85,13 +73,13 @@ extension UILabel{
     
     func setLabelAtributedText(fontSize: CGFloat, text: String, aligment: NSTextAlignment, indent: CGFloat, color: UIColor){
         
-        let font = UIFont(name: "Lato-Light", size: fontSize)
+        let font = UIFont.systemFont(ofSize: fontSize, weight: .semibold)
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.alignment = aligment
         paragraphStyle.firstLineHeadIndent = indent
 
         let attributes: [NSAttributedString.Key: Any] = [
-            .font: font!,
+            .font: font,
             .foregroundColor: color,
             .paragraphStyle: paragraphStyle
         ]

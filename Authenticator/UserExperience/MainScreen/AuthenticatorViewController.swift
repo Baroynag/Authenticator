@@ -31,29 +31,24 @@ class AuthenticatorViewController: UIViewController {
 //    MARK: - Inits
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        configureNavBar()
         createTable()
         setupAddButton()
         createTimer()
-        
-        if needShowGreetingScreen(){
-            showGreetingScreen()
-        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.navigationBar.isHidden = false
+        configureNavBar()
     }
 
 //    MARK: - Handlers
     @objc private func pressAddButton(){
+        
       self.pushDetailViewController(text: nil, state: .add)
     }
 
     @objc private func settingsTapped(){
-        let settingsViewController = SettingsViewController()
+        let settingsViewController = SettingsTableViewController()
         settingsViewController.modalPresentationStyle = .fullScreen
         settingsViewController.refreshTableDelegate = self
         navigationController?.pushViewController(settingsViewController, animated: true)
@@ -84,29 +79,16 @@ class AuthenticatorViewController: UIViewController {
         navigationItem.title =  NSLocalizedString("Authenticator", comment: "") 
         let barButtonItem = UIBarButtonItem(image: UIImage(named: "settings"), style: .done, target: self, action: #selector(settingsTapped))
         barButtonItem.tintColor = .fucsiaColor()
+        navigationController?.navigationBar.prefersLargeTitles = false
         navigationItem.rightBarButtonItem = barButtonItem
     }
     
     private func pushDetailViewController(text: String?, state: States){
-        let rowDetailViewController = RowDetailViewController()
-        rowDetailViewController.delegate = self
-        rowDetailViewController.modalPresentationStyle = .fullScreen
-        navigationController?.pushViewController(rowDetailViewController, animated: true)
+        let addAccountViewController = AddAccountViewController()
+        addAccountViewController.refreshTableDelegate = self
+        self.present(addAccountViewController, animated: true)
     }
     
-    private func needShowGreetingScreen() -> Bool{
-        AuthenticatorModel.shared.loadData()
-        return !AuthenticatorModel.shared.isAnyData()
-    }
-    
-    private func showGreetingScreen() {
-        let greetingViewController = GreetingViewController()
-        greetingViewController.addItemDelegate = self
-        greetingViewController.refreshTableDelegate = self
-        greetingViewController.modalPresentationStyle = .fullScreen
-        navigationController?.pushViewController(greetingViewController, animated: true)
-    }
-  
 }
 
 
@@ -196,6 +178,13 @@ extension AuthenticatorViewController {
                 cell.updateTimerInfoLabel()
             }
         }
+    }
+    
+}
+
+extension AuthenticatorViewController: RefreshTableDelegate {
+    func refresh() {
+      self.tableView.reloadData()
     }
     
 }

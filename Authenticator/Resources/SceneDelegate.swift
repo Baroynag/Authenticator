@@ -14,13 +14,23 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-                guard let winScene = (scene as? UIWindowScene) else { return }
         
-
+        guard let winScene = (scene as? UIWindowScene) else { return }
+        
         let navController = UINavigationController(rootViewController: AuthenticatorViewController())
+        let rootScreen = AuthenticatorViewController()
+        navController.viewControllers = [rootScreen]
+        
+        if !AuthenticatorModel.shared.isAnyRecords(){
+            let greetingScreen = GreetingViewController()
+            greetingScreen.delegate = self
+            navController.viewControllers = [rootScreen,greetingScreen]
+        }
+        
         window = UIWindow(windowScene: winScene)
         window?.rootViewController = navController
         window?.makeKeyAndVisible()
+        
         
     }
 
@@ -58,3 +68,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 }
 
+
+extension SceneDelegate: GreetingViewControllerDelegate{
+
+    func didTapCreate() {
+        window?.rootViewController = UINavigationController(rootViewController: AuthenticatorViewController())
+    }
+
+}

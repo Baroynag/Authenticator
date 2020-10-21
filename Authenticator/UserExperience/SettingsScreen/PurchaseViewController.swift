@@ -16,34 +16,44 @@ class PurchaseViewController: UIViewController {
     private var activityIndicator = UIActivityIndicatorView(style: .large)
     
     private let imageView: UIImageView = {
-         let im = UIImage(named: "greeting")
+         let im = UIImage(named: "purchase_gem")
          let iv = UIImageView(image: im)
          iv.contentMode = .scaleAspectFit
          iv.translatesAutoresizingMaskIntoConstraints = false
          return iv
      }()
     
-    private var  topImageContainerView = UIView()
-    
-    private var descriprionTextField: UITextField = {
+    private var titleField: UITextField = {
         let textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.backgroundColor = .systemBackground
 
-        textField.textColor = UIColor.label
-        textField.font = UIFont(name: "Lato-Light", size: 18)
+        textField.textColor = UIColor.fucsiaColor()
+        textField.font = UIFont(name: "Lato-Light", size: 32)
         textField.textAlignment = .center
-        textField.text = NSLocalizedString("Buy SOTP Authenticator and support this project", comment: "")
+        textField.text = NSLocalizedString("Support", comment: "")
         textField.isUserInteractionEnabled = false
         return textField
     }()
     
-    let purchaseButton: UIButton = {
+    private var descriprionTextField: UITextView = {
+        let textField = UITextView()
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.backgroundColor = .systemBackground
+        textField.textColor = UIColor.label
+        textField.font = UIFont(name: "Lato-Light", size: 18)
+        textField.textAlignment = .center
+        textField.autocapitalizationType = .words
+        textField.text = NSLocalizedString("Please consider to support this open source project", comment: "")
+        textField.isUserInteractionEnabled = false
+        return textField
+    }()
+    
+    let oneDollarPurchase: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = .fucsiaColor()
-        button.setTitle(NSLocalizedString("Bye", comment: "") , for: .normal)
-        button.layer.cornerRadius = 30
+        button.layer.cornerRadius = 25
         button.clipsToBounds = true
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = UIFont(name: "Lato-Light", size: 18)
@@ -51,19 +61,25 @@ class PurchaseViewController: UIViewController {
         return button
     }()
     
-    let restoreButton: UIButton = {
+    let fiveDollarPurchase: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = .fucsiaColor()
-        button.setTitle(NSLocalizedString("Restore", comment: "") , for: .normal)
-        button.layer.cornerRadius = 30
+        button.layer.cornerRadius = 25
         button.clipsToBounds = true
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = UIFont(name: "Lato-Light", size: 18)
-        button.addTarget(self, action: #selector(handleRestore), for: .touchUpInside)
+        button.addTarget(self, action: #selector(handleFiveDollarPurchase), for: .touchUpInside)
         return button
     }()
     
+    let cancelButton: UIButton = {
+        let button = UIButton(type: .close)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.backgroundColor = UIColor.systemBackground
+        button.addTarget(self, action: #selector(handleCancel), for: .touchUpInside)
+        return button
+    }()
 
     
     //    MARK: - Inits
@@ -72,63 +88,59 @@ class PurchaseViewController: UIViewController {
         self.navigationController?.navigationBar.isHidden = false
         setupLayout()
         activityIndicator.hidesWhenStopped = true
-
     }
     
     //    MARK: - Functions
     private func updateInterface(products: [SKProduct]) {
-        updateButton(purchaseButton, with: products[0])
-       
+        updateButton(oneDollarPurchase, with: products[0])
     }
     
     private func setupLayout(){
         
         view.backgroundColor = UIColor.systemBackground
-       
-        view.addSubview(topImageContainerView)
-         topImageContainerView.translatesAutoresizingMaskIntoConstraints = false
-         NSLayoutConstraint.activate([
-            topImageContainerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 32),
-            topImageContainerView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-             topImageContainerView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-             topImageContainerView.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor, multiplier: 0.6)
-          ])
-
-         
-         topImageContainerView.addSubview(imageView)
-         NSLayoutConstraint.activate([
-             imageView.topAnchor.constraint(equalTo: topImageContainerView.topAnchor),
-             imageView.centerXAnchor.constraint(equalTo: topImageContainerView.centerXAnchor),
-             imageView.heightAnchor.constraint(equalTo: topImageContainerView.heightAnchor, multiplier: 0.6)
+        view.addSubview(imageView)
+        
+        NSLayoutConstraint.activate([
+            imageView.topAnchor.constraint(lessThanOrEqualTo: view.topAnchor, constant: 128),
+            imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            imageView.heightAnchor.constraint(equalToConstant: 101.6),
+            imageView.widthAnchor.constraint(equalToConstant: 101.6)
          ])
      
+        view.addSubview(titleField)
+        NSLayoutConstraint.activate([
+            titleField.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 16),
+            titleField.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 8),
+            titleField.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -8),
+            titleField.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+        ])
+        
         view.addSubview(descriprionTextField)
         NSLayoutConstraint.activate([
-            descriprionTextField.topAnchor.constraint(equalTo: topImageContainerView.bottomAnchor, constant: 16),
+            descriprionTextField.topAnchor.constraint(equalTo: titleField.bottomAnchor, constant: 8),
             descriprionTextField.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 8),
             descriprionTextField.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -8),
-            descriprionTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+            descriprionTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            descriprionTextField.heightAnchor.constraint(equalToConstant: 100)
         ])
 
-     
-        
-        
-        view.addSubview(restoreButton)
+        oneDollarPurchase.setTitle(Purchases.default.products?["am.baroynag.SOTP.OneDollarDonation"]?.localizedPrice, for: .normal)
+        view.addSubview(oneDollarPurchase)
         NSLayoutConstraint.activate([
-            restoreButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -8),
-            restoreButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 8),
-            restoreButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -8),
-            restoreButton.heightAnchor.constraint(equalToConstant: 60)
-
+            oneDollarPurchase.topAnchor.constraint(equalTo: descriprionTextField.bottomAnchor, constant: 32),
+            oneDollarPurchase.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            oneDollarPurchase.heightAnchor.constraint(equalToConstant: 50),
+            oneDollarPurchase.widthAnchor.constraint(equalToConstant: 280)
         ])
         
-        view.addSubview(purchaseButton)
+        
+        fiveDollarPurchase.setTitle(Purchases.default.products?["am.baroynag.SOTP.FiveDollarDonation"]?.localizedPrice, for: .normal)
+        view.addSubview(fiveDollarPurchase)
         NSLayoutConstraint.activate([
-            purchaseButton.bottomAnchor.constraint(equalTo: restoreButton.topAnchor, constant: -8),
-            purchaseButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 8),
-            purchaseButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -8),
-            purchaseButton.heightAnchor.constraint(equalToConstant: 60)
-
+            fiveDollarPurchase.topAnchor.constraint(equalTo: oneDollarPurchase.bottomAnchor, constant: 8),
+            fiveDollarPurchase.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            fiveDollarPurchase.heightAnchor.constraint(equalToConstant: 50),
+            fiveDollarPurchase.widthAnchor.constraint(equalToConstant: 280)
         ])
         
         view.addSubview(activityIndicator)
@@ -137,6 +149,14 @@ class PurchaseViewController: UIViewController {
         activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
         activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor)])
         
+        view.addSubview(cancelButton)
+        NSLayoutConstraint.activate([
+            cancelButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
+            cancelButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
+            cancelButton.heightAnchor.constraint(equalToConstant: 16),
+            cancelButton.widthAnchor.constraint(equalToConstant: 16)
+        ])
+        
     }
     
    //    MARK: - Handlers
@@ -144,21 +164,35 @@ class PurchaseViewController: UIViewController {
         print(#function)
 
         showSpinner()
-        self.purchaseButton.isEnabled = false
-        Purchases.default.purchaseProduct(productId: "am.baroynag.SOTP.HeartSticker") { [weak self] _ in
+        self.oneDollarPurchase.isEnabled = false
+        
+           
+        Purchases.default.purchaseProduct(productId: "am.baroynag.SOTP.OneDollarDonation") { [weak self] _ in
             
             self?.hideSpinner()
-            self?.purchaseButton.isEnabled = true
-            print("end")
+            self?.oneDollarPurchase.isEnabled = true
             
         }
         
+    }
+    
+    @objc func handleFiveDollarPurchase(){
+        
+        showSpinner()
+        self.oneDollarPurchase.isEnabled = false
+        
+        Purchases.default.purchaseProduct(productId: "am.baroynag.SOTP.FiveDollarDonation") {
+            [weak self] _ in
+            
+            self?.hideSpinner()
+            self?.oneDollarPurchase.isEnabled = true
+            
+        }
         
     }
     
-    
-    @objc func handleRestore(){
-
+    @objc func handleCancel(){
+        self.dismiss(animated: true, completion: nil)
     }
 
 }
