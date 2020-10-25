@@ -197,13 +197,13 @@ if [ -r "${ARTIFACT_LIST_FILE}" ]; then
 fi
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework "${BUILT_PRODUCTS_DIR}/Base32/Base32.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/OneTimePassword/OneTimePassword.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/Base32-iOS/Base32.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/OneTimePassword-iOS/OneTimePassword.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/RNCryptor/RNCryptor.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework "${BUILT_PRODUCTS_DIR}/Base32/Base32.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/OneTimePassword/OneTimePassword.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/Base32-iOS/Base32.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/OneTimePassword-iOS/OneTimePassword.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/RNCryptor/RNCryptor.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then

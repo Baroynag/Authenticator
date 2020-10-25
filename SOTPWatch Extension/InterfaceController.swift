@@ -45,21 +45,10 @@ class InterfaceController: WKInterfaceController {
     override func willActivate() {
         super.willActivate()
         print("willActivate")
-        sendMessage()
+        prepareSendMessage()
         startTimer()
     }
     
-    func sendMessage() {
-        let timestamp = NSDate().timeIntervalSince1970
-        let dictionary: [String: Double] = ["watchAwake": timestamp]
-                       
-        session.sendMessage(dictionary, replyHandler: { (response) in
-            self.items = response
-            
-            }, errorHandler: { (error) in
-                print("Error sending message: %@", error)
-            })
-    }
     
     private func updateTable() {
         table.setNumberOfRows(items.count, withRowType: "SotpWRow")
@@ -91,8 +80,51 @@ class InterfaceController: WKInterfaceController {
 
         if countDown == 0 {
             countDown = 30
-            sendMessage()
+            prepareSendMessage()
         }
     }
 }
+
+extension InterfaceController{
+    
+    
+    func prepareSendMessage() {
+
+        let timestamp = NSDate().timeIntervalSince1970
+        let dictionary: [String: Double] = ["watchAwake": timestamp]
+
+        sendMessage(dictionary) { (response) in
+            self.items = response
+            print (response)
+        } errorHandler: { (error) in
+            print("Error sending message: %@", error)
+        }
+    }
+    
+    
+    func sendMessage(_ message: [String: Double],
+                                     replyHandler: (([String: Any]) -> Void)?,
+                                     errorHandler: ((Error) -> Void)?) {
+        
+        let maxNrRetries = 5
+        var availableRetries = maxNrRetries
+
+        func trySendingMessageToWatch(_ message: [String: Double]) {
+            session.sendMessage(message,
+                replyHandler: replyHandler,
+                errorHandler: { error in
+                                print("sending message to watch failed: error: \(error)")
+                                let nsError = error as NSError
+                                if nsError.domain == "WCErrorDomain" &&
+                                    nsError.code == 7007 && availableRetries > 0 {
+                                        availableRetries = availableRetries - 1
+                                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {trySendingMessageToWatch(message)})
+                                    } else {errorHandler?(error)}
+            })
+        }
+        trySendingMessageToWatch(message)
+    }
+   
+}
+
 
