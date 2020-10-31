@@ -9,6 +9,7 @@
 import WatchKit
 import Foundation
 import WatchConnectivity
+import CoreData
 
 class InterfaceController: WKInterfaceController {
     
@@ -16,10 +17,13 @@ class InterfaceController: WKInterfaceController {
     private var countDown = 30
     private var timer: Timer?
     
+    
+    let context =  (WKExtension.shared().delegate as! ExtensionDelegate).persistentContainer.viewContext
+   
     @IBOutlet var table: WKInterfaceTable!
     private var session = WCSession.default
     
-    private var items = [String: Any]() {
+    private var items = [AuthenticatorForWatchItem]() {
         didSet {
             DispatchQueue.main.async {
                 self.updateTable()
@@ -36,6 +40,12 @@ class InterfaceController: WKInterfaceController {
  
     override func didAppear() {
         super.didAppear()
+        
+        print("CoreDataTest start")
+       
+        self.fetchData()
+        print("CoreDataTest end")
+        
         table.setNumberOfRows(1, withRowType: "SotpWRow")
         if let row = table.rowController(at: 0) as? SOTPWatchRow {
             row.passLabel?.setText("Загрузка...")
@@ -52,11 +62,16 @@ class InterfaceController: WKInterfaceController {
     
     private func updateTable() {
         table.setNumberOfRows(items.count, withRowType: "SotpWRow")
+        print("!!!!items.count\(items.count)")
         for (i, item) in items.enumerated() {
             if let row = table.rowController(at: i) as? SOTPWatchRow {
-                row.accountLabel?.setText(item.key)
-                row.passLabel?.setText(item.value as? String)
-                row.detailLabel?.setText("Oбновится через 30с.")
+                
+                let token = TokenGenerator.shared.createToken(name: "", issuer: item.issuer ?? "", secretString: item.key ?? "")
+                if let tokenPass = token?.currentPassword{
+                    row.accountLabel?.setText(item.key)
+                    row.passLabel?.setText(tokenPass)
+                    row.detailLabel?.setText("Oбновится через 30с.")
+                }
             }
         }
     }
@@ -93,8 +108,10 @@ extension InterfaceController{
         let timestamp = NSDate().timeIntervalSince1970
         let dictionary: [String: Double] = ["watchAwake": timestamp]
 
-        sendMessage(dictionary) { (response) in
-            self.items = response
+        sendMessage(dictionary) { [weak self] (response) in
+//            self.items = response
+            self?.saveResponceToCoreData(responce: response)
+            self?.fetchData()
             print (response)
         } errorHandler: { (error) in
             print("Error sending message: %@", error)
@@ -128,3 +145,55 @@ extension InterfaceController{
 }
 
 
+extension InterfaceController{
+    
+    func fetchData() {
+        
+        let request = NSFetchRequest<AuthenticatorForWatchItem>(entityName: "AuthenticatorForWatchItem")
+        self.items = []
+        
+        do{
+            self.items = try context.fetch(request)
+            print("------")
+            print (items)
+            print("------")
+        } catch{
+            print(NSLocalizedString("Core data load error", comment: "") ,  error.localizedDescription)
+        }
+    }
+    
+    
+    func deleteData(){
+        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "AuthenticatorForWatchItem")
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+        
+        do {
+            try context.execute(deleteRequest)
+            try context.save()
+        } catch let error as NSError {
+            print(NSLocalizedString("Core data delete error", comment: "") ,  error.localizedDescription)
+        }
+          
+    }
+    
+    func saveResponceToCoreData(responce: [String: Any]){
+        
+        deleteData()
+        
+        for (_, item) in responce.enumerated() {
+            let newItem = AuthenticatorForWatchItem(context: context)
+            newItem.account = ""
+            newItem.id = UUID()
+            newItem.issuer = item.value as? String
+            newItem.key = item.key
+            
+            do{
+                try self.context.save()
+                print("saved")
+            } catch{
+                print(NSLocalizedString("Core data save error", comment: "") ,  error.localizedDescription)
+            }
+              
+        }
+    }
+}
