@@ -11,13 +11,17 @@ import Foundation
 
 import CoreData
 
-//
-//extension AuthenticatorForWatchItem  {
-//
-//    @NSManaged public var account: String?
-//    @NSManaged public var issuer: String?
-//    @NSManaged public var key: String?
-//    @NSManaged public var timeBased: Bool
-//    @NSManaged public var id: UUID?
-//
-//}
+
+class AuthenticatorForWatchItem: NSManagedObject  {
+    
+//    @nonobjc public class func fetchRequest() -> NSFetchRequest<AuthenticatorForWatchItem> {
+//        return NSFetchRequest<AuthenticatorForWatchItem>(entityName: "AuthenticatorForWatchItem")
+//    }
+    
+    @NSManaged public var account: String?
+    @NSManaged public var issuer: String?
+    @NSManaged public var key: String?
+    @NSManaged public var timeBased: Bool
+    @NSManaged public var id: UUID?
+
+}

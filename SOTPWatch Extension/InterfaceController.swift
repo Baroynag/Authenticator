@@ -23,7 +23,8 @@ class InterfaceController: WKInterfaceController {
     @IBOutlet var table: WKInterfaceTable!
     private var session = WCSession.default
     
-    private var items = [AuthenticatorForWatchItem]() {
+    private var items = [AuthenticatorForWatchItem]()
+    {
         didSet {
             DispatchQueue.main.async {
                 self.updateTable()
@@ -41,11 +42,7 @@ class InterfaceController: WKInterfaceController {
     override func didAppear() {
         super.didAppear()
         
-        print("CoreDataTest start")
-       
         self.fetchData()
-        print("CoreDataTest end")
-        
         table.setNumberOfRows(1, withRowType: "SotpWRow")
         if let row = table.rowController(at: 0) as? SOTPWatchRow {
             row.passLabel?.setText("Загрузка...")
@@ -62,7 +59,7 @@ class InterfaceController: WKInterfaceController {
     
     private func updateTable() {
         table.setNumberOfRows(items.count, withRowType: "SotpWRow")
-        print("!!!!items.count\(items.count)")
+        
         for (i, item) in items.enumerated() {
             if let row = table.rowController(at: i) as? SOTPWatchRow {
                 
@@ -81,8 +78,7 @@ class InterfaceController: WKInterfaceController {
     }
     
 //    MARK: Handlers
-    
-    
+     
     @objc private func updateLabel (){
         if items.count == 0 { return}
         countDown -= 1
@@ -95,7 +91,7 @@ class InterfaceController: WKInterfaceController {
 
         if countDown == 0 {
             countDown = 30
-            prepareSendMessage()
+            updateTable()
         }
     }
 }
@@ -109,10 +105,8 @@ extension InterfaceController{
         let dictionary: [String: Double] = ["watchAwake": timestamp]
 
         sendMessage(dictionary) { [weak self] (response) in
-//            self.items = response
             self?.saveResponceToCoreData(responce: response)
             self?.fetchData()
-            print (response)
         } errorHandler: { (error) in
             print("Error sending message: %@", error)
         }
@@ -154,9 +148,7 @@ extension InterfaceController{
         
         do{
             self.items = try context.fetch(request)
-            print("------")
-            print (items)
-            print("------")
+
         } catch{
             print(NSLocalizedString("Core data load error", comment: "") ,  error.localizedDescription)
         }
@@ -196,4 +188,5 @@ extension InterfaceController{
               
         }
     }
+
 }
