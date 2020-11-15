@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1200"
+   LastUpgradeVersion = "1220"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -54,8 +54,10 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <RemoteRunnable
+         runnableDebuggingMode = "2"
+         BundleIdentifier = "com.apple.Carousel"
+         RemotePath = "/Authenticator">
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "14543D9C24853A03008E7DA8"
@@ -63,7 +65,7 @@
             BlueprintName = "SOTPWatch"
             ReferencedContainer = "container:Authenticator.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </RemoteRunnable>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -71,8 +73,10 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <RemoteRunnable
+         runnableDebuggingMode = "2"
+         BundleIdentifier = "com.apple.Carousel"
+         RemotePath = "/Authenticator">
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "14543D9C24853A03008E7DA8"
@@ -80,7 +84,16 @@
             BlueprintName = "SOTPWatch"
             ReferencedContainer = "container:Authenticator.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </RemoteRunnable>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "14543D9C24853A03008E7DA8"
+            BuildableName = "SOTPWatch.app"
+            BlueprintName = "SOTPWatch"
+            ReferencedContainer = "container:Authenticator.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
