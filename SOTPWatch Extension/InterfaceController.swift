@@ -9,6 +9,7 @@
 import WatchKit
 import Foundation
 import WatchConnectivity
+import CoreData
 
 class InterfaceController: WKInterfaceController {
     
@@ -16,10 +17,14 @@ class InterfaceController: WKInterfaceController {
     private var countDown = 30
     private var timer: Timer?
     
+    
+    let context =  (WKExtension.shared().delegate as! ExtensionDelegate).persistentContainer.viewContext
+   
     @IBOutlet var table: WKInterfaceTable!
     private var session = WCSession.default
     
-    private var items = [String: Any]() {
+    private var items = [AuthenticatorForWatchItem]()
+    {
         didSet {
             DispatchQueue.main.async {
                 self.updateTable()
@@ -36,6 +41,8 @@ class InterfaceController: WKInterfaceController {
  
     override func didAppear() {
         super.didAppear()
+        
+        self.fetchData()
         table.setNumberOfRows(1, withRowType: "SotpWRow")
         if let row = table.rowController(at: 0) as? SOTPWatchRow {
             row.passLabel?.setText("Загрузка...")
@@ -45,29 +52,23 @@ class InterfaceController: WKInterfaceController {
     override func willActivate() {
         super.willActivate()
         print("willActivate")
-        sendMessage()
+        prepareSendMessage()
         startTimer()
     }
     
-    func sendMessage() {
-        let timestamp = NSDate().timeIntervalSince1970
-        let dictionary: [String: Double] = ["watchAwake": timestamp]
-                       
-        session.sendMessage(dictionary, replyHandler: { (response) in
-            self.items = response
-            
-            }, errorHandler: { (error) in
-                print("Error sending message: %@", error)
-            })
-    }
     
     private func updateTable() {
         table.setNumberOfRows(items.count, withRowType: "SotpWRow")
+        
         for (i, item) in items.enumerated() {
             if let row = table.rowController(at: i) as? SOTPWatchRow {
-                row.accountLabel?.setText(item.key)
-                row.passLabel?.setText(item.value as? String)
-                row.detailLabel?.setText("Oбновится через 30с.")
+                
+                let token = TokenGenerator.shared.createToken(name: "", issuer: item.issuer ?? "", secretString: item.key ?? "")
+                if let tokenPass = token?.currentPassword{
+                    row.accountLabel?.setText(item.key)
+                    row.passLabel?.setText(tokenPass)
+                    row.detailLabel?.setText("Oбновится через 30с.")
+                }
             }
         }
     }
@@ -77,8 +78,7 @@ class InterfaceController: WKInterfaceController {
     }
     
 //    MARK: Handlers
-    
-    
+     
     @objc private func updateLabel (){
         if items.count == 0 { return}
         countDown -= 1
@@ -91,8 +91,102 @@ class InterfaceController: WKInterfaceController {
 
         if countDown == 0 {
             countDown = 30
-            sendMessage()
+            updateTable()
         }
     }
 }
 
+extension InterfaceController{
+    
+    
+    func prepareSendMessage() {
+
+        let timestamp = NSDate().timeIntervalSince1970
+        let dictionary: [String: Double] = ["watchAwake": timestamp]
+
+        sendMessage(dictionary) { [weak self] (response) in
+            self?.saveResponceToCoreData(responce: response)
+            self?.fetchData()
+        } errorHandler: { (error) in
+            print("Error sending message: %@", error)
+        }
+    }
+    
+    
+    func sendMessage(_ message: [String: Double],
+                                     replyHandler: (([String: Any]) -> Void)?,
+                                     errorHandler: ((Error) -> Void)?) {
+        
+        let maxNrRetries = 5
+        var availableRetries = maxNrRetries
+
+        func trySendingMessageToWatch(_ message: [String: Double]) {
+            session.sendMessage(message,
+                replyHandler: replyHandler,
+                errorHandler: { error in
+                                print("sending message to watch failed: error: \(error)")
+                                let nsError = error as NSError
+                                if nsError.domain == "WCErrorDomain" &&
+                                    nsError.code == 7007 && availableRetries > 0 {
+                                        availableRetries = availableRetries - 1
+                                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {trySendingMessageToWatch(message)})
+                                    } else {errorHandler?(error)}
+            })
+        }
+        trySendingMessageToWatch(message)
+    }
+   
+}
+
+
+extension InterfaceController{
+    
+    func fetchData() {
+        
+        let request = NSFetchRequest<AuthenticatorForWatchItem>(entityName: "AuthenticatorForWatchItem")
+        self.items = []
+        
+        do{
+            self.items = try context.fetch(request)
+
+        } catch{
+            print(NSLocalizedString("Core data load error", comment: "") ,  error.localizedDescription)
+        }
+    }
+    
+    
+    func deleteData(){
+        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "AuthenticatorForWatchItem")
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+        
+        do {
+            try context.execute(deleteRequest)
+            try context.save()
+        } catch let error as NSError {
+            print(NSLocalizedString("Core data delete error", comment: "") ,  error.localizedDescription)
+        }
+          
+    }
+    
+    func saveResponceToCoreData(responce: [String: Any]){
+        
+        deleteData()
+        
+        for (_, item) in responce.enumerated() {
+            let newItem = AuthenticatorForWatchItem(context: context)
+            newItem.account = ""
+            newItem.id = UUID()
+            newItem.issuer = item.value as? String
+            newItem.key = item.key
+            
+            do{
+                try self.context.save()
+                print("saved")
+            } catch{
+                print(NSLocalizedString("Core data save error", comment: "") ,  error.localizedDescription)
+            }
+              
+        }
+    }
+
+}

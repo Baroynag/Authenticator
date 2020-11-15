@@ -86,7 +86,7 @@ class AuthenticatorModel {
     }
     
     
-    func loadDataForWatch() -> [String: String] {
+    /*func loadDataForWatch() -> [String: String] {
         
         loadData()
         
@@ -104,6 +104,26 @@ class AuthenticatorModel {
                     dictionary.updateValue(tokenPass, forKey: authIssuer)
                 }
             }
+        }
+        return dictionary
+    }*/
+    
+    func loadDataForWatch() -> [String: String] {
+        
+        loadData()
+        
+        guard let authenticatorItemsList = authenticatorItemsList else {return [:] }
+       
+        var dictionary: [String: String] = [:]
+        
+        for index in 0...authenticatorItemsList.count - 1{
+         
+            if let authIssuer = authenticatorItemsList[index].value(forKey: "issuer") as? String,
+               let authKey = authenticatorItemsList[index].value(forKey: "key")  as? String{
+               
+                dictionary.updateValue(authKey, forKey: authIssuer)
+            }
+            
         }
         return dictionary
     }

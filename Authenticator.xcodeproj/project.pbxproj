@@ -35,7 +35,6 @@
 		14543DB724853A05008E7DA8 /* SOTPWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 14543D9D24853A03008E7DA8 /* SOTPWatch.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		14543DC124853B24008E7DA8 /* SOTPWatchRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14543DC024853B24008E7DA8 /* SOTPWatchRow.swift */; };
 		14543DC82486E02D008E7DA8 /* WatchAppConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14543DC72486E02D008E7DA8 /* WatchAppConnection.swift */; };
-		14543E1B24968363008E7DA8 /* TokenGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14543E1A24968363008E7DA8 /* TokenGenerator.swift */; };
 		1463409A24CE0763008ECFBD /* RNCryptorExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1463409924CE0763008ECFBD /* RNCryptorExtention.swift */; };
 		146CE3A724D1B9AB00DDC45C /* GreetingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146CE3A624D1B9AB00DDC45C /* GreetingViewController.swift */; };
 		146CE3AA24D3369600DDC45C /* Backup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146CE3A924D3369600DDC45C /* Backup.swift */; };
@@ -43,10 +42,18 @@
 		14B61B5B24C71DD400A08A14 /* AuthenticatorItem+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B61B5924C71DD400A08A14 /* AuthenticatorItem+CoreDataClass.swift */; };
 		14B61B5C24C71DD400A08A14 /* AuthenticatorItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B61B5A24C71DD400A08A14 /* AuthenticatorItem+CoreDataProperties.swift */; };
 		14B7E31E24C3237F00A2E9F3 /* PasswordError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B7E31D24C3237F00A2E9F3 /* PasswordError.swift */; };
+		14C0B6F1254623FF0054DD57 /* TokenGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C0B6F0254623FF0054DD57 /* TokenGenerator.swift */; };
+		14C0B6F2254623FF0054DD57 /* TokenGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C0B6F0254623FF0054DD57 /* TokenGenerator.swift */; };
+		14C0B71D254C793D0054DD57 /* AuthenticatorForWatch.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 14C0B71B254C793D0054DD57 /* AuthenticatorForWatch.xcdatamodeld */; };
+		14C0B71E254C793D0054DD57 /* AuthenticatorForWatch.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 14C0B71B254C793D0054DD57 /* AuthenticatorForWatch.xcdatamodeld */; };
+		14C0B723254C8F2B0054DD57 /* WatchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C0B722254C8F2B0054DD57 /* WatchModel.swift */; };
+		14C0B724254C8F2B0054DD57 /* WatchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C0B722254C8F2B0054DD57 /* WatchModel.swift */; };
 		14CB6D6724FC19D600316ED7 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CB6D6624FC19D600316ED7 /* SettingsTableViewCell.swift */; };
 		14CB6D6924FC2AD100316ED7 /* SettingsTableViewCellWithButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CB6D6824FC2AD100316ED7 /* SettingsTableViewCellWithButton.swift */; };
 		14CB6D6F2506A2A700316ED7 /* LoadFromFileExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CB6D6E2506A2A700316ED7 /* LoadFromFileExtentions.swift */; };
 		14F740F22447743D0052244C /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 14F740F12447743D0052244C /* Lato-Light.ttf */; };
+		CC74BA630D0AF3B3442DF0E3 /* Pods_SOTPWatch_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E0822CA0A73046E3F1F30E9 /* Pods_SOTPWatch_Extension.framework */; };
+		EDFD8EE1D14E008CC2B86F6D /* Pods_SOTPWatch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69E961E78C1ECBDEEF93A234 /* Pods_SOTPWatch.framework */; };
 		FD6CF9FFA6037CDAEBC06627 /* Pods_Authenticator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67D87C916A1E254B6ABFAF7D /* Pods_Authenticator.framework */; };
 /* End PBXBuildFile section */
 
@@ -128,7 +135,6 @@
 		14543DC52486DCD4008E7DA8 /* AuthenticatorDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AuthenticatorDebug.entitlements; sourceTree = "<group>"; };
 		14543DC62486DD66008E7DA8 /* SOTPWatchDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SOTPWatchDebug.entitlements; sourceTree = "<group>"; };
 		14543DC72486E02D008E7DA8 /* WatchAppConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchAppConnection.swift; sourceTree = "<group>"; };
-		14543E1A24968363008E7DA8 /* TokenGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenGenerator.swift; sourceTree = "<group>"; };
 		1463409924CE0763008ECFBD /* RNCryptorExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RNCryptorExtention.swift; sourceTree = "<group>"; };
 		146CE3A624D1B9AB00DDC45C /* GreetingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingViewController.swift; sourceTree = "<group>"; };
 		146CE3A924D3369600DDC45C /* Backup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Backup.swift; sourceTree = "<group>"; };
@@ -139,12 +145,21 @@
 		14B61B5924C71DD400A08A14 /* AuthenticatorItem+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthenticatorItem+CoreDataClass.swift"; sourceTree = "<group>"; };
 		14B61B5A24C71DD400A08A14 /* AuthenticatorItem+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthenticatorItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		14B7E31D24C3237F00A2E9F3 /* PasswordError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordError.swift; sourceTree = "<group>"; };
+		14C0B6F0254623FF0054DD57 /* TokenGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenGenerator.swift; sourceTree = "<group>"; };
+		14C0B71C254C793D0054DD57 /* AuthenticatorForWatch.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AuthenticatorForWatch.xcdatamodel; sourceTree = "<group>"; };
+		14C0B722254C8F2B0054DD57 /* WatchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchModel.swift; sourceTree = "<group>"; };
 		14CB6D6624FC19D600316ED7 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
 		14CB6D6824FC2AD100316ED7 /* SettingsTableViewCellWithButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCellWithButton.swift; sourceTree = "<group>"; };
 		14CB6D6E2506A2A700316ED7 /* LoadFromFileExtentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadFromFileExtentions.swift; sourceTree = "<group>"; };
 		14F740F12447743D0052244C /* Lato-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Light.ttf"; sourceTree = "<group>"; };
+		27A6D74524AE2E0A817120E0 /* Pods-SOTPWatch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SOTPWatch.debug.xcconfig"; path = "Target Support Files/Pods-SOTPWatch/Pods-SOTPWatch.debug.xcconfig"; sourceTree = "<group>"; };
+		27DD8D5505FCC56608A83C59 /* Pods-SOTPWatch Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SOTPWatch Extension.release.xcconfig"; path = "Target Support Files/Pods-SOTPWatch Extension/Pods-SOTPWatch Extension.release.xcconfig"; sourceTree = "<group>"; };
+		4C5F61C3DE0F67C5990236DE /* Pods-SOTPWatch Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SOTPWatch Extension.debug.xcconfig"; path = "Target Support Files/Pods-SOTPWatch Extension/Pods-SOTPWatch Extension.debug.xcconfig"; sourceTree = "<group>"; };
 		67D87C916A1E254B6ABFAF7D /* Pods_Authenticator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Authenticator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		69E961E78C1ECBDEEF93A234 /* Pods_SOTPWatch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SOTPWatch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7E0822CA0A73046E3F1F30E9 /* Pods_SOTPWatch_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SOTPWatch_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1087AF21F7B4953349EB22F /* Pods-Authenticator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Authenticator.debug.xcconfig"; path = "Target Support Files/Pods-Authenticator/Pods-Authenticator.debug.xcconfig"; sourceTree = "<group>"; };
+		DB325BD33947A6B7CF3A0A1E /* Pods-SOTPWatch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SOTPWatch.release.xcconfig"; path = "Target Support Files/Pods-SOTPWatch/Pods-SOTPWatch.release.xcconfig"; sourceTree = "<group>"; };
 		E105FBA28569813673C1F6B7 /* Pods-Authenticator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Authenticator.release.xcconfig"; path = "Target Support Files/Pods-Authenticator/Pods-Authenticator.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -153,6 +168,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDFD8EE1D14E008CC2B86F6D /* Pods_SOTPWatch.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -169,6 +185,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC74BA630D0AF3B3442DF0E3 /* Pods_SOTPWatch_Extension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -180,6 +197,8 @@
 			children = (
 				1430EA8C24DEF79900B75CF6 /* StoreKit.framework */,
 				67D87C916A1E254B6ABFAF7D /* Pods_Authenticator.framework */,
+				69E961E78C1ECBDEEF93A234 /* Pods_SOTPWatch.framework */,
+				7E0822CA0A73046E3F1F30E9 /* Pods_SOTPWatch_Extension.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -187,6 +206,7 @@
 		1401DA6E2440D46700DE677F = {
 			isa = PBXGroup;
 			children = (
+				14C0B6EF254623ED0054DD57 /* Common */,
 				1401DA792440D46800DE677F /* Authenticator */,
 				14543D9E24853A03008E7DA8 /* SOTPWatch */,
 				14543DAD24853A04008E7DA8 /* SOTPWatch Extension */,
@@ -289,6 +309,8 @@
 				14543DB024853A04008E7DA8 /* ExtensionDelegate.swift */,
 				14543DB424853A05008E7DA8 /* Info.plist */,
 				14543DC024853B24008E7DA8 /* SOTPWatchRow.swift */,
+				14C0B71B254C793D0054DD57 /* AuthenticatorForWatch.xcdatamodeld */,
+				14C0B722254C8F2B0054DD57 /* WatchModel.swift */,
 			);
 			path = "SOTPWatch Extension";
 			sourceTree = "<group>";
@@ -337,10 +359,17 @@
 				14B61B5A24C71DD400A08A14 /* AuthenticatorItem+CoreDataProperties.swift */,
 				1401DAC9244343FE00DE677F /* AuthenticatorModel.swift */,
 				14543DC72486E02D008E7DA8 /* WatchAppConnection.swift */,
-				14543E1A24968363008E7DA8 /* TokenGenerator.swift */,
 				14B7E31D24C3237F00A2E9F3 /* PasswordError.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		14C0B6EF254623ED0054DD57 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				14C0B6F0254623FF0054DD57 /* TokenGenerator.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 		14F740F0244774300052244C /* Fonts */ = {
@@ -356,6 +385,10 @@
 			children = (
 				B1087AF21F7B4953349EB22F /* Pods-Authenticator.debug.xcconfig */,
 				E105FBA28569813673C1F6B7 /* Pods-Authenticator.release.xcconfig */,
+				27A6D74524AE2E0A817120E0 /* Pods-SOTPWatch.debug.xcconfig */,
+				DB325BD33947A6B7CF3A0A1E /* Pods-SOTPWatch.release.xcconfig */,
+				4C5F61C3DE0F67C5990236DE /* Pods-SOTPWatch Extension.debug.xcconfig */,
+				27DD8D5505FCC56608A83C59 /* Pods-SOTPWatch Extension.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -388,6 +421,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 14543DBF24853A05008E7DA8 /* Build configuration list for PBXNativeTarget "SOTPWatch" */;
 			buildPhases = (
+				2C4D4EEE3AD0EF68F4CF17F7 /* [CP] Check Pods Manifest.lock */,
 				14543D9B24853A03008E7DA8 /* Resources */,
 				14543DBB24853A05008E7DA8 /* Embed App Extensions */,
 				09CA7F1990FE4AF3D234E439 /* Frameworks */,
@@ -406,9 +440,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 14543DBE24853A05008E7DA8 /* Build configuration list for PBXNativeTarget "SOTPWatch Extension" */;
 			buildPhases = (
+				593103F02BDDB522D88150C6 /* [CP] Check Pods Manifest.lock */,
 				14543DA524853A04008E7DA8 /* Sources */,
 				14543DA624853A04008E7DA8 /* Frameworks */,
 				14543DA724853A04008E7DA8 /* Resources */,
+				046F6721E084DE654B5BE88F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -494,6 +530,45 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		046F6721E084DE654B5BE88F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SOTPWatch Extension/Pods-SOTPWatch Extension-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SOTPWatch Extension/Pods-SOTPWatch Extension-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SOTPWatch Extension/Pods-SOTPWatch Extension-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2C4D4EEE3AD0EF68F4CF17F7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SOTPWatch-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		4B7726BED0DE94C42DDBA854 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -510,6 +585,28 @@
 			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-Authenticator-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		593103F02BDDB522D88150C6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SOTPWatch Extension-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -549,14 +646,16 @@
 				14B61B5C24C71DD400A08A14 /* AuthenticatorItem+CoreDataProperties.swift in Sources */,
 				1401DA7B2440D46800DE677F /* AppDelegate.swift in Sources */,
 				1401DABF244342CC00DE677F /* CustomCell.swift in Sources */,
+				14C0B6F1254623FF0054DD57 /* TokenGenerator.swift in Sources */,
 				14CB6D6924FC2AD100316ED7 /* SettingsTableViewCellWithButton.swift in Sources */,
+				14C0B71D254C793D0054DD57 /* AuthenticatorForWatch.xcdatamodeld in Sources */,
 				1401DAC32443433100DE677F /* AddAccountViewController.swift in Sources */,
 				1405D88B24719BF10065509B /* UITextFieldWithBottomBorder.swift in Sources */,
 				144B48A024FC10510086DA04 /* SettingsTableViewController.swift in Sources */,
 				1401DACA244343FE00DE677F /* AuthenticatorModel.swift in Sources */,
-				14543E1B24968363008E7DA8 /* TokenGenerator.swift in Sources */,
 				141917D0245483EC00EE125D /* ScanQrViewController.swift in Sources */,
 				14543DC82486E02D008E7DA8 /* WatchAppConnection.swift in Sources */,
+				14C0B723254C8F2B0054DD57 /* WatchModel.swift in Sources */,
 				146CE3AA24D3369600DDC45C /* Backup.swift in Sources */,
 				14CB6D6F2506A2A700316ED7 /* LoadFromFileExtentions.swift in Sources */,
 				14CB6D6724FC19D600316ED7 /* SettingsTableViewCell.swift in Sources */,
@@ -575,8 +674,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				14543DB124853A04008E7DA8 /* ExtensionDelegate.swift in Sources */,
+				14C0B724254C8F2B0054DD57 /* WatchModel.swift in Sources */,
+				14C0B6F2254623FF0054DD57 /* TokenGenerator.swift in Sources */,
 				14543DAF24853A04008E7DA8 /* InterfaceController.swift in Sources */,
 				14543DC124853B24008E7DA8 /* SOTPWatchRow.swift in Sources */,
+				14C0B71E254C793D0054DD57 /* AuthenticatorForWatch.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -764,7 +866,7 @@
 				CODE_SIGN_ENTITLEMENTS = Authenticator/AuthenticatorDebug.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.06;
+				CURRENT_PROJECT_VERSION = 1.09;
 				DEVELOPMENT_TEAM = Q9Y5N2Z9SF;
 				INFOPLIST_FILE = Authenticator/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -776,7 +878,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				WATCHOS_DEPLOYMENT_TARGET = 5.0;
 			};
 			name = Debug;
@@ -790,7 +892,7 @@
 				CODE_SIGN_ENTITLEMENTS = Authenticator/AuthenticatorRelease.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.06;
+				CURRENT_PROJECT_VERSION = 1.09;
 				DEVELOPMENT_TEAM = Q9Y5N2Z9SF;
 				INFOPLIST_FILE = Authenticator/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -802,21 +904,22 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				WATCHOS_DEPLOYMENT_TARGET = 5.0;
 			};
 			name = Release;
 		};
 		14543DB924853A05008E7DA8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 27A6D74524AE2E0A817120E0 /* Pods-SOTPWatch.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_USE_OPTIMIZATION_PROFILE = YES;
 				CODE_SIGN_ENTITLEMENTS = SOTPWatch/SOTPWatchDebug.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.06;
+				CURRENT_PROJECT_VERSION = 1.09;
 				DEVELOPMENT_TEAM = Q9Y5N2Z9SF;
 				IBSC_MODULE = SOTPWatch_Extension;
 				INFOPLIST_FILE = SOTPWatch/Info.plist;
@@ -834,13 +937,14 @@
 		};
 		14543DBA24853A05008E7DA8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DB325BD33947A6B7CF3A0A1E /* Pods-SOTPWatch.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_USE_OPTIMIZATION_PROFILE = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.06;
+				CURRENT_PROJECT_VERSION = 1.09;
 				DEVELOPMENT_TEAM = Q9Y5N2Z9SF;
 				IBSC_MODULE = SOTPWatch_Extension;
 				INFOPLIST_FILE = SOTPWatch/Info.plist;
@@ -858,13 +962,14 @@
 		};
 		14543DBC24853A05008E7DA8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4C5F61C3DE0F67C5990236DE /* Pods-SOTPWatch Extension.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CLANG_USE_OPTIMIZATION_PROFILE = YES;
 				CODE_SIGN_ENTITLEMENTS = "SOTPWatch Extension/SOTPWatch ExtensionDebug.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.06;
+				CURRENT_PROJECT_VERSION = 1.09;
 				DEVELOPMENT_TEAM = Q9Y5N2Z9SF;
 				INFOPLIST_FILE = "SOTPWatch Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -885,12 +990,13 @@
 		};
 		14543DBD24853A05008E7DA8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 27DD8D5505FCC56608A83C59 /* Pods-SOTPWatch Extension.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CLANG_USE_OPTIMIZATION_PROFILE = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.06;
+				CURRENT_PROJECT_VERSION = 1.09;
 				DEVELOPMENT_TEAM = Q9Y5N2Z9SF;
 				INFOPLIST_FILE = "SOTPWatch Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -958,6 +1064,16 @@
 			);
 			currentVersion = 1401DA842440D46800DE677F /* Authenticator.xcdatamodel */;
 			path = Authenticator.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+		14C0B71B254C793D0054DD57 /* AuthenticatorForWatch.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				14C0B71C254C793D0054DD57 /* AuthenticatorForWatch.xcdatamodel */,
+			);
+			currentVersion = 14C0B71C254C793D0054DD57 /* AuthenticatorForWatch.xcdatamodel */;
+			path = AuthenticatorForWatch.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

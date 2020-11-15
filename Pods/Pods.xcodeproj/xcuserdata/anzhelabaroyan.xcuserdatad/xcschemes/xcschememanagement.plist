@@ -4,17 +4,37 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Base32.xcscheme</key>
+		<key>Base32-iOS.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>OneTimePassword.xcscheme</key>
+		<key>Base32-watchOS.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>OneTimePassword-iOS.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>OneTimePassword-watchOS.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
 		<key>Pods-Authenticator.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-SOTPWatch Extension.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-SOTPWatch.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>

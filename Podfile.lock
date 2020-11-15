@@ -5,6 +5,7 @@ PODS:
   - RNCryptor (5.1.0)
 
 DEPENDENCIES:
+  - OneTimePassword
   - OneTimePassword (~> 3.2)
   - RNCryptor (~> 5.0)
 
@@ -19,6 +20,6 @@ SPEC CHECKSUMS:
   OneTimePassword: c00ecc908e67e6c5bfda9d50b0b2e4696d0b066e
   RNCryptor: a369134686cd2ad391323cc856b62e591193ba79
 
-PODFILE CHECKSUM: 6f73521ae832fbf18764039c0a9040572661673f
+PODFILE CHECKSUM: edb111f0106e6739ed8a89cc2be94f6b16e7da03
 
 COCOAPODS: 1.9.1
