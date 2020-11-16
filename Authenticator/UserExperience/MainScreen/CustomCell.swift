@@ -187,13 +187,8 @@ class CustomCell: UITableViewCell {
     }
     
     @objc private func handleCopyButton(){
-       
-        if let otp = passLabel.text {
-
-            startCopy()
-                
-            delgate?.pressCopyButton(otp: otp)
-        }
+        startCopy()
+        delgate?.pressCopyButton(otp: passLabelText)
     }
 
 }
