@@ -24,13 +24,7 @@ class InterfaceController: WKInterfaceController {
     private var session = WCSession.default
     
     private var items = [AuthenticatorForWatchItem]()
-    {
-        didSet {
-            DispatchQueue.main.async {
-                self.updateTable()
-            }
-        }
-    }
+
     
 //    MARK: functions
     
@@ -41,8 +35,8 @@ class InterfaceController: WKInterfaceController {
  
     override func didAppear() {
         super.didAppear()
-        
-        self.fetchData()
+        self.countDown = self.getTimerInterval()
+        setupTable()
         table.setNumberOfRows(1, withRowType: "SotpWRow")
         if let row = table.rowController(at: 0) as? SOTPWatchRow {
             row.passLabel?.setText("Загрузка...")
@@ -59,7 +53,6 @@ class InterfaceController: WKInterfaceController {
     
     private func updateTable() {
         table.setNumberOfRows(items.count, withRowType: "SotpWRow")
-        
         for (i, item) in items.enumerated() {
             if let row = table.rowController(at: i) as? SOTPWatchRow {
                 
@@ -67,22 +60,44 @@ class InterfaceController: WKInterfaceController {
                 if let tokenPass = token?.currentPassword{
                     row.accountLabel?.setText(item.key)
                     row.passLabel?.setText(tokenPass)
-                    row.detailLabel?.setText("Oбновится через 30с.")
+                    row.detailLabel?.setText(NSLocalizedString("Refresh in " + String(countDown) + "s.", comment: ""))
                 }
             }
         }
     }
     
+    private func getTimerInterval() -> Int {
+        
+        let count = Int(NSDate().timeIntervalSince1970) % 30
+        return 30 - count
+    }
+    
+    
     private func startTimer(){
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateLabel), userInfo: nil, repeats: true)
+        createTimer()
+    }
+    
+    private func setupTable(){
+        
+        self.fetchData()
+        
+        runUpdateTable()
+    }
+    
+    private func runUpdateTable(){
+        
+        DispatchQueue.main.async {
+            self.updateTable()
+        }
     }
     
 //    MARK: Handlers
      
     @objc private func updateLabel (){
         if items.count == 0 { return}
+        
         countDown -= 1
-        let text = "Oбновится через " + String(countDown) + "с."
+        let text = NSLocalizedString("Refresh in ",comment: "") + String(countDown) + NSLocalizedString("s.", comment: "")
         for i in 0...items.count - 1 {
             if let row = table.rowController(at: i) as? SOTPWatchRow {
                 row.detailLabel.setText(text)
@@ -106,16 +121,14 @@ extension InterfaceController{
 
         sendMessage(dictionary) { [weak self] (response) in
             self?.saveResponceToCoreData(responce: response)
-            self?.fetchData()
+            self?.setupTable()
         } errorHandler: { (error) in
             print("Error sending message: %@", error)
         }
     }
     
     
-    func sendMessage(_ message: [String: Double],
-                                     replyHandler: (([String: Any]) -> Void)?,
-                                     errorHandler: ((Error) -> Void)?) {
+    func sendMessage(_ message: [String: Double], replyHandler: (([String: Any]) -> Void)?, errorHandler: ((Error) -> Void)?) {
         
         let maxNrRetries = 5
         var availableRetries = maxNrRetries
@@ -148,7 +161,6 @@ extension InterfaceController{
         
         do{
             self.items = try context.fetch(request)
-
         } catch{
             print(NSLocalizedString("Core data load error", comment: "") ,  error.localizedDescription)
         }
@@ -189,4 +201,29 @@ extension InterfaceController{
         }
     }
 
+}
+
+
+extension InterfaceController {
+
+    private func createTimer() {
+        
+        if timer == nil {
+            
+            let timer = Timer(timeInterval: 1.0,
+                              target: self,
+                              selector: #selector(updateLabel),
+                              userInfo: nil,
+                              repeats: true)
+            
+            RunLoop.current.add(timer, forMode: .common)
+           
+            timer.tolerance = 0.1
+      
+            self.timer = timer
+        }
+    }
+  
+   
+    
 }
