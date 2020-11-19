@@ -215,6 +215,10 @@ extension PurchaseViewController {
     func hideSpinner() {
         DispatchQueue.main.async {
             self.activityIndicator.stopAnimating()
+            
+            let alert = UIAlertController(title: "", message: NSLocalizedString("Thank you for your support!", comment: ""), preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: NSLocalizedString(NSLocalizedString("Ok", comment: "") , comment: "Default action"), style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
         }
     }
    
