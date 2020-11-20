@@ -31,15 +31,16 @@ class CustomCell: UITableViewCell {
             key = authKey
             issuer = authIssuer
             
-            issuerLabel.setLabelAtributedText(fontSize: 24, text: authIssuer, aligment: .center, indent: 0.0)
+            issuerLabel.setLabelAtributedText(text: authIssuer, fontSize: 18, aligment: .center, indent: 0.0, color: UIColor.label, fontWeight: .medium)
             
-            accountLabel.setLabelAtributedText(fontSize: 16, text: account, aligment: .center, indent: 0.0, color: .fucsiaColor())
+            accountLabel.setLabelAtributedText(text: account, fontSize: 16, aligment: .center, indent: 0.0, color: .fucsiaColor(), fontWeight: .light)
+            
             
             let token = TokenGenerator.shared.createToken(name: authIssuer, issuer: authIssuer, secretString: authKey)
             
             if let keyText = token?.currentPassword{
                 passLabelText = keyText
-                passLabel.setLabelAtributedText(fontSize: 48, text: keyText,  aligment: .center, indent: 0.0)
+                setupPassLabelText(text: keyText)
             }
             
             updateTimerInfoLabel()
@@ -72,7 +73,11 @@ class CustomCell: UITableViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.backgroundColor = .systemBackground
         let text = NSLocalizedString("Refresh in 30 s.", comment: "")
-        label.setLabelAtributedText(fontSize: 16, text: text, aligment: .center, indent: 0.0)
+        
+        let font = UIFont.systemFont(ofSize: 16, weight: .light)
+        label.textAlignment = .center
+        label.attributedText = NSMutableAttributedString(string: text, attributes: [.font: font])
+        
         return label
     }()
     
@@ -101,7 +106,7 @@ class CustomCell: UITableViewCell {
         
         addSubview(issuerLabel)
         NSLayoutConstraint.activate([
-            issuerLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 8),
+            issuerLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 24),
             issuerLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
             issuerLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
             issuerLabel.heightAnchor.constraint(equalToConstant: 28)
@@ -109,9 +114,8 @@ class CustomCell: UITableViewCell {
         
         addSubview(passLabel)
         NSLayoutConstraint.activate([
-            passLabel.topAnchor.constraint(equalTo: issuerLabel.bottomAnchor, constant: 8),
-            passLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
-            passLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
+            passLabel.topAnchor.constraint(equalTo: issuerLabel.bottomAnchor, constant: 16),
+            passLabel.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor),
             passLabel.heightAnchor.constraint(equalToConstant: 48)
          ])
         
@@ -129,32 +133,45 @@ class CustomCell: UITableViewCell {
             descriptionLabel.topAnchor.constraint(equalTo: accountLabel.bottomAnchor, constant: 8),
             descriptionLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
             descriptionLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
-            descriptionLabel.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
+            descriptionLabel.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -8)
          ])
-        
+
         copyButton.addTarget(self, action: #selector(handleCopyButton), for: .touchUpInside)
         addSubview(copyButton)
         NSLayoutConstraint.activate([
-            copyButton.centerYAnchor.constraint(equalTo: safeAreaLayoutGuide.centerYAnchor),
-            copyButton.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant:  -16),
+            copyButton.topAnchor.constraint(equalTo: issuerLabel.bottomAnchor),
+            copyButton.leadingAnchor.constraint(equalTo: passLabel.trailingAnchor, constant: 8),
             copyButton.heightAnchor.constraint(equalToConstant: 32),
             copyButton.widthAnchor.constraint(equalToConstant: 32)
-         ])
+        ]) 
 
     }
     
     private func startCopy(){
         copyCountDown = 5
         isCopyCountPressed = true
-        passLabel.setLabelAtributedText(fontSize: 40, text: "Copied",  aligment: .center, indent: 0.0)
+        setupPassLabelText(text: "Copied")
         AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
     }
 
     private func endCopy(){
         copyCountDown = 0
         isCopyCountPressed = false
-        passLabel.setLabelAtributedText(fontSize: 48, text: passLabelText,  aligment: .center, indent: 0.0)
+        setupPassLabelText(text: passLabelText)
     }
+    
+    private func setupPassLabelText (text: String){
+        let font = UIFont.systemFont(ofSize: 50, weight: .thin)
+        passLabel.textAlignment = .center
+        passLabel.attributedText = NSMutableAttributedString(string: text, attributes: [.kern: 5.75, .font: font])
+    }
+    
+    private func setupIssuerLabelText (text: String){
+        let font = UIFont.systemFont(ofSize: 18, weight: .medium)
+        passLabel.textAlignment = .center
+        passLabel.attributedText = NSMutableAttributedString(string: text, attributes: [.font: font])
+    }
+
     
     // MARK: - Handlers
     
@@ -178,7 +195,7 @@ class CustomCell: UITableViewCell {
             
             let token = TokenGenerator.shared.createToken(name: issuer, issuer: issuer, secretString: key)
             if let text = token?.currentPassword {
-                passLabel.setLabelAtributedText(fontSize: 50, text: text,  aligment: .center, indent: 0.0)
+                setupPassLabelText(text: text)
                 passLabelText = text
             }
         }

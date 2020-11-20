@@ -76,11 +76,14 @@ class AuthenticatorViewController: UIViewController {
 
     private func configureNavBar() {
         setupNavigationController()
-        navigationItem.title =  NSLocalizedString("Authenticator", comment: "") 
-        let barButtonItem = UIBarButtonItem(image: UIImage(named: "settings"), style: .done, target: self, action: #selector(settingsTapped))
-        barButtonItem.tintColor = .fucsiaColor()
+        navigationItem.title =  NSLocalizedString("Authenticator", comment: "")
+        
+        let barButtonItem = UIBarButtonItem(image: UIImage(named: "settings"), style: .plain, target: self, action: #selector(settingsTapped))
+        barButtonItem.tintColor = UIColor.label
         navigationController?.navigationBar.prefersLargeTitles = false
+        
         navigationItem.rightBarButtonItem = barButtonItem
+        
     }
     
     private func pushDetailViewController(text: String?, state: States){
@@ -128,7 +131,7 @@ extension AuthenticatorViewController: UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 180
+        return 200
     }
     
     func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
