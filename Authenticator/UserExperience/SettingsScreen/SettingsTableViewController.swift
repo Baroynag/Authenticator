@@ -17,11 +17,12 @@ class SettingsTableViewController: UITableViewController {
     let cellWithButtonId = "settingsCellWithButtonId"
     
     let settingsList = [
-    "Support this project",
-    "Create backup",
-    "Load from Backup",
-    "About SOTP"
+        NSLocalizedString("Support this project", comment: ""),
+        NSLocalizedString("Create backup", comment: ""),
+        NSLocalizedString("Load from Backup", comment: ""),
+        NSLocalizedString("About SOTP", comment: "")
     ]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

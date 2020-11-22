@@ -1,4 +1,7 @@
 /* No comment provided by engineer. */
+"About SOTP" = "О программе";
+
+/* No comment provided by engineer. */
 "Account" = "Логин";
 
 /* No comment provided by engineer. */
@@ -17,10 +20,28 @@
 "Confirm the password!" = "Поддтвердите пароль";
 
 /* No comment provided by engineer. */
+"Copied" = "Скопированно";
+
+/* No comment provided by engineer. */
 "Create" = "Создать";
 
 /* No comment provided by engineer. */
+"Create backup" = "Создать резервную копию";
+
+/* No comment provided by engineer. */
 "Enter password" = "Введите пароль";
+
+/* No comment provided by engineer. */
+"Error to upload file" = "Ошибка загрузки файла";
+
+/* No comment provided by engineer. */
+"Load from backup" = "Загрузить из резервной копии";
+
+/* No comment provided by engineer. */
+"Load from Backup" = "Загрузить из резервной копии";
+
+/* No comment provided by engineer. */
+"Open GitHub repo" = "Открыть GitHub";
 
 /* No comment provided by engineer. */
 "or" = "или";
@@ -35,7 +56,19 @@
 "Passwords do not match" = "Пароли не совпадают";
 
 /* No comment provided by engineer. */
+"Please consider to support this open source project" = "Если Вам нравиться приложение Вы можете поддержать проект";
+
+/* No comment provided by engineer. */
 "Please enter correct account" = "Введите правильный аккаунт";
+
+/* No comment provided by engineer. */
+"Refresh in " = "Обновится через ";
+
+/* No comment provided by engineer. */
+"Refresh in 30 s." = "Обновится через 30 сек.";
+
+/* No comment provided by engineer. */
+"s." = "сек.";
 
 /* No comment provided by engineer. */
 "Scan QR Code" = "Сканировать QR код";
@@ -48,6 +81,18 @@
 
 /* No comment provided by engineer. */
 "Setup one time password" = "Настройте одноразовый пароль";
+
+/* No comment provided by engineer. */
+"SOTP is an open source app. It does not collect any personal information." = "SOTP - это приложение с открытым исходным кодом. Мы не собираем никакие пользовательские данные.";
+
+/* No comment provided by engineer. */
+"Support" = "Поддержать";
+
+/* No comment provided by engineer. */
+"Support this project" = "Помочь проекту";
+
+/* No comment provided by engineer. */
+"Thank you for your support!" = "Спасибо за Вашу поддержку!";
 
 /* No comment provided by engineer. */
 "Time-based" = "Фактор времени";

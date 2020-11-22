@@ -52,6 +52,7 @@
 		14CB6D6924FC2AD100316ED7 /* SettingsTableViewCellWithButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CB6D6824FC2AD100316ED7 /* SettingsTableViewCellWithButton.swift */; };
 		14CB6D6F2506A2A700316ED7 /* LoadFromFileExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CB6D6E2506A2A700316ED7 /* LoadFromFileExtentions.swift */; };
 		14E8523F25619BB700B9744B /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E8523E25619BB700B9744B /* AboutViewController.swift */; };
+		14E8524C256AE6E400B9744B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 14E8524A256AE6E400B9744B /* Localizable.strings */; };
 		14F740F22447743D0052244C /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 14F740F12447743D0052244C /* Lato-Light.ttf */; };
 		CC74BA630D0AF3B3442DF0E3 /* Pods_SOTPWatch_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E0822CA0A73046E3F1F30E9 /* Pods_SOTPWatch_Extension.framework */; };
 		EDFD8EE1D14E008CC2B86F6D /* Pods_SOTPWatch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69E961E78C1ECBDEEF93A234 /* Pods_SOTPWatch.framework */; };
@@ -141,7 +142,6 @@
 		146CE3A924D3369600DDC45C /* Backup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Backup.swift; sourceTree = "<group>"; };
 		1486EE0B2532187D00094F46 /* AuthenticatorRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AuthenticatorRelease.entitlements; sourceTree = "<group>"; };
 		1496190D2517CB5500B46D7B /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Interface.strings; sourceTree = "<group>"; };
-		1496190E2517CB6500B46D7B /* hy-AM */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "hy-AM"; path = "hy-AM.lproj/Interface.strings"; sourceTree = "<group>"; };
 		149619102517CE2E00B46D7B /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		14B61B5924C71DD400A08A14 /* AuthenticatorItem+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthenticatorItem+CoreDataClass.swift"; sourceTree = "<group>"; };
 		14B61B5A24C71DD400A08A14 /* AuthenticatorItem+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthenticatorItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -153,6 +153,7 @@
 		14CB6D6824FC2AD100316ED7 /* SettingsTableViewCellWithButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCellWithButton.swift; sourceTree = "<group>"; };
 		14CB6D6E2506A2A700316ED7 /* LoadFromFileExtentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadFromFileExtentions.swift; sourceTree = "<group>"; };
 		14E8523E25619BB700B9744B /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		14E8524B256AE6E400B9744B /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		14F740F12447743D0052244C /* Lato-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Light.ttf"; sourceTree = "<group>"; };
 		27A6D74524AE2E0A817120E0 /* Pods-SOTPWatch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SOTPWatch.debug.xcconfig"; path = "Target Support Files/Pods-SOTPWatch/Pods-SOTPWatch.debug.xcconfig"; sourceTree = "<group>"; };
 		27DD8D5505FCC56608A83C59 /* Pods-SOTPWatch Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SOTPWatch Extension.release.xcconfig"; path = "Target Support Files/Pods-SOTPWatch Extension/Pods-SOTPWatch Extension.release.xcconfig"; sourceTree = "<group>"; };
@@ -311,6 +312,7 @@
 				14543DAE24853A04008E7DA8 /* InterfaceController.swift */,
 				14543DB024853A04008E7DA8 /* ExtensionDelegate.swift */,
 				14543DB424853A05008E7DA8 /* Info.plist */,
+				14E8524A256AE6E400B9744B /* Localizable.strings */,
 				14543DC024853B24008E7DA8 /* SOTPWatchRow.swift */,
 				14C0B71B254C793D0054DD57 /* AuthenticatorForWatch.xcdatamodeld */,
 				14C0B722254C8F2B0054DD57 /* WatchModel.swift */,
@@ -487,7 +489,6 @@
 				en,
 				Base,
 				ru,
-				"hy-AM",
 			);
 			mainGroup = 1401DA6E2440D46700DE677F;
 			productRefGroup = 1401DA782440D46800DE677F /* Products */;
@@ -527,6 +528,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14E8524C256AE6E400B9744B /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -723,7 +725,6 @@
 			children = (
 				14543DA024853A03008E7DA8 /* Base */,
 				1496190D2517CB5500B46D7B /* ru */,
-				1496190E2517CB6500B46D7B /* hy-AM */,
 			);
 			name = Interface.storyboard;
 			sourceTree = "<group>";
@@ -732,6 +733,14 @@
 			isa = PBXVariantGroup;
 			children = (
 				149619102517CE2E00B46D7B /* ru */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		14E8524A256AE6E400B9744B /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				14E8524B256AE6E400B9744B /* ru */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";

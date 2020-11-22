@@ -60,7 +60,7 @@ class InterfaceController: WKInterfaceController {
                 if let tokenPass = token?.currentPassword{
                     row.accountLabel?.setText(item.key)
                     row.passLabel?.setText(tokenPass)
-                    row.detailLabel?.setText(NSLocalizedString("Refresh in " + String(countDown) + "s.", comment: ""))
+                    row.detailLabel?.setText("Refresh in " + String(countDown) + "s.")
                 }
             }
         }
@@ -97,7 +97,7 @@ class InterfaceController: WKInterfaceController {
         if items.count == 0 { return}
         
         countDown -= 1
-        let text = NSLocalizedString("Refresh in ",comment: "") + String(countDown) + NSLocalizedString("s.", comment: "")
+        let text = "Refresh in " + String(countDown) + " s."
         for i in 0...items.count - 1 {
             if let row = table.rowController(at: i) as? SOTPWatchRow {
                 row.detailLabel.setText(text)

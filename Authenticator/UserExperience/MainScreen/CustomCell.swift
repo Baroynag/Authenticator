@@ -149,7 +149,7 @@ class CustomCell: UITableViewCell {
     private func startCopy(){
         copyCountDown = copiedTime
         isCopyCountPressed = true
-        setupPassLabelText(text: "Copied")
+        setupCopiedLabelText(text: NSLocalizedString("Copied", comment: ""))
         AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
     }
 
@@ -161,6 +161,12 @@ class CustomCell: UITableViewCell {
     
     private func setupPassLabelText (text: String){
         let font = UIFont.systemFont(ofSize: 50, weight: .thin)
+        passLabel.textAlignment = .center
+        passLabel.attributedText = NSMutableAttributedString(string: text, attributes: [.kern: 5.75, .font: font])
+    }
+    
+    private func setupCopiedLabelText (text: String){
+        let font = UIFont.systemFont(ofSize: 32, weight: .thin)
         passLabel.textAlignment = .center
         passLabel.attributedText = NSMutableAttributedString(string: text, attributes: [.kern: 5.75, .font: font])
     }
@@ -182,7 +188,7 @@ class CustomCell: UITableViewCell {
         if countDown == 0 {
             timeLabel = "1"
         }
-        descriptionLabel.text = NSLocalizedString("Refresh in ", comment: "") + timeLabel + NSLocalizedString("s.", comment: "")
+        descriptionLabel.text = NSLocalizedString("Refresh in ", comment: "") + timeLabel + " " + NSLocalizedString("s.", comment: "")
         
         if isCopyCountPressed{
             copyCountDown -= 1

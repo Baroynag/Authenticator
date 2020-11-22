@@ -44,7 +44,7 @@ class AboutViewController: UIViewController {
         button.backgroundColor = .fucsiaColor()
         button.layer.cornerRadius = 25
         button.clipsToBounds = true
-        button.setTitle("Open GitHub repo", for: .normal)
+        button.setTitle(NSLocalizedString("Open GitHub repo", comment: ""), for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = UIFont(name: "Lato-Light", size: 18)
         button.addTarget(self, action: #selector(handleOpenLink), for: .touchUpInside)
@@ -52,8 +52,6 @@ class AboutViewController: UIViewController {
     }()
     
     let aboutApp = NSLocalizedString("SOTP is an open source app. It does not collect any personal information.", comment: "")
-    
-    let sendMail = NSLocalizedString("If you have any suggestions, you can send an e-mail to baroynag@gmail.com", comment: "")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -83,7 +81,7 @@ class AboutViewController: UIViewController {
             descriprionTextField.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 8),
             descriprionTextField.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 8),
             descriprionTextField.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -8),
-            descriprionTextField.heightAnchor.constraint(equalToConstant: 100)
+            descriprionTextField.heightAnchor.constraint(equalToConstant: 140)
         ])
         
         view.addSubview(onepenGitHubRepo)

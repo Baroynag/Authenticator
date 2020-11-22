@@ -3,5 +3,5 @@
 /* Bundle name */
 "CFBundleName" = "SOTP";
 /* Privacy - Camera Usage Description */
-"NSCameraUsageDescription" = "$(Authenticator) photo use";
+"NSCameraUsageDescription" = " photo use";
 "SOTP file" = "SOTP file";
