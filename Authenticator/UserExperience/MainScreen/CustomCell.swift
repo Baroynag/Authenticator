@@ -17,6 +17,7 @@ class CustomCell: UITableViewCell {
     private var account = ""
     private var copyCountDown = 0
     private var isCopyCountPressed = false
+    public let copiedTime = 2
     
     public var passLabelText = ""
     
@@ -146,7 +147,7 @@ class CustomCell: UITableViewCell {
     }
     
     private func startCopy(){
-        copyCountDown = 5
+        copyCountDown = copiedTime
         isCopyCountPressed = true
         setupPassLabelText(text: "Copied")
         AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
