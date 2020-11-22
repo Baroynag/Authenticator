@@ -113,7 +113,6 @@ extension AuthenticatorViewController: UITableViewDataSource {
         if let item = AuthenticatorModel.shared.authenticatorItemsList?[indexPath.row]{
             cell.authItem = item
             cell.copyButton.tag = indexPath.row
-            cell.delgate = self
         }
         
         print("cellForRowAt")
@@ -140,24 +139,13 @@ extension AuthenticatorViewController: UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-//        TODO: copy to clipboard
-        
-        print("didSelectRowAt \(indexPath.row)")
-        
+      if let cell = tableView.cellForRow(at: indexPath) as? CustomCell {
+        cell.copyToClipBoard()
+      }
     }
  
 }
 
-//
-//extension AuthenticatorViewController: CopyPassToClipBoardDelegate {
-//
-//    func pressCopyButton(otp: String) {
-//        let pasteboard = UIPasteboard.general
-//        pasteboard.string = otp
-//    }
-//
-//}
 
 // MARK: - Timer
 extension AuthenticatorViewController {

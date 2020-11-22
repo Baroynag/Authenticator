@@ -20,8 +20,6 @@ class CustomCell: UITableViewCell {
     
     public var passLabelText = ""
     
-//    var delgate: CopyPassToClipBoardDelegate?
-    
     public var authItem: AuthenticatorItem?{
         didSet{
             guard let authItem = authItem else {return}
@@ -166,11 +164,12 @@ class CustomCell: UITableViewCell {
         passLabel.attributedText = NSMutableAttributedString(string: text, attributes: [.kern: 5.75, .font: font])
     }
     
-    public func copyToClipBoard(index: Int, text: String){
-        startCopy()
-        delgate?.pressCopyButton(otp: passLabelText)
+    public func copyToClipBoard(){
         
-       
+        startCopy()
+        let pasteboard = UIPasteboard.general
+        pasteboard.string = passLabelText
+        
     }
     
     // MARK: - Handlers
@@ -204,11 +203,7 @@ class CustomCell: UITableViewCell {
     }
     
     @objc private func handleCopyButton(){
-        startCopy()
-        
-        let pasteboard = UIPasteboard.general
-        pasteboard.string = passLabelText
-        print("copy buton passLabelText = \(passLabelText)")
+        copyToClipBoard() 
     }
     
 
