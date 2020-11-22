@@ -76,11 +76,14 @@ class AuthenticatorViewController: UIViewController {
 
     private func configureNavBar() {
         setupNavigationController()
-        navigationItem.title =  NSLocalizedString("Authenticator", comment: "") 
-        let barButtonItem = UIBarButtonItem(image: UIImage(named: "settings"), style: .done, target: self, action: #selector(settingsTapped))
-        barButtonItem.tintColor = .fucsiaColor()
+        navigationItem.title =  NSLocalizedString("Authenticator", comment: "")
+        
+        let barButtonItem = UIBarButtonItem(image: UIImage(named: "settings"), style: .plain, target: self, action: #selector(settingsTapped))
+        barButtonItem.tintColor = UIColor.label
         navigationController?.navigationBar.prefersLargeTitles = false
+        
         navigationItem.rightBarButtonItem = barButtonItem
+        
     }
     
     private func pushDetailViewController(text: String?, state: States){
@@ -110,9 +113,9 @@ extension AuthenticatorViewController: UITableViewDataSource {
         if let item = AuthenticatorModel.shared.authenticatorItemsList?[indexPath.row]{
             cell.authItem = item
             cell.copyButton.tag = indexPath.row
-            cell.delgate = self
         }
         
+        print("cellForRowAt")
         return cell
     }
 }
@@ -134,17 +137,15 @@ extension AuthenticatorViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         return true
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+      if let cell = tableView.cellForRow(at: indexPath) as? CustomCell {
+        cell.copyToClipBoard()
+      }
+    }
  
 }
 
-extension AuthenticatorViewController: CopyPassToClipBoardDelegate {
-    
-    func pressCopyButton(otp: String) {
-        let pasteboard = UIPasteboard.general
-        pasteboard.string = otp
-    }
-
-}
 
 // MARK: - Timer
 extension AuthenticatorViewController {

@@ -31,7 +31,7 @@ extension UIColor{
 
 extension UIViewController{
     func setupNavigationController(){
-        let font = UIFont(name: "Lato-Light", size: 24)
+        let font = UIFont.systemFont(ofSize: 17, weight: .semibold)
         let appearance = UINavigationBarAppearance()
         
         appearance.configureWithOpaqueBackground()
@@ -42,7 +42,7 @@ extension UIViewController{
             navTextColor = UIColor.black
         } else { navTextColor = UIColor.white}
         
-        appearance.titleTextAttributes = [.foregroundColor: navTextColor, .font: font!]
+        appearance.titleTextAttributes = [.foregroundColor: navTextColor, .font: font]
         
         navigationItem.standardAppearance = appearance
         navigationItem.scrollEdgeAppearance = appearance
@@ -72,7 +72,7 @@ extension UILabel{
     }
     
     func setLabelAtributedText(fontSize: CGFloat, text: String, aligment: NSTextAlignment, indent: CGFloat, color: UIColor){
-        
+           
         let font = UIFont.systemFont(ofSize: fontSize, weight: .semibold)
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.alignment = aligment
@@ -87,6 +87,25 @@ extension UILabel{
         self.attributedText =  attributedText
 
     }
+    
+    
+    func setLabelAtributedText(text: String, fontSize: CGFloat, aligment: NSTextAlignment, indent: CGFloat, color: UIColor, fontWeight:  UIFont.Weight){
+           
+        let font = UIFont.systemFont(ofSize: fontSize, weight: fontWeight)
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.alignment = aligment
+        paragraphStyle.firstLineHeadIndent = indent
+
+        let attributes: [NSAttributedString.Key: Any] = [
+            .font: font,
+            .foregroundColor: color,
+            .paragraphStyle: paragraphStyle
+        ]
+        let attributedText = NSMutableAttributedString(string: text, attributes: attributes)
+        self.attributedText =  attributedText
+
+    }
+   
     
     
 }

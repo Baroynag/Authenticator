@@ -2,7 +2,7 @@
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.2" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 http://docs.oasis-open.org/xliff/v1.2/os/xliff-core-1.2-strict.xsd">
   <file original="Authenticator/en.lproj/InfoPlist.strings" source-language="en" target-language="en" datatype="plaintext">
     <header>
-      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="11.7" build-num="11E801a"/>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="12.2" build-num="12B45b"/>
     </header>
     <body>
       <trans-unit id="CFBundleDisplayName" xml:space="preserve">
@@ -16,8 +16,8 @@
         <note>Bundle name</note>
       </trans-unit>
       <trans-unit id="NSCameraUsageDescription" xml:space="preserve">
-        <source>$(Authenticator) photo use</source>
-        <target>$(Authenticator) photo use</target>
+        <source> photo use</source>
+        <target> photo use</target>
         <note>Privacy - Camera Usage Description</note>
       </trans-unit>
       <trans-unit id="SOTP file" xml:space="preserve">
@@ -29,9 +29,14 @@
   </file>
   <file original="Authenticator/en.lproj/Localizable.strings" source-language="en" target-language="en" datatype="plaintext">
     <header>
-      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="11.7" build-num="11E801a"/>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="12.2" build-num="12B45b"/>
     </header>
     <body>
+      <trans-unit id="About SOTP" xml:space="preserve">
+        <source>About SOTP</source>
+        <target>About SOTP</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
       <trans-unit id="Account" xml:space="preserve">
         <source>Account</source>
         <target>Account</target>
@@ -45,16 +50,6 @@
       <trans-unit id="Authenticator" xml:space="preserve">
         <source>Authenticator</source>
         <target>Authenticator</target>
-        <note>No comment provided by engineer.</note>
-      </trans-unit>
-      <trans-unit id="Buy SOTP Authenticator and support this project" xml:space="preserve">
-        <source>Buy SOTP Authenticator and support this project</source>
-        <target>Buy SOTP Authenticator and support this project</target>
-        <note>No comment provided by engineer.</note>
-      </trans-unit>
-      <trans-unit id="Bye" xml:space="preserve">
-        <source>Bye</source>
-        <target>Bye</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Cancel" xml:space="preserve">
@@ -77,6 +72,11 @@
         <target>Confirm the password!</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
+      <trans-unit id="Copied" xml:space="preserve">
+        <source>Copied</source>
+        <target>Copied</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
       <trans-unit id="Core data delete error" xml:space="preserve">
         <source>Core data delete error</source>
         <target>Core data delete error</target>
@@ -95,6 +95,11 @@
       <trans-unit id="Create" xml:space="preserve">
         <source>Create</source>
         <target>Create</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Create backup" xml:space="preserve">
+        <source>Create backup</source>
+        <target>Create backup</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Data loaded" xml:space="preserve">
@@ -117,6 +122,11 @@
         <target>Json serialization error</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
+      <trans-unit id="Load from Backup" xml:space="preserve">
+        <source>Load from Backup</source>
+        <target>Load from Backup</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
       <trans-unit id="Load from backup" xml:space="preserve">
         <source>Load from backup</source>
         <target>Load from backup</target>
@@ -127,9 +137,9 @@
         <target>Ok</target>
         <note>Default action</note>
       </trans-unit>
-      <trans-unit id="PREMIUM" xml:space="preserve">
-        <source>PREMIUM</source>
-        <target>PREMIUM</target>
+      <trans-unit id="Open GitHub repo" xml:space="preserve">
+        <source>Open GitHub repo</source>
+        <target>Open GitHub repo</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Password" xml:space="preserve">
@@ -147,6 +157,11 @@
         <target>Passwords do not match</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
+      <trans-unit id="Please consider to support this open source project" xml:space="preserve">
+        <source>Please consider to support this open source project</source>
+        <target>Please consider to support this open source project</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
       <trans-unit id="Please enter correct account" xml:space="preserve">
         <source>Please enter correct account</source>
         <target>Please enter correct account</target>
@@ -162,14 +177,14 @@
         <target>Refresh in 30 s.</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
-      <trans-unit id="Restore" xml:space="preserve">
-        <source>Restore</source>
-        <target>Restore</target>
-        <note>No comment provided by engineer.</note>
-      </trans-unit>
       <trans-unit id="SOTP" xml:space="preserve">
         <source>SOTP</source>
         <target>SOTP</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="SOTP is an open source app. It does not collect any personal information." xml:space="preserve">
+        <source>SOTP is an open source app. It does not collect any personal information.</source>
+        <target>SOTP is an open source app. It does not collect any personal information.</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Scan QR Code" xml:space="preserve">
@@ -190,6 +205,21 @@
       <trans-unit id="Setup one time password" xml:space="preserve">
         <source>Setup one time password</source>
         <target>Setup one time password</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Support" xml:space="preserve">
+        <source>Support</source>
+        <target>Support</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Support this project" xml:space="preserve">
+        <source>Support this project</source>
+        <target>Support this project</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Thank you for your support!" xml:space="preserve">
+        <source>Thank you for your support!</source>
+        <target>Thank you for your support!</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Time-based" xml:space="preserve">
@@ -222,26 +252,11 @@
         <target>s.</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
-      <trans-unit id="Введенные пароли не совпадают" xml:space="preserve">
-        <source>Введенные пароли не совпадают</source>
-        <target>Введенные пароли не совпадают</target>
-        <note>No comment provided by engineer.</note>
-      </trans-unit>
-      <trans-unit id="Введие подтверждение пароля!" xml:space="preserve">
-        <source>Введие подтверждение пароля!</source>
-        <target>Введие подтверждение пароля!</target>
-        <note>No comment provided by engineer.</note>
-      </trans-unit>
-      <trans-unit id="Пароль не может быть пустым" xml:space="preserve">
-        <source>Пароль не может быть пустым</source>
-        <target>Пароль не может быть пустым</target>
-        <note>No comment provided by engineer.</note>
-      </trans-unit>
     </body>
   </file>
   <file original="SOTPWatch Extension/en.lproj/InfoPlist.strings" source-language="en" target-language="en" datatype="plaintext">
     <header>
-      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="11.7" build-num="11E801a"/>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="12.2" build-num="12B45b"/>
     </header>
     <body>
       <trans-unit id="CFBundleDisplayName" xml:space="preserve">
@@ -256,30 +271,40 @@
       </trans-unit>
     </body>
   </file>
-  <file original="SOTPWatch/Base.lproj/Interface.storyboard" source-language="en" target-language="en" datatype="plaintext">
+  <file original="SOTPWatch Extension/en.lproj/Localizable.strings" source-language="en" target-language="en" datatype="plaintext">
     <header>
-      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="11.7" build-num="11E801a"/>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="12.2" build-num="12B45b"/>
     </header>
     <body>
-      <trans-unit id="Fqf-yn-Gjs.text" xml:space="preserve">
-        <source>test@mail</source>
-        <target>test@mail</target>
-        <note>Class = "WKInterfaceLabel"; text = "test@mail"; ObjectID = "Fqf-yn-Gjs";</note>
+      <trans-unit id="Core data delete error" xml:space="preserve">
+        <source>Core data delete error</source>
+        <target>Core data delete error</target>
+        <note>No comment provided by engineer.</note>
       </trans-unit>
-      <trans-unit id="aHZ-6s-9pE.text" xml:space="preserve">
-        <source>Oбновится через 30 с</source>
-        <target>Oбновится через 30 с</target>
-        <note>Class = "WKInterfaceLabel"; text = "Oбновится через 30 с"; ObjectID = "aHZ-6s-9pE";</note>
+      <trans-unit id="Core data load error" xml:space="preserve">
+        <source>Core data load error</source>
+        <target>Core data load error</target>
+        <note>No comment provided by engineer.</note>
       </trans-unit>
-      <trans-unit id="fus-sy-CsC.text" xml:space="preserve">
-        <source>Google</source>
-        <target>Google</target>
-        <note>Class = "WKInterfaceLabel"; text = "Google"; ObjectID = "fus-sy-CsC";</note>
+      <trans-unit id="Core data save error" xml:space="preserve">
+        <source>Core data save error</source>
+        <target>Core data save error</target>
+        <note>No comment provided by engineer.</note>
       </trans-unit>
-      <trans-unit id="hf9-q1-ODr.text" xml:space="preserve">
-        <source>123456</source>
-        <target>123456</target>
-        <note>Class = "WKInterfaceLabel"; text = "123456"; ObjectID = "hf9-q1-ODr";</note>
+      <trans-unit id="Refresh in " xml:space="preserve">
+        <source>Refresh in </source>
+        <target>Refresh in </target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Refresh in s." xml:space="preserve">
+        <source>Refresh in s.</source>
+        <target>Refresh in s.</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="s." xml:space="preserve">
+        <source>s.</source>
+        <target>s.</target>
+        <note>No comment provided by engineer.</note>
       </trans-unit>
     </body>
   </file>

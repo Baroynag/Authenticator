@@ -17,12 +17,12 @@ class SettingsTableViewController: UITableViewController {
     let cellWithButtonId = "settingsCellWithButtonId"
     
     let settingsList = [
-    "Support this project",
-    "Create backup",
-    "Load from Backup",
-    "Privacy policy",
-    "License agreement"
+        NSLocalizedString("Support this project", comment: ""),
+        NSLocalizedString("Create backup", comment: ""),
+        NSLocalizedString("Load from Backup", comment: ""),
+        NSLocalizedString("About SOTP", comment: "")
     ]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -57,7 +57,7 @@ class SettingsTableViewController: UITableViewController {
         if section == 0{
             numbersOfRows = 1
         } else {
-            numbersOfRows = 4
+            numbersOfRows = 3
         }
         return numbersOfRows
     }
@@ -77,6 +77,7 @@ class SettingsTableViewController: UITableViewController {
             
             let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! SettingsTableViewCell
             cell.accessoryType = .disclosureIndicator
+            print("indexPath.row = \(indexPath.row)")
             cell.title = settingsList[indexPath.row + 1]
             
             return cell
@@ -123,10 +124,10 @@ class SettingsTableViewController: UITableViewController {
             
             self.chooseDocument(vcWithDocumentPicker: self) 
         } else if  indexPath.row == 2{
-            print ("22")
-        }  else if  indexPath.row == 3{
-            print ("22")
-        }
+            
+            let aboutVc = AboutViewController()
+            self.present(aboutVc, animated: true)
+        }  
         
     }
    

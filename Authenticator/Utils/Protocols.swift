@@ -8,10 +8,6 @@
 
 import UIKit
 
-protocol CopyPassToClipBoardDelegate : class {
-    func pressCopyButton(otp: String)
-}
-
 protocol AddItemDelegate : class {
 
     func createNewItem (account: String?, issuer: String?, key: String?, timeBased: Bool)

@@ -108,8 +108,6 @@ class PasswordViewController: UIViewController {
            let isValidPassword = try PasswordError.cheackPassword(passOne: passwordTextField.text, passTwo: confirmPasswordTextField.text)
            if isValidPassword {
                    if let password = self.passwordTextField.text{
-                       print("11111")
-//                       self.saveBackupToFile(password: password)
                     completion(password)
                    }
             
