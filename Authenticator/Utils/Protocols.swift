@@ -8,9 +8,9 @@
 
 import UIKit
 
-protocol CopyPassToClipBoardDelegate : class {
-    func pressCopyButton(otp: String)
-}
+//protocol CopyPassToClipBoardDelegate : class {
+//    func pressCopyButton(otp: String)
+//}
 
 protocol AddItemDelegate : class {
 

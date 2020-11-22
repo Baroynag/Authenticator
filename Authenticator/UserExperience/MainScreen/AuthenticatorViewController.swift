@@ -116,6 +116,7 @@ extension AuthenticatorViewController: UITableViewDataSource {
             cell.delgate = self
         }
         
+        print("cellForRowAt")
         return cell
     }
 }
@@ -131,23 +132,32 @@ extension AuthenticatorViewController: UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 200
+        return 180
     }
     
     func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         return true
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+//        TODO: copy to clipboard
+        
+        print("didSelectRowAt \(indexPath.row)")
+        
+    }
  
 }
 
-extension AuthenticatorViewController: CopyPassToClipBoardDelegate {
-    
-    func pressCopyButton(otp: String) {
-        let pasteboard = UIPasteboard.general
-        pasteboard.string = otp
-    }
-
-}
+//
+//extension AuthenticatorViewController: CopyPassToClipBoardDelegate {
+//
+//    func pressCopyButton(otp: String) {
+//        let pasteboard = UIPasteboard.general
+//        pasteboard.string = otp
+//    }
+//
+//}
 
 // MARK: - Timer
 extension AuthenticatorViewController {

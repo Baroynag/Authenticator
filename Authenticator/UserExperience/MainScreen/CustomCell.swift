@@ -17,9 +17,10 @@ class CustomCell: UITableViewCell {
     private var account = ""
     private var copyCountDown = 0
     private var isCopyCountPressed = false
-    var passLabelText = ""
     
-    var delgate: CopyPassToClipBoardDelegate?
+    public var passLabelText = ""
+    
+//    var delgate: CopyPassToClipBoardDelegate?
     
     public var authItem: AuthenticatorItem?{
         didSet{
@@ -122,7 +123,7 @@ class CustomCell: UITableViewCell {
         addSubview(accountLabel)
         
         NSLayoutConstraint.activate([
-            accountLabel.topAnchor.constraint(equalTo: passLabel.bottomAnchor, constant: 8),
+            accountLabel.topAnchor.constraint(equalTo: passLabel.bottomAnchor),
             accountLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
             accountLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
             accountLabel.heightAnchor.constraint(equalToConstant: 24)
@@ -130,10 +131,9 @@ class CustomCell: UITableViewCell {
         
         addSubview(descriptionLabel)
         NSLayoutConstraint.activate([
-            descriptionLabel.topAnchor.constraint(equalTo: accountLabel.bottomAnchor, constant: 8),
+            descriptionLabel.topAnchor.constraint(equalTo: accountLabel.bottomAnchor),
             descriptionLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
-            descriptionLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
-            descriptionLabel.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -8)
+            descriptionLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor)
          ])
 
         copyButton.addTarget(self, action: #selector(handleCopyButton), for: .touchUpInside)
@@ -143,7 +143,7 @@ class CustomCell: UITableViewCell {
             copyButton.leadingAnchor.constraint(equalTo: passLabel.trailingAnchor, constant: 8),
             copyButton.heightAnchor.constraint(equalToConstant: 32),
             copyButton.widthAnchor.constraint(equalToConstant: 32)
-        ]) 
+        ])
 
     }
     
@@ -166,12 +166,12 @@ class CustomCell: UITableViewCell {
         passLabel.attributedText = NSMutableAttributedString(string: text, attributes: [.kern: 5.75, .font: font])
     }
     
-    private func setupIssuerLabelText (text: String){
-        let font = UIFont.systemFont(ofSize: 18, weight: .medium)
-        passLabel.textAlignment = .center
-        passLabel.attributedText = NSMutableAttributedString(string: text, attributes: [.font: font])
+    public func copyToClipBoard(index: Int, text: String){
+        startCopy()
+        delgate?.pressCopyButton(otp: passLabelText)
+        
+       
     }
-
     
     // MARK: - Handlers
     
@@ -205,7 +205,12 @@ class CustomCell: UITableViewCell {
     
     @objc private func handleCopyButton(){
         startCopy()
-        delgate?.pressCopyButton(otp: passLabelText)
+        
+        let pasteboard = UIPasteboard.general
+        pasteboard.string = passLabelText
+        print("copy buton passLabelText = \(passLabelText)")
     }
+    
+
 
 }
