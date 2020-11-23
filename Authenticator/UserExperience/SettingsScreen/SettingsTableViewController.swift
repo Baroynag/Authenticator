@@ -127,7 +127,9 @@ class SettingsTableViewController: UITableViewController {
             
             let aboutVc = AboutViewController()
             self.present(aboutVc, animated: true)
-        }  
+        }
+        
+        tableView.deselectRow(at: indexPath, animated: true)
         
     }
    
