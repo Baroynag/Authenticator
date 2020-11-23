@@ -86,27 +86,6 @@ class AuthenticatorModel {
     }
     
     
-    /*func loadDataForWatch() -> [String: String] {
-        
-        loadData()
-        
-        guard let authenticatorItemsList = authenticatorItemsList else {return [:] }
-        var dictionary: [String: String] = [:]
-        
-        for index in 0...authenticatorItemsList.count - 1{
-            
-            if let authIssuer = authenticatorItemsList[index].value(forKey: "issuer") as? String,
-                let authKey = authenticatorItemsList[index].value(forKey: "key")  as? String
-            {
-                let token = TokenGenerator.shared.createToken(name: authIssuer, issuer: authIssuer, secretString: authKey)
-            
-                if let tokenPass = token?.currentPassword{
-                    dictionary.updateValue(tokenPass, forKey: authIssuer)
-                }
-            }
-        }
-        return dictionary
-    }*/
     
     func loadDataForWatch() -> [String: String] {
         
