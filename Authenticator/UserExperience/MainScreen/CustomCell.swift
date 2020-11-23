@@ -35,8 +35,7 @@ class CustomCell: UITableViewCell {
             
             accountLabel.setLabelAtributedText(text: account, fontSize: 16, aligment: .center, indent: 0.0, color: .fucsiaColor(), fontWeight: .light)
             
-            
-            let token = TokenGenerator.shared.createToken(name: authIssuer, issuer: authIssuer, secretString: authKey)
+           let token = TokenGenerator.shared.createTimeBasedToken(name: authIssuer, issuer: authIssuer, secretString: authKey)
             
             if let keyText = token?.currentPassword{
                 passLabelText = keyText
@@ -199,7 +198,7 @@ class CustomCell: UITableViewCell {
         
         if countDown == 0 {
             
-            let token = TokenGenerator.shared.createToken(name: issuer, issuer: issuer, secretString: key)
+            let token = TokenGenerator.shared.createTimeBasedToken(name: issuer, issuer: issuer, secretString: key)
             if let text = token?.currentPassword {
                 setupPassLabelText(text: text)
                 passLabelText = text

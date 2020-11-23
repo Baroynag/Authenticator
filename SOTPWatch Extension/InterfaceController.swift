@@ -56,7 +56,7 @@ class InterfaceController: WKInterfaceController {
         for (i, item) in items.enumerated() {
             if let row = table.rowController(at: i) as? SOTPWatchRow {
                 
-                let token = TokenGenerator.shared.createToken(name: "", issuer: item.issuer ?? "", secretString: item.key ?? "")
+                let token = TokenGenerator.shared.createTimeBasedToken(name: "", issuer: item.issuer ?? "", secretString: item.key ?? "")
                 if let tokenPass = token?.currentPassword{
                     row.accountLabel?.setText(item.key)
                     row.passLabel?.setText(tokenPass)

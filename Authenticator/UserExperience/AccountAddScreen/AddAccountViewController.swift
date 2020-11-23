@@ -78,28 +78,6 @@ class AddAccountViewController: UIViewController {
         return button
     }()
     
-    private let switchControl: UISwitch = {
-        let swtch = UISwitch(frame: CGRect(x: 0, y:  5, width: 50, height: 50))
-        swtch.isOn = true
-        swtch.onTintColor = .fucsiaColor()
-        swtch.addTarget(self, action: #selector(switchValueChanged(_:)), for: .valueChanged)
-        return swtch
-    }()
-    
-    private let switchLayerView: UIView = {
-        let view = UIView()
-        view.backgroundColor = UIColor.systemBackground
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
-    
-    private let switchLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.backgroundColor = .systemBackground
-        return label
-    }()
-    
     private let orLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -121,7 +99,6 @@ class AddAccountViewController: UIViewController {
         setupNavigationController()
         setupTextField(textField: issuerTextField, placeholderText: NSLocalizedString("Account", comment: "") , tag: 1)
         setupTextField(textField: keyTextField, placeholderText: NSLocalizedString("Secret key", comment: "") , tag: 2)
-        switchLabel.setLabelAtributedText(fontSize: 18, text: NSLocalizedString("Time-based", comment: ""), aligment: .center, indent: 0.0)
         orLabel.setLabelAtributedText(fontSize: 18, text: NSLocalizedString("or", comment: ""), aligment: .center, indent: 0.0, color: UIColor(red: 0.702, green: 0.686, blue: 0.694, alpha: 1))
     }
     
@@ -154,27 +131,10 @@ class AddAccountViewController: UIViewController {
         
         keyTextField = UITextFieldWithBottomBorder(frame: CGRect(x: offsetX, y: textFieldHeigth + offsetY * 2, width: textFieldWidth, height: textFieldHeigth))
         view.addSubview(keyTextField)
-        
-        view.addSubview(switchLabel)
-        NSLayoutConstraint.activate([
-            switchLabel.topAnchor.constraint(equalTo: keyTextField.bottomAnchor, constant: 24),
-            switchLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            switchLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -120),
-            switchLabel.heightAnchor.constraint(equalToConstant: 40)
-        ])
-        
-        view.addSubview(switchLayerView)
-        NSLayoutConstraint.activate([
-            switchLayerView.topAnchor.constraint(equalTo: keyTextField.bottomAnchor,constant: 24),
-            switchLayerView.leadingAnchor.constraint(equalTo: switchLabel.trailingAnchor),
-            switchLayerView.heightAnchor.constraint(equalToConstant: 40),
-            switchLayerView.widthAnchor.constraint(equalToConstant: 50)
-        ])
-        switchLayerView.addSubview(switchControl)
-   
+    
         view.addSubview(scanQRButton)
         NSLayoutConstraint.activate([
-            scanQRButton.topAnchor.constraint(equalTo: switchLayerView.bottomAnchor, constant: 24),
+            scanQRButton.topAnchor.constraint(equalTo:  keyTextField.bottomAnchor, constant: 24),
             scanQRButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             scanQRButton.heightAnchor.constraint(equalToConstant: 100),
             scanQRButton.widthAnchor.constraint(equalToConstant: 160)
@@ -258,10 +218,6 @@ class AddAccountViewController: UIViewController {
             }
         }
 
-    }
-    
-    @objc private func switchValueChanged(_ sender:UISwitch!){
-        isTimeBased = sender.isOn
     }
     
     @objc private func handleScanButton(){

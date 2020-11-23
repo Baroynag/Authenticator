@@ -13,7 +13,7 @@ class TokenGenerator {
     
     static let shared = TokenGenerator()
     
-    func createToken(name: String, issuer: String, secretString: String) -> Token? {
+    func createTimeBasedToken(name: String, issuer: String, secretString: String) -> Token? {
     
         guard let secretData = MF_Base32Codec.data(fromBase32String: secretString),
             !secretData.isEmpty else {
