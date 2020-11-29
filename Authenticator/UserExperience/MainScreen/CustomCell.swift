@@ -17,6 +17,8 @@ class CustomCell: UITableViewCell {
     private var account = ""
     private var copyCountDown = 0
     private var isCopyCountPressed = false
+    private var isEditMode = false
+    
     public let copiedTime = 2
     
     public var passLabelText = ""
@@ -159,9 +161,13 @@ class CustomCell: UITableViewCell {
     }
     
     private func setupPassLabelText (text: String){
+        var newText = text
+        if isEditMode {
+            newText = "------"
+        }
         let font = UIFont.systemFont(ofSize: 50, weight: .thin)
         passLabel.textAlignment = .center
-        passLabel.attributedText = NSMutableAttributedString(string: text, attributes: [.kern: 5.75, .font: font])
+        passLabel.attributedText = NSMutableAttributedString(string: newText, attributes: [.kern: 5.75, .font: font])
     }
     
     private func setupCopiedLabelText (text: String){
@@ -178,9 +184,39 @@ class CustomCell: UITableViewCell {
         
     }
     
+    public func startEditing(){
+        
+        isEditMode = true
+        descriptionLabel.isHidden = true
+        copyButton.isHidden = true
+        setupPassLabelText(text: "------")
+    }
+
+    public func stopEditing(){
+        
+        isEditMode = false
+        updateTimerInfoLabel ()
+        resetToken()
+        descriptionLabel.isHidden = false
+        copyButton.isHidden = false
+    }
+    
+    private func resetToken() {
+        
+        let token = TokenGenerator.shared.createTimeBasedToken(name: issuer, issuer: issuer, secretString: key)
+        if let text = token?.currentPassword {
+            setupPassLabelText(text: text)
+            passLabelText = text
+        }
+        
+    }
+    
     // MARK: - Handlers
     
     @objc public func updateTimerInfoLabel (){
+        
+        if isEditMode {return}
+        
         let countDown = Int(NSDate().timeIntervalSince1970) % 30
         var timeLabel = String(30 - countDown)
         
@@ -197,15 +233,9 @@ class CustomCell: UITableViewCell {
         }
         
         if countDown == 0 {
-            
-            let token = TokenGenerator.shared.createTimeBasedToken(name: issuer, issuer: issuer, secretString: key)
-            if let text = token?.currentPassword {
-                setupPassLabelText(text: text)
-                passLabelText = text
-            }
+            resetToken()
         }
-        
-        
+   
     }
     
     @objc private func handleCopyButton(){

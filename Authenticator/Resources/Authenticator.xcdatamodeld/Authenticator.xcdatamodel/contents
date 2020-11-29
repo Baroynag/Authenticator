@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19E287" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17511" systemVersion="19H2" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="AuthenticatorItem" representedClassName=".AuthenticatorItem" syncable="YES">
         <attribute name="account" attributeType="String" defaultValueString=""/>
         <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="issuer" attributeType="String" defaultValueString=""/>
         <attribute name="key" attributeType="String" defaultValueString=""/>
+        <attribute name="priority" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="timeBased" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES"/>
     </entity>
     <elements>
-        <element name="AuthenticatorItem" positionX="-63" positionY="-18" width="128" height="118"/>
+        <element name="AuthenticatorItem" positionX="-63" positionY="-18" width="128" height="133"/>
     </elements>
 </model>

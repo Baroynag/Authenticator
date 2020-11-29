@@ -94,8 +94,8 @@
             filePath = "Authenticator/Model/AuthenticatorModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "153"
-            endingLineNumber = "153"
+            startingLineNumber = "166"
+            endingLineNumber = "166"
             landmarkName = "isAnyRecords()"
             landmarkType = "7">
          </BreakpointContent>
@@ -110,8 +110,8 @@
             filePath = "Authenticator/Model/AuthenticatorModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "136"
-            endingLineNumber = "136"
+            startingLineNumber = "149"
+            endingLineNumber = "149"
             landmarkName = "isAnyData()"
             landmarkType = "7">
          </BreakpointContent>
@@ -158,10 +158,10 @@
             filePath = "Authenticator/UserExperience/MainScreen/AuthenticatorViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "186"
-            endingLineNumber = "186"
-            landmarkName = "AuthenticatorViewController"
-            landmarkType = "21">
+            startingLineNumber = "214"
+            endingLineNumber = "214"
+            landmarkName = "refresh()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -193,6 +193,22 @@
             startingLineNumber = "130"
             endingLineNumber = "130"
             landmarkName = "handleCancel()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "17006801-F780-4ECA-A34A-B83D7331993A"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Authenticator/UserExperience/MainScreen/AuthenticatorViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "140"
+            endingLineNumber = "140"
+            landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

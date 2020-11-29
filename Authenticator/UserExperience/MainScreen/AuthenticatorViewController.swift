@@ -54,6 +54,25 @@ class AuthenticatorViewController: UIViewController {
         navigationController?.pushViewController(settingsViewController, animated: true)
     }
     
+    @objc private func editTapped(){
+        
+        for cell in tableView.visibleCells {
+            
+            if let customCell = cell as? CustomCell {
+                
+                if !tableView.isEditing {
+                    customCell.startEditing()
+                } else {
+                    customCell.stopEditing()
+                    AuthenticatorModel.shared.endEditing() 
+                }
+            }
+        }
+        
+        tableView.isEditing  = !tableView.isEditing
+        
+    }
+    
 //    MARK: - Functions
     private func createTable(){
         tableView = UITableView(frame: view.bounds, style: .plain)
@@ -77,12 +96,16 @@ class AuthenticatorViewController: UIViewController {
     private func configureNavBar() {
         setupNavigationController()
         navigationItem.title =  NSLocalizedString("Authenticator", comment: "")
-        
-        let barButtonItem = UIBarButtonItem(image: UIImage(named: "settings"), style: .plain, target: self, action: #selector(settingsTapped))
-        barButtonItem.tintColor = UIColor.label
         navigationController?.navigationBar.prefersLargeTitles = false
         
-        navigationItem.rightBarButtonItem = barButtonItem
+        let settingsButton = UIBarButtonItem(image: UIImage(named: "settings"), style: .plain, target: self, action: #selector(settingsTapped))
+        settingsButton.tintColor = UIColor.label
+       
+        
+        let editButton = UIBarButtonItem(image: UIImage(named: "edit"), style: .plain, target: self, action: #selector(editTapped))
+        editButton.tintColor = UIColor.label
+        
+        navigationItem.rightBarButtonItems = [settingsButton, editButton]
         
     }
     
@@ -114,8 +137,7 @@ extension AuthenticatorViewController: UITableViewDataSource {
             cell.authItem = item
             cell.copyButton.tag = indexPath.row
         }
-        
-        print("cellForRowAt")
+
         return cell
     }
 }
@@ -142,6 +164,12 @@ extension AuthenticatorViewController: UITableViewDelegate{
       if let cell = tableView.cellForRow(at: indexPath) as? CustomCell {
         cell.copyToClipBoard()
       }
+    }
+    
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        
+        AuthenticatorModel.shared.swapPriority(fromIndex: sourceIndexPath.row, toIndex: destinationIndexPath.row)
+            
     }
  
 }
