@@ -61,8 +61,10 @@ class AuthenticatorViewController: UIViewController {
             if let customCell = cell as? CustomCell {
                 
                 if !tableView.isEditing {
+                    self.navigationItem.rightBarButtonItems?[1].image = UIImage(named: "save")
                     customCell.startEditing()
                 } else {
+                    self.navigationItem.rightBarButtonItems?[1].image = UIImage(named: "edit")
                     customCell.stopEditing()
                     AuthenticatorModel.shared.endEditing() 
                 }
@@ -103,6 +105,7 @@ class AuthenticatorViewController: UIViewController {
        
         
         let editButton = UIBarButtonItem(image: UIImage(named: "edit"), style: .plain, target: self, action: #selector(editTapped))
+        
         editButton.tintColor = UIColor.label
         
         navigationItem.rightBarButtonItems = [settingsButton, editButton]
