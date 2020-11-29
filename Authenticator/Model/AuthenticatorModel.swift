@@ -19,9 +19,21 @@ class AuthenticatorModel {
     public var authenticatorItemsList: [AuthenticatorItem]?
     private var filteredItems: [AuthenticatorItem]?
     
+    private func printPriorityLog(){
+        for item in self.authenticatorItemsList!{
+            print(" name  = \(item.issuer) priority = \(item.priority)")
+        }
+    }
+    
     func loadData(){
         do{
-            self.authenticatorItemsList = try context.fetch(AuthenticatorItem.fetchRequest())
+            let request = NSFetchRequest<AuthenticatorItem>(entityName: "AuthenticatorItem")
+            request.sortDescriptors = [NSSortDescriptor(key: "priority", ascending: true)]
+            
+            self.authenticatorItemsList = try context.fetch(request)
+           
+            printPriorityLog()
+            
         } catch{
             print(NSLocalizedString("Core data load error", comment: "") ,  error.localizedDescription)
         }
@@ -29,7 +41,7 @@ class AuthenticatorModel {
     
     func isRecordExist(account: String, issuer: String, key: String, timeBased: Bool) -> Bool{
       
-        let request = AuthenticatorItem.fetchRequest() as NSFetchRequest<AuthenticatorItem>
+        let request = NSFetchRequest<AuthenticatorItem>(entityName: "AuthenticatorItem")
         
         let predicate = NSPredicate(
             format: "account = %@ AND issuer = %@ AND key = %@ AND timeBased =  %d",
@@ -61,10 +73,11 @@ class AuthenticatorModel {
         authItem.issuer    = issuer
         authItem.key       = key
         authItem.timeBased = timeBased
+        authItem.priority  = getNextPriorityNumber()
         
-        authenticatorItemsList?.append(authItem)
         do{
             try self.context.save()
+            authenticatorItemsList?.append(authItem)
         } catch{
             print(NSLocalizedString("Core data save error", comment: "") ,  error.localizedDescription)
         }
@@ -154,5 +167,56 @@ class AuthenticatorModel {
         loadData()
         return isAnyData()
     }
-  
+    
+    public func endEditing() {
+        if let error = saveContext(){
+            print(error.localizedDescription)
+        }
+        
+    }
+    
+    private func saveContext() -> Error? {
+        do{
+            try self.context.save()
+        } catch{
+            return error
+        }
+        return nil
+    }
+    
+    public func swapPriority(fromIndex: Int, toIndex: Int){
+
+        if let item = authenticatorItemsList?[fromIndex] {
+            authenticatorItemsList?.remove(at: fromIndex)
+            authenticatorItemsList?.insert(item, at: toIndex)
+            
+            if let count = authenticatorItemsList?.count{
+                for index in 0...count - 1  {
+                    authenticatorItemsList?[index].priority = Int64(index + 1)
+                }
+            }
+        }
+
+    }
+    
+    
+    
+    private func getNextPriorityNumber() -> Int64{
+        
+        var nextPriorityValue: Int64 = 0
+        
+        let request = NSFetchRequest<AuthenticatorItem>(entityName: "AuthenticatorItem")
+        request.sortDescriptors = [NSSortDescriptor(key: "priority", ascending: false)]
+        request.fetchLimit = 1
+        request.returnsObjectsAsFaults = false
+        
+        do{
+            let res = try context.fetch(request)
+            nextPriorityValue = res[0].priority + 1
+        } catch{
+            print("get next priority value error \(error.localizedDescription)")
+        }
+        
+        return nextPriorityValue
+    }
 }
