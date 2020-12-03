@@ -28,6 +28,7 @@ class AuthenticatorViewController: UIViewController {
         return button
     }()
 
+
 //    MARK: - Inits
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,10 +62,15 @@ class AuthenticatorViewController: UIViewController {
             if let customCell = cell as? CustomCell {
                 
                 if !tableView.isEditing {
-                    self.navigationItem.rightBarButtonItems?[1].image = UIImage(named: "save")
+                    let saveButton = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(editTapped))
+                    navigationItem.leftBarButtonItem = saveButton
+                    
+                    addButton.isHidden = true
                     customCell.startEditing()
                 } else {
-                    self.navigationItem.rightBarButtonItems?[1].image = UIImage(named: "edit")
+                    let editButton = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editTapped))
+                    navigationItem.leftBarButtonItem = editButton
+                    addButton.isHidden = false
                     customCell.stopEditing()
                     AuthenticatorModel.shared.endEditing() 
                 }
@@ -104,11 +110,11 @@ class AuthenticatorViewController: UIViewController {
         settingsButton.tintColor = UIColor.label
        
         
-        let editButton = UIBarButtonItem(image: UIImage(named: "edit"), style: .plain, target: self, action: #selector(editTapped))
-        
+        let editButton = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editTapped))
+
         editButton.tintColor = UIColor.label
-        
-        navigationItem.rightBarButtonItems = [settingsButton, editButton]
+        navigationItem.leftBarButtonItem = editButton
+        navigationItem.rightBarButtonItem = settingsButton
         
     }
     
