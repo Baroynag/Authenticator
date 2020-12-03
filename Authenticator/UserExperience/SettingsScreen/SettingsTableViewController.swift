@@ -77,7 +77,6 @@ class SettingsTableViewController: UITableViewController {
             
             let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! SettingsTableViewCell
             cell.accessoryType = .disclosureIndicator
-            print("indexPath.row = \(indexPath.row)")
             cell.title = settingsList[indexPath.row + 1]
             
             return cell

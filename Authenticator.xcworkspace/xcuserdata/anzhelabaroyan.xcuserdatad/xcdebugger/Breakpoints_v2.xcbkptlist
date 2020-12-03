@@ -212,5 +212,101 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "AE3086DB-BC02-4DE0-B392-E4F31401C665"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Authenticator/Utils/LoadFromFileExtentions.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "75"
+            endingLineNumber = "75"
+            landmarkName = "documentPicker(_:didPickDocumentsAt:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "AE3086DB-BC02-4DE0-B392-E4F31401C665 - 5eece5c3e7603559"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Authenticator.SettingsTableViewController.documentPicker(_: __C.UIDocumentPickerViewController, didPickDocumentsAt: Swift.Array&lt;Foundation.URL&gt;) -&gt; ()"
+                  moduleName = "Authenticator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/anzhelabaroyan/Dropbox/develop/swift/projects/Authenticator/Authenticator/Utils/LoadFromFileExtentions.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "77"
+                  endingLineNumber = "77"
+                  offsetFromSymbolStart = "440">
+               </Location>
+               <Location
+                  uuid = "AE3086DB-BC02-4DE0-B392-E4F31401C665 - db083b10a86f3ad6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in Authenticator.SettingsTableViewController.documentPicker(_: __C.UIDocumentPickerViewController, didPickDocumentsAt: Swift.Array&lt;Foundation.URL&gt;) -&gt; ()"
+                  moduleName = "Authenticator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/anzhelabaroyan/Dropbox/develop/swift/projects/Authenticator/Authenticator/Utils/LoadFromFileExtentions.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "77"
+                  endingLineNumber = "77"
+                  offsetFromSymbolStart = "134">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E812F400-6F61-49F2-BAEE-4E0DFC1944D9"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Authenticator/Utils/LoadFromFileExtentions.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
+            landmarkName = "documentPicker(_:didPickDocumentsAt:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "E812F400-6F61-49F2-BAEE-4E0DFC1944D9 - db083b10a86f3ad6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in Authenticator.SettingsTableViewController.documentPicker(_: __C.UIDocumentPickerViewController, didPickDocumentsAt: Swift.Array&lt;Foundation.URL&gt;) -&gt; ()"
+                  moduleName = "Authenticator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/anzhelabaroyan/Dropbox/develop/swift/projects/Authenticator/Authenticator/Utils/LoadFromFileExtentions.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "77"
+                  endingLineNumber = "77"
+                  offsetFromSymbolStart = "193">
+               </Location>
+               <Location
+                  uuid = "E812F400-6F61-49F2-BAEE-4E0DFC1944D9 - 9efa94245f03d733"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Swift.String&gt;) -&gt; () in closure #1 () -&gt; () in Authenticator.SettingsTableViewController.documentPicker(_: __C.UIDocumentPickerViewController, didPickDocumentsAt: Swift.Array&lt;Foundation.URL&gt;) -&gt; ()"
+                  moduleName = "Authenticator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/anzhelabaroyan/Dropbox/develop/swift/projects/Authenticator/Authenticator/Utils/LoadFromFileExtentions.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "76"
+                  endingLineNumber = "76"
+                  offsetFromSymbolStart = "259">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>
