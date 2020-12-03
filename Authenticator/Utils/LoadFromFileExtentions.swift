@@ -70,19 +70,13 @@ extension SettingsTableViewController: UIDocumentPickerDelegate{
     
     public func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]){
         
-        guard let selectedFileURL = urls.first else {return}
-        
         var title = NSLocalizedString("Wrong password", comment: "")
         
-        if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first{
-            let filePath = dir.appendingPathComponent(selectedFileURL.lastPathComponent)
-  
+        if let fileUrl = urls.first{
             dismiss(animated: true) { [weak self ] in
-             
                 let promtForPassword = UIAlertController.promptForPassword { (pass) in
-                    
                     if let pass = pass{
-                        if Backup.getFileContent(fileURL: filePath, password: pass){
+                        if Backup.getFileContent(fileURL: fileUrl, password: pass){
                             self?.refreshTableDelegate?.refresh()
                             
                             title = NSLocalizedString("Data loaded", comment: "")
@@ -110,19 +104,17 @@ extension GreetingViewController: UIDocumentPickerDelegate{
     
     public func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]){
         
-        guard let selectedFileURL = urls.first else {return}
         
         let title = NSLocalizedString("Wrong password", comment: "")
         
-        if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first{
-            let filePath = dir.appendingPathComponent(selectedFileURL.lastPathComponent)
-  
+        if let fileURL = urls.first{
+            
             dismiss(animated: true) { [weak self ] in
              
                 let promtForPassword = UIAlertController.promptForPassword { (pass) in
                     
                     if let pass = pass{
-                        if Backup.getFileContent(fileURL: filePath, password: pass){
+                        if Backup.getFileContent(fileURL: fileURL, password: pass){
                             self?.refreshTableDelegate?.refresh()
                             self?.delegate?.didTapCreate()
                         } else{
