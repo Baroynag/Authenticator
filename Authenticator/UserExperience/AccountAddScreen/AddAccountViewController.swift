@@ -8,6 +8,7 @@
 
 
 import UIKit
+import AVFoundation
 
 protocol AddAccountDelagate: AnyObject {
     func returnToMainScreeen()
@@ -193,6 +194,17 @@ class AddAccountViewController: UIViewController {
        
     }
 
+    private func showCameraPermissionAlert(){
+        
+        let alert = UIAlertController(title: NSLocalizedString("Camera access", comment: ""), message: NSLocalizedString("Please allow camera access for SOTP", comment: ""), preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: "Ok", style: .default) {_ in ()
+            self.dismiss(animated: true)
+        }
+        alert.addAction(okAction)
+        
+        self.present(alert, animated: true)
+    }
     
     // MARK: - Handlers
     
@@ -222,10 +234,14 @@ class AddAccountViewController: UIViewController {
     
     @objc private func handleScanButton(){
         
-        let scanQrViewController = ScanQrViewController()
-        scanQrViewController.delegate = self
-        scanQrViewController.modalPresentationStyle = .fullScreen
-        self.present(scanQrViewController, animated: true)
+        if AVCaptureDevice.authorizationStatus(for: .video) ==  .authorized{
+            let scanQrViewController = ScanQrViewController()
+            scanQrViewController.delegate = self
+            scanQrViewController.modalPresentationStyle = .fullScreen
+                self.present(scanQrViewController, animated: true)
+        } else{
+            self.showCameraPermissionAlert()
+        }
     }
     
     @objc private func handleCancelButton(){
