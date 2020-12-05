@@ -13,60 +13,47 @@ import OneTimePassword
 class AuthenticatorModel {
 
     static let shared = AuthenticatorModel()
-    
     private let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    
     public var authenticatorItemsList: [AuthenticatorItem]?
     private var filteredItems: [AuthenticatorItem]?
-    
-    private func printPriorityLog(){
-        for item in self.authenticatorItemsList!{
-            print(" name  = \(item.issuer) priority = \(item.priority)")
+    private func printPriorityLog() {
+        guard let authenticatorItemsList = authenticatorItemsList else {return}
+        for item in authenticatorItemsList {
+            print(" name  = \(String(describing: item.issuer)) priority = \(item.priority)")
         }
     }
-    
-    func loadData(){
-        do{
+    func loadData() {
+        do {
             let request = NSFetchRequest<AuthenticatorItem>(entityName: "AuthenticatorItem")
             request.sortDescriptors = [NSSortDescriptor(key: "priority", ascending: true)]
-            
             self.authenticatorItemsList = try context.fetch(request)
-           
             printPriorityLog()
-            
-        } catch{
-            print(NSLocalizedString("Core data load error", comment: "") ,  error.localizedDescription)
+        } catch {
+            print(NSLocalizedString("Core data load error", comment: ""), error.localizedDescription)
         }
     }
-    
-    func isRecordExist(account: String, issuer: String, key: String, timeBased: Bool) -> Bool{
-      
+    func isRecordExist(account: String, issuer: String, key: String, timeBased: Bool) -> Bool {
         let request = NSFetchRequest<AuthenticatorItem>(entityName: "AuthenticatorItem")
-        
         let predicate = NSPredicate(
             format: "account = %@ AND issuer = %@ AND key = %@ AND timeBased =  %d",
             account, issuer, key, timeBased)
-        
         request.predicate = predicate
-        
-        do{
+        do {
             self.filteredItems = try context.fetch(request)
             if filteredItems?.count ?? 0  > 0 {
                 return true
             }
-        } catch{
-            print(NSLocalizedString("Core data load error", comment: "") ,  error.localizedDescription)
+        } catch {
+            print(NSLocalizedString("Core data load error", comment: ""), error.localizedDescription)
         }
-        
         return false
     }
-    
-    func addOneItem(account: String?, issuer: String?, key: String?, timeBased: Bool){
-        
-       if isRecordExist(account: account ?? "", issuer: issuer ?? "", key: key ?? "", timeBased: timeBased){
+    func addOneItem(account: String?, issuer: String?, key: String?, timeBased: Bool) {
+
+       if isRecordExist(account: account ?? "", issuer: issuer ?? "", key: key ?? "", timeBased: timeBased) {
             return
         }
-        
+
         let authItem = AuthenticatorItem(context: context)
         authItem.id        = UUID()
         authItem.account   = account
@@ -74,58 +61,42 @@ class AuthenticatorModel {
         authItem.key       = key
         authItem.timeBased = timeBased
         authItem.priority  = getNextPriorityNumber()
-        
-        do{
+        do {
             try self.context.save()
             authenticatorItemsList?.append(authItem)
-        } catch{
-            print(NSLocalizedString("Core data save error", comment: "") ,  error.localizedDescription)
+        } catch {
+            print(NSLocalizedString("Core data save error", comment: ""), error.localizedDescription)
         }
     }
-    
-    
-    func deleteData(index: Int){
-        
-        if let itemToRemove = authenticatorItemsList?[index]{
+
+    func deleteData(index: Int) {
+
+        if let itemToRemove = authenticatorItemsList?[index] {
             self.context.delete(itemToRemove)
             authenticatorItemsList?.remove(at: index)
-            
             do {
                 try context.save()
             } catch {
-               print(NSLocalizedString("Core data delete error", comment: "") ,  error.localizedDescription)
+               print(NSLocalizedString("Core data delete error", comment: ""), error.localizedDescription)
             }
         }
     }
-    
-    
-    
     func loadDataForWatch() -> [String: String] {
-        
         loadData()
-        
         guard let authenticatorItemsList = authenticatorItemsList else {return [:] }
-       
         var dictionary: [String: String] = [:]
-        
-        for index in 0...authenticatorItemsList.count - 1{
-         
+        for index in 0...authenticatorItemsList.count - 1 {
             if let authIssuer = authenticatorItemsList[index].value(forKey: "issuer") as? String,
-               let authKey = authenticatorItemsList[index].value(forKey: "key")  as? String{
-               
+               let authKey = authenticatorItemsList[index].value(forKey: "key")  as? String {
                 dictionary.updateValue(authKey, forKey: authIssuer)
             }
-            
         }
         return dictionary
     }
-    
     func convertCoreDataObjectsToJSONArray() -> [[String: Any]] {
-        
         var jsonArray: [[String: Any]] = []
-        
         guard let authenticatorItemsList = authenticatorItemsList else {return [[:]] }
-        
+
         for item in authenticatorItemsList {
             var dictionary: [String: Any] = [:]
             for attribute in item.entity.attributesByName {
@@ -133,90 +104,79 @@ class AuthenticatorModel {
                     if let value = item.value(forKey: attribute.key) {
                         dictionary[attribute.key] = value
                     }
-                } else{
-                    if let id = item.id?.uuidString {
-                        dictionary[attribute.key] = id
+                } else {
+                    if let itemId = item.id?.uuidString {
+                        dictionary[attribute.key] = itemId
                     }
                 }
             }
             jsonArray.append(dictionary)
         }
         return jsonArray
-        
+
     }
-    
-    public func isAnyData() -> Bool{
+
+    public func isAnyData() -> Bool {
         let count = AuthenticatorModel.shared.authenticatorItemsList?.count ?? 0
         print("count = \(count)")
         return count > 0
     }
-    
-    public func saveDataBromBackupToCoreData(backupData: [[String:Any]]) {
-        
-        for item in backupData{
+    public func saveDataBromBackupToCoreData(backupData: [[String: Any]]) {
+        for item in backupData {
             let account   = item["account"]   as? String ?? ""
             let key       = item["key"]       as? String ?? ""
             let issuer    = item["issuer"]    as? String ?? ""
             let timeBased = item["timeBased"] as? Bool   ?? false
-            
             self.addOneItem(account: account, issuer: issuer, key: key, timeBased: timeBased)
         }
     }
-    
-    public func isAnyRecords() -> Bool{
+
+    public func isAnyRecords() -> Bool {
         loadData()
         return isAnyData()
     }
-    
+
     public func endEditing() {
-        if let error = saveContext(){
+        if let error = saveContext() {
             print(error.localizedDescription)
         }
-        
     }
-    
+
     private func saveContext() -> Error? {
-        do{
+        do {
             try self.context.save()
-        } catch{
+        } catch {
             return error
         }
         return nil
     }
-    
-    public func swapPriority(fromIndex: Int, toIndex: Int){
+
+    public func swapPriority(fromIndex: Int, toIndex: Int) {
 
         if let item = authenticatorItemsList?[fromIndex] {
             authenticatorItemsList?.remove(at: fromIndex)
             authenticatorItemsList?.insert(item, at: toIndex)
-            
-            if let count = authenticatorItemsList?.count{
-                for index in 0...count - 1  {
+            if let count = authenticatorItemsList?.count {
+                for index in 0...count - 1 {
                     authenticatorItemsList?[index].priority = Int64(index + 1)
                 }
             }
         }
 
     }
-    
-    
-    
-    private func getNextPriorityNumber() -> Int64{
-        
+
+    private func getNextPriorityNumber() -> Int64 {
         var nextPriorityValue: Int64 = 0
-        
         let request = NSFetchRequest<AuthenticatorItem>(entityName: "AuthenticatorItem")
         request.sortDescriptors = [NSSortDescriptor(key: "priority", ascending: false)]
         request.fetchLimit = 1
         request.returnsObjectsAsFaults = false
-        
-        do{
+        do {
             let res = try context.fetch(request)
             nextPriorityValue = res[0].priority + 1
-        } catch{
+        } catch {
             print("get next priority value error \(error.localizedDescription)")
         }
-        
         return nextPriorityValue
     }
 }

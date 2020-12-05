@@ -8,48 +8,37 @@
 
 import RNCryptor
 
-
-class Backup{
-    
-    class public func getEncriptedData(password: String) -> String?{
-    
+class Backup {
+    class public func getEncriptedData(password: String) -> String? {
         let jsonArray = AuthenticatorModel.shared.convertCoreDataObjectsToJSONArray()
-        
-
         if let jsonData = try? JSONSerialization.data(withJSONObject: jsonArray) {
-            if let jsonString = String(data: jsonData, encoding: .utf8){
+            if let jsonString = String(data: jsonData, encoding: .utf8) {
                 let encryptedText = RNCryptor.encrypt(plainText: jsonString, password: password)
                 return encryptedText
             }
         }
-        
         return nil
     }
-    
-    class public func getFileContent (fileURL: URL, password: String) -> Bool{
+    class public func getFileContent (fileURL: URL, password: String) -> Bool {
         //TODO: add error message
-        
         if password == "" {
            return false
         }
-        
-        do{
+        do {
             let data = try String(contentsOf: fileURL)
             let decriptedText = RNCryptor.decrypt(encryptedText: data, password: password)
             guard let jsonData = decriptedText.data(using: .utf8) else {
                 print(NSLocalizedString("Error to upload file", comment: ""))
                 return false }
 
-            guard let jsonResponse = (try? JSONSerialization.jsonObject(with: jsonData)) as? [[String:Any]] else {
+            guard let jsonResponse = (try? JSONSerialization.jsonObject(with: jsonData)) as? [[String: Any]] else {
                     print(NSLocalizedString("Json serialization error", comment: ""))
                     return false}
             AuthenticatorModel.shared.saveDataBromBackupToCoreData(backupData: jsonResponse)
-        } catch{
+        } catch {
             print(error.localizedDescription)
             return false
         }
-        
         return true
     }
-    
 }

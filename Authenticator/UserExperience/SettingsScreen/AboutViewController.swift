@@ -17,15 +17,15 @@ class AboutViewController: UIViewController {
         button.addTarget(self, action: #selector(handleCancel), for: .touchUpInside)
         return button
     }()
-    
+
     private let imageView: UIImageView = {
-         let im = UIImage(named: "greeting")
-         let iv = UIImageView(image: im)
-         iv.contentMode = .scaleAspectFit
-         iv.translatesAutoresizingMaskIntoConstraints = false
-         return iv
+        let image = UIImage(named: "greeting")
+        let imageView = UIImageView(image: image)
+        imageView.contentMode = .scaleAspectFit
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
      }()
-    
+
     private var descriprionTextField: UITextView = {
         let textField = UITextView()
         textField.translatesAutoresizingMaskIntoConstraints = false
@@ -37,7 +37,7 @@ class AboutViewController: UIViewController {
         textField.isUserInteractionEnabled = false
         return textField
     }()
-    
+
     let onepenGitHubRepo: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -50,15 +50,17 @@ class AboutViewController: UIViewController {
         button.addTarget(self, action: #selector(handleOpenLink), for: .touchUpInside)
         return button
     }()
-    
-    let aboutApp = NSLocalizedString("SOTP is an open source app. It does not collect any personal information.", comment: "")
-    
+
+    let aboutApp = NSLocalizedString(
+        "SOTP is an open source app. It does not collect any personal information.",
+        comment: "")
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
     }
 
-    func setupView(){
+    func setupView() {
         view.backgroundColor = UIColor.systemBackground
         view.addSubview(cancelButton)
         NSLayoutConstraint.activate([
@@ -67,23 +69,25 @@ class AboutViewController: UIViewController {
             cancelButton.heightAnchor.constraint(equalToConstant: 16),
             cancelButton.widthAnchor.constraint(equalToConstant: 16)
         ])
-        
+
         view.addSubview(imageView)
         NSLayoutConstraint.activate([
             imageView.topAnchor.constraint(lessThanOrEqualTo: view.topAnchor, constant: 145),
             imageView.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
             imageView.heightAnchor.constraint(lessThanOrEqualToConstant: 199)
          ])
-     
+
         view.addSubview(descriprionTextField)
         descriprionTextField.text = aboutApp
         NSLayoutConstraint.activate([
             descriprionTextField.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 8),
             descriprionTextField.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 8),
-            descriprionTextField.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -8),
+            descriprionTextField.trailingAnchor.constraint(
+                equalTo: view.safeAreaLayoutGuide.trailingAnchor,
+                constant: -8),
             descriprionTextField.heightAnchor.constraint(equalToConstant: 140)
         ])
-        
+
         view.addSubview(onepenGitHubRepo)
         NSLayoutConstraint.activate([
             onepenGitHubRepo.topAnchor.constraint(equalTo: descriprionTextField.bottomAnchor, constant: 32),
@@ -91,16 +95,15 @@ class AboutViewController: UIViewController {
             onepenGitHubRepo.heightAnchor.constraint(equalToConstant: 50),
             onepenGitHubRepo.widthAnchor.constraint(equalToConstant: 280)
         ])
-        
+
     }
-    
     @objc func handleOpenLink() {
         guard let url = URL(string: "https://github.com/Baroynag/Authenticator") else { return }
         UIApplication.shared.open(url)
     }
-    
-    @objc func handleCancel(){
+
+    @objc func handleCancel() {
         self.dismiss(animated: true, completion: nil)
     }
-    
+
 }

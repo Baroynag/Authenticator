@@ -10,7 +10,6 @@
 import Foundation
 import CoreData
 
-
 extension AuthenticatorItem {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<AuthenticatorItem> {

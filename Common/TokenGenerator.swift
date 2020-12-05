@@ -10,11 +10,9 @@ import OneTimePassword
 import Base32
 
 class TokenGenerator {
-    
     static let shared = TokenGenerator()
-    
     func createTimeBasedToken(name: String, issuer: String, secretString: String) -> Token? {
-    
+
         guard let secretData = MF_Base32Codec.data(fromBase32String: secretString),
             !secretData.isEmpty else {
             return nil
@@ -33,20 +31,17 @@ class TokenGenerator {
 
         return token
     }
-    
-    func isValidSecretKey(secretKey: String) -> Bool{
-        
-        
+
+    func isValidSecretKey(secretKey: String) -> Bool {
+
         if secretKey.isEmpty {return false}
-       
+
         guard let key = MF_Base32Codec.data(fromBase32String: secretKey),
             !key.isEmpty else {
             return false}
 
         return true
-            
-        
+
     }
 
 }
-

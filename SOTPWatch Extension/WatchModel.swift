@@ -8,16 +8,10 @@
 
 import Foundation
 
-
 import CoreData
 
+class AuthenticatorForWatchItem: NSManagedObject {
 
-class AuthenticatorForWatchItem: NSManagedObject  {
-    
-//    @nonobjc public class func fetchRequest() -> NSFetchRequest<AuthenticatorForWatchItem> {
-//        return NSFetchRequest<AuthenticatorForWatchItem>(entityName: "AuthenticatorForWatchItem")
-//    }
-    
     @NSManaged public var account: String?
     @NSManaged public var issuer: String?
     @NSManaged public var key: String?
