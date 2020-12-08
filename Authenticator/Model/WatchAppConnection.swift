@@ -9,11 +9,9 @@
 import Foundation
 import WatchConnectivity
 
-class WatchAppConnection: NSObject{
-    
+class WatchAppConnection: NSObject {
     static let shared = WatchAppConnection()
     private let session = WCSession.default
-    
     override init() {
         super.init()
         print("init")
@@ -22,18 +20,18 @@ class WatchAppConnection: NSObject{
             session.activate()
         }
     }
-    
+
     func isSuported() -> Bool {
         return WCSession.isSupported()
     }
-    
-    private func sendDataToWatch(){
-        print ("sendDataToWatch")
-        if WCSession.isSupported(){
-            do{
-                let dictionary: [String: String] = ["test" : "123456"]
+
+    private func sendDataToWatch() {
+        print("sendDataToWatch")
+        if WCSession.isSupported() {
+            do {
+                let dictionary: [String: String] = ["test": "123456"]
                 try session.updateApplicationContext(dictionary)
-            } catch{
+            } catch {
                 print("Error: \(error.localizedDescription)")
             }
         }
@@ -41,31 +39,33 @@ class WatchAppConnection: NSObject{
 }
 
 extension WatchAppConnection: WCSessionDelegate {
-    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
-        
-        if let error = error{
+    func session(_ session: WCSession,
+                 activationDidCompleteWith activationState: WCSessionActivationState,
+                 error: Error?) {
+
+        if let error = error {
             fatalError("Can't activate session: \(error.localizedDescription)")
         }
         print("Iphone Session activated with status \(activationState.rawValue)")
     }
 
     func sessionDidBecomeInactive(_ session: WCSession) {
-        print (#function)
+        print(#function)
     }
 
     func sessionDidDeactivate(_ session: WCSession) {
-        print (#function)
+        print(#function)
         self.session.activate()
     }
-    
-    func session(_ session: WCSession, didReceiveMessage message: [String : Any], replyHandler: @escaping ([String : Any]) -> Void) {
-         
-        if let watchAwakeAt = message["watchAwake"] as? Double{
+
+    func session(_ session: WCSession,
+                 didReceiveMessage message: [String: Any],
+                 replyHandler: @escaping ([String: Any]) -> Void) {
+        if let watchAwakeAt = message["watchAwake"] as? Double {
             let dictionary = AuthenticatorModel.shared.loadDataForWatch()
-            print ("iPhone watchAwakeAt\(watchAwakeAt)")
+            print("iPhone watchAwakeAt\(watchAwakeAt)")
             replyHandler(dictionary)
         }
     }
 
 }
- 

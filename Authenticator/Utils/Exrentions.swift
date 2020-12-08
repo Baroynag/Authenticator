@@ -9,41 +9,33 @@
 import UIKit
 import CoreData
 
-enum States{
+enum States {
     case view
     case edit
     case add
 }
 
-extension UIColor{
+extension UIColor {
 
-    static func fucsiaColor() -> UIColor{
+    static func fucsiaColor() -> UIColor {
        return UIColor(red: 1, green: 0.196, blue: 0.392, alpha: 1)
     }
-    
-    static func graySOTPColor() -> UIColor{
+    static func graySOTPColor() -> UIColor {
        return UIColor(red: 0.835, green: 0.835, blue: 0.878, alpha: 1)
     }
-    
-    
 }
 
-
-extension UIViewController{
-    func setupNavigationController(){
+extension UIViewController {
+    func setupNavigationController() {
         let font = UIFont.systemFont(ofSize: 17, weight: .semibold)
         let appearance = UINavigationBarAppearance()
-        
         appearance.configureWithOpaqueBackground()
         appearance.backgroundColor = UIColor.systemBackground
-        
         var navTextColor = UIColor()
         if traitCollection.userInterfaceStyle == .light {
             navTextColor = UIColor.black
         } else { navTextColor = UIColor.white}
-        
         appearance.titleTextAttributes = [.foregroundColor: navTextColor, .font: font]
-        
         navigationItem.standardAppearance = appearance
         navigationItem.scrollEdgeAppearance = appearance
         navigationItem.compactAppearance = appearance
@@ -51,12 +43,12 @@ extension UIViewController{
     }
 }
 
-extension UILabel{
-    
-    func setLabelAtributedText(fontSize: CGFloat, text: String, aligment: NSTextAlignment, indent: CGFloat){
-        
+extension UILabel {
+    func setLabelAtributedText(fontSize: CGFloat,
+                               text: String,
+                               aligment: NSTextAlignment,
+                               indent: CGFloat) {
         let font = UIFont.systemFont(ofSize: fontSize, weight: .light)
-    
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.alignment = aligment
         paragraphStyle.firstLineHeadIndent = indent
@@ -70,9 +62,11 @@ extension UILabel{
         self.attributedText =  attributedText
 
     }
-    
-    func setLabelAtributedText(fontSize: CGFloat, text: String, aligment: NSTextAlignment, indent: CGFloat, color: UIColor){
-           
+    func setLabelAtributedText(fontSize: CGFloat,
+                               text: String,
+                               aligment: NSTextAlignment,
+                               indent: CGFloat,
+                               color: UIColor) {
         let font = UIFont.systemFont(ofSize: fontSize, weight: .semibold)
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.alignment = aligment
@@ -87,10 +81,14 @@ extension UILabel{
         self.attributedText =  attributedText
 
     }
-    
-    
-    func setLabelAtributedText(text: String, fontSize: CGFloat, aligment: NSTextAlignment, indent: CGFloat, color: UIColor, fontWeight:  UIFont.Weight){
-           
+
+    func setLabelAtributedText(text: String,
+                               fontSize: CGFloat,
+                               aligment: NSTextAlignment,
+                               indent: CGFloat,
+                               color: UIColor,
+                               fontWeight: UIFont.Weight) {
+
         let font = UIFont.systemFont(ofSize: fontSize, weight: fontWeight)
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.alignment = aligment
@@ -105,11 +103,7 @@ extension UILabel{
         self.attributedText =  attributedText
 
     }
-   
-    
-    
 }
-
 
 extension UINavigationController {
 
@@ -120,7 +114,6 @@ extension UINavigationController {
         CATransaction.commit()
   }
 
-    
     func popViewController(animated: Bool = true, completion: @escaping () -> Void) {
         CATransaction.begin()
         CATransaction.setCompletionBlock(completion)

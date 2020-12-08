@@ -12,27 +12,25 @@ import WatchConnectivity
 import CoreData
 
 class InterfaceController: WKInterfaceController {
-    
-    //    MARK: Properties
+
+    // MARK: Properties
     private var countDown = 30
     private var timer: Timer?
-    
-    
+
     let context =  (WKExtension.shared().delegate as! ExtensionDelegate).persistentContainer.viewContext
-   
+
     @IBOutlet var table: WKInterfaceTable!
     private var session = WCSession.default
-    
+
     private var items = [AuthenticatorForWatchItem]()
 
-    
-//    MARK: functions
-    
+// MARK: functions
+
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
         print("awake")
     }
- 
+
     override func didAppear() {
         super.didAppear()
         self.countDown = self.getTimerInterval()
@@ -42,64 +40,64 @@ class InterfaceController: WKInterfaceController {
             row.passLabel?.setText("Загрузка...")
         }
     }
-    
+
     override func willActivate() {
         super.willActivate()
         print("willActivate")
         prepareSendMessage()
         startTimer()
     }
-    
-    
+
     private func updateTable() {
         table.setNumberOfRows(items.count, withRowType: "SotpWRow")
-        for (i, item) in items.enumerated() {
-            if let row = table.rowController(at: i) as? SOTPWatchRow {
-                
-                let token = TokenGenerator.shared.createTimeBasedToken(name: "", issuer: item.issuer ?? "", secretString: item.key ?? "")
-                if let tokenPass = token?.currentPassword{
-                    row.accountLabel?.setText(item.key)
+        for (index, item) in items.enumerated() {
+            if let row = table.rowController(at: index) as? SOTPWatchRow {
+                let token = TokenGenerator.shared.createTimeBasedToken(
+                    name: "",
+                    issuer: item.issuer ?? "",
+                    secretString: item.key ?? "")
+                if let tokenPass = token?.currentPassword {
+                    row.accountLabel?.setText(item.issuer)
                     row.passLabel?.setText(tokenPass)
                     row.detailLabel?.setText("Refresh in " + String(countDown) + "s.")
                 }
             }
         }
     }
-    
+
     private func getTimerInterval() -> Int {
-        
+
         let count = Int(NSDate().timeIntervalSince1970) % 30
         return 30 - count
     }
-    
-    
-    private func startTimer(){
+
+    private func startTimer() {
         createTimer()
     }
-    
-    private func setupTable(){
-        
+
+    private func setupTable() {
+
         self.fetchData()
-        
+
         runUpdateTable()
     }
-    
-    private func runUpdateTable(){
-        
+
+    private func runUpdateTable() {
+
         DispatchQueue.main.async {
             self.updateTable()
         }
     }
-    
-//    MARK: Handlers
-     
-    @objc private func updateLabel (){
+
+// MARK: Handlers
+
+    @objc private func updateLabel () {
         if items.count == 0 { return}
-        
+
         countDown -= 1
         let text = "Refresh in " + String(countDown) + " s."
-        for i in 0...items.count - 1 {
-            if let row = table.rowController(at: i) as? SOTPWatchRow {
+        for index in 0...items.count - 1 {
+            if let row = table.rowController(at: index) as? SOTPWatchRow {
                 row.detailLabel.setText(text)
             }
         }
@@ -111,9 +109,8 @@ class InterfaceController: WKInterfaceController {
     }
 }
 
-extension InterfaceController{
-    
-    
+extension InterfaceController {
+
     func prepareSendMessage() {
 
         let timestamp = NSDate().timeIntervalSince1970
@@ -126,10 +123,11 @@ extension InterfaceController{
             print("Error sending message: %@", error)
         }
     }
-    
-    
-    func sendMessage(_ message: [String: Double], replyHandler: (([String: Any]) -> Void)?, errorHandler: ((Error) -> Void)?) {
-        
+
+    func sendMessage(_ message: [String: Double],
+                     replyHandler: (([String: Any]) -> Void)?,
+                     errorHandler: ((Error) -> Void)?) {
+
         let maxNrRetries = 5
         var availableRetries = maxNrRetries
 
@@ -141,89 +139,86 @@ extension InterfaceController{
                                 let nsError = error as NSError
                                 if nsError.domain == "WCErrorDomain" &&
                                     nsError.code == 7007 && availableRetries > 0 {
-                                        availableRetries = availableRetries - 1
-                                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {trySendingMessageToWatch(message)})
+                                    availableRetries -= 1
+                                    DispatchQueue.main.asyncAfter(
+                                        deadline: .now() + 0.3,
+                                        execute: {trySendingMessageToWatch(message)})
                                     } else {errorHandler?(error)}
             })
         }
         trySendingMessageToWatch(message)
     }
-   
+
 }
 
+extension InterfaceController {
 
-extension InterfaceController{
-    
     func fetchData() {
-        
+
         let request = NSFetchRequest<AuthenticatorForWatchItem>(entityName: "AuthenticatorForWatchItem")
         self.items = []
-        
-        do{
+
+        do {
             self.items = try context.fetch(request)
-        } catch{
-            print(NSLocalizedString("Core data load error", comment: "") ,  error.localizedDescription)
+        } catch {
+            print(NSLocalizedString("Core data load error", comment: ""), error.localizedDescription)
         }
     }
-    
-    
-    func deleteData(){
+
+    func deleteData() {
         let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "AuthenticatorForWatchItem")
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
-        
+
         do {
             try context.execute(deleteRequest)
             try context.save()
         } catch let error as NSError {
-            print(NSLocalizedString("Core data delete error", comment: "") ,  error.localizedDescription)
+            print(NSLocalizedString("Core data delete error", comment: ""), error.localizedDescription)
         }
-          
+
     }
-    
-    func saveResponceToCoreData(responce: [String: Any]){
-        
+
+    func saveResponceToCoreData(responce: [String: Any]) {
+
         deleteData()
-        
-        for (_, item) in responce.enumerated() {
+
+        responce.forEach { (key, value) in
             let newItem = AuthenticatorForWatchItem(context: context)
             newItem.account = ""
             newItem.id = UUID()
-            newItem.issuer = item.value as? String
-            newItem.key = item.key
-            
-            do{
+            newItem.issuer = key
+            newItem.key = value as? String
+
+            do {
                 try self.context.save()
                 print("saved")
-            } catch{
-                print(NSLocalizedString("Core data save error", comment: "") ,  error.localizedDescription)
+            } catch {
+                print(NSLocalizedString("Core data save error", comment: ""), error.localizedDescription)
             }
-              
         }
+
     }
 
 }
 
-
 extension InterfaceController {
 
     private func createTimer() {
-        
+
         if timer == nil {
-            
+
             let timer = Timer(timeInterval: 1.0,
                               target: self,
                               selector: #selector(updateLabel),
                               userInfo: nil,
                               repeats: true)
-            
+
             RunLoop.current.add(timer, forMode: .common)
-           
+
             timer.tolerance = 0.1
-      
+
             self.timer = timer
         }
     }
-  
-   
-    
+
 }

@@ -9,24 +9,22 @@
 import UIKit
 
 class SettingsTableViewController: UITableViewController {
-    
 
     weak var refreshTableDelegate: RefreshTableDelegate?
-    
+
     let cellId = "settingsCellId"
     let cellWithButtonId = "settingsCellWithButtonId"
-    
+
     let settingsList = [
         NSLocalizedString("Support this project", comment: ""),
         NSLocalizedString("Create backup", comment: ""),
         NSLocalizedString("Load from Backup", comment: ""),
         NSLocalizedString("About SOTP", comment: "")
     ]
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
+
         tableView.register(SettingsTableViewCell.self, forCellReuseIdentifier: cellId)
         tableView.register(SettingsTableViewCellWithButton.self, forCellReuseIdentifier: cellWithButtonId)
         tableView.delegate = self
@@ -34,27 +32,26 @@ class SettingsTableViewController: UITableViewController {
         self.tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
         setupView()
     }
-    
 
-    private func setupView(){
+    private func setupView() {
         setupNavigationController()
         self.navigationController?.navigationBar.isHidden = false
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.title = NSLocalizedString("Settings", comment: "")
         view.backgroundColor = UIColor.systemBackground
-           
+
     }
-    
+
     override func numberOfSections(in tableView: UITableView) -> Int {
-        
+
         return 2
-        
+
     }
-    
+
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
+
         var numbersOfRows = 0
-        if section == 0{
+        if section == 0 {
             numbersOfRows = 1
         } else {
             numbersOfRows = 3
@@ -63,75 +60,77 @@ class SettingsTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            
-        if indexPath.section == 0{
-           
-            let cell = tableView.dequeueReusableCell(withIdentifier: cellWithButtonId, for: indexPath) as! SettingsTableViewCellWithButton
-            cell.title = settingsList[indexPath.row]
-            cell.delgate = self
-            cell.purchaseButton.tag = indexPath.row 
-          
+
+        if indexPath.section == 0 {
+
+            let cell = tableView.dequeueReusableCell(
+                withIdentifier: cellWithButtonId,
+                for: indexPath)
+            if let cellWithButton = cell as? SettingsTableViewCellWithButton {
+                cellWithButton.title = settingsList[indexPath.row]
+                cellWithButton.delgate = self
+                cellWithButton.purchaseButton.tag = indexPath.row
+            }
             return cell
-            
-        } else{
-            
-            let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! SettingsTableViewCell
-            cell.accessoryType = .disclosureIndicator
-            cell.title = settingsList[indexPath.row + 1]
-            
+
+        } else {
+
+            let cell = tableView.dequeueReusableCell(
+                withIdentifier: cellId, for: indexPath)
+
+            if let customCell = cell as? SettingsTableViewCell {
+                customCell.accessoryType = .disclosureIndicator
+                customCell.title = settingsList[indexPath.row + 1]
+            }
             return cell
-            
-            
+
         }
-        
-        
+
     }
-   
+
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let vw = UIView()
-        if section == 1{
+        let view = UIView()
+        if section == 1 {
             if traitCollection.userInterfaceStyle == .light {
-                vw.backgroundColor = UIColor(red: 0.937, green: 0.937, blue: 0.957, alpha: 1)
-            } else{
-                vw.backgroundColor =   UIColor(red: 0.158, green: 0.158, blue: 0.158, alpha: 1)
+                view.backgroundColor = UIColor(red: 0.937, green: 0.937, blue: 0.957, alpha: 1)
+            } else {
+                view.backgroundColor =   UIColor(red: 0.158, green: 0.158, blue: 0.158, alpha: 1)
             }
         }
-        return vw
+        return view
     }
 
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.section == 0{
+        if indexPath.section == 0 {
             return 80
         } else {
             return 44
         }
     }
-    
-    
+
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+
         if indexPath.section == 0 {
             return
         }
-        
-        if indexPath.row == 0{
-            print ("create backup")
+
+        if indexPath.row == 0 {
+            print("create backup")
             let passwordViewController = PasswordViewController()
             self.present(passwordViewController, animated: true)
-            
-        } else if indexPath.row == 1{
-            
-            self.chooseDocument(vcWithDocumentPicker: self) 
-        } else if  indexPath.row == 2{
-            
+
+        } else if indexPath.row == 1 {
+
+            self.chooseDocument(vcWithDocumentPicker: self)
+        } else if  indexPath.row == 2 {
+
             let aboutVc = AboutViewController()
             self.present(aboutVc, animated: true)
         }
-        
+
         tableView.deselectRow(at: indexPath, animated: true)
-        
+
     }
-   
 
 }
 
@@ -140,7 +139,5 @@ extension SettingsTableViewController: pressPurchaseDelegate {
         let purchaseViewController = PurchaseViewController()
         self.present(purchaseViewController, animated: true, completion: nil)
     }
-    
+
 }
-
-

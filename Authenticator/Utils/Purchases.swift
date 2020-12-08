@@ -15,7 +15,6 @@ class Purchases: NSObject {
 
     private var productsRequestCallbacks = [(Result<[SKProduct], Error>) -> Void]()
     fileprivate var productPurchaseCallback: ((Result<Bool, Error>) -> Void)?
-    
     private let productIdentifiers = Set<String>(
         arrayLiteral: "am.baroynag.SOTP.OneDollarDonation",
         "am.baroynag.SOTP.FiveDollarDonation"
@@ -43,15 +42,12 @@ class Purchases: NSObject {
 
         self.productRequest = productRequest
     }
-    
-    
+
     func purchaseProduct(productId: String, completion: @escaping (Result<Bool, Error>) -> Void) {
-        
         guard productPurchaseCallback == nil else {
             completion(.failure(PurchasesError.purchaseInProgress))
             return
         }
-        
         guard let product = products?[productId] else {
             completion(.failure(PurchasesError.productNotFound))
             return
@@ -62,15 +58,14 @@ class Purchases: NSObject {
         let payment = SKPayment(product: product)
         SKPaymentQueue.default().add(payment)
         SKPaymentQueue.default().add(self)
-        
     }
 
 }
 
 extension Purchases: SKProductsRequestDelegate {
-    
+
     func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
-        guard !response.products.isEmpty else {
+            guard !response.products.isEmpty else {
             print("Found 0 products")
 
             productsRequestCallbacks.forEach { $0(.success(response.products)) }
@@ -80,10 +75,8 @@ extension Purchases: SKProductsRequestDelegate {
 
         var products = [String: SKProduct]()
         for skProduct in response.products {
-         
             products[skProduct.productIdentifier] = skProduct
             print("Found product: \(skProduct.productIdentifier) ")
-            
         }
 
         self.products = products
@@ -99,7 +92,6 @@ extension Purchases: SKProductsRequestDelegate {
         productsRequestCallbacks.removeAll()
     }
 }
-
 
 extension SKProduct {
     var localizedPrice: String {
@@ -123,38 +115,32 @@ extension Purchases: SKPaymentTransactionObserver {
     func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
 
         for transaction in transactions {
-            print ("transaction.transactionState  \(transaction.transactionState )")
-            
+            print("transaction.transactionState  \(transaction.transactionState )")
             switch transaction.transactionState {
-                
-                case .purchased, .restored:
-                    if finishTransaction(transaction) {
-                        SKPaymentQueue.default().finishTransaction(transaction)
-                        SKPaymentQueue.default().remove(self)
-                        productPurchaseCallback?(.success(true))
-                    } else {
-                        productPurchaseCallback?(.failure(PurchasesError.unknown))
-                    }
-
-                case .failed:
-                    productPurchaseCallback?(.failure(transaction.error ?? PurchasesError.unknown))
+            case .purchased, .restored:
+                if finishTransaction(transaction) {
                     SKPaymentQueue.default().finishTransaction(transaction)
                     SKPaymentQueue.default().remove(self)
-                
-                default:
-                    break
+                    productPurchaseCallback?(.success(true))
+                } else {
+                    productPurchaseCallback?(.failure(PurchasesError.unknown))
+                }
+
+            case .failed:
+                productPurchaseCallback?(.failure(transaction.error ?? PurchasesError.unknown))
+                SKPaymentQueue.default().finishTransaction(transaction)
+                SKPaymentQueue.default().remove(self)
+            default:
+                break
             }
         }
-        
         productPurchaseCallback = nil
     }
 }
 
 extension Purchases {
     func finishTransaction(_ transaction: SKPaymentTransaction) -> Bool {
-        
-// Do something with purchase
-        
+        // Do something with purchase
         let productId = transaction.payment.productIdentifier
         print("Product \(productId) successfully purchased")
         return true

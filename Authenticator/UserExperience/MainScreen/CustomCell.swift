@@ -10,7 +10,7 @@ import UIKit
 import AVFoundation
 
 class CustomCell: UITableViewCell {
-    
+
     // MARK: - Properties
     private var key = ""
     private var issuer = ""
@@ -18,13 +18,13 @@ class CustomCell: UITableViewCell {
     private var copyCountDown = 0
     private var isCopyCountPressed = false
     private var isEditMode = false
-    
+
     public let copiedTime = 2
-    
+
     public var passLabelText = ""
-    
-    public var authItem: AuthenticatorItem?{
-        didSet{
+
+    public var authItem: AuthenticatorItem? {
+        didSet {
             guard let authItem = authItem else {return}
             let authKey = authItem.key ?? ""
             let authIssuer = authItem.issuer ?? ""
@@ -32,56 +32,68 @@ class CustomCell: UITableViewCell {
 
             key = authKey
             issuer = authIssuer
-            
-            issuerLabel.setLabelAtributedText(text: authIssuer, fontSize: 18, aligment: .center, indent: 0.0, color: UIColor.label, fontWeight: .medium)
-            
-            accountLabel.setLabelAtributedText(text: account, fontSize: 16, aligment: .center, indent: 0.0, color: .fucsiaColor(), fontWeight: .light)
-            
-           let token = TokenGenerator.shared.createTimeBasedToken(name: authIssuer, issuer: authIssuer, secretString: authKey)
-            
-            if let keyText = token?.currentPassword{
+
+            issuerLabel.setLabelAtributedText(text: authIssuer,
+                                              fontSize: 18,
+                                              aligment: .center,
+                                              indent: 0.0,
+                                              color: UIColor.label,
+                                              fontWeight: .medium)
+
+            accountLabel.setLabelAtributedText(text: account,
+                                               fontSize: 16,
+                                               aligment: .center,
+                                               indent: 0.0,
+                                               color: .fucsiaColor(),
+                                               fontWeight: .light)
+
+           let token = TokenGenerator.shared.createTimeBasedToken(name: authIssuer,
+                                                                  issuer: authIssuer,
+                                                                  secretString: authKey)
+
+            if let keyText = token?.currentPassword {
                 passLabelText = keyText
                 setupPassLabelText(text: keyText)
             }
-            
+
             updateTimerInfoLabel()
         }
     }
-    
+
     private let issuerLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.backgroundColor = .systemBackground
         return label
     }()
-    
+
     private let accountLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.backgroundColor = .systemBackground
         return label
     }()
-    
+
     private let passLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.backgroundColor = .systemBackground
         return label
     }()
-    
+
     private let descriptionLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.backgroundColor = .systemBackground
         let text = NSLocalizedString("Refresh in 30 s.", comment: "")
-        
+
         let font = UIFont.systemFont(ofSize: 16, weight: .light)
         label.textAlignment = .center
         label.attributedText = NSMutableAttributedString(string: text, attributes: [.font: font])
-        
+
         return label
     }()
-    
+
     let copyButton: UIButton = {
         let button = UIButton()
         button.backgroundColor = .clear
@@ -89,22 +101,22 @@ class CustomCell: UITableViewCell {
         button.setImage(UIImage(named: "copyButton"), for: .normal)
         return button
     }()
-    
+
     // MARK: - Inits
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupView()
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
- 
+
     // MARK: - Functions
-    
-    private func setupView(){
+
+    private func setupView() {
         contentView.backgroundColor = .systemBackground
-        
+
         addSubview(issuerLabel)
         NSLayoutConstraint.activate([
             issuerLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 24),
@@ -112,23 +124,23 @@ class CustomCell: UITableViewCell {
             issuerLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
             issuerLabel.heightAnchor.constraint(equalToConstant: 28)
             ])
-        
+
         addSubview(passLabel)
         NSLayoutConstraint.activate([
             passLabel.topAnchor.constraint(equalTo: issuerLabel.bottomAnchor, constant: 16),
             passLabel.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor),
             passLabel.heightAnchor.constraint(equalToConstant: 48)
          ])
-        
+
         addSubview(accountLabel)
-        
+
         NSLayoutConstraint.activate([
             accountLabel.topAnchor.constraint(equalTo: passLabel.bottomAnchor),
             accountLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
             accountLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
             accountLabel.heightAnchor.constraint(equalToConstant: 24)
             ])
-        
+
         addSubview(descriptionLabel)
         NSLayoutConstraint.activate([
             descriptionLabel.topAnchor.constraint(equalTo: accountLabel.bottomAnchor),
@@ -146,21 +158,21 @@ class CustomCell: UITableViewCell {
         ])
 
     }
-    
-    private func startCopy(){
+
+    private func startCopy() {
         copyCountDown = copiedTime
         isCopyCountPressed = true
         setupCopiedLabelText(text: NSLocalizedString("Copied", comment: ""))
         AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
     }
 
-    private func endCopy(){
+    private func endCopy() {
         copyCountDown = 0
         isCopyCountPressed = false
         setupPassLabelText(text: passLabelText)
     }
-    
-    private func setupPassLabelText (text: String){
+
+    private func setupPassLabelText (text: String) {
         var newText = text
         if isEditMode {
             newText = "------"
@@ -169,79 +181,78 @@ class CustomCell: UITableViewCell {
         passLabel.textAlignment = .center
         passLabel.attributedText = NSMutableAttributedString(string: newText, attributes: [.kern: 5.75, .font: font])
     }
-    
-    private func setupCopiedLabelText (text: String){
+
+    private func setupCopiedLabelText (text: String) {
         let font = UIFont.systemFont(ofSize: 32, weight: .thin)
         passLabel.textAlignment = .center
         passLabel.attributedText = NSMutableAttributedString(string: text, attributes: [.kern: 5.75, .font: font])
     }
-    
-    public func copyToClipBoard(){
-        
+
+    public func copyToClipBoard() {
+
         startCopy()
         let pasteboard = UIPasteboard.general
         pasteboard.string = passLabelText
-        
+
     }
-    
-    public func startEditing(){
-        
+
+    public func startEditing() {
+
         isEditMode = true
         descriptionLabel.isHidden = true
         copyButton.isHidden = true
         setupPassLabelText(text: "------")
     }
 
-    public func stopEditing(){
-        
+    public func stopEditing() {
+
         isEditMode = false
-        updateTimerInfoLabel ()
+        updateTimerInfoLabel()
         resetToken()
         descriptionLabel.isHidden = false
         copyButton.isHidden = false
     }
-    
+
     private func resetToken() {
-        
+
         let token = TokenGenerator.shared.createTimeBasedToken(name: issuer, issuer: issuer, secretString: key)
         if let text = token?.currentPassword {
             setupPassLabelText(text: text)
             passLabelText = text
         }
-        
+
     }
-    
+
     // MARK: - Handlers
-    
-    @objc public func updateTimerInfoLabel (){
-        
+
+    @objc public func updateTimerInfoLabel () {
+
         if isEditMode {return}
-        
+
         let countDown = Int(NSDate().timeIntervalSince1970) % 30
         var timeLabel = String(30 - countDown)
-        
+
         if countDown == 0 {
             timeLabel = "1"
         }
-        descriptionLabel.text = NSLocalizedString("Refresh in ", comment: "") + timeLabel + " " + NSLocalizedString("s.", comment: "")
-        
-        if isCopyCountPressed{
+        descriptionLabel.text = NSLocalizedString("Refresh in ", comment: "") + timeLabel + " " +
+            NSLocalizedString("s.", comment: "")
+
+        if isCopyCountPressed {
             copyCountDown -= 1
             if copyCountDown == 0 {
                 endCopy()
             }
         }
-        
+
         if countDown == 0 {
             resetToken()
         }
-   
-    }
-    
-    @objc private func handleCopyButton(){
-        copyToClipBoard() 
-    }
-    
 
+    }
+
+    @objc private func handleCopyButton() {
+        copyToClipBoard()
+    }
 
 }

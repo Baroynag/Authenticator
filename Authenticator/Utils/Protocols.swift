@@ -8,16 +8,16 @@
 
 import UIKit
 
-protocol AddItemDelegate : class {
+protocol AddItemDelegate: class {
 
     func createNewItem (account: String?, issuer: String?, key: String?, timeBased: Bool)
 }
 
-protocol RefreshTableDelegate : class {
+protocol RefreshTableDelegate: class {
 
     func refresh ()
 }
 
-protocol pressPurchaseDelegate : class {
+protocol pressPurchaseDelegate: class {
     func pressPurchaseButton()
 }

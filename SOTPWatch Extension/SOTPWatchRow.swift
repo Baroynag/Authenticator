@@ -12,12 +12,11 @@ import UIKit
 class SOTPWatchRow: NSObject {
 
     @IBOutlet var accountLabel: WKInterfaceLabel!
-    
+
     @IBOutlet var passLabel: WKInterfaceLabel!
-    
+
     @IBOutlet var acountLogin: WKInterfaceLabel!
-    
+
     @IBOutlet var detailLabel: WKInterfaceLabel!
-   
-    
+
 }

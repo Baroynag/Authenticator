@@ -12,20 +12,20 @@ protocol GreetingViewControllerDelegate: AnyObject {
     func didTapCreate()
 }
 
-class GreetingViewController: UIViewController{
-    
-    //    MARK: - Properties
+class GreetingViewController: UIViewController {
+
+    // MARK: - Properties
     weak var refreshTableDelegate: RefreshTableDelegate?
     weak var delegate: GreetingViewControllerDelegate?
-    
+
     private let imageView: UIImageView = {
-         let im = UIImage(named: "greeting")
-         let iv = UIImageView(image: im)
-         iv.contentMode = .scaleAspectFit
-         iv.translatesAutoresizingMaskIntoConstraints = false
-         return iv
+        let image = UIImage(named: "greeting")
+        let imageView = UIImageView(image: image)
+        imageView.contentMode = .scaleAspectFit
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
      }()
-    
+
     private let greetingLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -34,7 +34,7 @@ class GreetingViewController: UIViewController{
         label.setLabelAtributedText(fontSize: 24, text: text, aligment: .center, indent: 0.0)
         return label
     }()
-    
+
     private let sotpLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -43,7 +43,7 @@ class GreetingViewController: UIViewController{
         label.setLabelAtributedText(fontSize: 32, text: text, aligment: .center, indent: 0.0, color: .fucsiaColor())
         return label
     }()
-    
+
     private let setupLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -52,36 +52,35 @@ class GreetingViewController: UIViewController{
         label.setLabelAtributedText(fontSize: 20, text: text, aligment: .center, indent: 0.0)
         return label
     }()
-    
+
     let createButton: RoundedButtonWithShadow = {
         let button = RoundedButtonWithShadow(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle(NSLocalizedString("Create", comment: "") , for: .normal)
+        button.setTitle(NSLocalizedString("Create", comment: ""), for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
         button.addTarget(self, action: #selector(handleCreate), for: .touchUpInside)
         return button
     }()
-    
+
     let loadButton: RoundedButtonWithShadow = {
             let button = RoundedButtonWithShadow(type: .system)
             button.translatesAutoresizingMaskIntoConstraints = false
-            button.setTitle(NSLocalizedString("Load from backup", comment: "") , for: .normal)
+            button.setTitle(NSLocalizedString("Load from backup", comment: ""), for: .normal)
             button.setTitleColor(.white, for: .normal)
             button.titleLabel?.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
             button.addTarget(self, action: #selector(handleLoad), for: .touchUpInside)
             return button
         }()
-    
-    
-    //    MARK: - Inits
+
+    // MARK: - Inits
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = true
         setupLayout()
     }
-    
-    //    MARK: - Handlers
+
+    // MARK: - Handlers
     @objc private func handleCreate() {
         let rowDetailViewController = AddAccountViewController()
         rowDetailViewController.addAccountDelagate = self
@@ -89,23 +88,23 @@ class GreetingViewController: UIViewController{
     }
 
     @objc private func handleLoad() {
-        self.chooseDocument(vcWithDocumentPicker: self) 
+        self.chooseDocument(vcWithDocumentPicker: self)
     }
-    
-    //    MARK: - Functions
-    private func setupLayout(){
-     
+
+    // MARK: - Functions
+    private func setupLayout() {
+
         loadButton.translatesAutoresizingMaskIntoConstraints = false
-        
+
         view.backgroundColor = UIColor.systemBackground
-   
+
         view.addSubview(imageView)
         NSLayoutConstraint.activate([
             imageView.topAnchor.constraint(lessThanOrEqualTo: view.topAnchor, constant: 145),
             imageView.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
             imageView.heightAnchor.constraint(lessThanOrEqualToConstant: 199)
          ])
-     
+
         view.addSubview(greetingLabel)
         NSLayoutConstraint.activate([
             greetingLabel.topAnchor.constraint(lessThanOrEqualTo: imageView.bottomAnchor, constant: 19),
@@ -121,9 +120,9 @@ class GreetingViewController: UIViewController{
             setupLabel.topAnchor.constraint(lessThanOrEqualTo: sotpLabel.bottomAnchor, constant: 8),
             setupLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             setupLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            setupLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            setupLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
         ])
-     
+
         view.addSubview(createButton)
         NSLayoutConstraint.activate([
             createButton.topAnchor.constraint(lessThanOrEqualTo: setupLabel.bottomAnchor, constant: 30),
@@ -131,7 +130,7 @@ class GreetingViewController: UIViewController{
             createButton.heightAnchor.constraint(equalToConstant: 50),
             createButton.widthAnchor.constraint(equalToConstant: 320)
         ])
-        
+
         view.addSubview(loadButton)
         NSLayoutConstraint.activate([
             loadButton.topAnchor.constraint(lessThanOrEqualTo: createButton.bottomAnchor, constant: 22),
@@ -142,13 +141,10 @@ class GreetingViewController: UIViewController{
     }
 }
 
+extension GreetingViewController: AddAccountDelagate {
 
-extension GreetingViewController: AddAccountDelagate{
-    
     func returnToMainScreeen() {
         delegate?.didTapCreate()
     }
-    
+
 }
-
-
