@@ -20,8 +20,6 @@ class AddAccountViewController: UIViewController {
     weak var addAccountDelagate: AddAccountDelagate?
     weak var refreshTableDelegate: RefreshTableDelegate?
 
-    private var isTimeBased = true
-
     let offsetX = 24.0
     let offsetY = 60.0
     let textFieldHeigth = 80.0
@@ -227,8 +225,7 @@ class AddAccountViewController: UIViewController {
 
                 AuthenticatorModel.shared.addOneItem(account: "",
                                                      issuer: issuerTextField.text,
-                                                     key: keyTextField.text,
-                                                     timeBased: isTimeBased)
+                                                     key: keyTextField.text)
 
                 addAccountDelagate?.returnToMainScreeen()
                 refreshTableDelegate?.refresh()
@@ -286,9 +283,9 @@ extension AddAccountViewController: UITextFieldDelegate {
 }
 
 extension AddAccountViewController: AddItemDelegate {
-    func createNewItem(account: String?, issuer: String?, key: String?, timeBased: Bool) {
+    func createNewItem(account: String?, issuer: String?, key: String?) {
 
-        AuthenticatorModel.shared.addOneItem(account: account, issuer: issuer, key: key, timeBased: timeBased)
+        AuthenticatorModel.shared.addOneItem(account: account, issuer: issuer, key: key)
 
         if addAccountDelagate != nil {
             addAccountDelagate?.returnToMainScreeen()

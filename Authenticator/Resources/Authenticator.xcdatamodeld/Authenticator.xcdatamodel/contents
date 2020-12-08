@@ -6,9 +6,8 @@
         <attribute name="issuer" attributeType="String" defaultValueString=""/>
         <attribute name="key" attributeType="String" defaultValueString=""/>
         <attribute name="priority" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="timeBased" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES"/>
     </entity>
     <elements>
-        <element name="AuthenticatorItem" positionX="-63" positionY="-18" width="128" height="133"/>
+        <element name="AuthenticatorItem" positionX="-63" positionY="-18" width="128" height="118"/>
     </elements>
 </model>

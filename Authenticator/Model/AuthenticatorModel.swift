@@ -34,11 +34,11 @@ class AuthenticatorModel {
             print(NSLocalizedString("Core data load error", comment: ""), error.localizedDescription)
         }
     }
-    func isRecordExist(account: String, issuer: String, key: String, timeBased: Bool) -> Bool {
+    func isRecordExist(account: String, issuer: String, key: String) -> Bool {
         let request = NSFetchRequest<AuthenticatorItem>(entityName: "AuthenticatorItem")
         let predicate = NSPredicate(
-            format: "account = %@ AND issuer = %@ AND key = %@ AND timeBased =  %d",
-            account, issuer, key, timeBased)
+            format: "account = %@ AND issuer = %@ AND key = %@",
+            account, issuer, key)
         request.predicate = predicate
         do {
             self.filteredItems = try context.fetch(request)
@@ -50,9 +50,9 @@ class AuthenticatorModel {
         }
         return false
     }
-    func addOneItem(account: String?, issuer: String?, key: String?, timeBased: Bool) {
+    func addOneItem(account: String?, issuer: String?, key: String?) {
 
-       if isRecordExist(account: account ?? "", issuer: issuer ?? "", key: key ?? "", timeBased: timeBased) {
+       if isRecordExist(account: account ?? "", issuer: issuer ?? "", key: key ?? "") {
             return
         }
 
@@ -61,8 +61,27 @@ class AuthenticatorModel {
         authItem.account   = account
         authItem.issuer    = issuer
         authItem.key       = key
-        authItem.timeBased = timeBased
         authItem.priority  = getNextPriorityNumber()
+        do {
+            try self.context.save()
+            authenticatorItemsList?.append(authItem)
+        } catch {
+            print(NSLocalizedString("Core data save error", comment: ""), error.localizedDescription)
+        }
+    }
+    
+    func addOneItem(account: String?, issuer: String?, key: String?, priority: Int64) {
+
+       if isRecordExist(account: account ?? "", issuer: issuer ?? "", key: key ?? "") {
+            return
+        }
+
+        let authItem = AuthenticatorItem(context: context)
+        authItem.id        = UUID()
+        authItem.account   = account
+        authItem.issuer    = issuer
+        authItem.key       = key
+        authItem.priority  = priority
         do {
             try self.context.save()
             authenticatorItemsList?.append(authItem)
@@ -120,7 +139,6 @@ class AuthenticatorModel {
                     }
                 }
             }
-            jsonArray.append(dictionary)
         }
         return jsonArray
 
@@ -136,8 +154,11 @@ class AuthenticatorModel {
             let account   = item["account"]   as? String ?? ""
             let key       = item["key"]       as? String ?? ""
             let issuer    = item["issuer"]    as? String ?? ""
-            let timeBased = item["timeBased"] as? Bool   ?? false
-            self.addOneItem(account: account, issuer: issuer, key: key, timeBased: timeBased)
+            let priority  = item["priority"]  as? Int64  ?? 0
+            self.addOneItem(account: account,
+                            issuer: issuer,
+                            key: key,
+                            priority: priority)
         }
     }
 
