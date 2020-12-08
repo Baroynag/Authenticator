@@ -14,8 +14,10 @@ class AuthenticatorModel {
 
     static let shared = AuthenticatorModel()
     private let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+
     public var authenticatorItemsList: [AuthenticatorItem]?
     private var filteredItems: [AuthenticatorItem]?
+
     private func printPriorityLog() {
         guard let authenticatorItemsList = authenticatorItemsList else {return}
         for item in authenticatorItemsList {
@@ -81,16 +83,24 @@ class AuthenticatorModel {
             }
         }
     }
-    func loadDataForWatch() -> [String: String] {
+    func loadDataForWatch() -> [String: [String: String]] {
         loadData()
         guard let authenticatorItemsList = authenticatorItemsList else {return [:] }
-        var dictionary: [String: String] = [:]
-        for index in 0...authenticatorItemsList.count - 1 {
-            if let authIssuer = authenticatorItemsList[index].value(forKey: "issuer") as? String,
-               let authKey = authenticatorItemsList[index].value(forKey: "key")  as? String {
-                dictionary.updateValue(authKey, forKey: authIssuer)
+
+        var dictionary: [String: [String: String]] = [:]
+        for item in authenticatorItemsList {
+
+            if let issuer = item.issuer,
+               let key = item.key,
+               let uid = item.id?.uuidString {
+                dictionary[uid] = ["issuer": issuer,
+                    "key": key,
+                    "priority": String(item.priority)]
             }
         }
+//        for ind in dictionary {
+//            print(ind)
+//        }
         return dictionary
     }
     func convertCoreDataObjectsToJSONArray() -> [[String: Any]] {
