@@ -57,7 +57,7 @@ class InterfaceController: WKInterfaceController {
                     issuer: item.issuer ?? "",
                     secretString: item.key ?? "")
                 if let tokenPass = token?.currentPassword {
-                    row.accountLabel?.setText(item.key)
+                    row.accountLabel?.setText(item.issuer)
                     row.passLabel?.setText(tokenPass)
                     row.detailLabel?.setText("Refresh in " + String(countDown) + "s.")
                 }
@@ -186,8 +186,8 @@ extension InterfaceController {
             let newItem = AuthenticatorForWatchItem(context: context)
             newItem.account = ""
             newItem.id = UUID()
-            newItem.issuer = value as? String
-            newItem.key = key
+            newItem.issuer = key
+            newItem.key = value as? String
 
             do {
                 try self.context.save()
