@@ -15,7 +15,7 @@ class AuthenticatorForWatchItem: NSManagedObject {
     @NSManaged public var account: String?
     @NSManaged public var issuer: String?
     @NSManaged public var key: String?
-    @NSManaged public var timeBased: Bool
+    @NSManaged public var priority: Int64
     @NSManaged public var id: UUID?
 
 }

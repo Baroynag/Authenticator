@@ -123,7 +123,7 @@ class ScanQrViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
             let account   = url.path.replacingOccurrences(of: "/", with: "")
             let issuer    = getQueryStringParameter(url: url, param: "issuer")
             let key       = getQueryStringParameter(url: url, param: "secret")
-            delegate?.createNewItem(account: account, issuer: issuer, key: key, timeBased: true)
+            delegate?.createNewItem(account: account, issuer: issuer, key: key)
 
         }
    }

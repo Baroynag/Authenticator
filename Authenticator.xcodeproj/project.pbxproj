@@ -937,7 +937,7 @@
 				CODE_SIGN_ENTITLEMENTS = Authenticator/AuthenticatorDebug.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 16;
+				CURRENT_PROJECT_VERSION = 17;
 				DEVELOPMENT_TEAM = Q9Y5N2Z9SF;
 				INFOPLIST_FILE = Authenticator/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -963,7 +963,7 @@
 				CODE_SIGN_ENTITLEMENTS = Authenticator/AuthenticatorRelease.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 16;
+				CURRENT_PROJECT_VERSION = 17;
 				DEVELOPMENT_TEAM = Q9Y5N2Z9SF;
 				INFOPLIST_FILE = Authenticator/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -991,7 +991,7 @@
 				CODE_SIGN_ENTITLEMENTS = SOTPWatch/SOTPWatchDebug.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 16;
+				CURRENT_PROJECT_VERSION = 17;
 				DEVELOPMENT_TEAM = Q9Y5N2Z9SF;
 				IBSC_MODULE = SOTPWatch_Extension;
 				INFOPLIST_FILE = SOTPWatch/Info.plist;
@@ -1023,7 +1023,7 @@
 				CLANG_USE_OPTIMIZATION_PROFILE = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 16;
+				CURRENT_PROJECT_VERSION = 17;
 				DEVELOPMENT_TEAM = Q9Y5N2Z9SF;
 				IBSC_MODULE = SOTPWatch_Extension;
 				INFOPLIST_FILE = SOTPWatch/Info.plist;
@@ -1053,7 +1053,7 @@
 				CODE_SIGN_ENTITLEMENTS = "SOTPWatch Extension/SOTPWatch ExtensionDebug.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 16;
+				CURRENT_PROJECT_VERSION = 17;
 				DEVELOPMENT_TEAM = Q9Y5N2Z9SF;
 				INFOPLIST_FILE = "SOTPWatch Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1080,7 +1080,7 @@
 				CLANG_USE_OPTIMIZATION_PROFILE = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 16;
+				CURRENT_PROJECT_VERSION = 17;
 				DEVELOPMENT_TEAM = Q9Y5N2Z9SF;
 				INFOPLIST_FILE = "SOTPWatch Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (

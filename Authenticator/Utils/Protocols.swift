@@ -10,7 +10,7 @@ import UIKit
 
 protocol AddItemDelegate: class {
 
-    func createNewItem (account: String?, issuer: String?, key: String?, timeBased: Bool)
+    func createNewItem (account: String?, issuer: String?, key: String?)
 }
 
 protocol RefreshTableDelegate: class {
