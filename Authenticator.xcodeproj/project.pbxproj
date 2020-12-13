@@ -16,8 +16,7 @@
 		1401DABF244342CC00DE677F /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1401DABE244342CC00DE677F /* CustomCell.swift */; };
 		1401DAC12443431200DE677F /* AuthenticatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1401DAC02443431100DE677F /* AuthenticatorViewController.swift */; };
 		1401DAC32443433100DE677F /* AddAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1401DAC22443433100DE677F /* AddAccountViewController.swift */; };
-		1401DAC62443436E00DE677F /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1401DAC42443436E00DE677F /* Protocols.swift */; };
-		1401DAC72443436E00DE677F /* Exrentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1401DAC52443436E00DE677F /* Exrentions.swift */; };
+		1401DAC72443436E00DE677F /* UIColor+SOTPColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1401DAC52443436E00DE677F /* UIColor+SOTPColors.swift */; };
 		1401DACA244343FE00DE677F /* AuthenticatorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1401DAC9244343FE00DE677F /* AuthenticatorModel.swift */; };
 		1405D88B24719BF10065509B /* UITextFieldWithBottomBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1405D88A24719BF10065509B /* UITextFieldWithBottomBorder.swift */; };
 		14129F7624C0C92200644739 /* PasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14129F7524C0C92200644739 /* PasswordViewController.swift */; };
@@ -54,6 +53,9 @@
 		14E8523F25619BB700B9744B /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E8523E25619BB700B9744B /* AboutViewController.swift */; };
 		14E8524C256AE6E400B9744B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 14E8524A256AE6E400B9744B /* Localizable.strings */; };
 		14F740F22447743D0052244C /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 14F740F12447743D0052244C /* Lato-Light.ttf */; };
+		A8DB1CD525866BE4007C980B /* UILabel+AttributedText.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DB1CD425866BE4007C980B /* UILabel+AttributedText.swift */; };
+		A8DB1CDA25866C14007C980B /* UINavigationController+Completions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DB1CD925866C14007C980B /* UINavigationController+Completions.swift */; };
+		A8DB1CDF25866C34007C980B /* UIViewController+SetupNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DB1CDE25866C34007C980B /* UIViewController+SetupNavigation.swift */; };
 		CC74BA630D0AF3B3442DF0E3 /* Pods_SOTPWatch_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E0822CA0A73046E3F1F30E9 /* Pods_SOTPWatch_Extension.framework */; };
 		EDFD8EE1D14E008CC2B86F6D /* Pods_SOTPWatch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69E961E78C1ECBDEEF93A234 /* Pods_SOTPWatch.framework */; };
 		FD6CF9FFA6037CDAEBC06627 /* Pods_Authenticator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67D87C916A1E254B6ABFAF7D /* Pods_Authenticator.framework */; };
@@ -113,8 +115,7 @@
 		1401DABE244342CC00DE677F /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		1401DAC02443431100DE677F /* AuthenticatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatorViewController.swift; sourceTree = "<group>"; };
 		1401DAC22443433100DE677F /* AddAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountViewController.swift; sourceTree = "<group>"; };
-		1401DAC42443436E00DE677F /* Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
-		1401DAC52443436E00DE677F /* Exrentions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Exrentions.swift; sourceTree = "<group>"; };
+		1401DAC52443436E00DE677F /* UIColor+SOTPColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+SOTPColors.swift"; sourceTree = "<group>"; };
 		1401DAC9244343FE00DE677F /* AuthenticatorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatorModel.swift; sourceTree = "<group>"; };
 		1405D88A24719BF10065509B /* UITextFieldWithBottomBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldWithBottomBorder.swift; sourceTree = "<group>"; };
 		14129F7524C0C92200644739 /* PasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordViewController.swift; sourceTree = "<group>"; };
@@ -161,6 +162,9 @@
 		67D87C916A1E254B6ABFAF7D /* Pods_Authenticator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Authenticator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		69E961E78C1ECBDEEF93A234 /* Pods_SOTPWatch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SOTPWatch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E0822CA0A73046E3F1F30E9 /* Pods_SOTPWatch_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SOTPWatch_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A8DB1CD425866BE4007C980B /* UILabel+AttributedText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+AttributedText.swift"; sourceTree = "<group>"; };
+		A8DB1CD925866C14007C980B /* UINavigationController+Completions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Completions.swift"; sourceTree = "<group>"; };
+		A8DB1CDE25866C34007C980B /* UIViewController+SetupNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+SetupNavigation.swift"; sourceTree = "<group>"; };
 		B1087AF21F7B4953349EB22F /* Pods-Authenticator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Authenticator.debug.xcconfig"; path = "Target Support Files/Pods-Authenticator/Pods-Authenticator.debug.xcconfig"; sourceTree = "<group>"; };
 		DB325BD33947A6B7CF3A0A1E /* Pods-SOTPWatch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SOTPWatch.release.xcconfig"; path = "Target Support Files/Pods-SOTPWatch/Pods-SOTPWatch.release.xcconfig"; sourceTree = "<group>"; };
 		E105FBA28569813673C1F6B7 /* Pods-Authenticator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Authenticator.release.xcconfig"; path = "Target Support Files/Pods-Authenticator/Pods-Authenticator.release.xcconfig"; sourceTree = "<group>"; };
@@ -236,6 +240,7 @@
 				14543DC52486DCD4008E7DA8 /* AuthenticatorDebug.entitlements */,
 				1490048D246DBC8D00F91500 /* UserExperience */,
 				14F740F0244774300052244C /* Fonts */,
+				A8DB1CD325866BCB007C980B /* Extensions */,
 				1401DAC8244343CC00DE677F /* Utils */,
 				1401DAB82443399200DE677F /* Resources */,
 				1401DA8B2440D46B00DE677F /* Info.plist */,
@@ -262,8 +267,6 @@
 			isa = PBXGroup;
 			children = (
 				14CB6D6E2506A2A700316ED7 /* LoadFromFileExtentions.swift */,
-				1401DAC52443436E00DE677F /* Exrentions.swift */,
-				1401DAC42443436E00DE677F /* Protocols.swift */,
 				1405D88A24719BF10065509B /* UITextFieldWithBottomBorder.swift */,
 				1463409924CE0763008ECFBD /* RNCryptorExtention.swift */,
 				146CE3A924D3369600DDC45C /* Backup.swift */,
@@ -383,6 +386,17 @@
 				14F740F12447743D0052244C /* Lato-Light.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		A8DB1CD325866BCB007C980B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1401DAC52443436E00DE677F /* UIColor+SOTPColors.swift */,
+				A8DB1CD425866BE4007C980B /* UILabel+AttributedText.swift */,
+				A8DB1CD925866C14007C980B /* UINavigationController+Completions.swift */,
+				A8DB1CDE25866C34007C980B /* UIViewController+SetupNavigation.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		A9BF4EE2A6484A861A2F363B /* Pods */ = {
@@ -701,20 +715,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				146CE3A724D1B9AB00DDC45C /* GreetingViewController.swift in Sources */,
-				1401DAC62443436E00DE677F /* Protocols.swift in Sources */,
 				143D098825168F2B00C30041 /* RoundedButtonWithShadow.swift in Sources */,
 				1401DA852440D46800DE677F /* Authenticator.xcdatamodeld in Sources */,
+				A8DB1CD525866BE4007C980B /* UILabel+AttributedText.swift in Sources */,
 				1401DAC12443431200DE677F /* AuthenticatorViewController.swift in Sources */,
 				14129F7624C0C92200644739 /* PasswordViewController.swift in Sources */,
 				14B61B5C24C71DD400A08A14 /* AuthenticatorItem+CoreDataProperties.swift in Sources */,
 				1401DA7B2440D46800DE677F /* AppDelegate.swift in Sources */,
 				1401DABF244342CC00DE677F /* CustomCell.swift in Sources */,
 				14C0B6F1254623FF0054DD57 /* TokenGenerator.swift in Sources */,
+				A8DB1CDF25866C34007C980B /* UIViewController+SetupNavigation.swift in Sources */,
 				14CB6D6924FC2AD100316ED7 /* SettingsTableViewCellWithButton.swift in Sources */,
 				14C0B71D254C793D0054DD57 /* AuthenticatorForWatch.xcdatamodeld in Sources */,
 				1401DAC32443433100DE677F /* AddAccountViewController.swift in Sources */,
 				1405D88B24719BF10065509B /* UITextFieldWithBottomBorder.swift in Sources */,
 				144B48A024FC10510086DA04 /* SettingsTableViewController.swift in Sources */,
+				A8DB1CDA25866C14007C980B /* UINavigationController+Completions.swift in Sources */,
 				1401DACA244343FE00DE677F /* AuthenticatorModel.swift in Sources */,
 				141917D0245483EC00EE125D /* ScanQrViewController.swift in Sources */,
 				14543DC82486E02D008E7DA8 /* WatchAppConnection.swift in Sources */,
@@ -724,7 +740,7 @@
 				14CB6D6F2506A2A700316ED7 /* LoadFromFileExtentions.swift in Sources */,
 				14CB6D6724FC19D600316ED7 /* SettingsTableViewCell.swift in Sources */,
 				1430EA9124DF0FCA00B75CF6 /* PurchaseViewController.swift in Sources */,
-				1401DAC72443436E00DE677F /* Exrentions.swift in Sources */,
+				1401DAC72443436E00DE677F /* UIColor+SOTPColors.swift in Sources */,
 				14B61B5B24C71DD400A08A14 /* AuthenticatorItem+CoreDataClass.swift in Sources */,
 				1401DA7D2440D46800DE677F /* SceneDelegate.swift in Sources */,
 				1463409A24CE0763008ECFBD /* RNCryptorExtention.swift in Sources */,

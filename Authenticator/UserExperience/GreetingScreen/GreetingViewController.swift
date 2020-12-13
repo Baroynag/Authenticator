@@ -8,15 +8,15 @@
 
 import UIKit
 
-protocol GreetingViewControllerDelegate: AnyObject {
-    func didTapCreate()
+protocol GreetingViewControllerOutput: class {
+    func didLoadBackup()
+    func didAdd(account: String?, issuer: String?, key: String?)
 }
 
-class GreetingViewController: UIViewController {
+final class GreetingViewController: UIViewController {
 
     // MARK: - Properties
-    weak var refreshTableDelegate: RefreshTableDelegate?
-    weak var delegate: GreetingViewControllerDelegate?
+    weak var output: GreetingViewControllerOutput?
 
     private let imageView: UIImageView = {
         let image = UIImage(named: "greeting")
@@ -31,7 +31,7 @@ class GreetingViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.backgroundColor = .systemBackground
         let text = NSLocalizedString("Welcome to", comment: "")
-        label.setLabelAtributedText(fontSize: 24, text: text, aligment: .center, indent: 0.0)
+        label.setAttributedText(fontSize: 24, text: text, aligment: .center, indent: 0.0)
         return label
     }()
 
@@ -40,7 +40,7 @@ class GreetingViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.backgroundColor = .systemBackground
         let text = NSLocalizedString("SOTP", comment: "")
-        label.setLabelAtributedText(fontSize: 32, text: text, aligment: .center, indent: 0.0, color: .fucsiaColor())
+        label.setAttributedText(fontSize: 32, text: text, aligment: .center, indent: 0.0, color: .fucsiaColor)
         return label
     }()
 
@@ -49,7 +49,7 @@ class GreetingViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.backgroundColor = .systemBackground
         let text = NSLocalizedString("Setup one time password", comment: "")
-        label.setLabelAtributedText(fontSize: 20, text: text, aligment: .center, indent: 0.0)
+        label.setAttributedText(fontSize: 20, text: text, aligment: .center, indent: 0.0)
         return label
     }()
 
@@ -82,9 +82,9 @@ class GreetingViewController: UIViewController {
 
     // MARK: - Handlers
     @objc private func handleCreate() {
-        let rowDetailViewController = AddAccountViewController()
-        rowDetailViewController.addAccountDelagate = self
-        self.present(rowDetailViewController, animated: true, completion: nil)
+        let addAccountViewController = AddAccountViewController()
+        addAccountViewController.output = self
+        self.present(addAccountViewController, animated: true, completion: nil)
     }
 
     @objc private func handleLoad() {
@@ -141,10 +141,37 @@ class GreetingViewController: UIViewController {
     }
 }
 
-extension GreetingViewController: AddAccountDelagate {
-
-    func returnToMainScreeen() {
-        delegate?.didTapCreate()
+extension GreetingViewController: AddAccountViewControllerOutput {
+    func didAdd(account: String?, issuer: String?, key: String?) {
+        output?.didAdd(account: account, issuer: issuer, key: key)
     }
+}
 
+extension GreetingViewController: UIDocumentPickerDelegate {
+    public func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
+        let title = NSLocalizedString("Wrong password", comment: "")
+        if let fileURL = urls.first {
+            dismiss(animated: true) { [weak self] in
+                guard let self = self else {
+                    return
+                }
+                
+                let promtForPassword = UIAlertController.promptForPassword { pass in
+                    if let pass = pass {
+                        if Backup.getFileContent(fileURL: fileURL, password: pass) {
+                            self.output?.didLoadBackup()
+                        } else {
+                            let alert = UIAlertController.alertWithOk(title: title)
+                            self.present(alert, animated: true)
+                        }
+                    }
+                }
+                self.present(promtForPassword, animated: true)
+            }
+        }
+    }
+    
+    public func documentPickerWasCancelled(_ controller: UIDocumentPickerViewController) {
+        dismiss(animated: true, completion: nil)
+    }
 }

@@ -26,11 +26,6 @@ class InterfaceController: WKInterfaceController {
 
 // MARK: functions
 
-    override func awake(withContext context: Any?) {
-        super.awake(withContext: context)
-        print("awake")
-    }
-
     override func didAppear() {
         super.didAppear()
         self.countDown = self.getTimerInterval()
@@ -43,7 +38,6 @@ class InterfaceController: WKInterfaceController {
 
     override func willActivate() {
         super.willActivate()
-        print("willActivate")
         prepareSendMessage()
         startTimer()
     }
@@ -164,11 +158,6 @@ extension InterfaceController {
         } catch {
             print(NSLocalizedString("Core data load error", comment: ""), error.localizedDescription)
         }
-        print("---------")
-        for (index, item) in items.enumerated() {
-            print(item.issuer, item.priority)
-        }
-        print("---------")
     }
 
     func deleteData() {
@@ -187,14 +176,12 @@ extension InterfaceController {
     func syncDataWithPhone(responce: [String: Any]) {
 
         var needUpdate = responce.count != items.count
-        print("count \(responce.count)   \(items.count)")
         if !needUpdate {
             for authItem in responce {
                 if let responceItem = authItem.value as? [String: String] {
                     let key         = responceItem["key"] ?? ""
                     let issuer      = responceItem["issuer"] ?? ""
                     let ptiority    = Int64(responceItem["priority"] ?? "")
-                    print( key, issuer, ptiority)
 
                     for watchitem in items {
                         needUpdate = watchitem.key != responceItem["key"] ||
@@ -215,7 +202,6 @@ extension InterfaceController {
     }
 
     private func saveResponseToWatchCoreData(responce: [String: Any]) {
-        print(#function)
         deleteData()
         responce.forEach { (key, value) in
             if let responceItem = value as? [String: String] {

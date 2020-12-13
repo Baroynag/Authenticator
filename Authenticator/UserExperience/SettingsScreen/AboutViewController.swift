@@ -41,7 +41,7 @@ class AboutViewController: UIViewController {
     let onepenGitHubRepo: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.backgroundColor = .fucsiaColor()
+        button.backgroundColor = .fucsiaColor
         button.layer.cornerRadius = 25
         button.clipsToBounds = true
         button.setTitle(NSLocalizedString("Open GitHub repo", comment: ""), for: .normal)

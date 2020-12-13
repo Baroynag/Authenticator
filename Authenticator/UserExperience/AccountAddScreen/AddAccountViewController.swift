@@ -9,16 +9,14 @@
 import UIKit
 import AVFoundation
 
-protocol AddAccountDelagate: AnyObject {
-    func returnToMainScreeen()
+protocol AddAccountViewControllerOutput: class {
+    func didAdd(account: String?, issuer: String?, key: String?)
 }
 
 class AddAccountViewController: UIViewController {
 
     // MARK: - Properties
-
-    weak var addAccountDelagate: AddAccountDelagate?
-    weak var refreshTableDelegate: RefreshTableDelegate?
+    weak var output: AddAccountViewControllerOutput?
 
     let offsetX = 24.0
     let offsetY = 60.0
@@ -33,7 +31,7 @@ class AddAccountViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.backgroundColor = .systemBackground
         let text = NSLocalizedString("Add account", comment: "")
-        label.setLabelAtributedText(fontSize: 20, text: text, aligment: .center, indent: 0.0)
+        label.setAttributedText(fontSize: 20, text: text, aligment: .center, indent: 0.0)
         return label
     }()
 
@@ -43,7 +41,7 @@ class AddAccountViewController: UIViewController {
         button.setTitle(NSLocalizedString("Create", comment: ""), for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
-        button.addTarget(self, action: #selector(handleSave), for: .touchUpInside)
+        button.addTarget(self, action: #selector(handleCreateButtonTapped), for: .touchUpInside)
         return button
     }()
 
@@ -85,7 +83,6 @@ class AddAccountViewController: UIViewController {
 
     // MARK: - Inits
     override func viewDidLoad() {
-        print(#function)
         super.viewDidLoad()
         self.setupView()
     }
@@ -97,7 +94,7 @@ class AddAccountViewController: UIViewController {
         setupTextField(textField: issuerTextField, placeholderText: NSLocalizedString("Account", comment: ""), tag: 1)
         setupTextField(textField: keyTextField, placeholderText: NSLocalizedString("Secret key", comment: ""), tag: 2)
         let text = NSLocalizedString("or", comment: "")
-        orLabel.setLabelAtributedText(
+        orLabel.setAttributedText(
             fontSize: 18,
             text: text,
             aligment: .center,
@@ -181,7 +178,6 @@ class AddAccountViewController: UIViewController {
     }
 
     private func showAlert(alertTitle: String, alertMessage: String) {
-        print(alertTitle)
         let alert = UIAlertController(
             title: NSLocalizedString(alertTitle, comment: ""),
             message: NSLocalizedString(alertMessage, comment: ""),
@@ -211,8 +207,7 @@ class AddAccountViewController: UIViewController {
 
     // MARK: - Handlers
 
-    @objc private func handleSave() {
-
+    @objc private func handleCreateButtonTapped() {
         if let issuer = issuerTextField.text {
             if issuer.isEmpty {
                 showAlert(alertTitle: NSLocalizedString("Wrong account",
@@ -222,16 +217,11 @@ class AddAccountViewController: UIViewController {
         }
         if let key = keyTextField.text {
             if TokenGenerator.shared.isValidSecretKey(secretKey: key) {
-
                 AuthenticatorModel.shared.addOneItem(account: "",
                                                      issuer: issuerTextField.text,
                                                      key: keyTextField.text)
-
-                addAccountDelagate?.returnToMainScreeen()
-                refreshTableDelegate?.refresh()
-
+                output?.didAdd(account: "", issuer: issuerTextField.text, key: keyTextField.text)
                 self.dismiss(animated: true, completion: nil)
-
             } else {
                  showAlert(
                     alertTitle: NSLocalizedString("Wrong account", comment: ""),
@@ -242,10 +232,9 @@ class AddAccountViewController: UIViewController {
     }
 
     @objc private func handleScanButton() {
-
         if AVCaptureDevice.authorizationStatus(for: .video) ==  .authorized {
             let scanQrViewController = ScanQrViewController()
-            scanQrViewController.delegate = self
+            scanQrViewController.output = self
             scanQrViewController.modalPresentationStyle = .fullScreen
                 self.present(scanQrViewController, animated: true)
         } else {
@@ -263,12 +252,12 @@ extension AddAccountViewController: UITextFieldDelegate {
 
     func textFieldDidBeginEditing(_ textField: UITextField) {
         guard let bottomBorderTextField = textField as? UITextFieldWithBottomBorder else { return }
-        bottomBorderTextField.updateBorder(color: .fucsiaColor())
+        bottomBorderTextField.updateBorder(color: .fucsiaColor)
     }
 
     func textFieldDidEndEditing(_ textField: UITextField) {
         guard let bottomBorderTextField = textField as? UITextFieldWithBottomBorder else { return }
-        bottomBorderTextField.updateBorder(color: .graySOTPColor())
+        bottomBorderTextField.updateBorder(color: .graySOTPColor)
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -282,17 +271,13 @@ extension AddAccountViewController: UITextFieldDelegate {
     }
 }
 
-extension AddAccountViewController: AddItemDelegate {
-    func createNewItem(account: String?, issuer: String?, key: String?) {
-
-        AuthenticatorModel.shared.addOneItem(account: account, issuer: issuer, key: key)
-
-        if addAccountDelagate != nil {
-            addAccountDelagate?.returnToMainScreeen()
-        } else {
-            refreshTableDelegate?.refresh()
-            self.dismiss(animated: true, completion: nil)
-        }
+extension AddAccountViewController: ScanQrViewControllerOutput {
+    func didFound(account: String?, issuer: String?, key: String?) {
+        AuthenticatorModel.shared.addOneItem(account: account,
+                                             issuer: issuer,
+                                             key: key)
+        output?.didAdd(account: account, issuer: issuer, key: key)
+        self.dismiss(animated: true, completion: nil)
     }
 
 }

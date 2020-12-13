@@ -17,19 +17,12 @@ class AuthenticatorModel {
 
     public var authenticatorItemsList: [AuthenticatorItem]?
     private var filteredItems: [AuthenticatorItem]?
-
-    private func printPriorityLog() {
-        guard let authenticatorItemsList = authenticatorItemsList else {return}
-        for item in authenticatorItemsList {
-            print(" name  = \(String(describing: item.issuer)) priority = \(item.priority)")
-        }
-    }
+    
     func loadData() {
         do {
             let request = NSFetchRequest<AuthenticatorItem>(entityName: "AuthenticatorItem")
             request.sortDescriptors = [NSSortDescriptor(key: "priority", ascending: true)]
             self.authenticatorItemsList = try context.fetch(request)
-            printPriorityLog()
         } catch {
             print(NSLocalizedString("Core data load error", comment: ""), error.localizedDescription)
         }
@@ -117,13 +110,11 @@ class AuthenticatorModel {
                     "priority": String(item.priority)]
             }
         }
-//        for ind in dictionary {
-//            print(ind)
-//        }
+        
         return dictionary
     }
     func convertCoreDataObjectsToJSONArray() -> [[String: Any]] {
-        var jsonArray: [[String: Any]] = []
+        let jsonArray: [[String: Any]] = []
         guard let authenticatorItemsList = authenticatorItemsList else {return [[:]] }
 
         for item in authenticatorItemsList {
@@ -146,7 +137,6 @@ class AuthenticatorModel {
 
     public func isAnyData() -> Bool {
         let count = AuthenticatorModel.shared.authenticatorItemsList?.count ?? 0
-        print("count = \(count)")
         return count > 0
     }
     public func saveDataBromBackupToCoreData(backupData: [[String: Any]]) {

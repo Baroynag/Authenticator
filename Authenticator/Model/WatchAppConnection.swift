@@ -30,6 +30,9 @@ class WatchAppConnection: NSObject {
 }
 
 extension WatchAppConnection: WCSessionDelegate {
+    func sessionDidBecomeInactive(_ session: WCSession) {
+    }
+    
     func session(_ session: WCSession,
                  activationDidCompleteWith activationState: WCSessionActivationState,
                  error: Error?) {
@@ -37,15 +40,9 @@ extension WatchAppConnection: WCSessionDelegate {
         if let error = error {
             fatalError("Can't activate session: \(error.localizedDescription)")
         }
-        print("Iphone Session activated with status \(activationState.rawValue)")
-    }
-
-    func sessionDidBecomeInactive(_ session: WCSession) {
-        print(#function)
     }
 
     func sessionDidDeactivate(_ session: WCSession) {
-        print(#function)
         self.session.activate()
     }
 
@@ -55,7 +52,6 @@ extension WatchAppConnection: WCSessionDelegate {
 
         if let watchAwakeAt = message["watchAwake"] as? Double {
             let dictionary = AuthenticatorModel.shared.loadDataForWatch()
-            print("iPhone watchAwakeAt\(watchAwakeAt)")
             replyHandler(dictionary)
         }
     }

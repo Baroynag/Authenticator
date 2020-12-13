@@ -19,7 +19,7 @@ final class RoundedButtonWithShadow: UIButton {
         if shadowLayer == nil {
             shadowLayer = CAShapeLayer()
             shadowLayer.path = UIBezierPath(roundedRect: bounds, cornerRadius: 25).cgPath
-            shadowLayer.fillColor = UIColor.fucsiaColor().cgColor
+            shadowLayer.fillColor = UIColor.fucsiaColor.cgColor
 
             shadowLayer.shadowColor = CGColor(srgbRed: 1, green: 0.2, blue: 0.39, alpha: 0.3)
             shadowLayer.shadowPath = shadowLayer.path

@@ -42,14 +42,13 @@ class AuthenticatorViewController: UIViewController {
 
 // MARK: - Handlers
     @objc private func pressAddButton() {
-
-      self.pushDetailViewController(text: nil, state: .add)
+      showAddAccount()
     }
 
     @objc private func settingsTapped() {
         let settingsViewController = SettingsTableViewController()
         settingsViewController.modalPresentationStyle = .fullScreen
-        settingsViewController.refreshTableDelegate = self
+        settingsViewController.output = self
         navigationController?.pushViewController(settingsViewController, animated: true)
     }
 
@@ -127,12 +126,11 @@ class AuthenticatorViewController: UIViewController {
 
     }
 
-    private func pushDetailViewController(text: String?, state: States) {
+    private func showAddAccount() {
         let addAccountViewController = AddAccountViewController()
-        addAccountViewController.refreshTableDelegate = self
+        addAccountViewController.output = self
         self.present(addAccountViewController, animated: true)
     }
-
 }
 
 // MARK: - UITableViewDataSource
@@ -230,9 +228,15 @@ extension AuthenticatorViewController {
 
 }
 
-extension AuthenticatorViewController: RefreshTableDelegate {
-    func refresh() {
-      self.tableView.reloadData()
+extension AuthenticatorViewController: AddAccountViewControllerOutput {
+    func didAdd(account: String?, issuer: String?, key: String?) {
+        tableView.reloadData()
     }
-
 }
+
+extension AuthenticatorViewController: SettingsTableViewControllerOutput {
+    func didLoadBackup() {
+        tableView.reloadData()
+    }
+}
+

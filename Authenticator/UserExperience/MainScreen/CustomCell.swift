@@ -33,18 +33,18 @@ class CustomCell: UITableViewCell {
             key = authKey
             issuer = authIssuer
 
-            issuerLabel.setLabelAtributedText(text: authIssuer,
+            issuerLabel.setAttributedText(text: authIssuer,
                                               fontSize: 18,
                                               aligment: .center,
                                               indent: 0.0,
                                               color: UIColor.label,
                                               fontWeight: .medium)
 
-            accountLabel.setLabelAtributedText(text: account,
+            accountLabel.setAttributedText(text: account,
                                                fontSize: 16,
                                                aligment: .center,
                                                indent: 0.0,
-                                               color: .fucsiaColor(),
+                                               color: .fucsiaColor,
                                                fontWeight: .light)
 
            let token = TokenGenerator.shared.createTimeBasedToken(name: authIssuer,

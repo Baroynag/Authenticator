@@ -18,6 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if !WatchAppConnection.shared.isSuported() {
             print("WCSession not supported")
         }
+        
         iapSetup()
         return true
     }
