@@ -2,7 +2,7 @@
 //  UINavigationController+Completions.swift
 //  Authenticator
 //
-//  Created by Alexandr on 13.12.2020.
+//  Created by Anzhela Baroyan on 13.12.2020.
 //  Copyright © 2020 Anzhela Baroyan. All rights reserved.
 //
 
