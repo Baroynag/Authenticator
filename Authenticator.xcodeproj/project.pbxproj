@@ -56,6 +56,7 @@
 		A8DB1CD525866BE4007C980B /* UILabel+AttributedText.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DB1CD425866BE4007C980B /* UILabel+AttributedText.swift */; };
 		A8DB1CDA25866C14007C980B /* UINavigationController+Completions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DB1CD925866C14007C980B /* UINavigationController+Completions.swift */; };
 		A8DB1CDF25866C34007C980B /* UIViewController+SetupNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DB1CDE25866C34007C980B /* UIViewController+SetupNavigation.swift */; };
+		A8DB1CEA25866DFB007C980B /* UIFont+SOTPFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DB1CE925866DFB007C980B /* UIFont+SOTPFonts.swift */; };
 		CC74BA630D0AF3B3442DF0E3 /* Pods_SOTPWatch_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E0822CA0A73046E3F1F30E9 /* Pods_SOTPWatch_Extension.framework */; };
 		EDFD8EE1D14E008CC2B86F6D /* Pods_SOTPWatch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69E961E78C1ECBDEEF93A234 /* Pods_SOTPWatch.framework */; };
 		FD6CF9FFA6037CDAEBC06627 /* Pods_Authenticator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67D87C916A1E254B6ABFAF7D /* Pods_Authenticator.framework */; };
@@ -165,6 +166,7 @@
 		A8DB1CD425866BE4007C980B /* UILabel+AttributedText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+AttributedText.swift"; sourceTree = "<group>"; };
 		A8DB1CD925866C14007C980B /* UINavigationController+Completions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Completions.swift"; sourceTree = "<group>"; };
 		A8DB1CDE25866C34007C980B /* UIViewController+SetupNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+SetupNavigation.swift"; sourceTree = "<group>"; };
+		A8DB1CE925866DFB007C980B /* UIFont+SOTPFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+SOTPFonts.swift"; sourceTree = "<group>"; };
 		B1087AF21F7B4953349EB22F /* Pods-Authenticator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Authenticator.debug.xcconfig"; path = "Target Support Files/Pods-Authenticator/Pods-Authenticator.debug.xcconfig"; sourceTree = "<group>"; };
 		DB325BD33947A6B7CF3A0A1E /* Pods-SOTPWatch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SOTPWatch.release.xcconfig"; path = "Target Support Files/Pods-SOTPWatch/Pods-SOTPWatch.release.xcconfig"; sourceTree = "<group>"; };
 		E105FBA28569813673C1F6B7 /* Pods-Authenticator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Authenticator.release.xcconfig"; path = "Target Support Files/Pods-Authenticator/Pods-Authenticator.release.xcconfig"; sourceTree = "<group>"; };
@@ -391,6 +393,7 @@
 		A8DB1CD325866BCB007C980B /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				A8DB1CE925866DFB007C980B /* UIFont+SOTPFonts.swift */,
 				1401DAC52443436E00DE677F /* UIColor+SOTPColors.swift */,
 				A8DB1CD425866BE4007C980B /* UILabel+AttributedText.swift */,
 				A8DB1CD925866C14007C980B /* UINavigationController+Completions.swift */,
@@ -746,6 +749,7 @@
 				1463409A24CE0763008ECFBD /* RNCryptorExtention.swift in Sources */,
 				14B7E31E24C3237F00A2E9F3 /* PasswordError.swift in Sources */,
 				1430EA8F24DF0E0800B75CF6 /* Purchases.swift in Sources */,
+				A8DB1CEA25866DFB007C980B /* UIFont+SOTPFonts.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

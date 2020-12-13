@@ -31,7 +31,7 @@ final class PurchaseViewController: UIViewController {
         textField.backgroundColor = .systemBackground
         
         textField.textColor = .fucsiaColor
-        textField.font = Constants.largeFont
+        textField.font = UIFont.largeFont
         textField.textAlignment = .center
         textField.text = Constants.supportString
         textField.isUserInteractionEnabled = false
@@ -44,7 +44,7 @@ final class PurchaseViewController: UIViewController {
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.backgroundColor = .systemBackground
         textField.textColor = UIColor.label
-        textField.font = Constants.normalFont
+        textField.font = UIFont.normalFont
         textField.textAlignment = .center
         textField.autocapitalizationType = .words
         textField.text = Constants.descriptionText
@@ -60,7 +60,7 @@ final class PurchaseViewController: UIViewController {
         button.layer.cornerRadius = 25
         button.clipsToBounds = true
         button.setTitleColor(.white, for: .normal)
-        button.titleLabel?.font = Constants.normalFont
+        button.titleLabel?.font = UIFont.normalFont
         button.addTarget(self, action: #selector(handlePurchase), for: .touchUpInside)
         
         return button
@@ -73,7 +73,7 @@ final class PurchaseViewController: UIViewController {
         button.layer.cornerRadius = 25
         button.clipsToBounds = true
         button.setTitleColor(.white, for: .normal)
-        button.titleLabel?.font = Constants.normalFont
+        button.titleLabel?.font = UIFont.normalFont
         button.addTarget(self, action: #selector(handleFiveDollarPurchase), for: .touchUpInside)
         
         return button
@@ -208,19 +208,6 @@ final class PurchaseViewController: UIViewController {
     private enum Constants {
         static let fiveDollarProductID = "am.baroynag.SOTP.FiveDollarDonation"
         static let oneDollarProductID = "am.baroynag.SOTP.OneDollarDonation"
-        
-        static let normalFont = UIFont(name: "Lato-Light", size: 18)
-        static let largeFont = UIFont(name: "Lato-Light", size: 32)
-        // review: Еще круче бы было сделать эти normalFont и largeFont расширением для UIFont
-        //        extension UIFont {
-        //            var normalFont: UIFont? {
-        //                return UIFont(name: "Lato-Light", size: 18)
-        //            }
-        //
-        //            var largeFont: UIFont? {
-        //                return UIFont(name: "Lato-Light", size: 32)
-        //            }
-        //        }
         
         static let purchaseGemIconName = "purchase_gem"
         
