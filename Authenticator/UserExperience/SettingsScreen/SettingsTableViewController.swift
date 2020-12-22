@@ -8,9 +8,12 @@
 
 import UIKit
 
-class SettingsTableViewController: UITableViewController {
+protocol SettingsTableViewControllerOutput: class {
+    func didLoadBackup()
+}
 
-    weak var refreshTableDelegate: RefreshTableDelegate?
+class SettingsTableViewController: UITableViewController {
+    weak var output: SettingsTableViewControllerOutput?
 
     let cellId = "settingsCellId"
     let cellWithButtonId = "settingsCellWithButtonId"
@@ -29,52 +32,48 @@ class SettingsTableViewController: UITableViewController {
         tableView.register(SettingsTableViewCellWithButton.self, forCellReuseIdentifier: cellWithButtonId)
         tableView.delegate = self
         tableView.dataSource = self
-        self.tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
+        tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
         setupView()
     }
 
     private func setupView() {
         setupNavigationController()
-        self.navigationController?.navigationBar.isHidden = false
+        navigationController?.navigationBar.isHidden = false
         navigationController?.navigationBar.prefersLargeTitles = true
+        // review: В контсанты
         navigationItem.title = NSLocalizedString("Settings", comment: "")
         view.backgroundColor = UIColor.systemBackground
 
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-
         return 2
-
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-
         var numbersOfRows = 0
         if section == 0 {
             numbersOfRows = 1
         } else {
             numbersOfRows = 3
         }
+
         return numbersOfRows
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
         if indexPath.section == 0 {
-
             let cell = tableView.dequeueReusableCell(
                 withIdentifier: cellWithButtonId,
                 for: indexPath)
             if let cellWithButton = cell as? SettingsTableViewCellWithButton {
                 cellWithButton.title = settingsList[indexPath.row]
-                cellWithButton.delgate = self
+                cellWithButton.output = self
                 cellWithButton.purchaseButton.tag = indexPath.row
             }
+
             return cell
-
         } else {
-
             let cell = tableView.dequeueReusableCell(
                 withIdentifier: cellId, for: indexPath)
 
@@ -115,29 +114,55 @@ class SettingsTableViewController: UITableViewController {
         }
 
         if indexPath.row == 0 {
-            print("create backup")
             let passwordViewController = PasswordViewController()
-            self.present(passwordViewController, animated: true)
+            present(passwordViewController, animated: true)
 
         } else if indexPath.row == 1 {
 
-            self.chooseDocument(vcWithDocumentPicker: self)
+            chooseDocument(vcWithDocumentPicker: self)
         } else if  indexPath.row == 2 {
 
             let aboutVc = AboutViewController()
-            self.present(aboutVc, animated: true)
+            present(aboutVc, animated: true)
         }
 
         tableView.deselectRow(at: indexPath, animated: true)
-
     }
-
 }
 
-extension SettingsTableViewController: pressPurchaseDelegate {
-    func pressPurchaseButton() {
+extension SettingsTableViewController: SettingsTableViewCellWithButtonOutput {
+    func didTapPurchase() {
         let purchaseViewController = PurchaseViewController()
-        self.present(purchaseViewController, animated: true, completion: nil)
+        present(purchaseViewController, animated: true, completion: nil)
+    }
+}
+
+extension SettingsTableViewController: UIDocumentPickerDelegate {
+
+    public func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
+        var title = NSLocalizedString("Wrong password", comment: "")
+        if let fileUrl = urls.first {
+            dismiss(animated: true) { [weak self ] in
+                guard let self = self else {
+                    return
+                }
+
+                let promtForPassword = UIAlertController.promptForPassword { (pass) in
+                    if let pass = pass {
+                        if Backup.getFileContent(fileURL: fileUrl, password: pass) {
+                            self.output?.didLoadBackup()
+                            title = NSLocalizedString("Data loaded", comment: "")
+                        }
+                    }
+                    let alert = UIAlertController.alertWithOk(title: title)
+                    self.present(alert, animated: true)
+                }
+                self.present(promtForPassword, animated: true)
+            }
+        }
     }
 
+    public func documentPickerWasCancelled(_ controller: UIDocumentPickerViewController) {
+        dismiss(animated: true, completion: nil)
+    }
 }

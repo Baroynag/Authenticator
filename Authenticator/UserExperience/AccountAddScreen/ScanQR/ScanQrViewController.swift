@@ -9,11 +9,15 @@
 import UIKit
 import AVFoundation
 
+protocol ScanQrViewControllerOutput: class {
+    func didFound(account: String?, issuer: String?, key: String?)
+}
+
 class ScanQrViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
 
     var captureSession: AVCaptureSession!
     var previewLayer: AVCaptureVideoPreviewLayer!
-    weak var delegate: AddItemDelegate?
+    weak var output: ScanQrViewControllerOutput?
 
     let cancelButton: UIButton = {
         let button = UIButton(type: .close)
@@ -109,23 +113,25 @@ class ScanQrViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
             guard let readableObject = metadataObject as? AVMetadataMachineReadableCodeObject else { return }
             guard let stringValue = readableObject.stringValue else { return }
             AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
-            self.dismiss(animated: true, completion: nil)
+            dismiss(animated: true, completion: nil)
             found(urlString: stringValue)
 
-        } else { self.dismiss(animated: true, completion: nil)}
+        } else {
+            dismiss(animated: true, completion: nil)
+        }
 
     }
 
     func found(urlString: String) {
-
-        if let url = URLComponents(string: urlString) {
-
-            let account   = url.path.replacingOccurrences(of: "/", with: "")
-            let issuer    = getQueryStringParameter(url: url, param: "issuer")
-            let key       = getQueryStringParameter(url: url, param: "secret")
-            delegate?.createNewItem(account: account, issuer: issuer, key: key)
-
+        guard let url = URLComponents(string: urlString) else {
+            return
         }
+
+        let account   = url.path.replacingOccurrences(of: "/", with: "")
+        let issuer    = getQueryStringParameter(url: url, param: "issuer")
+        let key       = getQueryStringParameter(url: url, param: "secret")
+
+        output?.didFound(account: account, issuer: issuer, key: key)
    }
 
     func getQueryStringParameter(url: URLComponents, param: String) -> String? {
@@ -141,6 +147,6 @@ class ScanQrViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
     }
 
     @objc private func handleCancelButton() {
-        self.dismiss(animated: true)
+        dismiss(animated: true)
     }
 }

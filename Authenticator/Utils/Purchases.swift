@@ -24,7 +24,6 @@ class Purchases: NSObject {
     public var products: [String: SKProduct]?
 
     func initialize(completion: @escaping (Result<[SKProduct], Error>) -> Void) {
-        print(#function)
         requestProducts(completion: completion)
     }
 
@@ -66,8 +65,6 @@ extension Purchases: SKProductsRequestDelegate {
 
     func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
             guard !response.products.isEmpty else {
-            print("Found 0 products")
-
             productsRequestCallbacks.forEach { $0(.success(response.products)) }
             productsRequestCallbacks.removeAll()
             return
@@ -76,7 +73,6 @@ extension Purchases: SKProductsRequestDelegate {
         var products = [String: SKProduct]()
         for skProduct in response.products {
             products[skProduct.productIdentifier] = skProduct
-            print("Found product: \(skProduct.productIdentifier) ")
         }
 
         self.products = products
@@ -86,8 +82,6 @@ extension Purchases: SKProductsRequestDelegate {
     }
 
     func request(_ request: SKRequest, didFailWithError error: Error) {
-        print("Failed to load products with error:\n \(error)")
-
         productsRequestCallbacks.forEach { $0(.failure(error)) }
         productsRequestCallbacks.removeAll()
     }
@@ -115,7 +109,6 @@ extension Purchases: SKPaymentTransactionObserver {
     func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
 
         for transaction in transactions {
-            print("transaction.transactionState  \(transaction.transactionState )")
             switch transaction.transactionState {
             case .purchased, .restored:
                 if finishTransaction(transaction) {
@@ -140,9 +133,6 @@ extension Purchases: SKPaymentTransactionObserver {
 
 extension Purchases {
     func finishTransaction(_ transaction: SKPaymentTransaction) -> Bool {
-        // Do something with purchase
-        let productId = transaction.payment.productIdentifier
-        print("Product \(productId) successfully purchased")
         return true
     }
 }

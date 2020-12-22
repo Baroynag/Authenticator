@@ -13,7 +13,7 @@ class SettingsTableViewCell: UITableViewCell {
     public var title: String? {
         didSet {
             if let title = title {
-                cellTitle.setLabelAtributedText(fontSize: 17, text: title, aligment: .left, indent: 0.0)
+                cellTitle.setAttributedText(fontSize: 17, text: title, aligment: .left, indent: 0.0)
             }
         }
     }

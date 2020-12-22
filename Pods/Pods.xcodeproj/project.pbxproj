@@ -136,7 +136,7 @@
 		18B2D18A05FF579834928730F56652EF /* RNCryptor-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "RNCryptor-dummy.m"; sourceTree = "<group>"; };
 		18B588B37303CA4256DA5245BE78EACE /* OneTimePassword-watchOS-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "OneTimePassword-watchOS-prefix.pch"; path = "../OneTimePassword-watchOS/OneTimePassword-watchOS-prefix.pch"; sourceTree = "<group>"; };
 		1C370C210D2E4FA3825C09D182B0C573 /* RNCryptor-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "RNCryptor-Info.plist"; sourceTree = "<group>"; };
-		1F7BB774AF51E5D1EDC27DC8713B5CDA /* Pods_SOTPWatch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SOTPWatch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F7BB774AF51E5D1EDC27DC8713B5CDA /* Pods_SOTPWatch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_SOTPWatch.framework; path = "Pods-SOTPWatch.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F7D967D9D5DB01C2BE06FF72488F558 /* Base32-iOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Base32-iOS.modulemap"; sourceTree = "<group>"; };
 		2BC59F9D097CC23CF00A6B0A6EA0B165 /* Pods-Authenticator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Authenticator.release.xcconfig"; sourceTree = "<group>"; };
 		2C2E4A4839757ECB8C087B1C014D6D5B /* Pods-SOTPWatch Extension-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SOTPWatch Extension-Info.plist"; sourceTree = "<group>"; };
@@ -150,12 +150,12 @@
 		48401D1771A663C7FDB3803394B16F7C /* PersistentToken.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PersistentToken.swift; path = Sources/PersistentToken.swift; sourceTree = "<group>"; };
 		4DBBD567C80311E4D96F46BC03E91795 /* OneTimePassword-iOS-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "OneTimePassword-iOS-prefix.pch"; sourceTree = "<group>"; };
 		4E4E37E34FE5B0769E2CCB182B2CFF4A /* Base32-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Base32-iOS.debug.xcconfig"; sourceTree = "<group>"; };
-		50F81942B51A2D5CCB4F7536BBAE3D9E /* Pods_Authenticator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Authenticator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		50F81942B51A2D5CCB4F7536BBAE3D9E /* Pods_Authenticator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Authenticator.framework; path = "Pods-Authenticator.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5272460D420E1E9E4BCF04D18583A4E9 /* Base32.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Base32.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		56A6F36C6D3622179B5E9F0E1A5223FC /* Pods-SOTPWatch-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SOTPWatch-Info.plist"; sourceTree = "<group>"; };
 		5744FC2A3BE293AA3D92553FFFB194C0 /* RNCryptor.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = RNCryptor.modulemap; sourceTree = "<group>"; };
 		59CE536A225362A8CC185DA9127754F7 /* Pods-SOTPWatch Extension-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SOTPWatch Extension-acknowledgements.markdown"; sourceTree = "<group>"; };
-		5D7A9C05A8683DDC01814A53E717C064 /* OneTimePassword.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OneTimePassword.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5D7A9C05A8683DDC01814A53E717C064 /* OneTimePassword.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = OneTimePassword.framework; path = "OneTimePassword-watchOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E60BE85D23C1D9A34DC05144D440308 /* Base32-iOS-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Base32-iOS-Info.plist"; sourceTree = "<group>"; };
 		5F3796E19DE3F4A38F4920F1FF6D725E /* Pods-Authenticator-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Authenticator-Info.plist"; sourceTree = "<group>"; };
 		5F89D8B121D8FA84EF2481BF72E75570 /* RNCryptor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RNCryptor.swift; path = Sources/RNCryptor/RNCryptor.swift; sourceTree = "<group>"; };
@@ -173,9 +173,9 @@
 		91C99EDA7A6ACAD6614EDF839CBF6A41 /* Pods-SOTPWatch Extension-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SOTPWatch Extension-acknowledgements.plist"; sourceTree = "<group>"; };
 		99F678240DE15B95C7C68365C6C5395B /* Pods-Authenticator-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Authenticator-acknowledgements.plist"; sourceTree = "<group>"; };
 		9D75BFA513DF670AB35B367D2D62FDFD /* OneTimePassword-watchOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "OneTimePassword-watchOS.debug.xcconfig"; path = "../OneTimePassword-watchOS/OneTimePassword-watchOS.debug.xcconfig"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		9DB6D892BA9973B87DF400F65C5A64DF /* Base32.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Base32.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9E910C902B8FC1B4609079A68AA9340B /* Pods_SOTPWatch_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SOTPWatch_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9DB6D892BA9973B87DF400F65C5A64DF /* Base32.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Base32.framework; path = "Base32-iOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9E910C902B8FC1B4609079A68AA9340B /* Pods_SOTPWatch_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_SOTPWatch_Extension.framework; path = "Pods-SOTPWatch Extension.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F39FA0800A388962C23D5F40B3D4186 /* Pods-SOTPWatch-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SOTPWatch-frameworks.sh"; sourceTree = "<group>"; };
 		9F62925D674AF47DDF0C7EB46B3EA584 /* Pods-SOTPWatch-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SOTPWatch-acknowledgements.plist"; sourceTree = "<group>"; };
 		A017574457B7D78401E80C811A39C9A3 /* Base32-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Base32-iOS.release.xcconfig"; sourceTree = "<group>"; };
@@ -197,7 +197,7 @@
 		CB3A8FE2A379108E8A1910CAEF141E18 /* Pods-Authenticator-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Authenticator-acknowledgements.markdown"; sourceTree = "<group>"; };
 		CCB476DF65438582EFA88712FF8AF428 /* Pods-Authenticator-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Authenticator-umbrella.h"; sourceTree = "<group>"; };
 		CD50AB443ABF9485C989924260697980 /* Pods-Authenticator.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Authenticator.modulemap"; sourceTree = "<group>"; };
-		CF1F2666249781535C3BD2150D165698 /* OneTimePassword.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OneTimePassword.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CF1F2666249781535C3BD2150D165698 /* OneTimePassword.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = OneTimePassword.framework; path = "OneTimePassword-iOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D37AA58C5B481E79CEF4C7336DB2A91F /* Base32-watchOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Base32-watchOS.debug.xcconfig"; path = "../Base32-watchOS/Base32-watchOS.debug.xcconfig"; sourceTree = "<group>"; };
 		D7E346DF769E7C01236DBCFDB09F7C94 /* OneTimePassword-watchOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "OneTimePassword-watchOS-umbrella.h"; path = "../OneTimePassword-watchOS/OneTimePassword-watchOS-umbrella.h"; sourceTree = "<group>"; };
 		D90F787AB69A39C677F2DAB41AA45B4C /* OneTimePassword-iOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "OneTimePassword-iOS-umbrella.h"; sourceTree = "<group>"; };
@@ -206,8 +206,8 @@
 		E4FCC5FAC597A0AFAA514D9CA2245449 /* Pods-SOTPWatch.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-SOTPWatch.modulemap"; sourceTree = "<group>"; };
 		ED5139B2B7F51D97133A18421B964A0D /* RNCryptor-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RNCryptor-prefix.pch"; sourceTree = "<group>"; };
 		ED71E79B14BC03BDB6096698858608F1 /* OneTimePassword-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "OneTimePassword-iOS.release.xcconfig"; sourceTree = "<group>"; };
-		F46A2F3D51E182FCA52ACF692A940776 /* Base32.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Base32.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F6320389F628433B78C81FB217A0485D /* RNCryptor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RNCryptor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F46A2F3D51E182FCA52ACF692A940776 /* Base32.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Base32.framework; path = "Base32-watchOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F6320389F628433B78C81FB217A0485D /* RNCryptor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = RNCryptor.framework; path = RNCryptor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB8730D3AABF1A8CBC847928169493B5 /* Base32-watchOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "Base32-watchOS-dummy.m"; path = "../Base32-watchOS/Base32-watchOS-dummy.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -287,6 +287,7 @@
 				5F89D8B121D8FA84EF2481BF72E75570 /* RNCryptor.swift */,
 				75CBAA067FF4441152BE01D3DE5FEFCB /* Support Files */,
 			);
+			name = RNCryptor;
 			path = RNCryptor;
 			sourceTree = "<group>";
 		};
@@ -327,6 +328,7 @@
 				A3183009AB76C01E32288B07E3AE1B53 /* MF_Base32Additions.m */,
 				3795418E211D9044E00D4B41F437BBB8 /* Support Files */,
 			);
+			name = Base32;
 			path = Base32;
 			sourceTree = "<group>";
 		};
@@ -427,6 +429,7 @@
 				A75470FF885A3B5F002127D6D2B83773 /* Token+URL.swift */,
 				DB98CD9062C4E80A100450C664DC7BDB /* Support Files */,
 			);
+			name = OneTimePassword;
 			path = OneTimePassword;
 			sourceTree = "<group>";
 		};
@@ -729,7 +732,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1100;
-				LastUpgradeCheck = 1220;
+				LastUpgradeCheck = 1100;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 10.0";
@@ -978,7 +981,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = "Target Support Files/Pods-Authenticator/Pods-Authenticator-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1061,7 +1064,6 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -1084,7 +1086,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1113,7 +1115,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/Base32-iOS/Base32-iOS-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/Base32-iOS/Base32-iOS-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1186,7 +1188,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/RNCryptor/RNCryptor-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/RNCryptor/RNCryptor-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1258,7 +1260,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/Base32-iOS/Base32-iOS-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/Base32-iOS/Base32-iOS-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1343,7 +1345,6 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -1369,7 +1370,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1436,7 +1437,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/OneTimePassword-iOS/OneTimePassword-iOS-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/OneTimePassword-iOS/OneTimePassword-iOS-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1472,7 +1473,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/RNCryptor/RNCryptor-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/RNCryptor/RNCryptor-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1547,7 +1548,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = "Target Support Files/Pods-Authenticator/Pods-Authenticator-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1622,7 +1623,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/OneTimePassword-iOS/OneTimePassword-iOS-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/OneTimePassword-iOS/OneTimePassword-iOS-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

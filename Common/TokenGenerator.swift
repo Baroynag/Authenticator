@@ -41,7 +41,6 @@ class TokenGenerator {
             return false}
 
         return true
-
     }
 
 }

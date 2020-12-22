@@ -8,9 +8,12 @@
 
 import UIKit
 
-class SettingsTableViewCellWithButton: UITableViewCell {
+protocol SettingsTableViewCellWithButtonOutput: class {
+    func didTapPurchase()
+}
 
-    var delgate: pressPurchaseDelegate?
+class SettingsTableViewCellWithButton: UITableViewCell {
+    weak var output: SettingsTableViewCellWithButtonOutput?
 
     public var title: String? {
         didSet {
@@ -23,7 +26,7 @@ class SettingsTableViewCellWithButton: UITableViewCell {
     let purchaseButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.backgroundColor = .fucsiaColor()
+        button.backgroundColor = .fucsiaColor
         button.layer.cornerRadius = 25
         button.clipsToBounds = true
         button.setTitleColor(.white, for: .normal)
@@ -59,7 +62,6 @@ class SettingsTableViewCellWithButton: UITableViewCell {
     }
 
     @objc func handlePurchase() {
-        self.delgate?.pressPurchaseButton()
+        output?.didTapPurchase()
     }
-
 }

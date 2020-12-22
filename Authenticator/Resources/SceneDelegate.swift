@@ -15,17 +15,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene,
                willConnectTo session: UISceneSession,
                options connectionOptions: UIScene.ConnectionOptions) {
-        guard let winScene = (scene as? UIWindowScene) else { return }
-        let navController = UINavigationController(rootViewController: AuthenticatorViewController())
-        let rootScreen = AuthenticatorViewController()
-        navController.viewControllers = [rootScreen]
-        if !AuthenticatorModel.shared.isAnyRecords() {
-            let greetingScreen = GreetingViewController()
-            greetingScreen.delegate = self
-            navController.viewControllers = [rootScreen, greetingScreen]
+        guard let scene = (scene as? UIWindowScene) else { return }
+        window = UIWindow(windowScene: scene)
+
+        if AuthenticatorModel.shared.isAnyRecords() {
+           showAuthenticatorRoot()
+        } else {
+            showGreetingRoot()
         }
-        window = UIWindow(windowScene: winScene)
-        window?.rootViewController = navController
+
         window?.makeKeyAndVisible()
     }
 
@@ -45,12 +43,24 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
     }
 
-}
-
-extension SceneDelegate: GreetingViewControllerDelegate {
-
-    func didTapCreate() {
-        window?.rootViewController = UINavigationController(rootViewController: AuthenticatorViewController())
+    private func showGreetingRoot() {
+        let greetingScreen = GreetingViewController()
+        greetingScreen.output = self
+        window?.rootViewController = greetingScreen
     }
 
+    private func showAuthenticatorRoot() {
+        let authenticatorViewController = AuthenticatorViewController()
+        window?.rootViewController = UINavigationController(rootViewController: authenticatorViewController)
+    }
+}
+
+extension SceneDelegate: GreetingViewControllerOutput {
+    func didLoadBackup() {
+        showAuthenticatorRoot()
+    }
+
+    func didAdd(account: String?, issuer: String?, key: String?) {
+        showAuthenticatorRoot()
+    }
 }

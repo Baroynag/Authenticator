@@ -14,7 +14,7 @@ class UITextFieldWithBottomBorder: UITextField {
     override init(frame: CGRect) {
         super.init(frame: frame)
         createBorder(textField: self,
-                     color: .graySOTPColor(),
+                     color: .graySOTPColor,
                      borderWidth: 1.5,
                      border: bottomBorder)
         self.layer.addSublayer(bottomBorder)
