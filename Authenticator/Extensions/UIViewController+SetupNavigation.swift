@@ -22,6 +22,6 @@ extension UIViewController {
         navigationItem.standardAppearance = appearance
         navigationItem.scrollEdgeAppearance = appearance
         navigationItem.compactAppearance = appearance
-        self.navigationController?.navigationBar.tintColor = navTextColor
+        navigationController?.navigationBar.tintColor = navTextColor
     }
 }

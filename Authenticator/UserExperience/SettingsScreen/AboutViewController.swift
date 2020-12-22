@@ -103,7 +103,7 @@ class AboutViewController: UIViewController {
     }
 
     @objc func handleCancel() {
-        self.dismiss(animated: true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
 
 }

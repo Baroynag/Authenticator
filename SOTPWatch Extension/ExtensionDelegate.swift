@@ -99,7 +99,6 @@ extension ExtensionDelegate: WCSessionDelegate {
     func session(_ session: WCSession,
                  activationDidCompleteWith activationState: WCSessionActivationState,
                  error: Error?) {
-        print(" error:\(String(describing: error))")
     }
 
 }

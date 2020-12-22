@@ -10,10 +10,11 @@ import Foundation
 import UIKit
 
 extension UILabel {
-    func setAttributedText(fontSize: CGFloat,
-                               text: String,
-                               aligment: NSTextAlignment,
-                               indent: CGFloat) {
+    func setAttributedText(
+        fontSize: CGFloat,
+        text: String,
+        aligment: NSTextAlignment,
+        indent: CGFloat) {
         let font = UIFont.systemFont(ofSize: fontSize, weight: .light)
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.alignment = aligment
@@ -27,12 +28,12 @@ extension UILabel {
         let attributedText = NSMutableAttributedString(string: text, attributes: attributes)
         self.attributedText = attributedText
     }
-    
+
     func setAttributedText(fontSize: CGFloat,
-                               text: String,
-                               aligment: NSTextAlignment,
-                               indent: CGFloat,
-                               color: UIColor) {
+                           text: String,
+                           aligment: NSTextAlignment,
+                           indent: CGFloat,
+                           color: UIColor) {
         let font = UIFont.systemFont(ofSize: fontSize, weight: .semibold)
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.alignment = aligment
@@ -49,11 +50,11 @@ extension UILabel {
     }
 
     func setAttributedText(text: String,
-                               fontSize: CGFloat,
-                               aligment: NSTextAlignment,
-                               indent: CGFloat,
-                               color: UIColor,
-                               fontWeight: UIFont.Weight) {
+                           fontSize: CGFloat,
+                           aligment: NSTextAlignment,
+                           indent: CGFloat,
+                           color: UIColor,
+                           fontWeight: UIFont.Weight) {
 
         let font = UIFont.systemFont(ofSize: fontSize, weight: fontWeight)
         let paragraphStyle = NSMutableParagraphStyle()

@@ -129,7 +129,7 @@ class AuthenticatorViewController: UIViewController {
     private func showAddAccount() {
         let addAccountViewController = AddAccountViewController()
         addAccountViewController.output = self
-        self.present(addAccountViewController, animated: true)
+        present(addAccountViewController, animated: true)
     }
 }
 
@@ -239,4 +239,3 @@ extension AuthenticatorViewController: SettingsTableViewControllerOutput {
         tableView.reloadData()
     }
 }
-

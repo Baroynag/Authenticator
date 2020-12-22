@@ -17,13 +17,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                options connectionOptions: UIScene.ConnectionOptions) {
         guard let scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: scene)
-        
+
         if AuthenticatorModel.shared.isAnyRecords() {
            showAuthenticatorRoot()
         } else {
             showGreetingRoot()
         }
-        
+
         window?.makeKeyAndVisible()
     }
 
@@ -42,13 +42,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func sceneDidEnterBackground(_ scene: UIScene) {
         (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
     }
-    
+
     private func showGreetingRoot() {
         let greetingScreen = GreetingViewController()
         greetingScreen.output = self
         window?.rootViewController = greetingScreen
     }
-    
+
     private func showAuthenticatorRoot() {
         let authenticatorViewController = AuthenticatorViewController()
         window?.rootViewController = UINavigationController(rootViewController: authenticatorViewController)
@@ -59,7 +59,7 @@ extension SceneDelegate: GreetingViewControllerOutput {
     func didLoadBackup() {
         showAuthenticatorRoot()
     }
-    
+
     func didAdd(account: String?, issuer: String?, key: String?) {
         showAuthenticatorRoot()
     }

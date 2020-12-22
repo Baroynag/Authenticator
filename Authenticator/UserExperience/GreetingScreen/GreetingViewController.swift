@@ -76,7 +76,7 @@ final class GreetingViewController: UIViewController {
     // MARK: - Inits
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationBar.isHidden = true
+        navigationController?.navigationBar.isHidden = true
         setupLayout()
     }
 
@@ -84,11 +84,11 @@ final class GreetingViewController: UIViewController {
     @objc private func handleCreate() {
         let addAccountViewController = AddAccountViewController()
         addAccountViewController.output = self
-        self.present(addAccountViewController, animated: true, completion: nil)
+        present(addAccountViewController, animated: true, completion: nil)
     }
 
     @objc private func handleLoad() {
-        self.chooseDocument(vcWithDocumentPicker: self)
+        chooseDocument(vcWithDocumentPicker: self)
     }
 
     // MARK: - Functions
@@ -155,7 +155,7 @@ extension GreetingViewController: UIDocumentPickerDelegate {
                 guard let self = self else {
                     return
                 }
-                
+
                 let promtForPassword = UIAlertController.promptForPassword { pass in
                     if let pass = pass {
                         if Backup.getFileContent(fileURL: fileURL, password: pass) {
@@ -170,7 +170,7 @@ extension GreetingViewController: UIDocumentPickerDelegate {
             }
         }
     }
-    
+
     public func documentPickerWasCancelled(_ controller: UIDocumentPickerViewController) {
         dismiss(animated: true, completion: nil)
     }

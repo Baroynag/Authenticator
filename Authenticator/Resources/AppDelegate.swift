@@ -15,10 +15,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        if !WatchAppConnection.shared.isSuported() {
-            print("WCSession not supported")
-        }
-        
         iapSetup()
         return true
     }
@@ -63,7 +59,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     func iapSetup() {
         Purchases.default.initialize { [weak self] result in
-            print(#function)
             guard self != nil else { return }
             switch result {
             case .success:

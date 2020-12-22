@@ -32,7 +32,7 @@ class WatchAppConnection: NSObject {
 extension WatchAppConnection: WCSessionDelegate {
     func sessionDidBecomeInactive(_ session: WCSession) {
     }
-    
+
     func session(_ session: WCSession,
                  activationDidCompleteWith activationState: WCSessionActivationState,
                  error: Error?) {
@@ -43,7 +43,7 @@ extension WatchAppConnection: WCSessionDelegate {
     }
 
     func sessionDidDeactivate(_ session: WCSession) {
-        self.session.activate()
+        session.activate()
     }
 
     func session(_ session: WCSession,

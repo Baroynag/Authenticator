@@ -84,7 +84,7 @@ class AddAccountViewController: UIViewController {
     // MARK: - Inits
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setupView()
+        setupView()
     }
 
     // MARK: Functions
@@ -186,7 +186,7 @@ class AddAccountViewController: UIViewController {
         let okAction = UIAlertAction(title: NSLocalizedString("Ok", comment: ""), style: .default)
         alert.addAction(okAction)
 
-        self.present(alert, animated: true, completion: nil)
+        present(alert, animated: true, completion: nil)
 
     }
 
@@ -197,12 +197,11 @@ class AddAccountViewController: UIViewController {
                                         comment: "")
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
 
-        let okAction = UIAlertAction(title: "Ok", style: .default) {_ in ()
-            self.dismiss(animated: true)
+        let okAction = UIAlertAction(title: "Ok", style: .default) { [weak self] _ in ()
+            self?.dismiss(animated: true)
         }
         alert.addAction(okAction)
-
-        self.present(alert, animated: true)
+        present(alert, animated: true)
     }
 
     // MARK: - Handlers
@@ -221,7 +220,7 @@ class AddAccountViewController: UIViewController {
                                                      issuer: issuerTextField.text,
                                                      key: keyTextField.text)
                 output?.didAdd(account: "", issuer: issuerTextField.text, key: keyTextField.text)
-                self.dismiss(animated: true, completion: nil)
+                dismiss(animated: true, completion: nil)
             } else {
                  showAlert(
                     alertTitle: NSLocalizedString("Wrong account", comment: ""),
@@ -236,15 +235,14 @@ class AddAccountViewController: UIViewController {
             let scanQrViewController = ScanQrViewController()
             scanQrViewController.output = self
             scanQrViewController.modalPresentationStyle = .fullScreen
-                self.present(scanQrViewController, animated: true)
+            present(scanQrViewController, animated: true)
         } else {
-            self.showCameraPermissionAlert()
+            showCameraPermissionAlert()
         }
     }
 
     @objc private func handleCancelButton() {
-        self.dismiss(animated: true)
-
+        dismiss(animated: true)
     }
 }
 
@@ -277,7 +275,7 @@ extension AddAccountViewController: ScanQrViewControllerOutput {
                                              issuer: issuer,
                                              key: key)
         output?.didAdd(account: account, issuer: issuer, key: key)
-        self.dismiss(animated: true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
 
 }

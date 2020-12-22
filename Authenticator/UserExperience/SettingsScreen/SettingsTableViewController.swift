@@ -14,7 +14,7 @@ protocol SettingsTableViewControllerOutput: class {
 
 class SettingsTableViewController: UITableViewController {
     weak var output: SettingsTableViewControllerOutput?
-    
+
     let cellId = "settingsCellId"
     let cellWithButtonId = "settingsCellWithButtonId"
 
@@ -32,13 +32,13 @@ class SettingsTableViewController: UITableViewController {
         tableView.register(SettingsTableViewCellWithButton.self, forCellReuseIdentifier: cellWithButtonId)
         tableView.delegate = self
         tableView.dataSource = self
-        self.tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
+        tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
         setupView()
     }
 
     private func setupView() {
         setupNavigationController()
-        self.navigationController?.navigationBar.isHidden = false
+        navigationController?.navigationBar.isHidden = false
         navigationController?.navigationBar.prefersLargeTitles = true
         // review: В контсанты
         navigationItem.title = NSLocalizedString("Settings", comment: "")
@@ -57,7 +57,7 @@ class SettingsTableViewController: UITableViewController {
         } else {
             numbersOfRows = 3
         }
-        
+
         return numbersOfRows
     }
 
@@ -71,7 +71,7 @@ class SettingsTableViewController: UITableViewController {
                 cellWithButton.output = self
                 cellWithButton.purchaseButton.tag = indexPath.row
             }
-            
+
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(
@@ -115,15 +115,15 @@ class SettingsTableViewController: UITableViewController {
 
         if indexPath.row == 0 {
             let passwordViewController = PasswordViewController()
-            self.present(passwordViewController, animated: true)
+            present(passwordViewController, animated: true)
 
         } else if indexPath.row == 1 {
 
-            self.chooseDocument(vcWithDocumentPicker: self)
+            chooseDocument(vcWithDocumentPicker: self)
         } else if  indexPath.row == 2 {
 
             let aboutVc = AboutViewController()
-            self.present(aboutVc, animated: true)
+            present(aboutVc, animated: true)
         }
 
         tableView.deselectRow(at: indexPath, animated: true)
@@ -133,7 +133,7 @@ class SettingsTableViewController: UITableViewController {
 extension SettingsTableViewController: SettingsTableViewCellWithButtonOutput {
     func didTapPurchase() {
         let purchaseViewController = PurchaseViewController()
-        self.present(purchaseViewController, animated: true, completion: nil)
+        present(purchaseViewController, animated: true, completion: nil)
     }
 }
 
@@ -146,7 +146,7 @@ extension SettingsTableViewController: UIDocumentPickerDelegate {
                 guard let self = self else {
                     return
                 }
-                
+
                 let promtForPassword = UIAlertController.promptForPassword { (pass) in
                     if let pass = pass {
                         if Backup.getFileContent(fileURL: fileUrl, password: pass) {

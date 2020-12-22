@@ -17,12 +17,12 @@ class AuthenticatorModel {
 
     public var authenticatorItemsList: [AuthenticatorItem]?
     private var filteredItems: [AuthenticatorItem]?
-    
+
     func loadData() {
         do {
             let request = NSFetchRequest<AuthenticatorItem>(entityName: "AuthenticatorItem")
             request.sortDescriptors = [NSSortDescriptor(key: "priority", ascending: true)]
-            self.authenticatorItemsList = try context.fetch(request)
+            authenticatorItemsList = try context.fetch(request)
         } catch {
             print(NSLocalizedString("Core data load error", comment: ""), error.localizedDescription)
         }
@@ -34,7 +34,7 @@ class AuthenticatorModel {
             account, issuer, key)
         request.predicate = predicate
         do {
-            self.filteredItems = try context.fetch(request)
+            filteredItems = try context.fetch(request)
             if filteredItems?.count ?? 0  > 0 {
                 return true
             }
@@ -56,13 +56,13 @@ class AuthenticatorModel {
         authItem.key       = key
         authItem.priority  = getNextPriorityNumber()
         do {
-            try self.context.save()
+            try context.save()
             authenticatorItemsList?.append(authItem)
         } catch {
             print(NSLocalizedString("Core data save error", comment: ""), error.localizedDescription)
         }
     }
-    
+
     func addOneItem(account: String?, issuer: String?, key: String?, priority: Int64) {
 
        if isRecordExist(account: account ?? "", issuer: issuer ?? "", key: key ?? "") {
@@ -76,7 +76,7 @@ class AuthenticatorModel {
         authItem.key       = key
         authItem.priority  = priority
         do {
-            try self.context.save()
+            try context.save()
             authenticatorItemsList?.append(authItem)
         } catch {
             print(NSLocalizedString("Core data save error", comment: ""), error.localizedDescription)
@@ -86,7 +86,7 @@ class AuthenticatorModel {
     func deleteData(index: Int) {
 
         if let itemToRemove = authenticatorItemsList?[index] {
-            self.context.delete(itemToRemove)
+            context.delete(itemToRemove)
             authenticatorItemsList?.remove(at: index)
             do {
                 try context.save()
@@ -110,11 +110,11 @@ class AuthenticatorModel {
                     "priority": String(item.priority)]
             }
         }
-        
+
         return dictionary
     }
     func convertCoreDataObjectsToJSONArray() -> [[String: Any]] {
-        let jsonArray: [[String: Any]] = []
+        var jsonArray: [[String: Any]] = []
         guard let authenticatorItemsList = authenticatorItemsList else {return [[:]] }
 
         for item in authenticatorItemsList {
@@ -130,6 +130,7 @@ class AuthenticatorModel {
                     }
                 }
             }
+            jsonArray.append(dictionary)
         }
         return jsonArray
 
@@ -145,7 +146,7 @@ class AuthenticatorModel {
             let key       = item["key"]       as? String ?? ""
             let issuer    = item["issuer"]    as? String ?? ""
             let priority  = item["priority"]  as? Int64  ?? 0
-            self.addOneItem(account: account,
+            addOneItem(account: account,
                             issuer: issuer,
                             key: key,
                             priority: priority)
@@ -165,7 +166,7 @@ class AuthenticatorModel {
 
     private func saveContext() -> Error? {
         do {
-            try self.context.save()
+            try context.save()
         } catch {
             return error
         }

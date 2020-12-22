@@ -133,7 +133,6 @@ extension Purchases: SKPaymentTransactionObserver {
 
 extension Purchases {
     func finishTransaction(_ transaction: SKPaymentTransaction) -> Bool {
-        let productId = transaction.payment.productIdentifier
         return true
     }
 }

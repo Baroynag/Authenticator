@@ -11,6 +11,7 @@ import RNCryptor
 class Backup {
     class public func getEncriptedData(password: String) -> String? {
         let jsonArray = AuthenticatorModel.shared.convertCoreDataObjectsToJSONArray()
+        print(jsonArray)
         if let jsonData = try? JSONSerialization.data(withJSONObject: jsonArray) {
             if let jsonString = String(data: jsonData, encoding: .utf8) {
                 let encryptedText = RNCryptor.encrypt(plainText: jsonString, password: password)
@@ -30,7 +31,7 @@ class Backup {
             guard let jsonData = decriptedText.data(using: .utf8) else {
                 print(NSLocalizedString("Error to upload file", comment: ""))
                 return false }
-
+            print(jsonData)
             guard let jsonResponse = (try? JSONSerialization.jsonObject(with: jsonData)) as? [[String: Any]] else {
                     print(NSLocalizedString("Json serialization error", comment: ""))
                     return false}

@@ -113,10 +113,12 @@ class ScanQrViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
             guard let readableObject = metadataObject as? AVMetadataMachineReadableCodeObject else { return }
             guard let stringValue = readableObject.stringValue else { return }
             AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
-            self.dismiss(animated: true, completion: nil)
+            dismiss(animated: true, completion: nil)
             found(urlString: stringValue)
 
-        } else { self.dismiss(animated: true, completion: nil)}
+        } else {
+            dismiss(animated: true, completion: nil)
+        }
 
     }
 
@@ -124,11 +126,11 @@ class ScanQrViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
         guard let url = URLComponents(string: urlString) else {
             return
         }
-        
+
         let account   = url.path.replacingOccurrences(of: "/", with: "")
         let issuer    = getQueryStringParameter(url: url, param: "issuer")
         let key       = getQueryStringParameter(url: url, param: "secret")
-        
+
         output?.didFound(account: account, issuer: issuer, key: key)
    }
 
@@ -145,6 +147,6 @@ class ScanQrViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
     }
 
     @objc private func handleCancelButton() {
-        self.dismiss(animated: true)
+        dismiss(animated: true)
     }
 }

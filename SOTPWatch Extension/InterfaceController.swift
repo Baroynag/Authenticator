@@ -28,7 +28,7 @@ class InterfaceController: WKInterfaceController {
 
     override func didAppear() {
         super.didAppear()
-        self.countDown = self.getTimerInterval()
+        countDown = getTimerInterval()
         setupTable()
         table.setNumberOfRows(1, withRowType: "SotpWRow")
         if let row = table.rowController(at: 0) as? SOTPWatchRow {
@@ -70,9 +70,7 @@ class InterfaceController: WKInterfaceController {
     }
 
     private func setupTable() {
-
-        self.fetchData()
-
+        fetchData()
         runUpdateTable()
     }
 
@@ -151,10 +149,10 @@ extension InterfaceController {
 
         let request = NSFetchRequest<AuthenticatorForWatchItem>(entityName: "AuthenticatorForWatchItem")
         request.sortDescriptors = [NSSortDescriptor(key: "priority", ascending: true)]
-        self.items = []
+        items = []
 
         do {
-            self.items = try context.fetch(request)
+            items = try context.fetch(request)
         } catch {
             print(NSLocalizedString("Core data load error", comment: ""), error.localizedDescription)
         }
@@ -179,8 +177,6 @@ extension InterfaceController {
         if !needUpdate {
             for authItem in responce {
                 if let responceItem = authItem.value as? [String: String] {
-                    let key         = responceItem["key"] ?? ""
-                    let issuer      = responceItem["issuer"] ?? ""
                     let ptiority    = Int64(responceItem["priority"] ?? "")
 
                     for watchitem in items {
@@ -219,7 +215,7 @@ extension InterfaceController {
         }
 
         do {
-            try self.context.save()
+            try context.save()
         } catch {
             print(NSLocalizedString("Core data save error", comment: ""), error.localizedDescription)
         }
