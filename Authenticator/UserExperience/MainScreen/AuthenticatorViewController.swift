@@ -75,7 +75,6 @@ class AuthenticatorViewController: UIViewController {
                     navigationItem.leftBarButtonItem = editButton
                     addButton.isHidden = false
                     customCell.stopEditing()
-                    AuthenticatorModel.shared.endEditing()
                 }
             }
         }
@@ -137,7 +136,7 @@ class AuthenticatorViewController: UIViewController {
 extension AuthenticatorViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return AuthenticatorModel.shared.authenticatorItemsList?.count ?? 0
+        return AuthenticatorModel.shared.sotpPersistentTokenItems.count
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -148,8 +147,8 @@ extension AuthenticatorViewController: UITableViewDataSource {
 
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
 
-        if let item = AuthenticatorModel.shared.authenticatorItemsList?[indexPath.row],
-           let customCell = cell as? CustomCell {
+        let item = AuthenticatorModel.shared.sotpPersistentTokenItems[indexPath.row]
+           if let customCell = cell as? CustomCell {
             customCell.authItem = item
             customCell.copyButton.tag = indexPath.row
         }

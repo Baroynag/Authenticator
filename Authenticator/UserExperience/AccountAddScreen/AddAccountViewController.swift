@@ -215,17 +215,17 @@ class AddAccountViewController: UIViewController {
             }
         }
         if let key = keyTextField.text {
-            if TokenGenerator.shared.isValidSecretKey(secretKey: key) {
+            //if TokenGenerator.shared.isValidSecretKey(secretKey: key) {
                 AuthenticatorModel.shared.addOneItem(account: "",
                                                      issuer: issuerTextField.text,
                                                      key: keyTextField.text)
                 output?.didAdd(account: "", issuer: issuerTextField.text, key: keyTextField.text)
                 dismiss(animated: true, completion: nil)
-            } else {
+            /*} else {
                  showAlert(
                     alertTitle: NSLocalizedString("Wrong account", comment: ""),
                     alertMessage: NSLocalizedString("Please enter correct account", comment: ""))
-            }
+            }*/
         }
 
     }

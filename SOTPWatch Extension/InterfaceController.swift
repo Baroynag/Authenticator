@@ -10,7 +10,7 @@ import WatchKit
 import Foundation
 import WatchConnectivity
 import CoreData
-
+import OneTimePassword
 class InterfaceController: WKInterfaceController {
 
     // MARK: Properties
@@ -34,6 +34,14 @@ class InterfaceController: WKInterfaceController {
         if let row = table.rowController(at: 0) as? SOTPWatchRow {
             row.passLabel?.setText("Загрузка...")
         }
+        
+        let keychain = Keychain.sharedInstance
+        do {
+            let persistentTokens = try keychain.allPersistentTokens()
+            print("All tokens: \(persistentTokens.map({ $0.token }))")
+        } catch {
+            print("Keychain error: \(error)")
+        }
     }
 
     override func willActivate() {
@@ -46,15 +54,15 @@ class InterfaceController: WKInterfaceController {
         table.setNumberOfRows(items.count, withRowType: "SotpWRow")
         for (index, item) in items.enumerated() {
             if let row = table.rowController(at: index) as? SOTPWatchRow {
-                let token = TokenGenerator.shared.createTimeBasedToken(
-                    name: "",
-                    issuer: item.issuer ?? "",
-                    secretString: item.key ?? "")
-                if let tokenPass = token?.currentPassword {
-                    row.accountLabel?.setText(item.issuer)
-                    row.passLabel?.setText(tokenPass)
-                    row.detailLabel?.setText("Refresh in " + String(countDown) + "s.")
-                }
+//                let token = TokenGenerator.shared.createTimeBasedToken(
+//                    name: "",
+//                    issuer: item.issuer ?? "",
+//                    secretString: item.key ?? "")
+//                if let tokenPass = token?.currentPassword {
+//                    row.accountLabel?.setText(item.issuer)
+//                    row.passLabel?.setText(tokenPass)
+//                    row.detailLabel?.setText("Refresh in " + String(countDown) + "s.")
+//                }
             }
         }
     }

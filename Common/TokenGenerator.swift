@@ -11,7 +11,7 @@ import Base32
 
 class TokenGenerator {
     static let shared = TokenGenerator()
-    func createTimeBasedToken(name: String, issuer: String, secretString: String) -> Token? {
+    func createTimeBasedToken(name: String, issuer: String, secretString: String, priority: Int) -> SOTPPersistentToken? {
 
         guard let secretData = MF_Base32Codec.data(fromBase32String: secretString),
             !secretData.isEmpty else {
@@ -26,10 +26,9 @@ class TokenGenerator {
                 print("Invalid generator parameters")
                 return nil
         }
-
         let token = Token(name: name, issuer: issuer, generator: generator)
-
-        return token
+        let sotpToken = SOTPPersistentToken(priority: priority, token: token)
+        return sotpToken
     }
 
     func isValidSecretKey(secretKey: String) -> Bool {
