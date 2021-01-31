@@ -18,10 +18,11 @@ public final class SOTPKeychain {
         let tokenAtributes = SOTPTokenAtributes(sotpToken: sotpToken)
         let atributes = try? JSONEncoder().encode(tokenAtributes)
 
-        guard let secret = sotpToken.token?.generator.secret else {return [:]}
+        guard let secretText = sotpToken.plainSecret else {return [:]}
+        let secretData = Data(secretText.utf8)
         return [
             kSecAttrGeneric as String: atributes! as NSData,
-            kSecValueData as String: secret as NSData,
+            kSecValueData as String: secretData as NSData,
             kSecAttrService as String: kSOTPService as NSString
         ]
     }
@@ -52,7 +53,6 @@ public final class SOTPKeychain {
     public func add(_ token: SOTPPersistentToken) throws -> Data {
         let attributes = try keychainAttributes(sotpToken: token)
         let persistentRef = try addKeychainItem(withAttributes: attributes)
-        print("persistentRef = \(persistentRef)")
         return persistentRef
     }
 
@@ -85,20 +85,6 @@ public final class SOTPKeychain {
     public func allPersistentTokens() throws -> Set<SOTPPersistentToken> {
         let allItems = try allKeychainItems()
         return Set(allItems.compactMap({ try? SOTPPersistentToken(keychainDictionary: $0) }))
-    }
-
-    public func deleteAllKeychainItem() throws {
-        let group = "Q9Y5N2Z9SF.am.baroynag.SOTP" as AnyObject
-        let queryDict: [String: AnyObject] = [
-            kSecClass as String: kSecClassGenericPassword,
-            kSecAttrAccessGroup as String: group
-        ]
-
-        let resultCode = SecItemDelete(queryDict as CFDictionary)
-
-        guard resultCode == errSecSuccess else {
-            throw Keychain.Error.systemError(resultCode)
-        }
     }
 
     public func deleteKeychainItem(forPersistentRef persistentRef: Data) throws {

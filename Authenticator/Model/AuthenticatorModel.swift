@@ -19,29 +19,13 @@ class AuthenticatorModel {
 
     private func isRecordExist(account: String, issuer: String, secret: String) -> Bool {
         for sotpPersistentToken in sotpPersistentTokenItems {
-            if let tokenSecret = sotpPersistentToken.token?.generator.secret {
-                if account == sotpPersistentToken.token?.name &&
-                    issuer == sotpPersistentToken.token?.issuer &&
-                    secret ==  String(data: tokenSecret, encoding: .utf8) {
-                    return true
-                }
+            if account == sotpPersistentToken.token?.name &&
+                issuer == sotpPersistentToken.token?.issuer &&
+                secret == sotpPersistentToken.plainSecret {
+                return true
             }
         }
 
-        return false
-    }
-
-    private func isRecordExist(token: SOTPToken) -> Bool {
-
-        for sotpPersistentToken in sotpPersistentTokenItems {
-            if let tokenSecret = sotpPersistentToken.token?.generator.secret {
-                if token.name == sotpPersistentToken.token?.name &&
-                    token.issuer == sotpPersistentToken.token?.issuer &&
-                    token.secret ==  String(data: tokenSecret, encoding: .utf8) {
-                    return true
-                }
-            }
-        }
         return false
     }
 
@@ -90,7 +74,7 @@ class AuthenticatorModel {
             sotpPersistentTokenItems.remove(at: index)
         }
     }
-    
+
     func loadDataForWatch() -> [String: [String: String]] {
         var dictionary: [String: [String: String]] = [:]
 
@@ -124,7 +108,6 @@ class AuthenticatorModel {
 
     public func refreshModel() {
         sotpPersistentTokenItems = []
-//        print(sotpTokenItems)
         getAllSOTPTokens()
     }
 
@@ -156,16 +139,14 @@ class AuthenticatorModel {
 
     private func createTimeBasedToken(name: String, issuer: String, secretString: String, priority: Int) -> SOTPPersistentToken? {
 
-        print("createTimeBasedToken \(secretString)")
         guard let generator = createGenerator(secretString: secretString, period: 30, digits: 6) else { return nil}
-        print("createTimeBasedToken \(generator.secret)")
-        print("createTimeBasedToken \(String(data: generator.secret, encoding: .utf8))")
+
         let token = Token(name: name, issuer: issuer, generator: generator)
-        let sotpToken = SOTPPersistentToken(priority: priority, token: token)
+        let sotpToken = SOTPPersistentToken(priority: priority, token: token, plainSecret: secretString)
         return sotpToken
     }
 
-    private func createGenerator (secretString: String, period: Double, digits: Int) -> Generator? {
+    public func createGenerator (secretString: String, period: Double, digits: Int) -> Generator? {
 
         guard let secretData = MF_Base32Codec.data(fromBase32String: secretString),
             !secretData.isEmpty else {

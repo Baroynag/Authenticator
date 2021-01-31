@@ -230,14 +230,32 @@ class AddAccountViewController: UIViewController {
 
     }
 
+    private func setupCaptureSession() {
+        let scanQrViewController = ScanQrViewController()
+        scanQrViewController.output = self
+        scanQrViewController.modalPresentationStyle = .fullScreen
+        present(scanQrViewController, animated: true)
+    }
+
     @objc private func handleScanButton() {
-        if AVCaptureDevice.authorizationStatus(for: .video) ==  .authorized {
-            let scanQrViewController = ScanQrViewController()
-            scanQrViewController.output = self
-            scanQrViewController.modalPresentationStyle = .fullScreen
-            present(scanQrViewController, animated: true)
-        } else {
+        switch  AVCaptureDevice.authorizationStatus(for: .video) {
+        case .authorized:
+            setupCaptureSession()
+        case .notDetermined:
+            AVCaptureDevice.requestAccess(for: .video) {granted in
+                    if granted {
+                        DispatchQueue.main.sync { [weak self] in
+                            self?.setupCaptureSession()
+                        }
+                    }
+                }
+        default:
             showCameraPermissionAlert()
+        }
+        if AVCaptureDevice.authorizationStatus(for: .video) ==  .authorized {
+            
+        } else {
+            
         }
     }
 

@@ -21,10 +21,12 @@ public struct SOTPPersistentToken: Hashable, Encodable {
     public var identifier: Data?
     public var priority: Int?
     public var token: Token?
+    public var plainSecret: String?
 
-    public init(priority: Int, token: Token) {
+    public init(priority: Int, token: Token, plainSecret: String) {
         self.priority = priority
         self.token = token
+        self.plainSecret = plainSecret
 
         do {
             let tokenIdentifiert = try SOTPKeychain.shared.add(self)
@@ -35,12 +37,13 @@ public struct SOTPPersistentToken: Hashable, Encodable {
         }
     }
 
-    public init(tokenAtributes: SOTPTokenAtributes, generator: Generator, identifier: Data) {
+    public init(tokenAtributes: SOTPTokenAtributes, generator: Generator, identifier: Data, plainSecret: String) {
         self.token = Token(name: tokenAtributes.name,
                            issuer: tokenAtributes.issuer,
                            generator: generator)
         self.priority = tokenAtributes.priority
         self.identifier = identifier
+        self.plainSecret = plainSecret
     }
 
     public func hash(into hasher: inout Hasher) {
@@ -66,11 +69,16 @@ public struct SOTPPersistentToken: Hashable, Encodable {
         }
         let tokenAtributes = try JSONDecoder().decode(SOTPTokenAtributes.self, from: jsonData)
 
-        guard let generator = Generator(factor: .timer(period: 30), secret: secret, algorithm: .sha1, digits: 6) else {
-        throw DeserializationError.missingPersistentRef
-        }
+        let secretString = String(decoding: secret, as: UTF8.self)
 
-        self.init(tokenAtributes: tokenAtributes, generator: generator, identifier: keychainItemRef)
+        guard let secretData = MF_Base32Codec.data(fromBase32String: secretString),
+            !secretData.isEmpty else {
+            throw DeserializationError.missingSecret}
+
+        guard let generator = Generator(factor: .timer(period: 30), secret: secretData, algorithm: .sha1, digits: 6) else {
+        throw DeserializationError.missingSecret}
+
+        self.init(tokenAtributes: tokenAtributes, generator: generator, identifier: keychainItemRef, plainSecret: secretString)
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -78,7 +86,7 @@ public struct SOTPPersistentToken: Hashable, Encodable {
         try container.encode(token?.issuer, forKey: .issuer)
         try container.encode(token?.name, forKey: .name)
         try container.encode(priority, forKey: .priority)
-        try container.encode(token?.generator.secret, forKey: .secret)
+        try container.encode(plainSecret, forKey: .secret)
     }
 
     public func saveToKeychain(token: inout SOTPPersistentToken) {
