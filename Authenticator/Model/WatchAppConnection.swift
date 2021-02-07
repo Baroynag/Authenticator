@@ -21,6 +21,8 @@ class WatchAppConnection: NSObject {
             session.delegate = self
             session.activate()
         }
+        print("session.isPaired = \(session.isPaired)")
+        print("session.isReachable = \(session.isReachable)")
     }
 
     func isSuported() -> Bool {
@@ -52,6 +54,7 @@ extension WatchAppConnection: WCSessionDelegate {
 
         if let watchAwakeAt = message["watchAwake"] as? Double {
             let dictionary = AuthenticatorModel.shared.loadDataForWatch()
+            print(dictionary)
             replyHandler(dictionary)
         }
     }

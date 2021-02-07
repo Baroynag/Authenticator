@@ -17,10 +17,11 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate {
     func applicationDidFinishLaunching() {
         // Perform any final initialization of your application.
 
-        if isSuported() {
+        if WCSession.isSupported() {
             session.delegate = self
             session.activate()
         }
+        
 
     }
 
@@ -62,10 +63,6 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate {
         }
     }
 
-    private func isSuported() -> Bool {
-        return WCSession.isSupported()
-    }
-
     // MARK: - Core Data stack
 
     lazy var persistentContainer: NSPersistentContainer = {
@@ -99,6 +96,8 @@ extension ExtensionDelegate: WCSessionDelegate {
     func session(_ session: WCSession,
                  activationDidCompleteWith activationState: WCSessionActivationState,
                  error: Error?) {
+        print("activationState\(activationState.rawValue)")
+        print(session.isReachable)
     }
 
 }

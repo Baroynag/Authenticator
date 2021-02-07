@@ -60,7 +60,7 @@ class AuthenticatorModel {
         if isRecordExist(account: account, issuer: issuer, secret: key) {
             return
         }
-        print("createPersistentToken \(key)")
+        
         if let token = createTimeBasedToken(name: account, issuer: issuer, secretString: key, priority: priority) {
             sotpPersistentTokenItems.append(token)
         }
@@ -77,7 +77,17 @@ class AuthenticatorModel {
 
     func loadDataForWatch() -> [String: [String: String]] {
         var dictionary: [String: [String: String]] = [:]
+        for item in sotpPersistentTokenItems {
 
+            if let issuer = item.token?.issuer,
+               let name = item.token?.name {
+               dictionary[name] =
+                    ["issuer": issuer,
+                    "key": item.plainSecret ?? "",
+                    "priority": String(item.priority ?? 0),
+                    "name": name]
+                    }
+                }
         return dictionary
     }
 

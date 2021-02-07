@@ -11,6 +11,7 @@ import Foundation
 import WatchConnectivity
 import CoreData
 import OneTimePassword
+
 class InterfaceController: WKInterfaceController {
 
     // MARK: Properties
@@ -34,11 +35,10 @@ class InterfaceController: WKInterfaceController {
         if let row = table.rowController(at: 0) as? SOTPWatchRow {
             row.passLabel?.setText("Загрузка...")
         }
-        
         let keychain = Keychain.sharedInstance
         do {
             let persistentTokens = try keychain.allPersistentTokens()
-            print("All tokens: \(persistentTokens.map({ $0.token }))")
+            
         } catch {
             print("Keychain error: \(error)")
         }
@@ -131,14 +131,15 @@ extension InterfaceController {
         let maxNrRetries = 5
         var availableRetries = maxNrRetries
 
+        print(session.isReachable )
+        print(WCSession.isSupported())
         func trySendingMessageToWatch(_ message: [String: Double]) {
             session.sendMessage(message,
                 replyHandler: replyHandler,
                 errorHandler: { error in
                                 print("sending message to watch failed: error: \(error)")
                                 let nsError = error as NSError
-                                if nsError.domain == "WCErrorDomain" &&
-                                    nsError.code == 7007 && availableRetries > 0 {
+                                if nsError.domain == "WCErrorDomain"  && availableRetries > 0 {
                                     availableRetries -= 1
                                     DispatchQueue.main.asyncAfter(
                                         deadline: .now() + 0.3,
