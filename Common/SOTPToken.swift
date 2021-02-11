@@ -31,7 +31,6 @@ public struct SOTPPersistentToken: Hashable, Encodable {
         do {
             let tokenIdentifiert = try SOTPKeychain.shared.add(self)
             self.identifier = tokenIdentifiert
-            print("Saved to keychain with identifier: \(tokenIdentifiert)")
         } catch {
             print("Keychain error: \(error)")
         }
@@ -93,7 +92,6 @@ public struct SOTPPersistentToken: Hashable, Encodable {
         do {
             let tokenIdentifiert = try SOTPKeychain.shared.add(token)
             token.identifier = tokenIdentifiert
-            print("Saved to keychain with identifier: \(tokenIdentifiert)")
         } catch {
             print("Keychain error: \(error)")
         }

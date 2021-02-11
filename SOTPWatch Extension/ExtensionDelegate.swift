@@ -96,8 +96,6 @@ extension ExtensionDelegate: WCSessionDelegate {
     func session(_ session: WCSession,
                  activationDidCompleteWith activationState: WCSessionActivationState,
                  error: Error?) {
-        print("activationState\(activationState.rawValue)")
-        print(session.isReachable)
     }
 
 }

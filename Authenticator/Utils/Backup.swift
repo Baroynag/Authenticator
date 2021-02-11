@@ -25,7 +25,6 @@ class Backup {
         do {
             let data = try String(contentsOf: fileURL)
             let decriptedText = RNCryptor.decrypt(encryptedText: data, password: password)
-            print(decriptedText)
             guard let jsonData = decriptedText.data(using: .utf8) else {
                 print(NSLocalizedString("Error to upload file", comment: ""))
                 return false }

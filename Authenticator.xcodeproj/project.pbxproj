@@ -22,6 +22,8 @@
 		1405D88B24719BF10065509B /* UITextFieldWithBottomBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1405D88A24719BF10065509B /* UITextFieldWithBottomBorder.swift */; };
 		14129F7624C0C92200644739 /* PasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14129F7524C0C92200644739 /* PasswordViewController.swift */; };
 		141917D0245483EC00EE125D /* ScanQrViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141917CF245483EC00EE125D /* ScanQrViewController.swift */; };
+		142F404A25D12E54008A9CA0 /* TokenGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142F404925D12E54008A9CA0 /* TokenGenerator.swift */; };
+		142F404B25D12E54008A9CA0 /* TokenGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142F404925D12E54008A9CA0 /* TokenGenerator.swift */; };
 		1430EA8D24DEF79900B75CF6 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1430EA8C24DEF79900B75CF6 /* StoreKit.framework */; };
 		1430EA8F24DF0E0800B75CF6 /* Purchases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1430EA8E24DF0E0800B75CF6 /* Purchases.swift */; };
 		1430EA9124DF0FCA00B75CF6 /* PurchaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1430EA9024DF0FCA00B75CF6 /* PurchaseViewController.swift */; };
@@ -123,6 +125,7 @@
 		1405D88A24719BF10065509B /* UITextFieldWithBottomBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldWithBottomBorder.swift; sourceTree = "<group>"; };
 		14129F7524C0C92200644739 /* PasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordViewController.swift; sourceTree = "<group>"; };
 		141917CF245483EC00EE125D /* ScanQrViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanQrViewController.swift; sourceTree = "<group>"; };
+		142F404925D12E54008A9CA0 /* TokenGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenGenerator.swift; sourceTree = "<group>"; };
 		1430EA8C24DEF79900B75CF6 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		1430EA8E24DF0E0800B75CF6 /* Purchases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Purchases.swift; sourceTree = "<group>"; };
 		1430EA9024DF0FCA00B75CF6 /* PurchaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseViewController.swift; sourceTree = "<group>"; };
@@ -382,6 +385,7 @@
 			children = (
 				14A3454625B4C7D600F63C54 /* SOTPToken.swift */,
 				14B8BDA525B4CB2E00595A17 /* SOTPKeychain.swift */,
+				142F404925D12E54008A9CA0 /* TokenGenerator.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -726,6 +730,7 @@
 				1401DA852440D46800DE677F /* Authenticator.xcdatamodeld in Sources */,
 				A8DB1CD525866BE4007C980B /* UILabel+AttributedText.swift in Sources */,
 				1401DAC12443431200DE677F /* AuthenticatorViewController.swift in Sources */,
+				142F404A25D12E54008A9CA0 /* TokenGenerator.swift in Sources */,
 				14129F7624C0C92200644739 /* PasswordViewController.swift in Sources */,
 				14B61B5C24C71DD400A08A14 /* AuthenticatorItem+CoreDataProperties.swift in Sources */,
 				1401DA7B2440D46800DE677F /* AppDelegate.swift in Sources */,
@@ -769,6 +774,7 @@
 				14543DC124853B24008E7DA8 /* SOTPWatchRow.swift in Sources */,
 				14C0B71E254C793D0054DD57 /* AuthenticatorForWatch.xcdatamodeld in Sources */,
 				14B8BDA725B4CB2E00595A17 /* SOTPKeychain.swift in Sources */,
+				142F404B25D12E54008A9CA0 /* TokenGenerator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

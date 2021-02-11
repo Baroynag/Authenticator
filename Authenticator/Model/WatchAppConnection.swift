@@ -54,7 +54,6 @@ extension WatchAppConnection: WCSessionDelegate {
 
         if let watchAwakeAt = message["watchAwake"] as? Double {
             let dictionary = AuthenticatorModel.shared.loadDataForWatch()
-            print(dictionary)
             replyHandler(dictionary)
         }
     }

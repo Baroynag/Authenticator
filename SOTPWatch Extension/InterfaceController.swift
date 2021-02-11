@@ -23,7 +23,7 @@ class InterfaceController: WKInterfaceController {
     @IBOutlet var table: WKInterfaceTable!
     private var session = WCSession.default
 
-    private var items = [AuthenticatorForWatchItem]()
+    private var persistentTokenItems = [SOTPPersistentToken]()
 
 // MARK: functions
 
@@ -35,34 +35,29 @@ class InterfaceController: WKInterfaceController {
         if let row = table.rowController(at: 0) as? SOTPWatchRow {
             row.passLabel?.setText("Загрузка...")
         }
-        let keychain = Keychain.sharedInstance
-        do {
-            let persistentTokens = try keychain.allPersistentTokens()
-            
-        } catch {
-            print("Keychain error: \(error)")
-        }
     }
 
     override func willActivate() {
         super.willActivate()
         prepareSendMessage()
         startTimer()
+        loadDataFromWatchKeychain()
     }
 
     private func updateTable() {
-        table.setNumberOfRows(items.count, withRowType: "SotpWRow")
-        for (index, item) in items.enumerated() {
+
+        table.setNumberOfRows(persistentTokenItems.count, withRowType: "SotpWRow")
+
+        for (index, item) in persistentTokenItems.enumerated() {
+
             if let row = table.rowController(at: index) as? SOTPWatchRow {
-//                let token = TokenGenerator.shared.createTimeBasedToken(
-//                    name: "",
-//                    issuer: item.issuer ?? "",
-//                    secretString: item.key ?? "")
-//                if let tokenPass = token?.currentPassword {
-//                    row.accountLabel?.setText(item.issuer)
-//                    row.passLabel?.setText(tokenPass)
-//                    row.detailLabel?.setText("Refresh in " + String(countDown) + "s.")
-//                }
+
+                let token = persistentTokenItems[index]
+                if let tokenPass = token.token?.currentPassword {
+                    row.accountLabel.setText(item.token?.issuer)
+                    row.passLabel.setText(tokenPass)
+                    row.detailLabel.setText("Refresh in " + String(countDown) + "s.")
+                }
             }
         }
     }
@@ -78,7 +73,6 @@ class InterfaceController: WKInterfaceController {
     }
 
     private func setupTable() {
-        fetchData()
         runUpdateTable()
     }
 
@@ -92,11 +86,12 @@ class InterfaceController: WKInterfaceController {
 // MARK: Handlers
 
     @objc private func updateLabel () {
-        if items.count == 0 { return}
+        if persistentTokenItems.count == 0 { return}
 
         countDown -= 1
         let text = "Refresh in " + String(countDown) + " s."
-        for index in 0...items.count - 1 {
+        for index in 0...persistentTokenItems.count - 1 {
+            
             if let row = table.rowController(at: index) as? SOTPWatchRow {
                 row.detailLabel.setText(text)
             }
@@ -131,8 +126,6 @@ extension InterfaceController {
         let maxNrRetries = 5
         var availableRetries = maxNrRetries
 
-        print(session.isReachable )
-        print(WCSession.isSupported())
         func trySendingMessageToWatch(_ message: [String: Double]) {
             session.sendMessage(message,
                 replyHandler: replyHandler,
@@ -152,84 +145,86 @@ extension InterfaceController {
 
 }
 
-extension InterfaceController {
-
-    func fetchData() {
-
-        let request = NSFetchRequest<AuthenticatorForWatchItem>(entityName: "AuthenticatorForWatchItem")
-        request.sortDescriptors = [NSSortDescriptor(key: "priority", ascending: true)]
-        items = []
-
-        do {
-            items = try context.fetch(request)
-        } catch {
-            print(NSLocalizedString("Core data load error", comment: ""), error.localizedDescription)
-        }
-    }
-
-    func deleteData() {
-        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "AuthenticatorForWatchItem")
-        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
-
-        do {
-            try context.execute(deleteRequest)
-            try context.save()
-        } catch let error as NSError {
-            print(NSLocalizedString("Core data delete error", comment: ""), error.localizedDescription)
-        }
-
-    }
+extension InterfaceController{
 
     func syncDataWithPhone(responce: [String: Any]) {
 
-        var needUpdate = responce.count != items.count
-        if !needUpdate {
-            for authItem in responce {
-                if let responceItem = authItem.value as? [String: String] {
-                    let ptiority    = Int64(responceItem["priority"] ?? "")
+        if !needUpdateDataInWatchKeyChain(responce: responce) {
+            return
+        }
 
-                    for watchitem in items {
-                        needUpdate = watchitem.key != responceItem["key"] ||
-                                     watchitem.issuer != responceItem["issuer"] ||
-                                     watchitem.priority != ptiority
-                        if needUpdate {
-                            break
-                        }
+        deleteDataFromKeyChain()
+        persistentTokenItems = []
+        for authItem in responce {
+            if let responceItem = authItem.value as? [String: String] {
+                
+                let priority    = Int(responceItem["priority"] ?? "") ?? 0
+
+                let key = responceItem["key"] ?? ""
+                let issuer = responceItem["issuer"] ?? ""
+                let account = responceItem["name"] ?? ""
+                
+                if let persistentToken = TokenGenerator.shared.createTimeBasedPersistentToken(name: account,
+                                                                                    issuer: issuer,
+                                                                                    secretString: key,
+                                                                                    priority: priority){
+                    persistentTokenItems.append(persistentToken)
+                    persistentTokenItems = persistentTokenItems.sorted(by: { $0.priority ?? 0 < $1.priority ?? 0 })
+                }
+
+            }
+        }
+
+    }
+
+    func deleteDataFromKeyChain(){
+        if persistentTokenItems.count > 0 {
+           for item in persistentTokenItems {
+                if let identifier = item.identifier {
+                    try? SOTPKeychain.shared.deleteKeychainItem(forPersistentRef: identifier)
+                }
+            }
+        }
+        
+    }
+    
+    func loadDataFromWatchKeychain(){
+        if let tokens = try? Array(SOTPKeychain.shared.allPersistentTokens()) {
+            persistentTokenItems = tokens.sorted(by: { $0.priority ?? 0 < $1.priority ?? 0 })
+        }
+    }
+    
+    private func needUpdateDataInWatchKeyChain(responce: [String: Any]) -> Bool{
+    
+        
+        if responce.count == 0 {
+            return false
+        }
+        
+        if responce.count != persistentTokenItems.count {
+            return true
+        }
+        var needUpdate: Bool = false
+ 
+        LOOP: for authItem in responce {
+            if let responceItem = authItem.value as? [String: String] {
+                let priority    = Int(responceItem["priority"] ?? "")
+
+                for watchitem in persistentTokenItems {
+                    needUpdate =
+                        watchitem.plainSecret != responceItem["key"] ||
+                        watchitem.token?.issuer != responceItem["issuer"] ||
+                        watchitem.token?.name != responceItem["name"] ||
+                        watchitem.priority != priority
+
+                    if needUpdate {
+                        break LOOP
                     }
                 }
             }
         }
-
-        if needUpdate {
-            saveResponseToWatchCoreData(responce: responce)
-        }
-
+        return needUpdate
     }
-
-    private func saveResponseToWatchCoreData(responce: [String: Any]) {
-        deleteData()
-        responce.forEach { (key, value) in
-            if let responceItem = value as? [String: String] {
-
-                let key         = responceItem["key"] ?? ""
-                let issuer      = responceItem["issuer"] ?? ""
-                let ptiority    = Int64(responceItem["priority"] ?? "")
-                let newItem = AuthenticatorForWatchItem(context: context)
-                newItem.account = ""
-                newItem.id = UUID()
-                newItem.issuer = issuer
-                newItem.key = key
-                newItem.priority = ptiority ?? 0
-            }
-        }
-
-        do {
-            try context.save()
-        } catch {
-            print(NSLocalizedString("Core data save error", comment: ""), error.localizedDescription)
-        }
-    }
-
 }
 
 extension InterfaceController {
