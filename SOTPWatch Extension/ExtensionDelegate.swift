@@ -17,10 +17,11 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate {
     func applicationDidFinishLaunching() {
         // Perform any final initialization of your application.
 
-        if isSuported() {
+        if WCSession.isSupported() {
             session.delegate = self
             session.activate()
         }
+        
 
     }
 
@@ -60,10 +61,6 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate {
                 task.setTaskCompletedWithSnapshot(false)
             }
         }
-    }
-
-    private func isSuported() -> Bool {
-        return WCSession.isSupported()
     }
 
     // MARK: - Core Data stack

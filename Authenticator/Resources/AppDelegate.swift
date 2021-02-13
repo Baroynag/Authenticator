@@ -15,6 +15,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        if !WatchAppConnection.shared.isSuported() {
+            print("WCSession not supported")
+        }
         iapSetup()
         return true
     }
@@ -44,19 +47,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return container
     }()
 
-    // MARK: - Core Data Saving support
-
-    func saveContext () {
-        let context = persistentContainer.viewContext
-        if context.hasChanges {
-            do {
-                try context.save()
-            } catch {
-                let nserror = error as NSError
-                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
-            }
-        }
-    }
     func iapSetup() {
         Purchases.default.initialize { [weak self] result in
             guard self != nil else { return }

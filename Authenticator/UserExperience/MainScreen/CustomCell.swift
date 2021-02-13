@@ -12,46 +12,38 @@ import AVFoundation
 class CustomCell: UITableViewCell {
 
     // MARK: - Properties
-    private var key = ""
     private var issuer = ""
     private var account = ""
     private var copyCountDown = 0
     private var isCopyCountPressed = false
     private var isEditMode = false
-
     public let copiedTime = 2
 
     public var passLabelText = ""
 
-    public var authItem: AuthenticatorItem? {
+    public var authItem: SOTPPersistentToken? {
         didSet {
-            guard let authItem = authItem else {return}
-            let authKey = authItem.key ?? ""
-            let authIssuer = authItem.issuer ?? ""
-            let account = authItem.account ?? ""
+            guard let sotpToken = authItem else {return}
+            let authIssuer = sotpToken.token?.issuer ?? ""
+            let account = sotpToken.token?.name ?? ""
 
-            key = authKey
             issuer = authIssuer
 
             issuerLabel.setAttributedText(text: authIssuer,
-                                              fontSize: 18,
-                                              aligment: .center,
-                                              indent: 0.0,
-                                              color: UIColor.label,
-                                              fontWeight: .medium)
+                                          fontSize: 18,
+                                          aligment: .center,
+                                          indent: 0.0,
+                                          color: UIColor.label,
+                                          fontWeight: .medium)
 
             accountLabel.setAttributedText(text: account,
-                                               fontSize: 16,
-                                               aligment: .center,
-                                               indent: 0.0,
-                                               color: .fucsiaColor,
-                                               fontWeight: .light)
+                                           fontSize: 16,
+                                           aligment: .center,
+                                           indent: 0.0,
+                                           color: .fucsiaColor,
+                                           fontWeight: .light)
 
-           let token = TokenGenerator.shared.createTimeBasedToken(name: authIssuer,
-                                                                  issuer: authIssuer,
-                                                                  secretString: authKey)
-
-            if let keyText = token?.currentPassword {
+            if let keyText = sotpToken.token?.currentPassword {
                 passLabelText = keyText
                 setupPassLabelText(text: keyText)
             }
@@ -215,8 +207,7 @@ class CustomCell: UITableViewCell {
 
     private func resetToken() {
 
-        let token = TokenGenerator.shared.createTimeBasedToken(name: issuer, issuer: issuer, secretString: key)
-        if let text = token?.currentPassword {
+        if let text = authItem?.token?.currentPassword {
             setupPassLabelText(text: text)
             passLabelText = text
         }

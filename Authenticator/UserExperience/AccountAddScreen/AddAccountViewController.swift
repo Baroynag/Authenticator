@@ -215,29 +215,42 @@ class AddAccountViewController: UIViewController {
             }
         }
         if let key = keyTextField.text {
-            if TokenGenerator.shared.isValidSecretKey(secretKey: key) {
                 AuthenticatorModel.shared.addOneItem(account: "",
                                                      issuer: issuerTextField.text,
-                                                     key: keyTextField.text)
-                output?.didAdd(account: "", issuer: issuerTextField.text, key: keyTextField.text)
+                                                     key: key)
+                output?.didAdd(account: "", issuer: issuerTextField.text, key: key)
                 dismiss(animated: true, completion: nil)
-            } else {
-                 showAlert(
-                    alertTitle: NSLocalizedString("Wrong account", comment: ""),
-                    alertMessage: NSLocalizedString("Please enter correct account", comment: ""))
-            }
+    
         }
 
     }
 
+    private func setupCaptureSession() {
+        let scanQrViewController = ScanQrViewController()
+        scanQrViewController.output = self
+        scanQrViewController.modalPresentationStyle = .fullScreen
+        present(scanQrViewController, animated: true)
+    }
+
     @objc private func handleScanButton() {
-        if AVCaptureDevice.authorizationStatus(for: .video) ==  .authorized {
-            let scanQrViewController = ScanQrViewController()
-            scanQrViewController.output = self
-            scanQrViewController.modalPresentationStyle = .fullScreen
-            present(scanQrViewController, animated: true)
-        } else {
+        switch  AVCaptureDevice.authorizationStatus(for: .video) {
+        case .authorized:
+            setupCaptureSession()
+        case .notDetermined:
+            AVCaptureDevice.requestAccess(for: .video) {granted in
+                    if granted {
+                        DispatchQueue.main.sync { [weak self] in
+                            self?.setupCaptureSession()
+                        }
+                    }
+                }
+        default:
             showCameraPermissionAlert()
+        }
+        if AVCaptureDevice.authorizationStatus(for: .video) ==  .authorized {
+            
+        } else {
+            
         }
     }
 

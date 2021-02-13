@@ -9,196 +9,142 @@
 import Foundation
 import CoreData
 import OneTimePassword
+import Base32
 
 class AuthenticatorModel {
 
     static let shared = AuthenticatorModel()
-    private let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
-    public var authenticatorItemsList: [AuthenticatorItem]?
-    private var filteredItems: [AuthenticatorItem]?
+    public var sotpPersistentTokenItems: [SOTPPersistentToken] = []
 
-    func loadData() {
-        do {
-            let request = NSFetchRequest<AuthenticatorItem>(entityName: "AuthenticatorItem")
-            request.sortDescriptors = [NSSortDescriptor(key: "priority", ascending: true)]
-            authenticatorItemsList = try context.fetch(request)
-        } catch {
-            print(NSLocalizedString("Core data load error", comment: ""), error.localizedDescription)
-        }
-    }
-    func isRecordExist(account: String, issuer: String, key: String) -> Bool {
-        let request = NSFetchRequest<AuthenticatorItem>(entityName: "AuthenticatorItem")
-        let predicate = NSPredicate(
-            format: "account = %@ AND issuer = %@ AND key = %@",
-            account, issuer, key)
-        request.predicate = predicate
-        do {
-            filteredItems = try context.fetch(request)
-            if filteredItems?.count ?? 0  > 0 {
+    private func isRecordExist(account: String, issuer: String, secret: String) -> Bool {
+        for sotpPersistentToken in sotpPersistentTokenItems {
+            if account == sotpPersistentToken.token?.name &&
+                issuer == sotpPersistentToken.token?.issuer &&
+                secret == sotpPersistentToken.plainSecret {
                 return true
             }
-        } catch {
-            print(NSLocalizedString("Core data load error", comment: ""), error.localizedDescription)
         }
+
         return false
     }
-    func addOneItem(account: String?, issuer: String?, key: String?) {
 
-       if isRecordExist(account: account ?? "", issuer: issuer ?? "", key: key ?? "") {
+    public func addOneItem(account: String?, issuer: String?, key: String?, priority: Int) {
+
+        let account = account ?? ""
+        let issuer =  issuer ?? ""
+        let key =  key ?? ""
+
+        createPersistentToken(account: account,
+                              issuer: issuer,
+                              key: key,
+                              priority: priority)
+    }
+
+    public func addOneItem(account: String?, issuer: String?, key: String?) {
+
+        let account = account ?? ""
+        let issuer =  issuer ?? ""
+        let key =  key ?? ""
+
+        let priority = getNextPriorityNumber()
+
+        createPersistentToken(account: account,
+                              issuer: issuer,
+                              key: key,
+                              priority: priority)
+    }
+
+    private func createPersistentToken (account: String, issuer: String, key: String, priority: Int) {
+
+        if isRecordExist(account: account, issuer: issuer, secret: key) {
             return
         }
-
-        let authItem = AuthenticatorItem(context: context)
-        authItem.id        = UUID()
-        authItem.account   = account
-        authItem.issuer    = issuer
-        authItem.key       = key
-        authItem.priority  = getNextPriorityNumber()
-        do {
-            try context.save()
-            authenticatorItemsList?.append(authItem)
-        } catch {
-            print(NSLocalizedString("Core data save error", comment: ""), error.localizedDescription)
+        
+        if let token = TokenGenerator.shared.createTimeBasedPersistentToken(name: account, issuer: issuer, secretString: key, priority: priority) {
+            sotpPersistentTokenItems.append(token)
         }
     }
 
-    func addOneItem(account: String?, issuer: String?, key: String?, priority: Int64) {
+    public func deleteData(index: Int) {
 
-       if isRecordExist(account: account ?? "", issuer: issuer ?? "", key: key ?? "") {
-            return
-        }
-
-        let authItem = AuthenticatorItem(context: context)
-        authItem.id        = UUID()
-        authItem.account   = account
-        authItem.issuer    = issuer
-        authItem.key       = key
-        authItem.priority  = priority
-        do {
-            try context.save()
-            authenticatorItemsList?.append(authItem)
-        } catch {
-            print(NSLocalizedString("Core data save error", comment: ""), error.localizedDescription)
+        let itemToRemove = sotpPersistentTokenItems[index]
+        if let identifier = itemToRemove.identifier {
+            try? SOTPKeychain.shared.deleteKeychainItem(forPersistentRef: identifier)
+            sotpPersistentTokenItems.remove(at: index)
         }
     }
 
-    func deleteData(index: Int) {
-
-        if let itemToRemove = authenticatorItemsList?[index] {
-            context.delete(itemToRemove)
-            authenticatorItemsList?.remove(at: index)
-            do {
-                try context.save()
-            } catch {
-               print(NSLocalizedString("Core data delete error", comment: ""), error.localizedDescription)
-            }
-        }
-    }
     func loadDataForWatch() -> [String: [String: String]] {
-        loadData()
-        guard let authenticatorItemsList = authenticatorItemsList else {return [:] }
-
         var dictionary: [String: [String: String]] = [:]
-        for item in authenticatorItemsList {
+        for item in sotpPersistentTokenItems {
 
-            if let issuer = item.issuer,
-               let key = item.key,
-               let uid = item.id?.uuidString {
-                dictionary[uid] = ["issuer": issuer,
-                    "key": key,
-                    "priority": String(item.priority)]
-            }
-        }
-
-        return dictionary
-    }
-    func convertCoreDataObjectsToJSONArray() -> [[String: Any]] {
-        var jsonArray: [[String: Any]] = []
-        guard let authenticatorItemsList = authenticatorItemsList else {return [[:]] }
-
-        for item in authenticatorItemsList {
-            var dictionary: [String: Any] = [:]
-            for attribute in item.entity.attributesByName {
-                if attribute.key != "id"{
-                    if let value = item.value(forKey: attribute.key) {
-                        dictionary[attribute.key] = value
-                    }
-                } else {
-                    if let itemId = item.id?.uuidString {
-                        dictionary[attribute.key] = itemId
+            if let issuer = item.token?.issuer,
+               let name = item.token?.name {
+               dictionary[issuer] =
+                    ["issuer": issuer,
+                    "key": item.plainSecret ?? "",
+                    "priority": String(item.priority ?? 0),
+                    "name": name]
                     }
                 }
-            }
-            jsonArray.append(dictionary)
+        return dictionary
+    }
+
+    public func getBackUpData() -> Data {
+
+        var result = Data()
+
+        do {
+            let jsonData = try JSONEncoder().encode(sotpPersistentTokenItems)
+            result.append(jsonData)
+        } catch {
+            print(error.localizedDescription)
         }
-        return jsonArray
+
+        return result
 
     }
 
     public func isAnyData() -> Bool {
-        let count = AuthenticatorModel.shared.authenticatorItemsList?.count ?? 0
+        let count = AuthenticatorModel.shared.sotpPersistentTokenItems.count
         return count > 0
-    }
-    public func saveDataBromBackupToCoreData(backupData: [[String: Any]]) {
-        for item in backupData {
-            let account   = item["account"]   as? String ?? ""
-            let key       = item["key"]       as? String ?? ""
-            let issuer    = item["issuer"]    as? String ?? ""
-            let priority  = item["priority"]  as? Int64  ?? 0
-            addOneItem(account: account,
-                            issuer: issuer,
-                            key: key,
-                            priority: priority)
-        }
     }
 
     public func isAnyRecords() -> Bool {
-        loadData()
+        getAllSOTPTokens()
         return isAnyData()
     }
 
-    public func endEditing() {
-        if let error = saveContext() {
-            print(error.localizedDescription)
-        }
-    }
-
-    private func saveContext() -> Error? {
-        do {
-            try context.save()
-        } catch {
-            return error
-        }
-        return nil
+    public func refreshModel() {
+        sotpPersistentTokenItems = []
+        getAllSOTPTokens()
     }
 
     public func swapPriority(fromIndex: Int, toIndex: Int) {
 
-        if let item = authenticatorItemsList?[fromIndex] {
-            authenticatorItemsList?.remove(at: fromIndex)
-            authenticatorItemsList?.insert(item, at: toIndex)
-            if let count = authenticatorItemsList?.count {
-                for index in 0...count - 1 {
-                    authenticatorItemsList?[index].priority = Int64(index + 1)
-                }
-            }
-        }
+        let count = sotpPersistentTokenItems.count
+        if count < 2 {return}
 
+        let item = sotpPersistentTokenItems[fromIndex]
+        sotpPersistentTokenItems.remove(at: fromIndex)
+        sotpPersistentTokenItems.insert(item, at: toIndex)
+
+        for index in 0...count - 1 {
+            sotpPersistentTokenItems[index].priority = Int(index + 1)
+            let token = sotpPersistentTokenItems[index]
+                try? SOTPKeychain.shared.update(token)
+        }
     }
 
-    private func getNextPriorityNumber() -> Int64 {
-        var nextPriorityValue: Int64 = 0
-        let request = NSFetchRequest<AuthenticatorItem>(entityName: "AuthenticatorItem")
-        request.sortDescriptors = [NSSortDescriptor(key: "priority", ascending: false)]
-        request.fetchLimit = 1
-        request.returnsObjectsAsFaults = false
-        do {
-            let res = try context.fetch(request)
-            nextPriorityValue = res[0].priority + 1
-        } catch {
-            print("get next priority value error \(error.localizedDescription)")
-        }
-        return nextPriorityValue
+    private func getNextPriorityNumber() -> Int {
+        return sotpPersistentTokenItems.count + 1
     }
+
+    public func getAllSOTPTokens() {
+
+        let tokens = try? Array(SOTPKeychain.shared.allPersistentTokens())
+        sotpPersistentTokenItems = tokens?.sorted(by: { $0.priority ?? 0 < $1.priority ?? 0 }) ?? []
+    }
+
 }
