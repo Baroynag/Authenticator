@@ -54,6 +54,7 @@
 		14CB6D6724FC19D600316ED7 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CB6D6624FC19D600316ED7 /* SettingsTableViewCell.swift */; };
 		14CB6D6924FC2AD100316ED7 /* SettingsTableViewCellWithButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CB6D6824FC2AD100316ED7 /* SettingsTableViewCellWithButton.swift */; };
 		14CB6D6F2506A2A700316ED7 /* LoadFromFileExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CB6D6E2506A2A700316ED7 /* LoadFromFileExtentions.swift */; };
+		14DD4DD825D9961D00617B03 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 14DD4DD625D9961D00617B03 /* InfoPlist.strings */; };
 		14E8523F25619BB700B9744B /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E8523E25619BB700B9744B /* AboutViewController.swift */; };
 		14E8524C256AE6E400B9744B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 14E8524A256AE6E400B9744B /* Localizable.strings */; };
 		14F740F22447743D0052244C /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 14F740F12447743D0052244C /* Lato-Light.ttf */; };
@@ -160,6 +161,7 @@
 		14CB6D6624FC19D600316ED7 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
 		14CB6D6824FC2AD100316ED7 /* SettingsTableViewCellWithButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCellWithButton.swift; sourceTree = "<group>"; };
 		14CB6D6E2506A2A700316ED7 /* LoadFromFileExtentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadFromFileExtentions.swift; sourceTree = "<group>"; };
+		14DD4DD725D9961D00617B03 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		14E8523E25619BB700B9744B /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		14E8524B256AE6E400B9744B /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		14F740F12447743D0052244C /* Lato-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Light.ttf"; sourceTree = "<group>"; };
@@ -252,6 +254,7 @@
 				1401DAC8244343CC00DE677F /* Utils */,
 				1401DAB82443399200DE677F /* Resources */,
 				1401DA8B2440D46B00DE677F /* Info.plist */,
+				14DD4DD625D9961D00617B03 /* InfoPlist.strings */,
 				1496190F2517CE2E00B46D7B /* Localizable.strings */,
 				14900490246DBD6700F91500 /* Model */,
 			);
@@ -537,6 +540,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				149619112517CE2E00B46D7B /* Localizable.strings in Resources */,
+				14DD4DD825D9961D00617B03 /* InfoPlist.strings in Resources */,
 				1401DA8A2440D46B00DE677F /* LaunchScreen.storyboard in Resources */,
 				1401DA872440D46B00DE677F /* Assets.xcassets in Resources */,
 				1401DA822440D46800DE677F /* Main.storyboard in Resources */,
@@ -825,6 +829,14 @@
 				149619102517CE2E00B46D7B /* ru */,
 			);
 			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		14DD4DD625D9961D00617B03 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				14DD4DD725D9961D00617B03 /* ru */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 		14E8524A256AE6E400B9744B /* Localizable.strings */ = {

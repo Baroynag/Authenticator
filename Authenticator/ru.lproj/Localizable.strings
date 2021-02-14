@@ -11,6 +11,9 @@
 "Authenticator" = "Аутентификатор";
 
 /* No comment provided by engineer. */
+"Camera access" = "Доступ к камере";
+
+/* No comment provided by engineer. */
 "Cancel" = "Отмена";
 
 /* No comment provided by engineer. */
@@ -27,6 +30,9 @@
 
 /* No comment provided by engineer. */
 "Create backup" = "Создать резервную копию";
+
+/* No comment provided by engineer. */
+"Data loaded" = "Данные загруженны";
 
 /* No comment provided by engineer. */
 "Enter password" = "Введите пароль";
@@ -54,6 +60,9 @@
 
 /* No comment provided by engineer. */
 "Passwords do not match" = "Пароли не совпадают";
+
+/* No comment provided by engineer. */
+"Please allow camera access for SOTP" = "Пожалуйста, предоставьте приложению SOTP доступ к камере";
 
 /* No comment provided by engineer. */
 "Please consider to support this open source project" = "Если Вам нравиться приложение Вы можете поддержать проект";
@@ -93,9 +102,6 @@
 
 /* No comment provided by engineer. */
 "Thank you for your support!" = "Спасибо за Вашу поддержку!";
-
-/* No comment provided by engineer. */
-"Time-based" = "Фактор времени";
 
 /* No comment provided by engineer. */
 "Welcome to" = "Добро пожаловать в";

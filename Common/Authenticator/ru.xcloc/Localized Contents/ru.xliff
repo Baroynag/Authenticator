@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.2" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 http://docs.oasis-open.org/xliff/v1.2/os/xliff-core-1.2-strict.xsd">
-  <file original="Authenticator/en.lproj/InfoPlist.strings" datatype="plaintext" source-language="en" target-language="ru">
+  <file original="Authenticator/en.lproj/InfoPlist.strings" source-language="en" target-language="ru" datatype="plaintext">
     <header>
-      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="12.2" build-num="12B45b"/>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="12.4" build-num="12D4e"/>
     </header>
     <body>
       <trans-unit id="CFBundleDisplayName" xml:space="preserve">
@@ -14,7 +14,8 @@
         <note>Bundle name</note>
       </trans-unit>
       <trans-unit id="NSCameraUsageDescription" xml:space="preserve">
-        <source> photo use</source>
+        <source>Authenticator SOTP uses your camera to scan QR-code</source>
+        <target>Приложение SOTP использует вашу камеру для сканирования QR-кодов</target>
         <note>Privacy - Camera Usage Description</note>
       </trans-unit>
       <trans-unit id="SOTP file" xml:space="preserve">
@@ -25,7 +26,7 @@
   </file>
   <file original="Authenticator/en.lproj/Localizable.strings" source-language="en" target-language="ru" datatype="plaintext">
     <header>
-      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="12.2" build-num="12B45b"/>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="12.4" build-num="12D4e"/>
     </header>
     <body>
       <trans-unit id="About SOTP" xml:space="preserve">
@@ -46,6 +47,11 @@
       <trans-unit id="Authenticator" xml:space="preserve">
         <source>Authenticator</source>
         <target>Аутентификатор</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Camera access" xml:space="preserve">
+        <source>Camera access</source>
+        <target>Доступ к камере</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Cancel" xml:space="preserve">
@@ -72,18 +78,6 @@
         <target>Скопированно</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
-      <trans-unit id="Core data delete error" xml:space="preserve">
-        <source>Core data delete error</source>
-        <note>No comment provided by engineer.</note>
-      </trans-unit>
-      <trans-unit id="Core data load error" xml:space="preserve">
-        <source>Core data load error</source>
-        <note>No comment provided by engineer.</note>
-      </trans-unit>
-      <trans-unit id="Core data save error" xml:space="preserve">
-        <source>Core data save error</source>
-        <note>No comment provided by engineer.</note>
-      </trans-unit>
       <trans-unit id="Create" xml:space="preserve">
         <source>Create</source>
         <target>Создать</target>
@@ -96,6 +90,7 @@
       </trans-unit>
       <trans-unit id="Data loaded" xml:space="preserve">
         <source>Data loaded</source>
+        <target>Данные загруженны</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Enter password" xml:space="preserve">
@@ -106,10 +101,6 @@
       <trans-unit id="Error to upload file" xml:space="preserve">
         <source>Error to upload file</source>
         <target>Ошибка загрузки файла</target>
-        <note>No comment provided by engineer.</note>
-      </trans-unit>
-      <trans-unit id="Json serialization error" xml:space="preserve">
-        <source>Json serialization error</source>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Load from Backup" xml:space="preserve">
@@ -124,7 +115,7 @@
       </trans-unit>
       <trans-unit id="Ok" xml:space="preserve">
         <source>Ok</source>
-        <note>Default action</note>
+        <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Open GitHub repo" xml:space="preserve">
         <source>Open GitHub repo</source>
@@ -144,6 +135,11 @@
       <trans-unit id="Passwords do not match" xml:space="preserve">
         <source>Passwords do not match</source>
         <target>Пароли не совпадают</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Please allow camera access for SOTP" xml:space="preserve">
+        <source>Please allow camera access for SOTP</source>
+        <target>Пожалуйста, предоставьте приложению SOTP доступ к камере</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Please consider to support this open source project" xml:space="preserve">
@@ -210,11 +206,6 @@
         <target>Спасибо за Вашу поддержку!</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
-      <trans-unit id="Time-based" xml:space="preserve">
-        <source>Time-based</source>
-        <target>Фактор времени</target>
-        <note>No comment provided by engineer.</note>
-      </trans-unit>
       <trans-unit id="Welcome to" xml:space="preserve">
         <source>Welcome to</source>
         <target>Добро пожаловать в</target>
@@ -244,7 +235,7 @@
   </file>
   <file original="SOTPWatch Extension/en.lproj/InfoPlist.strings" datatype="plaintext" source-language="en" target-language="ru">
     <header>
-      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="12.2" build-num="12B45b"/>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="12.4" build-num="12D4e"/>
     </header>
     <body>
       <trans-unit id="CFBundleDisplayName" xml:space="preserve">
@@ -259,34 +250,17 @@
   </file>
   <file original="SOTPWatch Extension/en.lproj/Localizable.strings" source-language="en" target-language="ru" datatype="plaintext">
     <header>
-      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="12.2" build-num="12B45b"/>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="12.4" build-num="12D4e"/>
     </header>
     <body>
-      <trans-unit id="Core data delete error" xml:space="preserve">
-        <source>Core data delete error</source>
+      <trans-unit id="Loading..." xml:space="preserve">
+        <source>Loading...</source>
+        <target>Загрузка</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
-      <trans-unit id="Core data load error" xml:space="preserve">
-        <source>Core data load error</source>
-        <note>No comment provided by engineer.</note>
-      </trans-unit>
-      <trans-unit id="Core data save error" xml:space="preserve">
-        <source>Core data save error</source>
-        <note>No comment provided by engineer.</note>
-      </trans-unit>
-      <trans-unit id="Refresh in " xml:space="preserve">
-        <source>Refresh in </source>
-        <target>Обновится через</target>
-        <note>No comment provided by engineer.</note>
-      </trans-unit>
-      <trans-unit id="Refresh in s." xml:space="preserve">
-        <source>Refresh in s.</source>
-        <target>Обновится через</target>
-        <note>No comment provided by engineer.</note>
-      </trans-unit>
-      <trans-unit id="s." xml:space="preserve">
-        <source>s.</source>
-        <target>сек.</target>
+      <trans-unit id="No accounts" xml:space="preserve">
+        <source>No accounts</source>
+        <target>Нет аккаунтов</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
     </body>

@@ -2,7 +2,7 @@
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.2" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 http://docs.oasis-open.org/xliff/v1.2/os/xliff-core-1.2-strict.xsd">
   <file original="Authenticator/en.lproj/InfoPlist.strings" source-language="en" target-language="en" datatype="plaintext">
     <header>
-      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="12.2" build-num="12B45b"/>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="12.4" build-num="12D4e"/>
     </header>
     <body>
       <trans-unit id="CFBundleDisplayName" xml:space="preserve">
@@ -16,8 +16,8 @@
         <note>Bundle name</note>
       </trans-unit>
       <trans-unit id="NSCameraUsageDescription" xml:space="preserve">
-        <source> photo use</source>
-        <target> photo use</target>
+        <source>Authenticator SOTP uses your camera to scan QR-code</source>
+        <target>Authenticator SOTP uses your camera to scan QR-code</target>
         <note>Privacy - Camera Usage Description</note>
       </trans-unit>
       <trans-unit id="SOTP file" xml:space="preserve">
@@ -29,7 +29,7 @@
   </file>
   <file original="Authenticator/en.lproj/Localizable.strings" source-language="en" target-language="en" datatype="plaintext">
     <header>
-      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="12.2" build-num="12B45b"/>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="12.4" build-num="12D4e"/>
     </header>
     <body>
       <trans-unit id="About SOTP" xml:space="preserve">
@@ -50,6 +50,11 @@
       <trans-unit id="Authenticator" xml:space="preserve">
         <source>Authenticator</source>
         <target>Authenticator</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Camera access" xml:space="preserve">
+        <source>Camera access</source>
+        <target>Camera access</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Cancel" xml:space="preserve">
@@ -77,21 +82,6 @@
         <target>Copied</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
-      <trans-unit id="Core data delete error" xml:space="preserve">
-        <source>Core data delete error</source>
-        <target>Core data delete error</target>
-        <note>No comment provided by engineer.</note>
-      </trans-unit>
-      <trans-unit id="Core data load error" xml:space="preserve">
-        <source>Core data load error</source>
-        <target>Core data load error</target>
-        <note>No comment provided by engineer.</note>
-      </trans-unit>
-      <trans-unit id="Core data save error" xml:space="preserve">
-        <source>Core data save error</source>
-        <target>Core data save error</target>
-        <note>No comment provided by engineer.</note>
-      </trans-unit>
       <trans-unit id="Create" xml:space="preserve">
         <source>Create</source>
         <target>Create</target>
@@ -117,11 +107,6 @@
         <target>Error to upload file</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
-      <trans-unit id="Json serialization error" xml:space="preserve">
-        <source>Json serialization error</source>
-        <target>Json serialization error</target>
-        <note>No comment provided by engineer.</note>
-      </trans-unit>
       <trans-unit id="Load from Backup" xml:space="preserve">
         <source>Load from Backup</source>
         <target>Load from Backup</target>
@@ -135,7 +120,7 @@
       <trans-unit id="Ok" xml:space="preserve">
         <source>Ok</source>
         <target>Ok</target>
-        <note>Default action</note>
+        <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Open GitHub repo" xml:space="preserve">
         <source>Open GitHub repo</source>
@@ -155,6 +140,11 @@
       <trans-unit id="Passwords do not match" xml:space="preserve">
         <source>Passwords do not match</source>
         <target>Passwords do not match</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Please allow camera access for SOTP" xml:space="preserve">
+        <source>Please allow camera access for SOTP</source>
+        <target>Please allow camera access for SOTP</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Please consider to support this open source project" xml:space="preserve">
@@ -222,11 +212,6 @@
         <target>Thank you for your support!</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
-      <trans-unit id="Time-based" xml:space="preserve">
-        <source>Time-based</source>
-        <target>Time-based</target>
-        <note>No comment provided by engineer.</note>
-      </trans-unit>
       <trans-unit id="Welcome to" xml:space="preserve">
         <source>Welcome to</source>
         <target>Welcome to</target>
@@ -256,7 +241,7 @@
   </file>
   <file original="SOTPWatch Extension/en.lproj/InfoPlist.strings" source-language="en" target-language="en" datatype="plaintext">
     <header>
-      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="12.2" build-num="12B45b"/>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="12.4" build-num="12D4e"/>
     </header>
     <body>
       <trans-unit id="CFBundleDisplayName" xml:space="preserve">
@@ -273,37 +258,17 @@
   </file>
   <file original="SOTPWatch Extension/en.lproj/Localizable.strings" source-language="en" target-language="en" datatype="plaintext">
     <header>
-      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="12.2" build-num="12B45b"/>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="12.4" build-num="12D4e"/>
     </header>
     <body>
-      <trans-unit id="Core data delete error" xml:space="preserve">
-        <source>Core data delete error</source>
-        <target>Core data delete error</target>
+      <trans-unit id="Loading..." xml:space="preserve">
+        <source>Loading...</source>
+        <target>Loading...</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
-      <trans-unit id="Core data load error" xml:space="preserve">
-        <source>Core data load error</source>
-        <target>Core data load error</target>
-        <note>No comment provided by engineer.</note>
-      </trans-unit>
-      <trans-unit id="Core data save error" xml:space="preserve">
-        <source>Core data save error</source>
-        <target>Core data save error</target>
-        <note>No comment provided by engineer.</note>
-      </trans-unit>
-      <trans-unit id="Refresh in " xml:space="preserve">
-        <source>Refresh in </source>
-        <target>Refresh in </target>
-        <note>No comment provided by engineer.</note>
-      </trans-unit>
-      <trans-unit id="Refresh in s." xml:space="preserve">
-        <source>Refresh in s.</source>
-        <target>Refresh in s.</target>
-        <note>No comment provided by engineer.</note>
-      </trans-unit>
-      <trans-unit id="s." xml:space="preserve">
-        <source>s.</source>
-        <target>s.</target>
+      <trans-unit id="No accounts" xml:space="preserve">
+        <source>No accounts</source>
+        <target>No accounts</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
     </body>

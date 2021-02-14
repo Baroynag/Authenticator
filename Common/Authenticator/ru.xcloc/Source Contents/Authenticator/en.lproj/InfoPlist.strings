@@ -3,5 +3,5 @@
 /* Bundle name */
 "CFBundleName" = "SOTP";
 /* Privacy - Camera Usage Description */
-"NSCameraUsageDescription" = " photo use";
+"NSCameraUsageDescription" = "Authenticator SOTP uses your camera to scan QR-code";
 "SOTP file" = "SOTP file";

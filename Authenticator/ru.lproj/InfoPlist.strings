@@ -1,0 +1,3 @@
+/* Privacy - Camera Usage Description */
+"NSCameraUsageDescription" = "Приложение SOTP использует вашу камеру для сканирования QR-кодов";
+
