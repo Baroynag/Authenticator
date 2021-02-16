@@ -66,7 +66,7 @@ final class GreetingViewController: UIViewController {
     let loadButton: RoundedButtonWithShadow = {
             let button = RoundedButtonWithShadow(type: .system)
             button.translatesAutoresizingMaskIntoConstraints = false
-            button.setTitle(NSLocalizedString("Load from backup", comment: ""), for: .normal)
+            button.setTitle(NSLocalizedString("Load from file", comment: ""), for: .normal)
             button.setTitleColor(.white, for: .normal)
             button.titleLabel?.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
             button.addTarget(self, action: #selector(handleLoad), for: .touchUpInside)

@@ -83,11 +83,6 @@
         <target>Создать</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
-      <trans-unit id="Create backup" xml:space="preserve">
-        <source>Create backup</source>
-        <target>Создать резервную копию</target>
-        <note>No comment provided by engineer.</note>
-      </trans-unit>
       <trans-unit id="Data loaded" xml:space="preserve">
         <source>Data loaded</source>
         <target>Данные загруженны</target>
@@ -103,14 +98,9 @@
         <target>Ошибка загрузки файла</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
-      <trans-unit id="Load from Backup" xml:space="preserve">
-        <source>Load from Backup</source>
-        <target>Загрузить из резервной копии</target>
-        <note>No comment provided by engineer.</note>
-      </trans-unit>
-      <trans-unit id="Load from backup" xml:space="preserve">
-        <source>Load from backup</source>
-        <target>Загрузить из резервной копии</target>
+      <trans-unit id="Load from file" xml:space="preserve">
+        <source>Load from file</source>
+        <target>Загрузить из файла</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Ok" xml:space="preserve">
@@ -204,6 +194,11 @@
       <trans-unit id="Thank you for your support!" xml:space="preserve">
         <source>Thank you for your support!</source>
         <target>Спасибо за Вашу поддержку!</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Transfer data" xml:space="preserve">
+        <source>Transfer data</source>
+        <target>Перенести данные</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Welcome to" xml:space="preserve">

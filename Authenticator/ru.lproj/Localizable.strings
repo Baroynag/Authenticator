@@ -29,9 +29,6 @@
 "Create" = "Создать";
 
 /* No comment provided by engineer. */
-"Create backup" = "Создать резервную копию";
-
-/* No comment provided by engineer. */
 "Data loaded" = "Данные загруженны";
 
 /* No comment provided by engineer. */
@@ -41,10 +38,7 @@
 "Error to upload file" = "Ошибка загрузки файла";
 
 /* No comment provided by engineer. */
-"Load from backup" = "Загрузить из резервной копии";
-
-/* No comment provided by engineer. */
-"Load from Backup" = "Загрузить из резервной копии";
+"Load from file" = "Загрузить из файла";
 
 /* No comment provided by engineer. */
 "Open GitHub repo" = "Открыть GitHub";
@@ -102,6 +96,9 @@
 
 /* No comment provided by engineer. */
 "Thank you for your support!" = "Спасибо за Вашу поддержку!";
+
+/* No comment provided by engineer. */
+"Transfer data" = "Перенести данные";
 
 /* No comment provided by engineer. */
 "Welcome to" = "Добро пожаловать в";
