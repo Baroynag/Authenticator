@@ -27,7 +27,6 @@
 		1430EA8D24DEF79900B75CF6 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1430EA8C24DEF79900B75CF6 /* StoreKit.framework */; };
 		1430EA8F24DF0E0800B75CF6 /* Purchases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1430EA8E24DF0E0800B75CF6 /* Purchases.swift */; };
 		1430EA9124DF0FCA00B75CF6 /* PurchaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1430EA9024DF0FCA00B75CF6 /* PurchaseViewController.swift */; };
-		143D098825168F2B00C30041 /* RoundedButtonWithShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143D098725168F2B00C30041 /* RoundedButtonWithShadow.swift */; };
 		144B48A024FC10510086DA04 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144B489F24FC10510086DA04 /* SettingsTableViewController.swift */; };
 		14543DA124853A03008E7DA8 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14543D9F24853A03008E7DA8 /* Interface.storyboard */; };
 		14543DA324853A04008E7DA8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14543DA224853A04008E7DA8 /* Assets.xcassets */; };
@@ -57,10 +56,20 @@
 		14E8523F25619BB700B9744B /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E8523E25619BB700B9744B /* AboutViewController.swift */; };
 		14E8524C256AE6E400B9744B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 14E8524A256AE6E400B9744B /* Localizable.strings */; };
 		14F740F22447743D0052244C /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 14F740F12447743D0052244C /* Lato-Light.ttf */; };
+		A814921025E6C92600ADE1CE /* UIButton+SOTPShadows.swift in Sources */ = {isa = PBXBuildFile; fileRef = A814920F25E6C92600ADE1CE /* UIButton+SOTPShadows.swift */; };
 		A8DB1CD525866BE4007C980B /* UILabel+AttributedText.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DB1CD425866BE4007C980B /* UILabel+AttributedText.swift */; };
-		A8DB1CDA25866C14007C980B /* UINavigationController+Completions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DB1CD925866C14007C980B /* UINavigationController+Completions.swift */; };
 		A8DB1CDF25866C34007C980B /* UIViewController+SetupNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DB1CDE25866C34007C980B /* UIViewController+SetupNavigation.swift */; };
 		A8DB1CEA25866DFB007C980B /* UIFont+SOTPFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DB1CE925866DFB007C980B /* UIFont+SOTPFonts.swift */; };
+		A8E118E825E649DA00127213 /* DeserializationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E118E725E649DA00127213 /* DeserializationError.swift */; };
+		A8E118E925E649DA00127213 /* DeserializationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E118E725E649DA00127213 /* DeserializationError.swift */; };
+		A8E118EE25E649FC00127213 /* SOTPTokenAtributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E118ED25E649FC00127213 /* SOTPTokenAtributes.swift */; };
+		A8E118EF25E649FC00127213 /* SOTPTokenAtributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E118ED25E649FC00127213 /* SOTPTokenAtributes.swift */; };
+		A8E118F725E64A4300127213 /* SOTPPersistentToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E118F625E64A4300127213 /* SOTPPersistentToken.swift */; };
+		A8E118F825E64A4300127213 /* SOTPPersistentToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E118F625E64A4300127213 /* SOTPPersistentToken.swift */; };
+		A8E1190B25E6569500127213 /* Token+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E1190A25E6569500127213 /* Token+Codable.swift */; };
+		A8E1190C25E6569500127213 /* Token+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E1190A25E6569500127213 /* Token+Codable.swift */; };
+		A8E1191225E656D300127213 /* Token+Hashable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E1191125E656D300127213 /* Token+Hashable.swift */; };
+		A8E1191325E656D300127213 /* Token+Hashable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E1191125E656D300127213 /* Token+Hashable.swift */; };
 		CC74BA630D0AF3B3442DF0E3 /* Pods_SOTPWatch_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E0822CA0A73046E3F1F30E9 /* Pods_SOTPWatch_Extension.framework */; };
 		EDFD8EE1D14E008CC2B86F6D /* Pods_SOTPWatch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69E961E78C1ECBDEEF93A234 /* Pods_SOTPWatch.framework */; };
 		FD6CF9FFA6037CDAEBC06627 /* Pods_Authenticator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67D87C916A1E254B6ABFAF7D /* Pods_Authenticator.framework */; };
@@ -129,7 +138,6 @@
 		1430EA8C24DEF79900B75CF6 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		1430EA8E24DF0E0800B75CF6 /* Purchases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Purchases.swift; sourceTree = "<group>"; };
 		1430EA9024DF0FCA00B75CF6 /* PurchaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseViewController.swift; sourceTree = "<group>"; };
-		143D098725168F2B00C30041 /* RoundedButtonWithShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButtonWithShadow.swift; sourceTree = "<group>"; };
 		144B489F24FC10510086DA04 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		14543D9D24853A03008E7DA8 /* SOTPWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SOTPWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14543DA024853A03008E7DA8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
@@ -169,10 +177,15 @@
 		67D87C916A1E254B6ABFAF7D /* Pods_Authenticator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Authenticator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		69E961E78C1ECBDEEF93A234 /* Pods_SOTPWatch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SOTPWatch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E0822CA0A73046E3F1F30E9 /* Pods_SOTPWatch_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SOTPWatch_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A814920F25E6C92600ADE1CE /* UIButton+SOTPShadows.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+SOTPShadows.swift"; sourceTree = "<group>"; };
 		A8DB1CD425866BE4007C980B /* UILabel+AttributedText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+AttributedText.swift"; sourceTree = "<group>"; };
-		A8DB1CD925866C14007C980B /* UINavigationController+Completions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Completions.swift"; sourceTree = "<group>"; };
 		A8DB1CDE25866C34007C980B /* UIViewController+SetupNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+SetupNavigation.swift"; sourceTree = "<group>"; };
 		A8DB1CE925866DFB007C980B /* UIFont+SOTPFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+SOTPFonts.swift"; sourceTree = "<group>"; };
+		A8E118E725E649DA00127213 /* DeserializationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeserializationError.swift; sourceTree = "<group>"; };
+		A8E118ED25E649FC00127213 /* SOTPTokenAtributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SOTPTokenAtributes.swift; sourceTree = "<group>"; };
+		A8E118F625E64A4300127213 /* SOTPPersistentToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SOTPPersistentToken.swift; sourceTree = "<group>"; };
+		A8E1190A25E6569500127213 /* Token+Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Token+Codable.swift"; sourceTree = "<group>"; };
+		A8E1191125E656D300127213 /* Token+Hashable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Token+Hashable.swift"; sourceTree = "<group>"; };
 		B1087AF21F7B4953349EB22F /* Pods-Authenticator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Authenticator.debug.xcconfig"; path = "Target Support Files/Pods-Authenticator/Pods-Authenticator.debug.xcconfig"; sourceTree = "<group>"; };
 		DB325BD33947A6B7CF3A0A1E /* Pods-SOTPWatch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SOTPWatch.release.xcconfig"; path = "Target Support Files/Pods-SOTPWatch/Pods-SOTPWatch.release.xcconfig"; sourceTree = "<group>"; };
 		E105FBA28569813673C1F6B7 /* Pods-Authenticator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Authenticator.release.xcconfig"; path = "Target Support Files/Pods-Authenticator/Pods-Authenticator.release.xcconfig"; sourceTree = "<group>"; };
@@ -279,7 +292,6 @@
 				1463409924CE0763008ECFBD /* RNCryptorExtention.swift */,
 				146CE3A924D3369600DDC45C /* Backup.swift */,
 				1430EA8E24DF0E0800B75CF6 /* Purchases.swift */,
-				143D098725168F2B00C30041 /* RoundedButtonWithShadow.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -384,8 +396,11 @@
 			isa = PBXGroup;
 			children = (
 				14A3454625B4C7D600F63C54 /* SOTPToken.swift */,
+				A8E118F625E64A4300127213 /* SOTPPersistentToken.swift */,
+				A8E118ED25E649FC00127213 /* SOTPTokenAtributes.swift */,
 				14B8BDA525B4CB2E00595A17 /* SOTPKeychain.swift */,
 				142F404925D12E54008A9CA0 /* TokenGenerator.swift */,
+				A8E118E725E649DA00127213 /* DeserializationError.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -401,13 +416,23 @@
 		A8DB1CD325866BCB007C980B /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				A8E1191025E656C300127213 /* Token */,
 				A8DB1CE925866DFB007C980B /* UIFont+SOTPFonts.swift */,
 				1401DAC52443436E00DE677F /* UIColor+SOTPColors.swift */,
 				A8DB1CD425866BE4007C980B /* UILabel+AttributedText.swift */,
-				A8DB1CD925866C14007C980B /* UINavigationController+Completions.swift */,
+				A814920F25E6C92600ADE1CE /* UIButton+SOTPShadows.swift */,
 				A8DB1CDE25866C34007C980B /* UIViewController+SetupNavigation.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		A8E1191025E656C300127213 /* Token */ = {
+			isa = PBXGroup;
+			children = (
+				A8E1190A25E6569500127213 /* Token+Codable.swift */,
+				A8E1191125E656D300127213 /* Token+Hashable.swift */,
+			);
+			path = Token;
 			sourceTree = "<group>";
 		};
 		A9BF4EE2A6484A861A2F363B /* Pods */ = {
@@ -725,8 +750,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A8E118F725E64A4300127213 /* SOTPPersistentToken.swift in Sources */,
 				146CE3A724D1B9AB00DDC45C /* GreetingViewController.swift in Sources */,
-				143D098825168F2B00C30041 /* RoundedButtonWithShadow.swift in Sources */,
 				1401DA852440D46800DE677F /* Authenticator.xcdatamodeld in Sources */,
 				A8DB1CD525866BE4007C980B /* UILabel+AttributedText.swift in Sources */,
 				1401DAC12443431200DE677F /* AuthenticatorViewController.swift in Sources */,
@@ -742,8 +767,8 @@
 				14C0B71D254C793D0054DD57 /* AuthenticatorForWatch.xcdatamodeld in Sources */,
 				1401DAC32443433100DE677F /* AddAccountViewController.swift in Sources */,
 				1405D88B24719BF10065509B /* UITextFieldWithBottomBorder.swift in Sources */,
+				A814921025E6C92600ADE1CE /* UIButton+SOTPShadows.swift in Sources */,
 				144B48A024FC10510086DA04 /* SettingsTableViewController.swift in Sources */,
-				A8DB1CDA25866C14007C980B /* UINavigationController+Completions.swift in Sources */,
 				1401DACA244343FE00DE677F /* AuthenticatorModel.swift in Sources */,
 				141917D0245483EC00EE125D /* ScanQrViewController.swift in Sources */,
 				14543DC82486E02D008E7DA8 /* WatchAppConnection.swift in Sources */,
@@ -755,11 +780,15 @@
 				1430EA9124DF0FCA00B75CF6 /* PurchaseViewController.swift in Sources */,
 				1401DAC72443436E00DE677F /* UIColor+SOTPColors.swift in Sources */,
 				14B61B5B24C71DD400A08A14 /* AuthenticatorItem+CoreDataClass.swift in Sources */,
+				A8E118E825E649DA00127213 /* DeserializationError.swift in Sources */,
 				1401DA7D2440D46800DE677F /* SceneDelegate.swift in Sources */,
 				1463409A24CE0763008ECFBD /* RNCryptorExtention.swift in Sources */,
+				A8E118EE25E649FC00127213 /* SOTPTokenAtributes.swift in Sources */,
+				A8E1191225E656D300127213 /* Token+Hashable.swift in Sources */,
 				14B7E31E24C3237F00A2E9F3 /* PasswordError.swift in Sources */,
 				1430EA8F24DF0E0800B75CF6 /* Purchases.swift in Sources */,
 				A8DB1CEA25866DFB007C980B /* UIFont+SOTPFonts.swift in Sources */,
+				A8E1190B25E6569500127213 /* Token+Codable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -768,10 +797,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				14543DB124853A04008E7DA8 /* ExtensionDelegate.swift in Sources */,
+				A8E118EF25E649FC00127213 /* SOTPTokenAtributes.swift in Sources */,
 				14023D6725B4C8C100EC35C8 /* SOTPToken.swift in Sources */,
+				A8E1191325E656D300127213 /* Token+Hashable.swift in Sources */,
 				14C0B724254C8F2B0054DD57 /* WatchModel.swift in Sources */,
+				A8E118F825E64A4300127213 /* SOTPPersistentToken.swift in Sources */,
+				A8E118E925E649DA00127213 /* DeserializationError.swift in Sources */,
 				14543DAF24853A04008E7DA8 /* InterfaceController.swift in Sources */,
 				14543DC124853B24008E7DA8 /* SOTPWatchRow.swift in Sources */,
+				A8E1190C25E6569500127213 /* Token+Codable.swift in Sources */,
 				14C0B71E254C793D0054DD57 /* AuthenticatorForWatch.xcdatamodeld in Sources */,
 				14B8BDA725B4CB2E00595A17 /* SOTPKeychain.swift in Sources */,
 				142F404B25D12E54008A9CA0 /* TokenGenerator.swift in Sources */,

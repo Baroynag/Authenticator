@@ -7,7 +7,11 @@
 //
 import StoreKit
 
-//typealias RequestProductsCompletion = (Result<[SKProduct], Error>) -> Void
+enum PurchasesError: Error {
+    case purchaseInProgress
+    case productNotFound
+    case unknown
+}
 
 class Purchases: NSObject {
 
@@ -135,10 +139,4 @@ extension Purchases {
     func finishTransaction(_ transaction: SKPaymentTransaction) -> Bool {
         return true
     }
-}
-
-enum PurchasesError: Error {
-    case purchaseInProgress
-    case productNotFound
-    case unknown
 }

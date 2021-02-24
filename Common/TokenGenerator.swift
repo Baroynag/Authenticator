@@ -6,12 +6,15 @@
 //  Copyright © 2021 Anzhela Baroyan. All rights reserved.
 //
 
-import OneTimePassword
 import Base32
+import OneTimePassword
 
 class TokenGenerator {
 
     static let shared = TokenGenerator()
+    
+    private init() {
+    }
 
     public func createTimeBasedPersistentToken(name: String, issuer: String, secretString: String, priority: Int) -> SOTPPersistentToken? {
 
