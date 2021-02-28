@@ -49,7 +49,7 @@ class TokenGenerator {
         return generator
     }
 
-    private func isValidSecretKey(secretKey: String) -> Bool {
+    public func isValidSecretKey(secretKey: String) -> Bool {
 
         if secretKey.isEmpty {return false}
 
