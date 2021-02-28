@@ -34,7 +34,6 @@ class InterfaceController: WKInterfaceController {
         if let row = table.rowController(at: 0) as? SOTPWatchRow {
             row.passLabel?.setText(NSLocalizedString("Loading...", comment: ""))
         }
-        print ("persistentTokenItems.count \(persistentTokenItems.count)")
         if persistentTokenItems.count != 0 {
             setupTable()
         }
@@ -52,8 +51,13 @@ class InterfaceController: WKInterfaceController {
 
         if persistentTokenItems.count == 0,
            let row = table.rowController(at: 0) as? SOTPWatchRow {
-            let text = NSLocalizedString("No accounts", comment: "")
+            
+            let text = NSLocalizedString("Empty", comment: "")
             row.passLabel?.setText(text)
+            
+            let detailText = NSLocalizedString("No accounts", comment: "")
+            row.detailLabel.setText(detailText)
+           
             return
         }
 
@@ -145,7 +149,7 @@ extension InterfaceController {
                                 let nsError = error as NSError
                                 if nsError.domain == "WCErrorDomain"  && availableRetries > 0 {
                                     availableRetries -= 1
-                                    DispatchQueue.main.asyncAfter(
+                                    DispatchQueue.global().asyncAfter(
                                         deadline: .now() + 0.3,
                                         execute: {trySendingMessageToWatch(message)})
                                     } else {errorHandler?(error)}
