@@ -59,26 +59,15 @@ class AuthenticatorViewController: UIViewController {
             if let customCell = cell as? CustomCell {
 
                 if !tableView.isEditing {
-                    let saveButton = UIBarButtonItem(
-                        barButtonSystemItem: .save,
-                        target: self,
-                        action: #selector(editTapped))
-                    navigationItem.leftBarButtonItem = saveButton
-
-                    addButton.isHidden = true
                     customCell.startEditing()
                 } else {
-                    let editButton = UIBarButtonItem(
-                        barButtonSystemItem: .edit,
-                        target: self,
-                        action: #selector(editTapped))
-                    navigationItem.leftBarButtonItem = editButton
-                    addButton.isHidden = false
                     customCell.stopEditing()
                 }
             }
         }
-
+        
+        setupEditButton()
+        addButton.isHidden = !tableView.isEditing
         tableView.isEditing  = !tableView.isEditing
 
     }
@@ -130,6 +119,25 @@ class AuthenticatorViewController: UIViewController {
         addAccountViewController.output = self
         present(addAccountViewController, animated: true)
     }
+
+    private func setupEditButton() {
+
+        if !tableView.isEditing {
+            let saveButton = UIBarButtonItem(
+                barButtonSystemItem: .save,
+                target: self,
+                action: #selector(editTapped))
+            navigationItem.leftBarButtonItem = saveButton
+
+        } else {
+            let editButton = UIBarButtonItem(
+                barButtonSystemItem: .edit,
+                target: self,
+                action: #selector(editTapped))
+            navigationItem.leftBarButtonItem = editButton
+        }
+    }
+
 }
 
 // MARK: - UITableViewDataSource
@@ -163,6 +171,11 @@ extension AuthenticatorViewController: UITableViewDelegate {
         _ tableView: UITableView,
         commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
 
+        if let cell = tableView.cellForRow(at: indexPath) as? CustomCell,
+           tableView.isEditing{
+            cell.stopEditing()
+        }
+        
         if editingStyle == .delete {
             AuthenticatorModel.shared.deleteData(index: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
