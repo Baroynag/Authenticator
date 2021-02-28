@@ -53,9 +53,8 @@ final class GreetingViewController: UIViewController {
         return label
     }()
 
-    let createButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.sotpShadow()
+    let createButton: RoundedButtonWithShadow = {
+        let button = RoundedButtonWithShadow(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle(NSLocalizedString("Create", comment: ""), for: .normal)
         button.setTitleColor(.white, for: .normal)
@@ -64,9 +63,8 @@ final class GreetingViewController: UIViewController {
         return button
     }()
 
-    let loadButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.sotpShadow()
+    let loadButton: RoundedButtonWithShadow = {
+            let button = RoundedButtonWithShadow(type: .system)
             button.translatesAutoresizingMaskIntoConstraints = false
             button.setTitle(NSLocalizedString("Load from file", comment: ""), for: .normal)
             button.setTitleColor(.white, for: .normal)

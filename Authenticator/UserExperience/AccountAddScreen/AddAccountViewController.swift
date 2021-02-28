@@ -14,18 +14,18 @@ protocol AddAccountViewControllerOutput: class {
 }
 
 class AddAccountViewController: UIViewController {
-    
+
     // MARK: - Properties
     weak var output: AddAccountViewControllerOutput?
-    
+
     let offsetX = 24.0
     let offsetY = 60.0
     let textFieldHeigth = 80.0
     var textFieldWidth: Double = 0.0
-    
+
     private var issuerTextField = UITextFieldWithBottomBorder()
     private var keyTextField = UITextFieldWithBottomBorder()
-    
+
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -34,10 +34,9 @@ class AddAccountViewController: UIViewController {
         label.setAttributedText(fontSize: 20, text: text, aligment: .center, indent: 0.0)
         return label
     }()
-    
-    let createButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.sotpShadow()
+
+    let createButton: RoundedButtonWithShadow = {
+        let button = RoundedButtonWithShadow(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle(NSLocalizedString("Create", comment: ""), for: .normal)
         button.setTitleColor(.white, for: .normal)
@@ -45,7 +44,7 @@ class AddAccountViewController: UIViewController {
         button.addTarget(self, action: #selector(handleCreateButtonTapped), for: .touchUpInside)
         return button
     }()
-    
+
     let scanQRButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -55,10 +54,10 @@ class AddAccountViewController: UIViewController {
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.alignment = .center
         let attributes: [NSAttributedString.Key: Any] = [
-            .font: font,
-            .foregroundColor: UIColor.label,
-            .underlineStyle: NSUnderlineStyle.single.rawValue,
-            .paragraphStyle: paragraphStyle
+             .font: font,
+             .foregroundColor: UIColor.label,
+             .underlineStyle: NSUnderlineStyle.single.rawValue,
+             .paragraphStyle: paragraphStyle
         ]
         let text = NSLocalizedString("Scan QR Code", comment: "")
         let attributedText = NSMutableAttributedString(string: text, attributes: attributes)
@@ -66,7 +65,7 @@ class AddAccountViewController: UIViewController {
         button.setAttributedTitle(attributedText, for: .normal)
         return button
     }()
-    
+
     let cancelButton: UIButton = {
         let button = UIButton(type: .close)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -74,22 +73,22 @@ class AddAccountViewController: UIViewController {
         button.addTarget(self, action: #selector(handleCancelButton), for: .touchUpInside)
         return button
     }()
-    
+
     private let orLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.backgroundColor = .systemBackground
         return label
     }()
-    
+
     // MARK: - Inits
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
     }
-    
+
     // MARK: Functions
-    
+
     private func setupControllers() {
         setupNavigationController()
         setupTextField(textField: issuerTextField, placeholderText: NSLocalizedString("Account", comment: ""), tag: 1)
@@ -102,20 +101,20 @@ class AddAccountViewController: UIViewController {
             indent: 0.0,
             color: UIColor(red: 0.702, green: 0.686, blue: 0.694, alpha: 1))
     }
-    
+
     private func setupView() {
-        
+
         let tapGesture = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
         view.addGestureRecognizer(tapGesture)
         view.backgroundColor = .systemGray5
         setupLayouts()
         setupControllers()
     }
-    
+
     private func setupLayouts() {
-        
+
         view.backgroundColor = UIColor.systemBackground
-        
+
         view.addSubview(titleLabel)
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 79),
@@ -123,20 +122,20 @@ class AddAccountViewController: UIViewController {
             titleLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
         ])
         textFieldWidth = Double(view.frame.width) - offsetX * 2
-        
+
         issuerTextField = UITextFieldWithBottomBorder(frame:
-                                                        CGRect(x: offsetX,
-                                                               y: offsetY*2,
-                                                               width: textFieldWidth,
-                                                               height: textFieldHeigth))
+            CGRect(x: offsetX,
+                   y: offsetY*2,
+                   width: textFieldWidth,
+                   height: textFieldHeigth))
         view.addSubview(issuerTextField)
         issuerTextField.returnKeyType = UIReturnKeyType.next
-        
+
         keyTextField = UITextFieldWithBottomBorder(frame:
-                                                    CGRect(x: offsetX,
-                                                           y: textFieldHeigth + offsetY * 2,
-                                                           width: textFieldWidth,
-                                                           height: textFieldHeigth))
+            CGRect(x: offsetX,
+                   y: textFieldHeigth + offsetY * 2,
+                   width: textFieldWidth,
+                   height: textFieldHeigth))
         view.addSubview(keyTextField)
         view.addSubview(scanQRButton)
         NSLayoutConstraint.activate([
@@ -166,7 +165,7 @@ class AddAccountViewController: UIViewController {
             cancelButton.widthAnchor.constraint(equalToConstant: 16)
         ])
     }
-    
+
     private func setupTextField(textField: UITextField, placeholderText: String, tag: Int) {
         textField.backgroundColor = UIColor.systemBackground
         textField.textColor = UIColor.label
@@ -177,74 +176,74 @@ class AddAccountViewController: UIViewController {
         textField.tag = tag
         textField.delegate = self
     }
-    
+
     private func showAlert(alertTitle: String, alertMessage: String) {
         let alert = UIAlertController(
             title: NSLocalizedString(alertTitle, comment: ""),
             message: NSLocalizedString(alertMessage, comment: ""),
             preferredStyle: .alert)
-        
+
         let okAction = UIAlertAction(title: NSLocalizedString("Ok", comment: ""), style: .default)
         alert.addAction(okAction)
-        
+
         present(alert, animated: true, completion: nil)
-        
+
     }
-    
+
     private func showCameraPermissionAlert() {
-        
+
         let title = NSLocalizedString("Camera access", comment: "")
         let message = NSLocalizedString("Please allow camera access for SOTP",
                                         comment: "")
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        
+
         let okAction = UIAlertAction(title: "Ok", style: .default) { [weak self] _ in ()
             self?.dismiss(animated: true)
         }
         alert.addAction(okAction)
         present(alert, animated: true)
     }
-    
+
     // MARK: - Handlers
-    
+
     @objc private func handleCreateButtonTapped() {
         if let issuer = issuerTextField.text {
             if issuer.isEmpty {
                 showAlert(alertTitle: NSLocalizedString("Wrong account",
                                                         comment: ""),
-                          alertMessage: NSLocalizedString("Please enter correct account", comment: ""))
+                alertMessage: NSLocalizedString("Please enter correct account", comment: ""))
             }
         }
         if let key = keyTextField.text {
-            AuthenticatorModel.shared.addOneItem(account: "",
-                                                 issuer: issuerTextField.text,
-                                                 key: key)
-            output?.didAdd(account: "", issuer: issuerTextField.text, key: key)
-            dismiss(animated: true, completion: nil)
-            
-        }
-        
-    }
+                AuthenticatorModel.shared.addOneItem(account: "",
+                                                     issuer: issuerTextField.text,
+                                                     key: key)
+                output?.didAdd(account: "", issuer: issuerTextField.text, key: key)
+                dismiss(animated: true, completion: nil)
     
+        }
+
+    }
+
     private func setupCaptureSession() {
         let scanQrViewController = ScanQrViewController()
         scanQrViewController.output = self
         scanQrViewController.modalPresentationStyle = .fullScreen
         present(scanQrViewController, animated: true)
     }
-    
+
     @objc private func handleScanButton() {
         switch  AVCaptureDevice.authorizationStatus(for: .video) {
         case .authorized:
             setupCaptureSession()
         case .notDetermined:
             AVCaptureDevice.requestAccess(for: .video) {granted in
-                if granted {
-                    DispatchQueue.main.sync { [weak self] in
-                        self?.setupCaptureSession()
+                    if granted {
+                        DispatchQueue.main.sync { [weak self] in
+                            self?.setupCaptureSession()
+                        }
                     }
                 }
-            }
         default:
             showCameraPermissionAlert()
         }
@@ -254,24 +253,24 @@ class AddAccountViewController: UIViewController {
             
         }
     }
-    
+
     @objc private func handleCancelButton() {
         dismiss(animated: true)
     }
 }
 
 extension AddAccountViewController: UITextFieldDelegate {
-    
+
     func textFieldDidBeginEditing(_ textField: UITextField) {
         guard let bottomBorderTextField = textField as? UITextFieldWithBottomBorder else { return }
         bottomBorderTextField.updateBorder(color: .fucsiaColor)
     }
-    
+
     func textFieldDidEndEditing(_ textField: UITextField) {
         guard let bottomBorderTextField = textField as? UITextFieldWithBottomBorder else { return }
         bottomBorderTextField.updateBorder(color: .graySOTPColor)
     }
-    
+
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if let nextField = textField.superview?.viewWithTag(textField.tag + 1) as? UITextField {
             nextField.becomeFirstResponder()
@@ -285,11 +284,11 @@ extension AddAccountViewController: UITextFieldDelegate {
 
 extension AddAccountViewController: ScanQrViewControllerOutput {
     func didFound(account: String?, issuer: String?, key: String?) {
-        AuthenticatorModel.shared.addOneItem(
-            account: account,
-            issuer: issuer,
-            key: key)
+        AuthenticatorModel.shared.addOneItem(account: account,
+                                             issuer: issuer,
+                                             key: key)
         output?.didAdd(account: account, issuer: issuer, key: key)
         dismiss(animated: true, completion: nil)
     }
+
 }

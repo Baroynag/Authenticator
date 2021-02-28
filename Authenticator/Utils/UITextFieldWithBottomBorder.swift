@@ -9,35 +9,27 @@
 import UIKit
 
 class UITextFieldWithBottomBorder: UITextField {
-    
-    private var bottomBorder: CALayer?
-    
+
+    private let bottomBorder = CALayer()
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
-        createBottomBorder()
+        createBorder(textField: self,
+                     color: .graySOTPColor,
+                     borderWidth: 1.5,
+                     border: bottomBorder)
+        self.layer.addSublayer(bottomBorder)
     }
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    func updateBorder(color: UIColor) {
-        bottomBorder?.backgroundColor = color.cgColor
+    public func createBorder(textField: UITextField, color: UIColor, borderWidth: CGFloat, border: CALayer) {
+        border.backgroundColor = color.cgColor
+        border.frame = CGRect(x: 0.0,
+                              y: textField.frame.size.height - borderWidth,
+                              width: textField.frame.size.width,
+                              height: borderWidth)
     }
-    
-    private func createBottomBorder() {
-        bottomBorder = CALayer()
-        bottomBorder?.backgroundColor = UIColor.graySOTPColor.cgColor
-        bottomBorder?.frame = CGRect(
-            x: 0.0,
-            y: frame.size.height - Constants.borderHeight,
-            width: frame.size.width,
-            height: Constants.borderHeight)
-        self.layer.addSublayer(bottomBorder!)
-    }
-    
-    private enum Constants {
-        static let borderHeight: CGFloat = 1.5
+    public func updateBorder(color: UIColor) {
+        self.bottomBorder.backgroundColor = color.cgColor
     }
 }

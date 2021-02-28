@@ -107,7 +107,8 @@ class PasswordViewController: UIViewController {
     private func setupTextField(textField: UITextField, placeholderText: String, tag: Int) {
         textField.backgroundColor = UIColor.systemBackground
         textField.textColor = UIColor.label
-        textField.font = .normalFont
+        // review: в константы
+        textField.font = UIFont(name: "Lato-Light", size: 18)
         textField.textAlignment = .center
         textField.isUserInteractionEnabled = true
         textField.placeholder = placeholderText
@@ -126,7 +127,22 @@ class PasswordViewController: UIViewController {
         present(alert, animated: true, completion: nil)
     }
 
-    private func validatePassword(completion: @escaping (String?) -> Void ) {
+//    func validatePassword(completion: @escaping (String?) -> Void ) {
+//        do {
+//            let isValidPassword = try PasswordError.cheackPassword(
+//                passOne: passwordTextField.text,
+//                passTwo: confirmPasswordTextField.text)
+//
+//            if isValidPassword {
+//                completion(password)
+//            }
+//        } catch {
+//            showErrorAlert(errorText: error.localizedDescription)
+//        }
+//    }
+
+    // review: я бы порефачил этот метод. см. выше
+    func validatePassword(completion: @escaping (String?) -> Void ) {
         do {
             let isValidPassword = try PasswordError.cheackPassword(
                 passOne: passwordTextField.text,
@@ -139,7 +155,20 @@ class PasswordViewController: UIViewController {
             showErrorAlert(errorText: error.localizedDescription)
         }
     }
-    
+
+    // MARK: - Handlers
+    @objc private func handleConfirmButton() {
+        validatePassword { [weak self] pass in
+            if let pass = pass {
+                self?.saveBackupToFile(password: pass)
+            }
+        }
+    }
+
+    @objc func handleCancel() {
+        dismiss(animated: true, completion: nil)
+    }
+
     private func saveBackupToFile(password: String) {
         //TODO: add error message
         guard let backupFile = Backup.getEncriptedData(password: password) else {return}
@@ -169,19 +198,6 @@ class PasswordViewController: UIViewController {
         } catch {
             print(error.localizedDescription)
         }
-    }
-
-    // MARK: - Handlers
-    @objc private func handleConfirmButton() {
-        validatePassword { [weak self] pass in
-            if let pass = pass {
-                self?.saveBackupToFile(password: pass)
-            }
-        }
-    }
-
-    @objc private func handleCancel() {
-        dismiss(animated: true, completion: nil)
     }
 }
 

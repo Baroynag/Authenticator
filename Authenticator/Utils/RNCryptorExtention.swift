@@ -15,7 +15,6 @@ extension RNCryptor {
         let encryptedString: String = encryptedData.base64EncodedString()
         return encryptedString
     }
-    
     static func decrypt(encryptedText: String, password: String) -> String {
         do {
             let data: Data = Data(base64Encoded: encryptedText)!
@@ -25,5 +24,5 @@ extension RNCryptor {
         } catch {
             return "Decryption error"
         }
-    }
+       }
 }

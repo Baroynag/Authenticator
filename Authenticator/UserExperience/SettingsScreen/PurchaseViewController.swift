@@ -29,8 +29,9 @@ final class PurchaseViewController: UIViewController {
         let textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.backgroundColor = .systemBackground
+
         textField.textColor = .fucsiaColor
-        textField.font = .largeFont
+        textField.font = UIFont.largeFont
         textField.textAlignment = .center
         textField.text = Constants.supportString
         textField.isUserInteractionEnabled = false
@@ -42,8 +43,8 @@ final class PurchaseViewController: UIViewController {
         let textField = UITextView()
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.backgroundColor = .systemBackground
-        textField.textColor = .label
-        textField.font = .normalFont
+        textField.textColor = UIColor.label
+        textField.font = UIFont.normalFont
         textField.textAlignment = .center
         textField.autocapitalizationType = .words
         textField.text = Constants.descriptionText
@@ -81,7 +82,7 @@ final class PurchaseViewController: UIViewController {
     private let cancelButton: UIButton = {
         let button = UIButton(type: .close)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.backgroundColor = .systemBackground
+        button.backgroundColor = UIColor.systemBackground
         button.addTarget(self, action: #selector(handleCancel), for: .touchUpInside)
 
         return button
@@ -246,5 +247,6 @@ extension PurchaseViewController {
 
         alert.addAction(action)
         present(alert, animated: true, completion: nil)
+
     }
 }

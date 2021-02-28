@@ -20,7 +20,7 @@ class Backup {
     class public func getFileContent (fileURL: URL, password: String) -> Bool {
         //TODO: add error message
         if password == "" {
-            return false
+           return false
         }
         do {
             let data = try String(contentsOf: fileURL)
@@ -36,21 +36,20 @@ class Backup {
                 print("json decoding error \(error.localizedDescription)")
                 return false
             }
-            
+
         } catch {
             print(error.localizedDescription)
             return false
         }
         return true
     }
-    
+
     class private func saveData(tokens: [SOTPToken]) {
         for sotpToken in tokens {
-            AuthenticatorModel.shared.addOneItem(
-                account: sotpToken.name,
-                issuer: sotpToken.issuer,
-                key: sotpToken.secret,
-                priority: sotpToken.priority)
+            AuthenticatorModel.shared.addOneItem(account: sotpToken.name,
+                                                 issuer: sotpToken.issuer,
+                                                 key: sotpToken.secret,
+                                                 priority: sotpToken.priority)
         }
     }
 }
