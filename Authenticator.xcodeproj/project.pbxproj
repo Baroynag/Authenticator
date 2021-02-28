@@ -141,14 +141,10 @@
 		14543DB024853A04008E7DA8 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
 		14543DB424853A05008E7DA8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14543DC024853B24008E7DA8 /* SOTPWatchRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SOTPWatchRow.swift; sourceTree = "<group>"; };
-		14543DC42486DCBE008E7DA8 /* SOTPWatch ExtensionDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "SOTPWatch ExtensionDebug.entitlements"; sourceTree = "<group>"; };
-		14543DC52486DCD4008E7DA8 /* AuthenticatorDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AuthenticatorDebug.entitlements; sourceTree = "<group>"; };
-		14543DC62486DD66008E7DA8 /* SOTPWatchDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SOTPWatchDebug.entitlements; sourceTree = "<group>"; };
 		14543DC72486E02D008E7DA8 /* WatchAppConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchAppConnection.swift; sourceTree = "<group>"; };
 		1463409924CE0763008ECFBD /* RNCryptorExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RNCryptorExtention.swift; sourceTree = "<group>"; };
 		146CE3A624D1B9AB00DDC45C /* GreetingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingViewController.swift; sourceTree = "<group>"; };
 		146CE3A924D3369600DDC45C /* Backup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Backup.swift; sourceTree = "<group>"; };
-		1486EE0B2532187D00094F46 /* AuthenticatorRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AuthenticatorRelease.entitlements; sourceTree = "<group>"; };
 		1496190D2517CB5500B46D7B /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Interface.strings; sourceTree = "<group>"; };
 		149619102517CE2E00B46D7B /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		14A3454625B4C7D600F63C54 /* SOTPToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SOTPToken.swift; sourceTree = "<group>"; };
@@ -246,8 +242,6 @@
 		1401DA792440D46800DE677F /* Authenticator */ = {
 			isa = PBXGroup;
 			children = (
-				1486EE0B2532187D00094F46 /* AuthenticatorRelease.entitlements */,
-				14543DC52486DCD4008E7DA8 /* AuthenticatorDebug.entitlements */,
 				1490048D246DBC8D00F91500 /* UserExperience */,
 				14F740F0244774300052244C /* Fonts */,
 				A8DB1CD325866BCB007C980B /* Extensions */,
@@ -311,7 +305,6 @@
 		14543D9E24853A03008E7DA8 /* SOTPWatch */ = {
 			isa = PBXGroup;
 			children = (
-				14543DC62486DD66008E7DA8 /* SOTPWatchDebug.entitlements */,
 				14543D9F24853A03008E7DA8 /* Interface.storyboard */,
 				14543DA224853A04008E7DA8 /* Assets.xcassets */,
 				14543DA424853A04008E7DA8 /* Info.plist */,
@@ -322,7 +315,6 @@
 		14543DAD24853A04008E7DA8 /* SOTPWatch Extension */ = {
 			isa = PBXGroup;
 			children = (
-				14543DC42486DCBE008E7DA8 /* SOTPWatch ExtensionDebug.entitlements */,
 				14543DAE24853A04008E7DA8 /* InterfaceController.swift */,
 				14543DB024853A04008E7DA8 /* ExtensionDelegate.swift */,
 				14543DB424853A05008E7DA8 /* Info.plist */,
