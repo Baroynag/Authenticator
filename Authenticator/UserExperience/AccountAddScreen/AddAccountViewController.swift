@@ -204,32 +204,45 @@ class AddAccountViewController: UIViewController {
         present(alert, animated: true)
     }
 
-    // MARK: - Handlers
-
-    @objc private func handleCreateButtonTapped() {
-        if let issuer = issuerTextField.text {
-            if issuer.isEmpty {
-                showAlert(alertTitle: NSLocalizedString("Wrong account",
-                                                        comment: ""),
-                alertMessage: NSLocalizedString("Please enter correct account", comment: ""))
-            }
-        }
-        if let key = keyTextField.text {
-                AuthenticatorModel.shared.addOneItem(account: "",
-                                                     issuer: issuerTextField.text,
-                                                     key: key)
-                output?.didAdd(account: "", issuer: issuerTextField.text, key: key)
-                dismiss(animated: true, completion: nil)
-    
-        }
-
-    }
-
     private func setupCaptureSession() {
         let scanQrViewController = ScanQrViewController()
         scanQrViewController.output = self
         scanQrViewController.modalPresentationStyle = .fullScreen
         present(scanQrViewController, animated: true)
+    }
+
+    private func cheackCorrectAccount () -> Bool {
+        if let issuer = issuerTextField.text {
+            if issuer.isEmpty {
+                return false
+            }
+        }
+        
+        if let key = keyTextField.text {
+
+            if !TokenGenerator.shared.isValidSecretKey(secretKey: key) {
+                return false
+            }
+        }
+        return true
+    }
+    
+    // MARK: - Handlers
+
+    @objc private func handleCreateButtonTapped() {
+        
+        if !cheackCorrectAccount (){
+            showAlert(alertTitle: NSLocalizedString("Wrong account",
+                                                    comment: ""),
+                      alertMessage: NSLocalizedString("Please enter correct account",
+                                                      comment: ""))
+        } else {
+            AuthenticatorModel.shared.addOneItem(account: "",
+                                                 issuer: issuerTextField.text,
+                                                 key: keyTextField.text)
+            output?.didAdd(account: "", issuer: issuerTextField.text, key: keyTextField.text)
+            dismiss(animated: true, completion: nil)
+        }
     }
 
     @objc private func handleScanButton() {
@@ -247,11 +260,7 @@ class AddAccountViewController: UIViewController {
         default:
             showCameraPermissionAlert()
         }
-        if AVCaptureDevice.authorizationStatus(for: .video) ==  .authorized {
-            
-        } else {
-            
-        }
+
     }
 
     @objc private func handleCancelButton() {

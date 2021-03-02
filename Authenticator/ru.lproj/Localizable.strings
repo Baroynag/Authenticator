@@ -11,6 +11,9 @@
 "Authenticator" = "Аутентификатор";
 
 /* No comment provided by engineer. */
+"Camera access" = "Доступ к камере";
+
+/* No comment provided by engineer. */
 "Cancel" = "Отмена";
 
 /* No comment provided by engineer. */
@@ -26,7 +29,7 @@
 "Create" = "Создать";
 
 /* No comment provided by engineer. */
-"Create backup" = "Создать резервную копию";
+"Data loaded" = "Данные загруженны";
 
 /* No comment provided by engineer. */
 "Enter password" = "Введите пароль";
@@ -35,10 +38,7 @@
 "Error to upload file" = "Ошибка загрузки файла";
 
 /* No comment provided by engineer. */
-"Load from backup" = "Загрузить из резервной копии";
-
-/* No comment provided by engineer. */
-"Load from Backup" = "Загрузить из резервной копии";
+"Load from file" = "Загрузить из файла";
 
 /* No comment provided by engineer. */
 "Open GitHub repo" = "Открыть GitHub";
@@ -54,6 +54,9 @@
 
 /* No comment provided by engineer. */
 "Passwords do not match" = "Пароли не совпадают";
+
+/* No comment provided by engineer. */
+"Please allow camera access for SOTP" = "Пожалуйста, предоставьте приложению SOTP доступ к камере";
 
 /* No comment provided by engineer. */
 "Please consider to support this open source project" = "Если Вам нравиться приложение Вы можете поддержать проект";
@@ -95,7 +98,7 @@
 "Thank you for your support!" = "Спасибо за Вашу поддержку!";
 
 /* No comment provided by engineer. */
-"Time-based" = "Фактор времени";
+"Transfer data" = "Перенести данные";
 
 /* No comment provided by engineer. */
 "Welcome to" = "Добро пожаловать в";

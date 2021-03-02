@@ -20,8 +20,8 @@ class SettingsTableViewController: UITableViewController {
 
     let settingsList = [
         NSLocalizedString("Support this project", comment: ""),
-        NSLocalizedString("Create backup", comment: ""),
-        NSLocalizedString("Load from Backup", comment: ""),
+        NSLocalizedString("Transfer data", comment: ""),
+        NSLocalizedString("Load from file", comment: ""),
         NSLocalizedString("About SOTP", comment: "")
     ]
 

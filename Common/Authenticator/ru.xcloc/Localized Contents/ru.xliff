@@ -1,309 +1,261 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.2" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 http://docs.oasis-open.org/xliff/v1.2/os/xliff-core-1.2-strict.xsd">
-  <file original="Authenticator/en.lproj/InfoPlist.strings" source-language="en" target-language="en" datatype="plaintext">
+  <file original="Authenticator/en.lproj/InfoPlist.strings" source-language="en" target-language="ru" datatype="plaintext">
     <header>
-      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="12.2" build-num="12B45b"/>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="12.4" build-num="12D4e"/>
     </header>
     <body>
       <trans-unit id="CFBundleDisplayName" xml:space="preserve">
         <source>SOTP</source>
-        <target>SOTP</target>
         <note>Bundle display name</note>
       </trans-unit>
       <trans-unit id="CFBundleName" xml:space="preserve">
         <source>SOTP</source>
-        <target>SOTP</target>
         <note>Bundle name</note>
       </trans-unit>
       <trans-unit id="NSCameraUsageDescription" xml:space="preserve">
-        <source> photo use</source>
-        <target> photo use</target>
+        <source>Authenticator SOTP uses your camera to scan QR-code</source>
+        <target>Приложение SOTP использует вашу камеру для сканирования QR-кодов</target>
         <note>Privacy - Camera Usage Description</note>
       </trans-unit>
       <trans-unit id="SOTP file" xml:space="preserve">
         <source>SOTP file</source>
-        <target>SOTP file</target>
         <note/>
       </trans-unit>
     </body>
   </file>
-  <file original="Authenticator/en.lproj/Localizable.strings" source-language="en" target-language="en" datatype="plaintext">
+  <file original="Authenticator/en.lproj/Localizable.strings" source-language="en" target-language="ru" datatype="plaintext">
     <header>
-      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="12.2" build-num="12B45b"/>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="12.4" build-num="12D4e"/>
     </header>
     <body>
       <trans-unit id="About SOTP" xml:space="preserve">
         <source>About SOTP</source>
-        <target>About SOTP</target>
+        <target>О программе</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Account" xml:space="preserve">
         <source>Account</source>
-        <target>Account</target>
+        <target>Логин</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Add account" xml:space="preserve">
         <source>Add account</source>
-        <target>Add account</target>
+        <target>Добавить аккаунт</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Authenticator" xml:space="preserve">
         <source>Authenticator</source>
-        <target>Authenticator</target>
+        <target>Аутентификатор</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Camera access" xml:space="preserve">
+        <source>Camera access</source>
+        <target>Доступ к камере</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Cancel" xml:space="preserve">
         <source>Cancel</source>
-        <target>Cancel</target>
+        <target>Отмена</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Capture error (error.localizedDescription)" xml:space="preserve">
         <source>Capture error (error.localizedDescription)</source>
-        <target>Capture error (error.localizedDescription)</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Confirm password" xml:space="preserve">
         <source>Confirm password</source>
-        <target>Confirm password</target>
+        <target>Поддтвердите пароль</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Confirm the password!" xml:space="preserve">
         <source>Confirm the password!</source>
-        <target>Confirm the password!</target>
+        <target>Поддтвердите пароль</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Copied" xml:space="preserve">
         <source>Copied</source>
-        <target>Copied</target>
-        <note>No comment provided by engineer.</note>
-      </trans-unit>
-      <trans-unit id="Core data delete error" xml:space="preserve">
-        <source>Core data delete error</source>
-        <target>Core data delete error</target>
-        <note>No comment provided by engineer.</note>
-      </trans-unit>
-      <trans-unit id="Core data load error" xml:space="preserve">
-        <source>Core data load error</source>
-        <target>Core data load error</target>
-        <note>No comment provided by engineer.</note>
-      </trans-unit>
-      <trans-unit id="Core data save error" xml:space="preserve">
-        <source>Core data save error</source>
-        <target>Core data save error</target>
+        <target>Скопированно</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Create" xml:space="preserve">
         <source>Create</source>
-        <target>Create</target>
-        <note>No comment provided by engineer.</note>
-      </trans-unit>
-      <trans-unit id="Create backup" xml:space="preserve">
-        <source>Create backup</source>
-        <target>Create backup</target>
+        <target>Создать</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Data loaded" xml:space="preserve">
         <source>Data loaded</source>
-        <target>Data loaded</target>
+        <target>Данные загруженны</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Enter password" xml:space="preserve">
         <source>Enter password</source>
-        <target>Enter password</target>
+        <target>Введите пароль</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Error to upload file" xml:space="preserve">
         <source>Error to upload file</source>
-        <target>Error to upload file</target>
+        <target>Ошибка загрузки файла</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
-      <trans-unit id="Json serialization error" xml:space="preserve">
-        <source>Json serialization error</source>
-        <target>Json serialization error</target>
-        <note>No comment provided by engineer.</note>
-      </trans-unit>
-      <trans-unit id="Load from Backup" xml:space="preserve">
-        <source>Load from Backup</source>
-        <target>Load from Backup</target>
-        <note>No comment provided by engineer.</note>
-      </trans-unit>
-      <trans-unit id="Load from backup" xml:space="preserve">
-        <source>Load from backup</source>
-        <target>Load from backup</target>
+      <trans-unit id="Load from file" xml:space="preserve">
+        <source>Load from file</source>
+        <target>Загрузить из файла</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Ok" xml:space="preserve">
         <source>Ok</source>
-        <target>Ok</target>
-        <note>Default action</note>
+        <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Open GitHub repo" xml:space="preserve">
         <source>Open GitHub repo</source>
-        <target>Open GitHub repo</target>
+        <target>Открыть GitHub</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Password" xml:space="preserve">
         <source>Password</source>
-        <target>Password</target>
+        <target>Пароль</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Password can't be empty" xml:space="preserve">
         <source>Password can't be empty</source>
-        <target>Password can't be empty</target>
+        <target>Пароль не может быть пустым</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Passwords do not match" xml:space="preserve">
         <source>Passwords do not match</source>
-        <target>Passwords do not match</target>
+        <target>Пароли не совпадают</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Please allow camera access for SOTP" xml:space="preserve">
+        <source>Please allow camera access for SOTP</source>
+        <target>Пожалуйста, предоставьте приложению SOTP доступ к камере</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Please consider to support this open source project" xml:space="preserve">
         <source>Please consider to support this open source project</source>
-        <target>Please consider to support this open source project</target>
+        <target>Если Вам нравиться приложение Вы можете поддержать проект</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Please enter correct account" xml:space="preserve">
         <source>Please enter correct account</source>
-        <target>Please enter correct account</target>
+        <target>Введите правильный аккаунт</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Refresh in " xml:space="preserve">
         <source>Refresh in </source>
-        <target>Refresh in </target>
+        <target>Обновится через </target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Refresh in 30 s." xml:space="preserve">
         <source>Refresh in 30 s.</source>
-        <target>Refresh in 30 s.</target>
+        <target>Обновится через 30 сек.</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="SOTP" xml:space="preserve">
         <source>SOTP</source>
-        <target>SOTP</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="SOTP is an open source app. It does not collect any personal information." xml:space="preserve">
         <source>SOTP is an open source app. It does not collect any personal information.</source>
-        <target>SOTP is an open source app. It does not collect any personal information.</target>
+        <target>SOTP - это приложение с открытым исходным кодом. Мы не собираем никакие пользовательские данные.</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Scan QR Code" xml:space="preserve">
         <source>Scan QR Code</source>
-        <target>Scan QR Code</target>
+        <target>Сканировать QR код</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Secret key" xml:space="preserve">
         <source>Secret key</source>
-        <target>Secret key</target>
+        <target>Секретный ключ</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Settings" xml:space="preserve">
         <source>Settings</source>
-        <target>Settings</target>
+        <target>Настройки</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Setup one time password" xml:space="preserve">
         <source>Setup one time password</source>
-        <target>Setup one time password</target>
+        <target>Настройте одноразовый пароль</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Support" xml:space="preserve">
         <source>Support</source>
-        <target>Support</target>
+        <target>Поддержать</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Support this project" xml:space="preserve">
         <source>Support this project</source>
-        <target>Support this project</target>
+        <target>Помочь проекту</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Thank you for your support!" xml:space="preserve">
         <source>Thank you for your support!</source>
-        <target>Thank you for your support!</target>
+        <target>Спасибо за Вашу поддержку!</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
-      <trans-unit id="Time-based" xml:space="preserve">
-        <source>Time-based</source>
-        <target>Time-based</target>
+      <trans-unit id="Transfer data" xml:space="preserve">
+        <source>Transfer data</source>
+        <target>Перенести данные</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Welcome to" xml:space="preserve">
         <source>Welcome to</source>
-        <target>Welcome to</target>
+        <target>Добро пожаловать в</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Wrong account" xml:space="preserve">
         <source>Wrong account</source>
-        <target>Wrong account</target>
+        <target>Не правильный аккаунт</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Wrong password" xml:space="preserve">
         <source>Wrong password</source>
-        <target>Wrong password</target>
+        <target>Не правильный пароль</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="or" xml:space="preserve">
         <source>or</source>
-        <target>or</target>
+        <target>или</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="s." xml:space="preserve">
         <source>s.</source>
-        <target>s.</target>
+        <target>сек.</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
     </body>
   </file>
-  <file original="SOTPWatch Extension/en.lproj/InfoPlist.strings" source-language="en" target-language="en" datatype="plaintext">
+  <file original="SOTPWatch Extension/en.lproj/InfoPlist.strings" datatype="plaintext" source-language="en" target-language="ru">
     <header>
-      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="12.2" build-num="12B45b"/>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="12.4" build-num="12D4e"/>
     </header>
     <body>
       <trans-unit id="CFBundleDisplayName" xml:space="preserve">
         <source>SOTPWatch Extension</source>
-        <target>SOTPWatch Extension</target>
         <note>Bundle display name</note>
       </trans-unit>
       <trans-unit id="CFBundleName" xml:space="preserve">
         <source>SOTPWatch Extension</source>
-        <target>SOTPWatch Extension</target>
         <note>Bundle name</note>
       </trans-unit>
     </body>
   </file>
-  <file original="SOTPWatch Extension/en.lproj/Localizable.strings" source-language="en" target-language="en" datatype="plaintext">
+  <file original="SOTPWatch Extension/en.lproj/Localizable.strings" source-language="en" target-language="ru" datatype="plaintext">
     <header>
-      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="12.2" build-num="12B45b"/>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="12.4" build-num="12D4e"/>
     </header>
     <body>
-      <trans-unit id="Core data delete error" xml:space="preserve">
-        <source>Core data delete error</source>
-        <target>Core data delete error</target>
+      <trans-unit id="Loading..." xml:space="preserve">
+        <source>Loading...</source>
+        <target>Загрузка</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
-      <trans-unit id="Core data load error" xml:space="preserve">
-        <source>Core data load error</source>
-        <target>Core data load error</target>
-        <note>No comment provided by engineer.</note>
-      </trans-unit>
-      <trans-unit id="Core data save error" xml:space="preserve">
-        <source>Core data save error</source>
-        <target>Core data save error</target>
-        <note>No comment provided by engineer.</note>
-      </trans-unit>
-      <trans-unit id="Refresh in " xml:space="preserve">
-        <source>Refresh in </source>
-        <target>Refresh in </target>
-        <note>No comment provided by engineer.</note>
-      </trans-unit>
-      <trans-unit id="Refresh in s." xml:space="preserve">
-        <source>Refresh in s.</source>
-        <target>Refresh in s.</target>
-        <note>No comment provided by engineer.</note>
-      </trans-unit>
-      <trans-unit id="s." xml:space="preserve">
-        <source>s.</source>
-        <target>s.</target>
+      <trans-unit id="No accounts" xml:space="preserve">
+        <source>No accounts</source>
+        <target>Нет аккаунтов</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
     </body>

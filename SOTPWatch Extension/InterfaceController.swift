@@ -30,11 +30,14 @@ class InterfaceController: WKInterfaceController {
     override func didAppear() {
         super.didAppear()
         countDown = getTimerInterval()
-        setupTable()
         table.setNumberOfRows(1, withRowType: "SotpWRow")
         if let row = table.rowController(at: 0) as? SOTPWatchRow {
-            row.passLabel?.setText("Загрузка...")
+            row.passLabel?.setText(NSLocalizedString("Loading...", comment: ""))
         }
+        if persistentTokenItems.count != 0 {
+            setupTable()
+        }
+
     }
 
     override func willActivate() {
@@ -45,6 +48,18 @@ class InterfaceController: WKInterfaceController {
     }
 
     private func updateTable() {
+
+        if persistentTokenItems.count == 0,
+           let row = table.rowController(at: 0) as? SOTPWatchRow {
+            
+            let text = NSLocalizedString("Empty", comment: "")
+            row.passLabel?.setText(text)
+            
+            let detailText = NSLocalizedString("No accounts", comment: "")
+            row.detailLabel.setText(detailText)
+           
+            return
+        }
 
         table.setNumberOfRows(persistentTokenItems.count, withRowType: "SotpWRow")
 
@@ -134,7 +149,7 @@ extension InterfaceController {
                                 let nsError = error as NSError
                                 if nsError.domain == "WCErrorDomain"  && availableRetries > 0 {
                                     availableRetries -= 1
-                                    DispatchQueue.main.asyncAfter(
+                                    DispatchQueue.global().asyncAfter(
                                         deadline: .now() + 0.3,
                                         execute: {trySendingMessageToWatch(message)})
                                     } else {errorHandler?(error)}
@@ -164,10 +179,7 @@ extension InterfaceController{
                 let issuer = responceItem["issuer"] ?? ""
                 let account = responceItem["name"] ?? ""
                 
-                if let persistentToken = TokenGenerator.shared.createTimeBasedPersistentToken(name: account,
-                                                                                    issuer: issuer,
-                                                                                    secretString: key,
-                                                                                    priority: priority){
+                if let persistentToken = TokenGenerator.shared.createTimeBasedPersistentToken(name: account, issuer: issuer, secretString: key, priority: priority) {
                     persistentTokenItems.append(persistentToken)
                     persistentTokenItems = persistentTokenItems.sorted(by: { $0.priority ?? 0 < $1.priority ?? 0 })
                 }
