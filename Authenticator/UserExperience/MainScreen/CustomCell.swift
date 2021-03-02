@@ -221,11 +221,8 @@ class CustomCell: UITableViewCell {
         if isEditMode {return}
 
         let countDown = Int(NSDate().timeIntervalSince1970) % 30
-        var timeLabel = String(30 - countDown)
+        let timeLabel = String(30 - countDown)
 
-        if countDown == 0 {
-            timeLabel = "1"
-        }
         descriptionLabel.text = NSLocalizedString("Refresh in ", comment: "") + timeLabel + " " +
             NSLocalizedString("s.", comment: "")
 
