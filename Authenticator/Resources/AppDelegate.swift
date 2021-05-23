@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import CoreData
 import StoreKit
 
 @UIApplicationMain
@@ -34,18 +33,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
     }
-
-    // MARK: - Core Data stack
-
-    lazy var persistentContainer: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: "Authenticator")
-        container.loadPersistentStores(completionHandler: {(_, error) in
-            if let error = error as NSError? {
-                fatalError("Unresolved error \(error), \(error.userInfo)")
-            }
-        })
-        return container
-    }()
 
     func iapSetup() {
         Purchases.default.initialize { [weak self] result in

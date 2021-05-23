@@ -127,21 +127,6 @@ class PasswordViewController: UIViewController {
         present(alert, animated: true, completion: nil)
     }
 
-//    func validatePassword(completion: @escaping (String?) -> Void ) {
-//        do {
-//            let isValidPassword = try PasswordError.cheackPassword(
-//                passOne: passwordTextField.text,
-//                passTwo: confirmPasswordTextField.text)
-//
-//            if isValidPassword {
-//                completion(password)
-//            }
-//        } catch {
-//            showErrorAlert(errorText: error.localizedDescription)
-//        }
-//    }
-
-    // review: я бы порефачил этот метод. см. выше
     func validatePassword(completion: @escaping (String?) -> Void ) {
         do {
             let isValidPassword = try PasswordError.cheackPassword(
@@ -170,7 +155,7 @@ class PasswordViewController: UIViewController {
     }
 
     private func saveBackupToFile(password: String) {
-        //TODO: add error message
+        // TODO: add error message
         guard let backupFile = Backup.getEncriptedData(password: password) else {return}
 
         let temporaryFolder = FileManager.default.temporaryDirectory

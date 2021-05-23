@@ -18,7 +18,7 @@ class Backup {
         return nil
     }
     class public func getFileContent (fileURL: URL, password: String) -> Bool {
-        //TODO: add error message
+        // TODO: add error message
         if password == "" {
            return false
         }

@@ -65,7 +65,7 @@ class AuthenticatorViewController: UIViewController {
                 }
             }
         }
-        
+
         setupEditButton()
         addButton.isHidden = !tableView.isEditing
         tableView.isEditing  = !tableView.isEditing
@@ -172,10 +172,9 @@ extension AuthenticatorViewController: UITableViewDelegate {
         commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
 
         if let cell = tableView.cellForRow(at: indexPath) as? CustomCell,
-           tableView.isEditing{
+           tableView.isEditing {
             cell.stopEditing()
         }
-        
         if editingStyle == .delete {
             AuthenticatorModel.shared.deleteData(index: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)

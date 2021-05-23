@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import CoreData
 import OneTimePassword
 import Base32
 
@@ -60,7 +59,7 @@ class AuthenticatorModel {
         if isRecordExist(account: account, issuer: issuer, secret: key) {
             return
         }
-        
+
         if let token = TokenGenerator.shared.createTimeBasedPersistentToken(name: account, issuer: issuer, secretString: key, priority: priority) {
             sotpPersistentTokenItems.append(token)
         }

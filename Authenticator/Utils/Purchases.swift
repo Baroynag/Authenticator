@@ -7,8 +7,6 @@
 //
 import StoreKit
 
-//typealias RequestProductsCompletion = (Result<[SKProduct], Error>) -> Void
-
 class Purchases: NSObject {
 
     static let `default` = Purchases()

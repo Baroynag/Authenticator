@@ -189,7 +189,7 @@ final class PurchaseViewController: UIViewController {
             self?.oneDollarPurchase.isEnabled = true
         }
     }
-  
+
     @objc func handleFiveDollarPurchase() {
         showSpinner()
         oneDollarPurchase.isEnabled = false
