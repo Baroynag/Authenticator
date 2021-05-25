@@ -16,6 +16,9 @@ class AuthenticatorModel {
 
     public var sotpPersistentTokenItems: [SOTPPersistentToken] = []
 
+    private init() {
+    }
+
     private func isRecordExist(account: String, issuer: String, secret: String) -> Bool {
         for sotpPersistentToken in sotpPersistentTokenItems {
             if account == sotpPersistentToken.token?.name &&
