@@ -217,7 +217,7 @@ class AddAccountViewController: UIViewController {
                 return false
             }
         }
-        
+
         if let key = keyTextField.text {
 
             if !TokenGenerator.shared.isValidSecretKey(secretKey: key) {
@@ -226,12 +226,12 @@ class AddAccountViewController: UIViewController {
         }
         return true
     }
-    
+
     // MARK: - Handlers
 
     @objc private func handleCreateButtonTapped() {
-        
-        if !cheackCorrectAccount (){
+
+        if !cheackCorrectAccount() {
             showAlert(alertTitle: NSLocalizedString("Wrong account",
                                                     comment: ""),
                       alertMessage: NSLocalizedString("Please enter correct account",
