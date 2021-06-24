@@ -42,6 +42,7 @@ class AddAccountViewController: UIViewController {
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
         button.addTarget(self, action: #selector(handleCreateButtonTapped), for: .touchUpInside)
+        button.accessibilityIdentifier = "addAccountScreenCreateButton"
         return button
     }()
 
@@ -63,6 +64,7 @@ class AddAccountViewController: UIViewController {
         let attributedText = NSMutableAttributedString(string: text, attributes: attributes)
         button.addTarget(self, action: #selector(handleScanButton), for: .touchUpInside)
         button.setAttributedTitle(attributedText, for: .normal)
+        button.accessibilityIdentifier = "addAccountScreenScanQrButton"
         return button
     }()
 
@@ -71,6 +73,7 @@ class AddAccountViewController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = UIColor.systemBackground
         button.addTarget(self, action: #selector(handleCancelButton), for: .touchUpInside)
+        button.accessibilityIdentifier = "addAccountScreenCancel"
         return button
     }()
 

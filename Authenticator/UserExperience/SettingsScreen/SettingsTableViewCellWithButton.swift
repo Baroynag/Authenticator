@@ -32,6 +32,7 @@ class SettingsTableViewCellWithButton: UITableViewCell {
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = UIFont(name: "Lato-Light", size: 18)
         button.addTarget(self, action: #selector(handlePurchase), for: .touchUpInside)
+        button.accessibilityIdentifier = "settingsScreenPurchaseButton"
         return button
     }()
 

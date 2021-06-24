@@ -15,6 +15,8 @@ class AboutViewController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = UIColor.systemBackground
         button.addTarget(self, action: #selector(handleCancel), for: .touchUpInside)
+        button.accessibilityIdentifier = "AboutScreenCancelButton"
+
         return button
     }()
 

@@ -30,6 +30,7 @@ class PasswordViewController: UIViewController {
         // review: в константы
         button.layer.cornerRadius = 40
         button.layer.masksToBounds = true
+        button.accessibilityIdentifier = "passwordConfirmButton"
         return button
     }()
 
@@ -38,6 +39,7 @@ class PasswordViewController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = UIColor.systemBackground
         button.addTarget(self, action: #selector(handleCancel), for: .touchUpInside)
+        button.accessibilityIdentifier = "passwordcancelButton"
         return button
     }()
 
@@ -134,7 +136,7 @@ class PasswordViewController: UIViewController {
                 passTwo: confirmPasswordTextField.text)
 
             if isValidPassword {
-                completion(passwordTextField.text )
+                completion(passwordTextField.text)
             }
         } catch {
             showErrorAlert(errorText: error.localizedDescription)

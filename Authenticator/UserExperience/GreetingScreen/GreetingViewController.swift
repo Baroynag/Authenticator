@@ -14,18 +14,18 @@ protocol GreetingViewControllerOutput: class {
 }
 
 final class GreetingViewController: UIViewController {
-
+    
     // MARK: - Properties
     weak var output: GreetingViewControllerOutput?
-
+    
     private let imageView: UIImageView = {
         let image = UIImage(named: "greeting")
         let imageView = UIImageView(image: image)
         imageView.contentMode = .scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
-     }()
-
+    }()
+    
     private let greetingLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -34,7 +34,7 @@ final class GreetingViewController: UIViewController {
         label.setAttributedText(fontSize: 24, text: text, aligment: .center, indent: 0.0)
         return label
     }()
-
+    
     private let sotpLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -43,7 +43,7 @@ final class GreetingViewController: UIViewController {
         label.setAttributedText(fontSize: 32, text: text, aligment: .center, indent: 0.0, color: .fucsiaColor)
         return label
     }()
-
+    
     private let setupLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -52,7 +52,7 @@ final class GreetingViewController: UIViewController {
         label.setAttributedText(fontSize: 20, text: text, aligment: .center, indent: 0.0)
         return label
     }()
-
+    
     let createButton: RoundedButtonWithShadow = {
         let button = RoundedButtonWithShadow(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -60,51 +60,53 @@ final class GreetingViewController: UIViewController {
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
         button.addTarget(self, action: #selector(handleCreate), for: .touchUpInside)
+        button.accessibilityIdentifier = "greetingScreenCreateButton"
         return button
     }()
-
+    
     let loadButton: RoundedButtonWithShadow = {
-            let button = RoundedButtonWithShadow(type: .system)
-            button.translatesAutoresizingMaskIntoConstraints = false
-            button.setTitle(NSLocalizedString("Load from file", comment: ""), for: .normal)
-            button.setTitleColor(.white, for: .normal)
-            button.titleLabel?.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
-            button.addTarget(self, action: #selector(handleLoad), for: .touchUpInside)
-            return button
-        }()
-
+        let button = RoundedButtonWithShadow(type: .system)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle(NSLocalizedString("Load from file", comment: ""), for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
+        button.addTarget(self, action: #selector(handleLoad), for: .touchUpInside)
+        button.accessibilityIdentifier = "greetingScreenLoadButton"
+        return button
+    }()
+    
     // MARK: - Inits
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.isHidden = true
         setupLayout()
     }
-
+    
     // MARK: - Handlers
     @objc private func handleCreate() {
         let addAccountViewController = AddAccountViewController()
         addAccountViewController.output = self
         present(addAccountViewController, animated: true, completion: nil)
     }
-
+    
     @objc private func handleLoad() {
         chooseDocument(vcWithDocumentPicker: self)
     }
-
+    
     // MARK: - Functions
     private func setupLayout() {
-
+        
         loadButton.translatesAutoresizingMaskIntoConstraints = false
-
+        
         view.backgroundColor = UIColor.systemBackground
-
+        
         view.addSubview(imageView)
         NSLayoutConstraint.activate([
             imageView.topAnchor.constraint(lessThanOrEqualTo: view.topAnchor, constant: 145),
             imageView.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
             imageView.heightAnchor.constraint(lessThanOrEqualToConstant: 199)
-         ])
-
+        ])
+        
         view.addSubview(greetingLabel)
         NSLayoutConstraint.activate([
             greetingLabel.topAnchor.constraint(lessThanOrEqualTo: imageView.bottomAnchor, constant: 19),
@@ -122,7 +124,7 @@ final class GreetingViewController: UIViewController {
             setupLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             setupLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
         ])
-
+        
         view.addSubview(createButton)
         NSLayoutConstraint.activate([
             createButton.topAnchor.constraint(lessThanOrEqualTo: setupLabel.bottomAnchor, constant: 30),
@@ -130,7 +132,7 @@ final class GreetingViewController: UIViewController {
             createButton.heightAnchor.constraint(equalToConstant: 50),
             createButton.widthAnchor.constraint(equalToConstant: 320)
         ])
-
+        
         view.addSubview(loadButton)
         NSLayoutConstraint.activate([
             loadButton.topAnchor.constraint(lessThanOrEqualTo: createButton.bottomAnchor, constant: 22),
@@ -155,7 +157,7 @@ extension GreetingViewController: UIDocumentPickerDelegate {
                 guard let self = self else {
                     return
                 }
-
+                
                 let promtForPassword = UIAlertController.promptForPassword { pass in
                     if let pass = pass {
                         if Backup.getFileContent(fileURL: fileURL, password: pass) {
@@ -170,7 +172,7 @@ extension GreetingViewController: UIDocumentPickerDelegate {
             }
         }
     }
-
+    
     public func documentPickerWasCancelled(_ controller: UIDocumentPickerViewController) {
         dismiss(animated: true, completion: nil)
     }

@@ -62,7 +62,7 @@ final class PurchaseViewController: UIViewController {
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = UIFont.normalFont
         button.addTarget(self, action: #selector(handlePurchase), for: .touchUpInside)
-
+        button.accessibilityIdentifier = "oneDollarPurchaseButton"
         return button
     }()
 
@@ -75,7 +75,7 @@ final class PurchaseViewController: UIViewController {
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = UIFont.normalFont
         button.addTarget(self, action: #selector(handleFiveDollarPurchase), for: .touchUpInside)
-
+        button.accessibilityIdentifier = "fiveDollarPurchaseButton"
         return button
     }()
 
@@ -84,7 +84,7 @@ final class PurchaseViewController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = UIColor.systemBackground
         button.addTarget(self, action: #selector(handleCancel), for: .touchUpInside)
-
+        button.accessibilityIdentifier = "purchaseScreenCancelButton"
         return button
     }()
 
