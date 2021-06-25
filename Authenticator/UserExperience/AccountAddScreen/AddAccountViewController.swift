@@ -178,6 +178,7 @@ class AddAccountViewController: UIViewController {
         textField.placeholder = placeholderText
         textField.tag = tag
         textField.delegate = self
+        textField.accessibilityIdentifier = placeholderText
     }
 
     private func showAlert(alertTitle: String, alertMessage: String) {

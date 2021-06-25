@@ -21,6 +21,7 @@
 		1405D88B24719BF10065509B /* UITextFieldWithBottomBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1405D88A24719BF10065509B /* UITextFieldWithBottomBorder.swift */; };
 		14129F7624C0C92200644739 /* PasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14129F7524C0C92200644739 /* PasswordViewController.swift */; };
 		141917D0245483EC00EE125D /* ScanQrViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141917CF245483EC00EE125D /* ScanQrViewController.swift */; };
+		1419CF7C26851D5A00B1BD51 /* SOTPUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1419CF7B26851D5A00B1BD51 /* SOTPUITests.swift */; };
 		142F404A25D12E54008A9CA0 /* TokenGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142F404925D12E54008A9CA0 /* TokenGenerator.swift */; };
 		142F404B25D12E54008A9CA0 /* TokenGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142F404925D12E54008A9CA0 /* TokenGenerator.swift */; };
 		1430EA8D24DEF79900B75CF6 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1430EA8C24DEF79900B75CF6 /* StoreKit.framework */; };
@@ -61,6 +62,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		1419CF7E26851D5A00B1BD51 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1401DA6F2440D46700DE677F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1401DA762440D46800DE677F;
+			remoteInfo = Authenticator;
+		};
 		14543DAB24853A04008E7DA8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 1401DA6F2440D46700DE677F /* Project object */;
@@ -118,6 +126,9 @@
 		1405D88A24719BF10065509B /* UITextFieldWithBottomBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldWithBottomBorder.swift; sourceTree = "<group>"; };
 		14129F7524C0C92200644739 /* PasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordViewController.swift; sourceTree = "<group>"; };
 		141917CF245483EC00EE125D /* ScanQrViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanQrViewController.swift; sourceTree = "<group>"; };
+		1419CF7926851D5A00B1BD51 /* SOTPUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SOTPUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1419CF7B26851D5A00B1BD51 /* SOTPUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SOTPUITests.swift; sourceTree = "<group>"; };
+		1419CF7D26851D5A00B1BD51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		142F404925D12E54008A9CA0 /* TokenGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenGenerator.swift; sourceTree = "<group>"; };
 		1430EA8C24DEF79900B75CF6 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		1430EA8E24DF0E0800B75CF6 /* Purchases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Purchases.swift; sourceTree = "<group>"; };
@@ -182,6 +193,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		1419CF7626851D5A00B1BD51 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		14543DA624853A04008E7DA8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -211,6 +229,7 @@
 				1401DA792440D46800DE677F /* Authenticator */,
 				14543D9E24853A03008E7DA8 /* SOTPWatch */,
 				14543DAD24853A04008E7DA8 /* SOTPWatch Extension */,
+				1419CF7A26851D5A00B1BD51 /* SOTPUITests */,
 				1401DA782440D46800DE677F /* Products */,
 				A9BF4EE2A6484A861A2F363B /* Pods */,
 				0D520F5E198E7DE48BC30C63 /* Frameworks */,
@@ -223,6 +242,7 @@
 				1401DA772440D46800DE677F /* Authenticator.app */,
 				14543D9D24853A03008E7DA8 /* SOTPWatch.app */,
 				14543DA924853A04008E7DA8 /* SOTPWatch Extension.appex */,
+				1419CF7926851D5A00B1BD51 /* SOTPUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -275,6 +295,16 @@
 			);
 			path = ScanQR;
 			sourceTree = "<group>";
+		};
+		1419CF7A26851D5A00B1BD51 /* SOTPUITests */ = {
+			isa = PBXGroup;
+			children = (
+				1419CF7B26851D5A00B1BD51 /* SOTPUITests.swift */,
+				1419CF7D26851D5A00B1BD51 /* Info.plist */,
+			);
+			path = SOTPUITests;
+			sourceTree = "<group>";
+			usesTabs = 1;
 		};
 		1434356A24A91E9500935297 /* SettingsScreen */ = {
 			isa = PBXGroup;
@@ -426,6 +456,24 @@
 			productReference = 1401DA772440D46800DE677F /* Authenticator.app */;
 			productType = "com.apple.product-type.application";
 		};
+		1419CF7826851D5A00B1BD51 /* SOTPUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1419CF8226851D5A00B1BD51 /* Build configuration list for PBXNativeTarget "SOTPUITests" */;
+			buildPhases = (
+				1419CF7526851D5A00B1BD51 /* Sources */,
+				1419CF7626851D5A00B1BD51 /* Frameworks */,
+				1419CF7726851D5A00B1BD51 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1419CF7F26851D5A00B1BD51 /* PBXTargetDependency */,
+			);
+			name = SOTPUITests;
+			productName = SOTPUITests;
+			productReference = 1419CF7926851D5A00B1BD51 /* SOTPUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		14543D9C24853A03008E7DA8 /* SOTPWatch */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 14543DBF24853A05008E7DA8 /* Build configuration list for PBXNativeTarget "SOTPWatch" */;
@@ -472,12 +520,16 @@
 		1401DA6F2440D46700DE677F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1150;
+				LastSwiftUpdateCheck = 1250;
 				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = "Anzhela Baroyan";
 				TargetAttributes = {
 					1401DA762440D46800DE677F = {
 						CreatedOnToolsVersion = 11.4;
+					};
+					1419CF7826851D5A00B1BD51 = {
+						CreatedOnToolsVersion = 12.5;
+						TestTargetID = 1401DA762440D46800DE677F;
 					};
 					14543D9C24853A03008E7DA8 = {
 						CreatedOnToolsVersion = 11.5;
@@ -505,6 +557,7 @@
 				1401DA762440D46800DE677F /* Authenticator */,
 				14543D9C24853A03008E7DA8 /* SOTPWatch */,
 				14543DA824853A04008E7DA8 /* SOTPWatch Extension */,
+				1419CF7826851D5A00B1BD51 /* SOTPUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -520,6 +573,13 @@
 				1401DA872440D46B00DE677F /* Assets.xcassets in Resources */,
 				1401DA822440D46800DE677F /* Main.storyboard in Resources */,
 				14F740F22447743D0052244C /* Lato-Light.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1419CF7726851D5A00B1BD51 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -737,6 +797,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		1419CF7526851D5A00B1BD51 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1419CF7C26851D5A00B1BD51 /* SOTPUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		14543DA524853A04008E7DA8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -753,6 +821,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		1419CF7F26851D5A00B1BD51 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1401DA762440D46800DE677F /* Authenticator */;
+			targetProxy = 1419CF7E26851D5A00B1BD51 /* PBXContainerItemProxy */;
+		};
 		14543DAC24853A04008E7DA8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 14543DA824853A04008E7DA8 /* SOTPWatch Extension */;
@@ -992,6 +1065,46 @@
 			};
 			name = Release;
 		};
+		1419CF8026851D5A00B1BD51 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Q9Y5N2Z9SF;
+				INFOPLIST_FILE = SOTPUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = am.baroynag.SOTP.SOTPUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Authenticator;
+			};
+			name = Debug;
+		};
+		1419CF8126851D5A00B1BD51 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Q9Y5N2Z9SF;
+				INFOPLIST_FILE = SOTPUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = am.baroynag.SOTP.SOTPUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Authenticator;
+			};
+			name = Release;
+		};
 		14543DB924853A05008E7DA8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 27A6D74524AE2E0A817120E0 /* Pods-SOTPWatch.debug.xcconfig */;
@@ -1128,6 +1241,15 @@
 			buildConfigurations = (
 				1401DA8F2440D46B00DE677F /* Debug */,
 				1401DA902440D46B00DE677F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1419CF8226851D5A00B1BD51 /* Build configuration list for PBXNativeTarget "SOTPUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1419CF8026851D5A00B1BD51 /* Debug */,
+				1419CF8126851D5A00B1BD51 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

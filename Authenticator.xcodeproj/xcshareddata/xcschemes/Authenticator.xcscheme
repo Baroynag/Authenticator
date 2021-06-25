@@ -30,6 +30,16 @@
       language = "ru"
       region = "RU">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "1419CF7826851D5A00B1BD51"
+               BuildableName = "SOTPUITests.xctest"
+               BlueprintName = "SOTPUITests"
+               ReferencedContainer = "container:Authenticator.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
