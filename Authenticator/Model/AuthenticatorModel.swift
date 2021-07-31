@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import CoreData
 import OneTimePassword
 import Base32
 
@@ -16,6 +15,9 @@ class AuthenticatorModel {
     static let shared = AuthenticatorModel()
 
     public var sotpPersistentTokenItems: [SOTPPersistentToken] = []
+
+    private init() {
+    }
 
     private func isRecordExist(account: String, issuer: String, secret: String) -> Bool {
         for sotpPersistentToken in sotpPersistentTokenItems {
@@ -60,7 +62,7 @@ class AuthenticatorModel {
         if isRecordExist(account: account, issuer: issuer, secret: key) {
             return
         }
-        
+
         if let token = TokenGenerator.shared.createTimeBasedPersistentToken(name: account, issuer: issuer, secretString: key, priority: priority) {
             sotpPersistentTokenItems.append(token)
         }
@@ -145,6 +147,10 @@ class AuthenticatorModel {
 
         let tokens = try? Array(SOTPKeychain.shared.allPersistentTokens())
         sotpPersistentTokenItems = tokens?.sorted(by: { $0.priority ?? 0 < $1.priority ?? 0 }) ?? []
+    }
+
+    public func deleteAllData() {
+        try? SOTPKeychain.shared.deleteAllKeychainItem()
     }
 
 }

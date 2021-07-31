@@ -42,6 +42,7 @@ class AddAccountViewController: UIViewController {
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
         button.addTarget(self, action: #selector(handleCreateButtonTapped), for: .touchUpInside)
+        button.accessibilityIdentifier = "addAccountScreenCreateButton"
         return button
     }()
 
@@ -63,6 +64,7 @@ class AddAccountViewController: UIViewController {
         let attributedText = NSMutableAttributedString(string: text, attributes: attributes)
         button.addTarget(self, action: #selector(handleScanButton), for: .touchUpInside)
         button.setAttributedTitle(attributedText, for: .normal)
+        button.accessibilityIdentifier = "addAccountScreenScanQrButton"
         return button
     }()
 
@@ -71,6 +73,7 @@ class AddAccountViewController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = UIColor.systemBackground
         button.addTarget(self, action: #selector(handleCancelButton), for: .touchUpInside)
+        button.accessibilityIdentifier = "addAccountScreenCancel"
         return button
     }()
 
@@ -175,6 +178,7 @@ class AddAccountViewController: UIViewController {
         textField.placeholder = placeholderText
         textField.tag = tag
         textField.delegate = self
+        textField.accessibilityIdentifier = placeholderText
     }
 
     private func showAlert(alertTitle: String, alertMessage: String) {
@@ -217,7 +221,7 @@ class AddAccountViewController: UIViewController {
                 return false
             }
         }
-        
+
         if let key = keyTextField.text {
 
             if !TokenGenerator.shared.isValidSecretKey(secretKey: key) {
@@ -226,12 +230,12 @@ class AddAccountViewController: UIViewController {
         }
         return true
     }
-    
+
     // MARK: - Handlers
 
     @objc private func handleCreateButtonTapped() {
-        
-        if !cheackCorrectAccount (){
+
+        if !cheackCorrectAccount() {
             showAlert(alertTitle: NSLocalizedString("Wrong account",
                                                     comment: ""),
                       alertMessage: NSLocalizedString("Please enter correct account",

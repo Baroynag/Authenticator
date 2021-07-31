@@ -9,7 +9,6 @@
 import WatchKit
 import Foundation
 import WatchConnectivity
-import CoreData
 import OneTimePassword
 
 class InterfaceController: WKInterfaceController {
@@ -17,8 +16,6 @@ class InterfaceController: WKInterfaceController {
     // MARK: Properties
     private var countDown = 30
     private var timer: Timer?
-
-    let context =  (WKExtension.shared().delegate as! ExtensionDelegate).persistentContainer.viewContext
 
     @IBOutlet var table: WKInterfaceTable!
     private var session = WCSession.default
@@ -51,13 +48,12 @@ class InterfaceController: WKInterfaceController {
 
         if persistentTokenItems.count == 0,
            let row = table.rowController(at: 0) as? SOTPWatchRow {
-            
+
             let text = NSLocalizedString("Empty", comment: "")
             row.passLabel?.setText(text)
-            
+
             let detailText = NSLocalizedString("No accounts", comment: "")
             row.detailLabel.setText(detailText)
-           
             return
         }
 
@@ -106,7 +102,7 @@ class InterfaceController: WKInterfaceController {
         countDown -= 1
         let text = "Refresh in " + String(countDown) + " s."
         for index in 0...persistentTokenItems.count - 1 {
-            
+
             if let row = table.rowController(at: index) as? SOTPWatchRow {
                 row.detailLabel.setText(text)
             }
@@ -160,7 +156,7 @@ extension InterfaceController {
 
 }
 
-extension InterfaceController{
+extension InterfaceController {
 
     func syncDataWithPhone(responce: [String: Any]) {
 
@@ -172,13 +168,11 @@ extension InterfaceController{
         persistentTokenItems = []
         for authItem in responce {
             if let responceItem = authItem.value as? [String: String] {
-                
                 let priority    = Int(responceItem["priority"] ?? "") ?? 0
 
                 let key = responceItem["key"] ?? ""
                 let issuer = responceItem["issuer"] ?? ""
                 let account = responceItem["name"] ?? ""
-                
                 if let persistentToken = TokenGenerator.shared.createTimeBasedPersistentToken(name: account, issuer: issuer, secretString: key, priority: priority) {
                     persistentTokenItems.append(persistentToken)
                     persistentTokenItems = persistentTokenItems.sorted(by: { $0.priority ?? 0 < $1.priority ?? 0 })
@@ -189,7 +183,7 @@ extension InterfaceController{
 
     }
 
-    func deleteDataFromKeyChain(){
+    func deleteDataFromKeyChain() {
         if persistentTokenItems.count > 0 {
            for item in persistentTokenItems {
                 if let identifier = item.identifier {
@@ -197,27 +191,23 @@ extension InterfaceController{
                 }
             }
         }
-        
     }
-    
-    func loadDataFromWatchKeychain(){
+
+    func loadDataFromWatchKeychain() {
         if let tokens = try? Array(SOTPKeychain.shared.allPersistentTokens()) {
             persistentTokenItems = tokens.sorted(by: { $0.priority ?? 0 < $1.priority ?? 0 })
         }
     }
-    
-    private func needUpdateDataInWatchKeyChain(responce: [String: Any]) -> Bool{
-    
-        
+
+    private func needUpdateDataInWatchKeyChain(responce: [String: Any]) -> Bool {
         if responce.count == 0 {
             return false
         }
-        
+
         if responce.count != persistentTokenItems.count {
             return true
         }
         var needUpdate: Bool = false
- 
         LOOP: for authItem in responce {
             if let responceItem = authItem.value as? [String: String] {
                 let priority    = Int(responceItem["priority"] ?? "")
