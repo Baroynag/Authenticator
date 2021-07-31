@@ -149,4 +149,8 @@ class AuthenticatorModel {
         sotpPersistentTokenItems = tokens?.sorted(by: { $0.priority ?? 0 < $1.priority ?? 0 }) ?? []
     }
 
+    public func deleteAllData() {
+        try? SOTPKeychain.shared.deleteAllKeychainItem()
+    }
+
 }

@@ -117,4 +117,16 @@ public final class SOTPKeychain {
             throw Keychain.Error.systemError(resultCode)
         }
     }
+    
+    public func deleteAllKeychainItem() throws {
+        let queryDict: [String: AnyObject] = [
+            kSecClass as String: kSecClassGenericPassword]
+
+        let resultCode = SecItemDelete(queryDict as CFDictionary)
+
+        guard resultCode == errSecSuccess else {
+            throw Keychain.Error.systemError(resultCode)
+        }
+    }
+
 }
