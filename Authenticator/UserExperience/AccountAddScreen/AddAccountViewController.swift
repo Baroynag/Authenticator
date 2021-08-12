@@ -253,11 +253,9 @@ class AddAccountViewController: UIViewController {
         case .authorized:
             setupCaptureSession()
         case .notDetermined:
-            AVCaptureDevice.requestAccess(for: .video) {granted in
+            AVCaptureDevice.requestAccess(for: .video) {[weak self ] (granted) in
                     if granted {
-                        DispatchQueue.main.sync { [weak self] in
-                            self?.setupCaptureSession()
-                        }
+                        self?.setupCaptureSession()
                     }
                 }
         default:
@@ -300,7 +298,7 @@ extension AddAccountViewController: ScanQrViewControllerOutput {
                                              issuer: issuer,
                                              key: key)
         output?.didAdd(account: account, issuer: issuer, key: key)
-        dismiss(animated: true, completion: nil)
+        dismiss(animated: true)
     }
 
 }
