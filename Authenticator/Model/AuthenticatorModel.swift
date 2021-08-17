@@ -63,7 +63,10 @@ class AuthenticatorModel {
             return
         }
 
-        if let token = TokenGenerator.shared.createTimeBasedPersistentToken(name: account, issuer: issuer, secretString: key, priority: priority) {
+        if let token = TokenGenerator.shared.createTimeBasedPersistentToken(name: account,
+                                                                            issuer: issuer,
+                                                                            secretString: key,
+                                                                            priority: priority) {
             sotpPersistentTokenItems.append(token)
         }
     }

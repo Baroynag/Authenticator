@@ -16,7 +16,10 @@ class TokenGenerator {
     private init() {
     }
 
-    public func createTimeBasedPersistentToken(name: String, issuer: String, secretString: String, priority: Int) -> SOTPPersistentToken? {
+    public func createTimeBasedPersistentToken(name: String,
+                                               issuer: String,
+                                               secretString: String,
+                                               priority: Int) -> SOTPPersistentToken? {
 
         guard let generator = createGenerator(secretString: secretString, period: 30, digits: 6) else { return nil}
 

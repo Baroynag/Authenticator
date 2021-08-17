@@ -173,7 +173,12 @@ extension InterfaceController {
                 let key = responceItem["key"] ?? ""
                 let issuer = responceItem["issuer"] ?? ""
                 let account = responceItem["name"] ?? ""
-                if let persistentToken = TokenGenerator.shared.createTimeBasedPersistentToken(name: account, issuer: issuer, secretString: key, priority: priority) {
+                if let persistentToken = TokenGenerator.shared.createTimeBasedPersistentToken(
+                    name: account,
+                    issuer: issuer,
+                    secretString: key,
+                    priority: priority) {
+
                     persistentTokenItems.append(persistentToken)
                     persistentTokenItems = persistentTokenItems.sorted(by: { $0.priority ?? 0 < $1.priority ?? 0 })
                 }
