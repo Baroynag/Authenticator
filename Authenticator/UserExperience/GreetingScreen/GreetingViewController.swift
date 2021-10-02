@@ -7,17 +7,11 @@
 //
 
 import UIKit
+import PhotosUI
 
-protocol GreetingViewControllerOutput: class {
-    func didLoadBackup()
-    func didAdd(account: String?, issuer: String?, key: String?)
-}
-
-final class GreetingViewController: UIViewController {
+final class GreetingViewController: SOTPScanQRViewController {
 
     // MARK: - Properties
-    weak var output: GreetingViewControllerOutput?
-
     private let imageView: UIImageView = {
         let image = UIImage(named: "greeting")
         let imageView = UIImageView(image: image)
@@ -31,7 +25,7 @@ final class GreetingViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.backgroundColor = .systemBackground
         let text = NSLocalizedString("Welcome to", comment: "")
-        label.setAttributedText(fontSize: 24, text: text, aligment: .center, indent: 0.0)
+        label.setAttributedText(fontSize: 20, text: text, aligment: .center, indent: 0.0)
         return label
     }()
 
@@ -40,7 +34,7 @@ final class GreetingViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.backgroundColor = .systemBackground
         let text = NSLocalizedString("SOTP", comment: "")
-        label.setAttributedText(fontSize: 32, text: text, aligment: .center, indent: 0.0, color: .fucsiaColor)
+        label.setAttributedText(fontSize: 20, text: text, aligment: .center, indent: 0.0, color: .fucsiaColor)
         return label
     }()
 
@@ -49,32 +43,55 @@ final class GreetingViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.backgroundColor = .systemBackground
         let text = NSLocalizedString("Setup one time password", comment: "")
-        label.setAttributedText(fontSize: 20, text: text, aligment: .center, indent: 0.0)
+        label.setAttributedText(fontSize: 17, text: text, aligment: .center, indent: 0.0)
         return label
     }()
 
-    let createButton: RoundedButtonWithShadow = {
-        let button = RoundedButtonWithShadow(type: .system)
+    let createButton: UIButton = {
+        let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle(NSLocalizedString("Create", comment: ""), for: .normal)
         button.setTitleColor(.white, for: .normal)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 17, weight: .medium)
         button.addTarget(self, action: #selector(handleCreate), for: .touchUpInside)
         button.accessibilityIdentifier = "greetingScreenCreateButton"
+        button.backgroundColor = UIColor.fucsiaColor
+        button.layer.cornerRadius = 25
         return button
     }()
 
-    let loadButton: RoundedButtonWithShadow = {
-        let button = RoundedButtonWithShadow(type: .system)
+    lazy var loadButton: UIButton = {
+        let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle(NSLocalizedString("Load from file", comment: ""), for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
+        let textColor = getTextColor()
+        button.setTitleColor(textColor, for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 17, weight: .medium)
         button.addTarget(self, action: #selector(handleLoad), for: .touchUpInside)
         button.accessibilityIdentifier = "greetingScreenLoadButton"
+        button.layer.borderWidth = 1.0
+        button.layer.borderColor = UIColor.graySOTPColor.cgColor
+        button.layer.cornerRadius = 25
         return button
     }()
 
+    lazy var loadButtonFromGoogleAuthenticator: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle(NSLocalizedString("Load from Google", comment: ""), for: .normal)
+        let textColor = getTextColor()
+        button.setTitleColor(textColor, for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 17, weight: .medium)
+        button.addTarget(self, action: #selector(handleLoadFromGoogleAuthenticator), for: .touchUpInside)
+        button.accessibilityIdentifier = "loadFromGoogleAuthenticator"
+        button.layer.borderWidth = 1.0
+        button.layer.borderColor = UIColor.graySOTPColor.cgColor
+        button.layer.cornerRadius = 25
+        button.titleEdgeInsets = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 0)
+        button.backgroundColor = .clear
+        button.setImage(UIImage(named: "google_icon"), for: .normal)
+        return button
+    }()
     // MARK: - Inits
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -93,6 +110,10 @@ final class GreetingViewController: UIViewController {
         chooseDocument(vcWithDocumentPicker: self)
     }
 
+    @objc private func handleLoadFromGoogleAuthenticator() {
+        loadFromGoogleAuthenticator()
+    }
+
     // MARK: - Functions
     private func setupLayout() {
 
@@ -102,50 +123,81 @@ final class GreetingViewController: UIViewController {
 
         view.addSubview(imageView)
         NSLayoutConstraint.activate([
-            imageView.topAnchor.constraint(lessThanOrEqualTo: view.topAnchor, constant: 145),
+            imageView.topAnchor.constraint(lessThanOrEqualTo: view.topAnchor, constant: 151),
             imageView.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
-            imageView.heightAnchor.constraint(lessThanOrEqualToConstant: 199)
+            imageView.heightAnchor.constraint(lessThanOrEqualToConstant: 212)
         ])
 
         view.addSubview(greetingLabel)
         NSLayoutConstraint.activate([
             greetingLabel.topAnchor.constraint(lessThanOrEqualTo: imageView.bottomAnchor, constant: 19),
-            greetingLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+            greetingLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            greetingLabel.heightAnchor.constraint(equalToConstant: 24)
         ])
         view.addSubview(sotpLabel)
         NSLayoutConstraint.activate([
             sotpLabel.topAnchor.constraint(lessThanOrEqualTo: greetingLabel.bottomAnchor, constant: 14),
-            sotpLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+            sotpLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            sotpLabel.heightAnchor.constraint(equalToConstant: 24)
         ])
         view.addSubview(setupLabel)
         NSLayoutConstraint.activate([
             setupLabel.topAnchor.constraint(lessThanOrEqualTo: sotpLabel.bottomAnchor, constant: 8),
             setupLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            setupLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            setupLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
+            setupLabel.heightAnchor.constraint(equalToConstant: 24)
         ])
 
-        view.addSubview(createButton)
+        let stackView = setupStackViewWithButtons()
+
+        view.addSubview(stackView)
         NSLayoutConstraint.activate([
-            createButton.topAnchor.constraint(lessThanOrEqualTo: setupLabel.bottomAnchor, constant: 30),
-            createButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            stackView.topAnchor.constraint(lessThanOrEqualTo: setupLabel.bottomAnchor, constant: 20),
+            stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            stackView.bottomAnchor.constraint(lessThanOrEqualTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16)
+        ])
+    }
+
+    private func setupStackViewWithButtons() -> UIStackView {
+        NSLayoutConstraint.activate([
             createButton.heightAnchor.constraint(equalToConstant: 50),
-            createButton.widthAnchor.constraint(equalToConstant: 320)
+            createButton.widthAnchor.constraint(equalToConstant: 287)
         ])
 
-        view.addSubview(loadButton)
         NSLayoutConstraint.activate([
-            loadButton.topAnchor.constraint(lessThanOrEqualTo: createButton.bottomAnchor, constant: 22),
-            loadButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             loadButton.heightAnchor.constraint(equalToConstant: 50),
-            loadButton.widthAnchor.constraint(equalToConstant: 320)
+            loadButton.widthAnchor.constraint(equalToConstant: 287)
         ])
+
+        NSLayoutConstraint.activate([
+            loadButtonFromGoogleAuthenticator.heightAnchor.constraint(equalToConstant: 50),
+            loadButtonFromGoogleAuthenticator.widthAnchor.constraint(equalToConstant: 287)
+        ])
+
+        let stackView = UIStackView(arrangedSubviews: [createButton,
+                                                       loadButton,
+                                                       loadButtonFromGoogleAuthenticator])
+
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.distribution = .fillEqually
+        stackView.alignment = .fill
+        stackView.axis = .vertical
+        stackView.spacing = 22
+
+        return stackView
+    }
+
+    private func getTextColor() -> UIColor {
+        var color = UIColor.white
+        if traitCollection.userInterfaceStyle == .light {
+            color = UIColor.graySOTPColorForTitle
+        }
+        return color
     }
 }
 
 extension GreetingViewController: AddAccountViewControllerOutput {
-    func didAdd(account: String?, issuer: String?, key: String?) {
-        output?.didAdd(account: account, issuer: issuer, key: key)
+    func reloadMainTableView() {
+        scannQROutput?.actionAfterQRScanning(isError: false)
     }
 }
 
@@ -161,7 +213,7 @@ extension GreetingViewController: UIDocumentPickerDelegate {
                 let promtForPassword = UIAlertController.promptForPassword { pass in
                     if let pass = pass {
                         if Backup.getFileContent(fileURL: fileURL, password: pass) {
-                            self.output?.didLoadBackup()
+                            self.scannQROutput?.actionAfterQRScanning(isError: false)
                         } else {
                             let alert = UIAlertController.alertWithOk(title: title)
                             self.present(alert, animated: true)

@@ -46,7 +46,7 @@ class Backup {
 
     class private func saveData(tokens: [SOTPToken]) {
         for sotpToken in tokens {
-            AuthenticatorModel.shared.addOneItem(account: sotpToken.name,
+            try? AuthenticatorModel.shared.addOneItem(account: sotpToken.name,
                                                  issuer: sotpToken.issuer,
                                                  key: sotpToken.secret,
                                                  priority: sotpToken.priority)

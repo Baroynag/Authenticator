@@ -9,8 +9,8 @@
 import UIKit
 import AVFoundation
 
-protocol AddAccountViewControllerOutput: class {
-    func didAdd(account: String?, issuer: String?, key: String?)
+protocol AddAccountViewControllerOutput: AnyObject {
+    func reloadMainTableView()
 }
 
 class AddAccountViewController: UIViewController {
@@ -194,17 +194,8 @@ class AddAccountViewController: UIViewController {
     }
 
     private func showCameraPermissionAlert() {
-
-        let title = NSLocalizedString("Camera access", comment: "")
-        let message = NSLocalizedString("Please allow camera access for SOTP",
-                                        comment: "")
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-
-        let okAction = UIAlertAction(title: "Ok", style: .default) { [weak self] _ in ()
-            self?.dismiss(animated: true)
-        }
-        alert.addAction(okAction)
-        present(alert, animated: true)
+        let alert = QRCameraScanner.cameraPermissionAlert()
+        self.present(alert, animated: true, completion: nil)
     }
 
     private func setupCaptureSession() {
@@ -240,10 +231,10 @@ class AddAccountViewController: UIViewController {
                       alertMessage: NSLocalizedString("Please enter correct account",
                                                       comment: ""))
         } else {
-            AuthenticatorModel.shared.addOneItem(account: "",
+            try? AuthenticatorModel.shared.addOneItem(account: "",
                                                  issuer: issuerTextField.text,
                                                  key: keyTextField.text)
-            output?.didAdd(account: "", issuer: issuerTextField.text, key: keyTextField.text)
+            output?.reloadMainTableView()
             dismiss(animated: true, completion: nil)
         }
     }
@@ -255,7 +246,9 @@ class AddAccountViewController: UIViewController {
         case .notDetermined:
             AVCaptureDevice.requestAccess(for: .video) {[weak self ] (granted) in
                     if granted {
-                        self?.setupCaptureSession()
+                        DispatchQueue.main.async {
+                            self?.setupCaptureSession()
+                        }
                     }
                 }
         default:
@@ -293,12 +286,17 @@ extension AddAccountViewController: UITextFieldDelegate {
 }
 
 extension AddAccountViewController: ScanQrViewControllerOutput {
-    func didFound(account: String?, issuer: String?, key: String?) {
-        AuthenticatorModel.shared.addOneItem(account: account,
-                                             issuer: issuer,
-                                             key: key)
-        output?.didAdd(account: account, issuer: issuer, key: key)
-        dismiss(animated: true)
+
+    func didFound(qrCodeString: String) throws {
+        do {
+            try AuthenticatorModel.shared.createItemFromURLString(urlString: qrCodeString)
+            output?.reloadMainTableView()
+            dismiss(animated: true)
+        } catch {
+            let title = NSLocalizedString("QR code has the wrong format", comment: "")
+            let alert = UIAlertController.alertWithOk(title: title)
+            present(alert, animated: true)
+        }
     }
 
 }

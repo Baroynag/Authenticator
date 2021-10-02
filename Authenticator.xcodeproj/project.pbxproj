@@ -26,6 +26,8 @@
 		1430EA8D24DEF79900B75CF6 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1430EA8C24DEF79900B75CF6 /* StoreKit.framework */; };
 		1430EA8F24DF0E0800B75CF6 /* Purchases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1430EA8E24DF0E0800B75CF6 /* Purchases.swift */; };
 		1430EA9124DF0FCA00B75CF6 /* PurchaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1430EA9024DF0FCA00B75CF6 /* PurchaseViewController.swift */; };
+		1438EB3E26DE805300F8457D /* GoogleAuthenticator.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1438EB3D26DE805300F8457D /* GoogleAuthenticator.pb.swift */; };
+		1438EB4026DE807900F8457D /* GoogleAuthenticator.proto in Sources */ = {isa = PBXBuildFile; fileRef = 1438EB3F26DE807900F8457D /* GoogleAuthenticator.proto */; };
 		143D098825168F2B00C30041 /* RoundedButtonWithShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143D098725168F2B00C30041 /* RoundedButtonWithShadow.swift */; };
 		144B48A024FC10510086DA04 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144B489F24FC10510086DA04 /* SettingsTableViewController.swift */; };
 		14543DA124853A03008E7DA8 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14543D9F24853A03008E7DA8 /* Interface.storyboard */; };
@@ -39,6 +41,9 @@
 		1463409A24CE0763008ECFBD /* RNCryptorExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1463409924CE0763008ECFBD /* RNCryptorExtention.swift */; };
 		146CE3A724D1B9AB00DDC45C /* GreetingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146CE3A624D1B9AB00DDC45C /* GreetingViewController.swift */; };
 		146CE3AA24D3369600DDC45C /* Backup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146CE3A924D3369600DDC45C /* Backup.swift */; };
+		14744A0E26F2728000D9D5DB /* QRImageCodeScaner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14744A0D26F2728000D9D5DB /* QRImageCodeScaner.swift */; };
+		14744A1026FBB73F00D9D5DB /* QRCameraScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14744A0F26FBB73F00D9D5DB /* QRCameraScanner.swift */; };
+		14744A122700FD8700D9D5DB /* SOTPScanQRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14744A112700FD8700D9D5DB /* SOTPScanQRViewController.swift */; };
 		149619112517CE2E00B46D7B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1496190F2517CE2E00B46D7B /* Localizable.strings */; };
 		14A3454725B4C7D600F63C54 /* SOTPToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A3454625B4C7D600F63C54 /* SOTPToken.swift */; };
 		14B7E31E24C3237F00A2E9F3 /* PasswordError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B7E31D24C3237F00A2E9F3 /* PasswordError.swift */; };
@@ -122,6 +127,8 @@
 		1430EA8C24DEF79900B75CF6 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		1430EA8E24DF0E0800B75CF6 /* Purchases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Purchases.swift; sourceTree = "<group>"; };
 		1430EA9024DF0FCA00B75CF6 /* PurchaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseViewController.swift; sourceTree = "<group>"; };
+		1438EB3D26DE805300F8457D /* GoogleAuthenticator.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleAuthenticator.pb.swift; sourceTree = "<group>"; };
+		1438EB3F26DE807900F8457D /* GoogleAuthenticator.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.protobuf; path = GoogleAuthenticator.proto; sourceTree = "<group>"; };
 		143D098725168F2B00C30041 /* RoundedButtonWithShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButtonWithShadow.swift; sourceTree = "<group>"; };
 		144B489F24FC10510086DA04 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		14543D9D24853A03008E7DA8 /* SOTPWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SOTPWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -137,6 +144,9 @@
 		1463409924CE0763008ECFBD /* RNCryptorExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RNCryptorExtention.swift; sourceTree = "<group>"; };
 		146CE3A624D1B9AB00DDC45C /* GreetingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingViewController.swift; sourceTree = "<group>"; };
 		146CE3A924D3369600DDC45C /* Backup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Backup.swift; sourceTree = "<group>"; };
+		14744A0D26F2728000D9D5DB /* QRImageCodeScaner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRImageCodeScaner.swift; sourceTree = "<group>"; };
+		14744A0F26FBB73F00D9D5DB /* QRCameraScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCameraScanner.swift; sourceTree = "<group>"; };
+		14744A112700FD8700D9D5DB /* SOTPScanQRViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SOTPScanQRViewController.swift; sourceTree = "<group>"; };
 		1496190D2517CB5500B46D7B /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Interface.strings; sourceTree = "<group>"; };
 		149619102517CE2E00B46D7B /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		14A3454625B4C7D600F63C54 /* SOTPToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SOTPToken.swift; sourceTree = "<group>"; };
@@ -230,6 +240,7 @@
 		1401DA792440D46800DE677F /* Authenticator */ = {
 			isa = PBXGroup;
 			children = (
+				147A126626DD74CA0098B062 /* Protobufs */,
 				1490048D246DBC8D00F91500 /* UserExperience */,
 				14F740F0244774300052244C /* Fonts */,
 				A8DB1CD325866BCB007C980B /* Extensions */,
@@ -264,6 +275,9 @@
 				146CE3A924D3369600DDC45C /* Backup.swift */,
 				1430EA8E24DF0E0800B75CF6 /* Purchases.swift */,
 				143D098725168F2B00C30041 /* RoundedButtonWithShadow.swift */,
+				14744A0D26F2728000D9D5DB /* QRImageCodeScaner.swift */,
+				14744A0F26FBB73F00D9D5DB /* QRCameraScanner.swift */,
+				14744A112700FD8700D9D5DB /* SOTPScanQRViewController.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -317,6 +331,15 @@
 				146CE3A624D1B9AB00DDC45C /* GreetingViewController.swift */,
 			);
 			path = GreetingScreen;
+			sourceTree = "<group>";
+		};
+		147A126626DD74CA0098B062 /* Protobufs */ = {
+			isa = PBXGroup;
+			children = (
+				1438EB3D26DE805300F8457D /* GoogleAuthenticator.pb.swift */,
+				1438EB3F26DE807900F8457D /* GoogleAuthenticator.proto */,
+			);
+			path = Protobufs;
 			sourceTree = "<group>";
 		};
 		1490048D246DBC8D00F91500 /* UserExperience */ = {
@@ -707,6 +730,7 @@
 				146CE3A724D1B9AB00DDC45C /* GreetingViewController.swift in Sources */,
 				143D098825168F2B00C30041 /* RoundedButtonWithShadow.swift in Sources */,
 				A8DB1CD525866BE4007C980B /* UILabel+AttributedText.swift in Sources */,
+				14744A1026FBB73F00D9D5DB /* QRCameraScanner.swift in Sources */,
 				1401DAC12443431200DE677F /* AuthenticatorViewController.swift in Sources */,
 				142F404A25D12E54008A9CA0 /* TokenGenerator.swift in Sources */,
 				14129F7624C0C92200644739 /* PasswordViewController.swift in Sources */,
@@ -715,10 +739,13 @@
 				A8DB1CDF25866C34007C980B /* UIViewController+SetupNavigation.swift in Sources */,
 				14B8BDA625B4CB2E00595A17 /* SOTPKeychain.swift in Sources */,
 				14CB6D6924FC2AD100316ED7 /* SettingsTableViewCellWithButton.swift in Sources */,
+				1438EB4026DE807900F8457D /* GoogleAuthenticator.proto in Sources */,
+				14744A122700FD8700D9D5DB /* SOTPScanQRViewController.swift in Sources */,
 				14A3454725B4C7D600F63C54 /* SOTPToken.swift in Sources */,
 				1401DAC32443433100DE677F /* AddAccountViewController.swift in Sources */,
 				1405D88B24719BF10065509B /* UITextFieldWithBottomBorder.swift in Sources */,
 				144B48A024FC10510086DA04 /* SettingsTableViewController.swift in Sources */,
+				1438EB3E26DE805300F8457D /* GoogleAuthenticator.pb.swift in Sources */,
 				A8DB1CDA25866C14007C980B /* UINavigationController+Completions.swift in Sources */,
 				1401DACA244343FE00DE677F /* AuthenticatorModel.swift in Sources */,
 				141917D0245483EC00EE125D /* ScanQrViewController.swift in Sources */,
@@ -733,6 +760,7 @@
 				1463409A24CE0763008ECFBD /* RNCryptorExtention.swift in Sources */,
 				14B7E31E24C3237F00A2E9F3 /* PasswordError.swift in Sources */,
 				1430EA8F24DF0E0800B75CF6 /* Purchases.swift in Sources */,
+				14744A0E26F2728000D9D5DB /* QRImageCodeScaner.swift in Sources */,
 				A8DB1CEA25866DFB007C980B /* UIFont+SOTPFonts.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -949,7 +977,7 @@
 				CODE_SIGN_ENTITLEMENTS = Authenticator/AuthenticatorDebug.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 22;
+				CURRENT_PROJECT_VERSION = 23;
 				DEVELOPMENT_TEAM = Q9Y5N2Z9SF;
 				INFOPLIST_FILE = Authenticator/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -957,6 +985,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = am.baroynag.SOTP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -975,7 +1004,7 @@
 				CODE_SIGN_ENTITLEMENTS = Authenticator/AuthenticatorRelease.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 22;
+				CURRENT_PROJECT_VERSION = 23;
 				DEVELOPMENT_TEAM = Q9Y5N2Z9SF;
 				INFOPLIST_FILE = Authenticator/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -983,6 +1012,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = am.baroynag.SOTP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1003,7 +1033,7 @@
 				CODE_SIGN_ENTITLEMENTS = SOTPWatch/SOTPWatchDebug.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 22;
+				CURRENT_PROJECT_VERSION = 23;
 				DEVELOPMENT_TEAM = Q9Y5N2Z9SF;
 				IBSC_MODULE = SOTPWatch_Extension;
 				INFOPLIST_FILE = SOTPWatch/Info.plist;
@@ -1013,6 +1043,7 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = am.baroynag.SOTP.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1035,7 +1066,7 @@
 				CLANG_USE_OPTIMIZATION_PROFILE = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 22;
+				CURRENT_PROJECT_VERSION = 23;
 				DEVELOPMENT_TEAM = Q9Y5N2Z9SF;
 				IBSC_MODULE = SOTPWatch_Extension;
 				INFOPLIST_FILE = SOTPWatch/Info.plist;
@@ -1045,6 +1076,7 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = am.baroynag.SOTP.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1065,7 +1097,7 @@
 				CODE_SIGN_ENTITLEMENTS = "SOTPWatch Extension/SOTPWatch ExtensionDebug.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 22;
+				CURRENT_PROJECT_VERSION = 23;
 				DEVELOPMENT_TEAM = Q9Y5N2Z9SF;
 				INFOPLIST_FILE = "SOTPWatch Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1073,6 +1105,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = am.baroynag.SOTP.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1092,7 +1125,7 @@
 				CLANG_USE_OPTIMIZATION_PROFILE = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 22;
+				CURRENT_PROJECT_VERSION = 23;
 				DEVELOPMENT_TEAM = Q9Y5N2Z9SF;
 				INFOPLIST_FILE = "SOTPWatch Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1100,6 +1133,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = am.baroynag.SOTP.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				PROVISIONING_PROFILE_SPECIFIER = "";

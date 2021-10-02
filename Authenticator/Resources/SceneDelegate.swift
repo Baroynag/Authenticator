@@ -41,7 +41,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     private func showGreetingRoot() {
         let greetingScreen = GreetingViewController()
-        greetingScreen.output = self
+        greetingScreen.scannQROutput = self
         window?.rootViewController = greetingScreen
     }
 
@@ -51,12 +51,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 }
 
-extension SceneDelegate: GreetingViewControllerOutput {
-    func didLoadBackup() {
-        showAuthenticatorRoot()
-    }
-
-    func didAdd(account: String?, issuer: String?, key: String?) {
-        showAuthenticatorRoot()
+extension SceneDelegate: SOTPScanQRViewControllerOutput {
+    func actionAfterQRScanning(isError: Bool) -> Bool {
+        if !isError {
+            showAuthenticatorRoot()
+        }
+        return false
     }
 }

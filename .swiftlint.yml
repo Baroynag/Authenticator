@@ -1,4 +1,5 @@
 excluded:
   - Carthage
   - Pods
+  - Authenticator/Protobufs/GoogleAuthenticator.pb.swift
 force_cast: warning
