@@ -150,11 +150,6 @@ extension SOTPScanQRViewController: ScanQrViewControllerOutput {
         var isError: Bool = false
         do {
             try AuthenticatorModel.shared.importFromGoogleAuthenticatorURL(urlString: qrCodeString)
-            guard let needShowAlert = scannQROutput?.actionAfterQRScanning(isError: false) else {return}
-            if needShowAlert {
-                present(loadedAlert(), animated: true)
-            }
-
         } catch {
             isError = true
             present(failedAlert(), animated: true)
