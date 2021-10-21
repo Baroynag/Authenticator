@@ -11,7 +11,7 @@ import UIKit
 import PhotosUI
 
 protocol SOTPScanQRViewControllerOutput: AnyObject {
-    func actionAfterQRScanning(isError: Bool) -> Bool
+    func didFound(success: Bool)
 }
 
 class SOTPScanQRViewController: UIViewController {
@@ -154,12 +154,7 @@ extension SOTPScanQRViewController: ScanQrViewControllerOutput {
             isError = true
             present(failedAlert(), animated: true)
         }
-
-        guard let needShowAlert = scannQROutput?.actionAfterQRScanning(isError: isError) else {return}
-        if needShowAlert {
-            present(loadedAlert(), animated: true)
-        }
-
+        
+        scannQROutput?.actionAfterQRScanning(isError: isError)
     }
-
 }

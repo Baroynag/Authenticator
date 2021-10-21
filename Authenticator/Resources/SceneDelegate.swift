@@ -52,10 +52,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 }
 
 extension SceneDelegate: SOTPScanQRViewControllerOutput {
-    func actionAfterQRScanning(isError: Bool) -> Bool {
-        if !isError {
+    func didFound(success: Bool) {
+        if success {
             showAuthenticatorRoot()
         }
-        return false
     }
 }
