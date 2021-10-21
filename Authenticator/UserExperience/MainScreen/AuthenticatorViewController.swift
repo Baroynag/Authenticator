@@ -251,7 +251,7 @@ extension AuthenticatorViewController: SOTPScanQRViewControllerOutput {
         if !success {
             let title = NSLocalizedString("Data loaded", comment: "")
             let alert = UIAlertController.alertWithOk(title: title)
-            present(loadedAlert(), animated: true)
+            present(alert, animated: true)
             return
         }
         
