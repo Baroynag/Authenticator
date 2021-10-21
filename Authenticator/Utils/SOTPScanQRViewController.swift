@@ -147,14 +147,14 @@ extension SOTPScanQRViewController: PHPickerViewControllerDelegate {
 
 extension SOTPScanQRViewController: ScanQrViewControllerOutput {
     func didFound(qrCodeString: String) {
-        var isError: Bool = false
+        var success: Bool = false
         do {
             try AuthenticatorModel.shared.importFromGoogleAuthenticatorURL(urlString: qrCodeString)
         } catch {
-            isError = true
+            success = false
             present(failedAlert(), animated: true)
         }
         
-        scannQROutput?.actionAfterQRScanning(isError: isError)
+        scannQROutput?.didFound(success: success)
     }
 }
