@@ -158,10 +158,10 @@ class AuthenticatorModel {
 
         if let otpParameters = migrationData?.otpParameters {
             for otpParameter in otpParameters {
-                let key =  MF_Base32Codec.base32String(from: otpParameter.secret)
+                let key = MF_Base32Codec.base32String(from: otpParameter.secret)
                 try AuthenticatorModel.shared.addOneItem(account: otpParameter.name,
-                                                     issuer: otpParameter.issuer,
-                                                     key: key)
+                                                         issuer: otpParameter.issuer,
+                                                         key: key)
             }
         } else {
             throw QRCodeScanerError.otpParametersParsingFailled
@@ -170,11 +170,7 @@ class AuthenticatorModel {
 
     public func importFromGoogleAuthenticatorURL(urlString: String) throws {
         if let migrationPayload = QRImageScaner.getMigrationDataFromURLString(urlString: urlString) {
-            do {
-                try AuthenticatorModel.shared.importFromGoogleAuthenticator(migrationData: migrationPayload)
-            } catch {
-                throw error
-            }
+            try AuthenticatorModel.shared.importFromGoogleAuthenticator(migrationData: migrationPayload)
         } else {
             throw QRCodeScanerError.wrongProtbufFormat
         }
@@ -190,38 +186,15 @@ class AuthenticatorModel {
         let key       = QRImageScaner.getQueryStringParameter(url: url, param: "secret")
 
         try addOneItem(account: account,
-                   issuer: issuer,
-                   key: key)
+                       issuer: issuer,
+                       key: key)
    }
 
     public func loadFromScannedGoogleAuthenticatorImage(image: UIImage) throws {
         if let migrationPayload = QRImageScaner.getGoogleAuthenticatorInfo(image: image) {
-            do {
-                try AuthenticatorModel.shared.importFromGoogleAuthenticator(migrationData: migrationPayload)
-            } catch {
-                throw error
-            }
+            try AuthenticatorModel.shared.importFromGoogleAuthenticator(migrationData: migrationPayload)
         } else {
             throw QRCodeScanerError.failledScanningQR
         }
-    }
-}
-
-enum CreateTokenError: Error {
-    case emptyAccount
-    case emptySecret
-    case tokenCreateError
-}
-
-extension CreateTokenError: LocalizedError {
-    public var errorDescription: String? {
-        switch self {
-        case .emptyAccount:
-            return NSLocalizedString("Account can't be empty", comment: "")
-        case .emptySecret:
-            return NSLocalizedString("Secret the password!", comment: "")
-        case .tokenCreateError:
-            return NSLocalizedString("Unable to create account", comment: "")
-       }
     }
 }

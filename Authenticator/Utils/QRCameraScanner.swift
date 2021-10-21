@@ -15,6 +15,7 @@ enum ImportAlertOptionsLocalizedStrings {
     static let photoLibrary: String = NSLocalizedString("Photo library", comment: "")
     static let dismiss: String = NSLocalizedString("Dismiss", comment: "")
 }
+
 enum ImportAlertOptions {
     case camera
     case photoLibrary

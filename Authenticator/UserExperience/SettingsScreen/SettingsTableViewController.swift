@@ -61,7 +61,7 @@ extension SettingsTableViewController: UIDocumentPickerDelegate {
     public func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
         var title = NSLocalizedString("Wrong password", comment: "")
         if let fileUrl = urls.first {
-            dismiss(animated: true) { [weak self ] in
+            dismiss(animated: true) {[weak self ] in
                 guard let self = self else {
                     return
                 }
@@ -69,7 +69,7 @@ extension SettingsTableViewController: UIDocumentPickerDelegate {
                 let promtForPassword = UIAlertController.promptForPassword { (pass) in
                     if let pass = pass {
                         if Backup.getFileContent(fileURL: fileUrl, password: pass) {
-                            self.scannQROutput?.actionAfterQRScanning(isError: false)
+                            self.scannQROutput?.didFound(success: true)
                             title = NSLocalizedString("Data loaded", comment: "")
                         }
                     }

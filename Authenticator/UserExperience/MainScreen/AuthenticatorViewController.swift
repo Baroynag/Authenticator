@@ -247,10 +247,12 @@ extension AuthenticatorViewController: AddAccountViewControllerOutput {
 }
 
 extension AuthenticatorViewController: SOTPScanQRViewControllerOutput {
-    func  actionAfterQRScanning(isError: Bool) -> Bool {
-        if !isError {
+    func didFound(success: Bool) {
+        if success {
             tableView.reloadData()
+            let title = NSLocalizedString("Data loaded", comment: "")
+            let alert = UIAlertController.alertWithOk(title: title)
+            present(alert, animated: true)
         }
-        return true
     }
 }

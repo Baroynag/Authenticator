@@ -197,7 +197,7 @@ final class GreetingViewController: SOTPScanQRViewController {
 
 extension GreetingViewController: AddAccountViewControllerOutput {
     func reloadMainTableView() {
-        scannQROutput?.actionAfterQRScanning(isError: false)
+        scannQROutput?.didFound(success: true)
     }
 }
 
@@ -213,7 +213,7 @@ extension GreetingViewController: UIDocumentPickerDelegate {
                 let promtForPassword = UIAlertController.promptForPassword { pass in
                     if let pass = pass {
                         if Backup.getFileContent(fileURL: fileURL, password: pass) {
-                            self.scannQROutput?.actionAfterQRScanning(isError: false)
+                            self.scannQROutput?.didFound(success: true)
                         } else {
                             let alert = UIAlertController.alertWithOk(title: title)
                             self.present(alert, animated: true)

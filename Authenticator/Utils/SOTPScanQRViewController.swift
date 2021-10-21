@@ -11,7 +11,7 @@ import UIKit
 import PhotosUI
 
 protocol SOTPScanQRViewControllerOutput: AnyObject {
-    func actionAfterQRScanning(isError: Bool) -> Bool
+    func didFound(success: Bool)
 }
 
 class SOTPScanQRViewController: UIViewController {
@@ -32,17 +32,18 @@ class SOTPScanQRViewController: UIViewController {
     }
 
     private func importFromGoogleAuthenticatorQRImage(image: UIImage) {
-        var isError: Bool = false
+        var success: Bool = true
         do {
             try AuthenticatorModel.shared.loadFromScannedGoogleAuthenticatorImage(image: image)
         } catch {
+            success = false
             let alert = failedAlert()
             present(alert, animated: true)
-            isError = true
         }
 
-        guard let needShowAlert = scannQROutput?.actionAfterQRScanning(isError: isError) else {return}
-        if needShowAlert {
+        scannQROutput?.didFound(success: success)
+
+        if scannQROutput is AuthenticatorViewController {
             present(loadedAlert(), animated: true)
         }
 
@@ -116,14 +117,12 @@ extension SOTPScanQRViewController: UIImagePickerControllerDelegate, UINavigatio
 
     func loadedAlert() -> UIAlertController {
         let title = NSLocalizedString("Data loaded", comment: "")
-        let alert = UIAlertController.alertWithOk(title: title)
-        return alert
+        return UIAlertController.alertWithOk(title: title)
     }
 
     func failedAlert() -> UIAlertController {
         let title = NSLocalizedString("QR code has the wrong format", comment: "")
-        let alert = UIAlertController.alertWithOk(title: title)
-        return alert
+        return UIAlertController.alertWithOk(title: title)
     }
 }
 
@@ -147,19 +146,13 @@ extension SOTPScanQRViewController: PHPickerViewControllerDelegate {
 
 extension SOTPScanQRViewController: ScanQrViewControllerOutput {
     func didFound(qrCodeString: String) {
-        var isError: Bool = false
+        var success: Bool = true
         do {
             try AuthenticatorModel.shared.importFromGoogleAuthenticatorURL(urlString: qrCodeString)
         } catch {
-            isError = true
+            success = false
             present(failedAlert(), animated: true)
         }
-
-        guard let needShowAlert = scannQROutput?.actionAfterQRScanning(isError: isError) else {return}
-        if needShowAlert {
-            present(loadedAlert(), animated: true)
-        }
-
+        scannQROutput?.didFound(success: success)
     }
-
 }
