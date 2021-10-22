@@ -11,7 +11,7 @@ import UIKit
 import PhotosUI
 
 protocol SOTPScanQRViewControllerOutput: AnyObject {
-    func actionAfterQRScanning(isError: Bool) -> Bool
+    func didFound(success: Bool)
 }
 
 class SOTPScanQRViewController: UIViewController {
@@ -147,19 +147,14 @@ extension SOTPScanQRViewController: PHPickerViewControllerDelegate {
 
 extension SOTPScanQRViewController: ScanQrViewControllerOutput {
     func didFound(qrCodeString: String) {
-        var isError: Bool = false
+        var success: Bool = false
         do {
             try AuthenticatorModel.shared.importFromGoogleAuthenticatorURL(urlString: qrCodeString)
         } catch {
-            isError = true
+            success = false
             present(failedAlert(), animated: true)
         }
-
-        guard let needShowAlert = scannQROutput?.actionAfterQRScanning(isError: isError) else {return}
-        if needShowAlert {
-            present(loadedAlert(), animated: true)
-        }
-
+        
+        scannQROutput?.didFound(success: success)
     }
-
 }
