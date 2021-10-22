@@ -16,7 +16,6 @@
 		1401DAC12443431200DE677F /* AuthenticatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1401DAC02443431100DE677F /* AuthenticatorViewController.swift */; };
 		1401DAC32443433100DE677F /* AddAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1401DAC22443433100DE677F /* AddAccountViewController.swift */; };
 		1401DAC72443436E00DE677F /* UIColor+SOTPColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1401DAC52443436E00DE677F /* UIColor+SOTPColors.swift */; };
-		1401DACA244343FE00DE677F /* AuthenticatorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1401DAC9244343FE00DE677F /* AuthenticatorModel.swift */; };
 		14023D6725B4C8C100EC35C8 /* SOTPToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A3454625B4C7D600F63C54 /* SOTPToken.swift */; };
 		1405D88B24719BF10065509B /* UITextFieldWithBottomBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1405D88A24719BF10065509B /* UITextFieldWithBottomBorder.swift */; };
 		14129F7624C0C92200644739 /* PasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14129F7524C0C92200644739 /* PasswordViewController.swift */; };
@@ -46,6 +45,8 @@
 		14744A122700FD8700D9D5DB /* SOTPScanQRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14744A112700FD8700D9D5DB /* SOTPScanQRViewController.swift */; };
 		149619112517CE2E00B46D7B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1496190F2517CE2E00B46D7B /* Localizable.strings */; };
 		14A3454725B4C7D600F63C54 /* SOTPToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A3454625B4C7D600F63C54 /* SOTPToken.swift */; };
+		14B1D9672722D69200262979 /* AuthenticatorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B1D9662722D69200262979 /* AuthenticatorModel.swift */; };
+		14B1D9692722D6BC00262979 /* CreateTokenError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B1D9682722D6BC00262979 /* CreateTokenError.swift */; };
 		14B7E31E24C3237F00A2E9F3 /* PasswordError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B7E31D24C3237F00A2E9F3 /* PasswordError.swift */; };
 		14B8BDA625B4CB2E00595A17 /* SOTPKeychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B8BDA525B4CB2E00595A17 /* SOTPKeychain.swift */; };
 		14B8BDA725B4CB2E00595A17 /* SOTPKeychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B8BDA525B4CB2E00595A17 /* SOTPKeychain.swift */; };
@@ -119,7 +120,6 @@
 		1401DAC02443431100DE677F /* AuthenticatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatorViewController.swift; sourceTree = "<group>"; };
 		1401DAC22443433100DE677F /* AddAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountViewController.swift; sourceTree = "<group>"; };
 		1401DAC52443436E00DE677F /* UIColor+SOTPColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+SOTPColors.swift"; sourceTree = "<group>"; };
-		1401DAC9244343FE00DE677F /* AuthenticatorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatorModel.swift; sourceTree = "<group>"; };
 		1405D88A24719BF10065509B /* UITextFieldWithBottomBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldWithBottomBorder.swift; sourceTree = "<group>"; };
 		14129F7524C0C92200644739 /* PasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordViewController.swift; sourceTree = "<group>"; };
 		141917CF245483EC00EE125D /* ScanQrViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanQrViewController.swift; sourceTree = "<group>"; };
@@ -150,6 +150,8 @@
 		1496190D2517CB5500B46D7B /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Interface.strings; sourceTree = "<group>"; };
 		149619102517CE2E00B46D7B /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		14A3454625B4C7D600F63C54 /* SOTPToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SOTPToken.swift; sourceTree = "<group>"; };
+		14B1D9662722D69200262979 /* AuthenticatorModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticatorModel.swift; sourceTree = "<group>"; };
+		14B1D9682722D6BC00262979 /* CreateTokenError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateTokenError.swift; sourceTree = "<group>"; };
 		14B7E31D24C3237F00A2E9F3 /* PasswordError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordError.swift; sourceTree = "<group>"; };
 		14B8BDA525B4CB2E00595A17 /* SOTPKeychain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SOTPKeychain.swift; sourceTree = "<group>"; };
 		14CB6D6624FC19D600316ED7 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
@@ -374,7 +376,8 @@
 		14900490246DBD6700F91500 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				1401DAC9244343FE00DE677F /* AuthenticatorModel.swift */,
+				14B1D9682722D6BC00262979 /* CreateTokenError.swift */,
+				14B1D9662722D69200262979 /* AuthenticatorModel.swift */,
 				14543DC72486E02D008E7DA8 /* WatchAppConnection.swift */,
 				14B7E31D24C3237F00A2E9F3 /* PasswordError.swift */,
 			);
@@ -739,15 +742,16 @@
 				A8DB1CDF25866C34007C980B /* UIViewController+SetupNavigation.swift in Sources */,
 				14B8BDA625B4CB2E00595A17 /* SOTPKeychain.swift in Sources */,
 				14CB6D6924FC2AD100316ED7 /* SettingsTableViewCellWithButton.swift in Sources */,
+				14B1D9692722D6BC00262979 /* CreateTokenError.swift in Sources */,
 				1438EB4026DE807900F8457D /* GoogleAuthenticator.proto in Sources */,
 				14744A122700FD8700D9D5DB /* SOTPScanQRViewController.swift in Sources */,
 				14A3454725B4C7D600F63C54 /* SOTPToken.swift in Sources */,
+				14B1D9672722D69200262979 /* AuthenticatorModel.swift in Sources */,
 				1401DAC32443433100DE677F /* AddAccountViewController.swift in Sources */,
 				1405D88B24719BF10065509B /* UITextFieldWithBottomBorder.swift in Sources */,
 				144B48A024FC10510086DA04 /* SettingsTableViewController.swift in Sources */,
 				1438EB3E26DE805300F8457D /* GoogleAuthenticator.pb.swift in Sources */,
 				A8DB1CDA25866C14007C980B /* UINavigationController+Completions.swift in Sources */,
-				1401DACA244343FE00DE677F /* AuthenticatorModel.swift in Sources */,
 				141917D0245483EC00EE125D /* ScanQrViewController.swift in Sources */,
 				14543DC82486E02D008E7DA8 /* WatchAppConnection.swift in Sources */,
 				14E8523F25619BB700B9744B /* AboutViewController.swift in Sources */,
