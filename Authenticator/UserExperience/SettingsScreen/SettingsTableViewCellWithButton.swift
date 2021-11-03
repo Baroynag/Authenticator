@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol SettingsTableViewCellWithButtonOutput: class {
+protocol SettingsTableViewCellWithButtonOutput: AnyObject {
     func didTapPurchase()
 }
 

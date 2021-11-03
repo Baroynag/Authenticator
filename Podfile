@@ -7,6 +7,8 @@ target 'Authenticator' do
 
   pod 'RNCryptor', '~> 5.0'
 
+  pod 'SwiftProtobuf', '~> 1.0'
+
 end
 
 

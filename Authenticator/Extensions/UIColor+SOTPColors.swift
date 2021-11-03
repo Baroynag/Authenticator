@@ -16,4 +16,8 @@ extension UIColor {
     static var graySOTPColor: UIColor {
         return UIColor(red: 0.835, green: 0.835, blue: 0.878, alpha: 1)
     }
+
+    static var graySOTPColorForTitle: UIColor {
+        return UIColor(red: 0.204, green: 0.204, blue: 0.204, alpha: 1)
+    }
 }

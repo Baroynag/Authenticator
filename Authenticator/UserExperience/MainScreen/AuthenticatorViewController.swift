@@ -49,7 +49,7 @@ class AuthenticatorViewController: UIViewController {
     @objc private func settingsTapped() {
         let settingsViewController = SettingsTableViewController()
         settingsViewController.modalPresentationStyle = .fullScreen
-        settingsViewController.output = self
+        settingsViewController.scannQROutput = self
         navigationController?.pushViewController(settingsViewController, animated: true)
     }
 
@@ -241,13 +241,18 @@ extension AuthenticatorViewController {
 }
 
 extension AuthenticatorViewController: AddAccountViewControllerOutput {
-    func didAdd(account: String?, issuer: String?, key: String?) {
+    func reloadMainTableView() {
         tableView.reloadData()
     }
 }
 
-extension AuthenticatorViewController: SettingsTableViewControllerOutput {
-    func didLoadBackup() {
-        tableView.reloadData()
+extension AuthenticatorViewController: SOTPScanQRViewControllerOutput {
+    func didFound(success: Bool) {
+        if success {
+            tableView.reloadData()
+            let title = NSLocalizedString("Data loaded", comment: "")
+            let alert = UIAlertController.alertWithOk(title: title)
+            present(alert, animated: true)
+        }
     }
 }

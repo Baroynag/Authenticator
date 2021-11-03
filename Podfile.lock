@@ -3,23 +3,27 @@ PODS:
   - OneTimePassword (3.2.0):
     - Base32 (~> 1.1.2)
   - RNCryptor (5.1.0)
+  - SwiftProtobuf (1.17.0)
 
 DEPENDENCIES:
   - OneTimePassword
   - OneTimePassword (~> 3.2)
   - RNCryptor (~> 5.0)
+  - SwiftProtobuf (~> 1.0)
 
 SPEC REPOS:
   trunk:
     - Base32
     - OneTimePassword
     - RNCryptor
+    - SwiftProtobuf
 
 SPEC CHECKSUMS:
   Base32: 163c298644d184e89ca4e00a996bad6bf5166390
   OneTimePassword: c00ecc908e67e6c5bfda9d50b0b2e4696d0b066e
   RNCryptor: a369134686cd2ad391323cc856b62e591193ba79
+  SwiftProtobuf: 9c85136c6ba74b0a1b84279dbf0f6db8efb714e0
 
-PODFILE CHECKSUM: edb111f0106e6739ed8a89cc2be94f6b16e7da03
+PODFILE CHECKSUM: c70cb9514effff0a1370160aee5ccf54324be7b1
 
-COCOAPODS: 1.9.3
+COCOAPODS: 1.10.2
