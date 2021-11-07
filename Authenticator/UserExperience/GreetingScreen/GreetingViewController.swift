@@ -203,24 +203,20 @@ extension GreetingViewController: AddAccountViewControllerOutput {
 
 extension GreetingViewController: UIDocumentPickerDelegate {
     public func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
-        let title = NSLocalizedString("Wrong password", comment: "")
-        if let fileURL = urls.first {
-            dismiss(animated: true) { [weak self] in
-                guard let self = self else {
-                    return
-                }
-
-                let promtForPassword = UIAlertController.promptForPassword { pass in
-                    if let pass = pass {
-                        if Backup.getFileContent(fileURL: fileURL, password: pass) {
-                            self.scannQROutput?.didFound(success: true)
-                        } else {
-                            let alert = UIAlertController.alertWithOk(title: title)
-                            self.present(alert, animated: true)
-                        }
+        if let fileUrl = urls.first {
+            dismiss(animated: true) {[weak self ] in
+                let promtForPassword = UIAlertController.promptForPassword { (pass) in
+                    do {
+                        try Backup.getFileContent(fileURL: fileUrl, password: pass)
+                        self?.scannQROutput?.didFound(success: true)
+                        let alert = UIAlertController.alertWithLocalizedTitle(title: "Data loaded")
+                        self?.present(alert, animated: true)
+                    } catch {
+                        let alert = UIAlertController.alertWithLocalizedTitle(title: "Unable to upload file")
+                        self?.present(alert, animated: true)
                     }
                 }
-                self.present(promtForPassword, animated: true)
+                self?.present(promtForPassword, animated: true)
             }
         }
     }

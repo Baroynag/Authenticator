@@ -17,6 +17,8 @@ class PasswordViewController: UIViewController {
     private let textFieldHeigth: CGFloat = 80.0
     private var textFieldWidth: CGFloat = 0.0
 
+    private let failErrorTitle = "Unable to save file"
+
     private var passwordTextField = UITextFieldWithBottomBorder()
     private var confirmPasswordTextField = UITextFieldWithBottomBorder()
 
@@ -147,7 +149,11 @@ class PasswordViewController: UIViewController {
     @objc private func handleConfirmButton() {
         validatePassword { [weak self] pass in
             if let pass = pass {
-                self?.saveBackupToFile(password: pass)
+                do {
+                    try self?.saveBackupToFile(password: pass)
+                } catch {
+                    self?.presentAlert(title: self?.failErrorTitle ?? "", error: error)
+                }
             }
         }
     }
@@ -156,35 +162,37 @@ class PasswordViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
 
-    private func saveBackupToFile(password: String) {
-        // TODO: add error message
-        guard let backupFile = Backup.getEncriptedData(password: password) else {return}
-
-        let temporaryFolder = FileManager.default.temporaryDirectory
-        // review: в константы, может даже на глобальный уровень
-        let temporaryFilePath = temporaryFolder.appendingPathComponent("sotpbackup.sotp")
-
+    private func saveBackupToFile(password: String) throws {
         do {
-            try backupFile.write(to: temporaryFilePath, atomically: true, encoding: .utf8)
-            let activityViewController = UIActivityViewController(
-                activityItems: [temporaryFilePath],
-                applicationActivities: nil)
-            activityViewController.popoverPresentationController?.sourceView = view
-            present(activityViewController, animated: true)
+            let backupFile = try Backup.prepareFileForBackup(password: password)
+            let temporaryFilePath = Backup.getTemporaryFilePathForBackup()
 
-            activityViewController.completionWithItemsHandler = {(_: UIActivity.ActivityType?, completed: Bool, _: [Any]?, error: Error?) in
-                if completed {
-                    self.dismiss(animated: true, completion: nil)
+            do {
+                try backupFile.write(to: temporaryFilePath, atomically: true, encoding: .utf8)
+                let activityViewController = UIActivityViewController(
+                    activityItems: [temporaryFilePath],
+                    applicationActivities: nil)
+                activityViewController.popoverPresentationController?.sourceView = view
+                present(activityViewController, animated: true)
+
+                activityViewController.completionWithItemsHandler = {[weak self] (_: UIActivity.ActivityType?, completed: Bool, _: [Any]?, error: Error?) in
+                    if completed {
+                        self?.dismiss(animated: true, completion: nil)
+                    }
+
+                    if let error = error {
+                        self?.presentAlert(title: self?.failErrorTitle ?? "", error: error)
+                    }
                 }
 
-                if let error = error {
-                    print("error while sharing: \(error.localizedDescription)")
-                }
             }
-
-        } catch {
-            print(error.localizedDescription)
         }
+    }
+
+    func presentAlert (title: String, error: Error) {
+        let errorDecription = title + " (" + error.localizedDescription + ")"
+        let alert = UIAlertController.alertWithLocalizedTitle(title: errorDecription)
+        self.present(alert, animated: true, completion: nil)
     }
 }
 
