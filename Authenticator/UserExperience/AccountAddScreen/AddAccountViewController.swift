@@ -10,7 +10,7 @@ import UIKit
 import AVFoundation
 
 protocol AddAccountViewControllerOutput: AnyObject {
-    func reloadMainTableView()
+    func didAdd()
 }
 
 class AddAccountViewController: UIViewController {
@@ -232,9 +232,9 @@ class AddAccountViewController: UIViewController {
                                                       comment: ""))
         } else {
             try? AuthenticatorModel.shared.addOneItem(account: "",
-                                                 issuer: issuerTextField.text,
-                                                 key: keyTextField.text)
-            output?.reloadMainTableView()
+                                                      issuer: issuerTextField.text,
+                                                      key: keyTextField.text)
+            output?.didAdd()
             dismiss(animated: true, completion: nil)
         }
     }
@@ -290,7 +290,7 @@ extension AddAccountViewController: ScanQrViewControllerOutput {
     func didFound(qrCodeString: String) throws {
         do {
             try AuthenticatorModel.shared.createItemFromURLString(urlString: qrCodeString)
-            output?.reloadMainTableView()
+            output?.didAdd()
             dismiss(animated: true)
         } catch {
             let title = NSLocalizedString("QR code has the wrong format", comment: "")
