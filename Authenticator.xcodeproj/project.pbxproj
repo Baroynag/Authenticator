@@ -42,7 +42,6 @@
 		146CE3AA24D3369600DDC45C /* Backup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146CE3A924D3369600DDC45C /* Backup.swift */; };
 		14744A0E26F2728000D9D5DB /* QRImageCodeScaner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14744A0D26F2728000D9D5DB /* QRImageCodeScaner.swift */; };
 		14744A1026FBB73F00D9D5DB /* QRCameraScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14744A0F26FBB73F00D9D5DB /* QRCameraScanner.swift */; };
-		14744A122700FD8700D9D5DB /* SOTPScanQRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14744A112700FD8700D9D5DB /* SOTPScanQRViewController.swift */; };
 		149619112517CE2E00B46D7B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1496190F2517CE2E00B46D7B /* Localizable.strings */; };
 		14A3454725B4C7D600F63C54 /* SOTPToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A3454625B4C7D600F63C54 /* SOTPToken.swift */; };
 		14B1D9672722D69200262979 /* AuthenticatorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B1D9662722D69200262979 /* AuthenticatorModel.swift */; };
@@ -146,12 +145,12 @@
 		146CE3A924D3369600DDC45C /* Backup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Backup.swift; sourceTree = "<group>"; };
 		14744A0D26F2728000D9D5DB /* QRImageCodeScaner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRImageCodeScaner.swift; sourceTree = "<group>"; };
 		14744A0F26FBB73F00D9D5DB /* QRCameraScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCameraScanner.swift; sourceTree = "<group>"; };
-		14744A112700FD8700D9D5DB /* SOTPScanQRViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SOTPScanQRViewController.swift; sourceTree = "<group>"; };
 		1496190D2517CB5500B46D7B /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Interface.strings; sourceTree = "<group>"; };
 		149619102517CE2E00B46D7B /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		14A3454625B4C7D600F63C54 /* SOTPToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SOTPToken.swift; sourceTree = "<group>"; };
 		14B1D9662722D69200262979 /* AuthenticatorModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticatorModel.swift; sourceTree = "<group>"; };
 		14B1D9682722D6BC00262979 /* CreateTokenError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateTokenError.swift; sourceTree = "<group>"; };
+		14B1D98C273400ED00262979 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		14B7E31D24C3237F00A2E9F3 /* PasswordError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordError.swift; sourceTree = "<group>"; };
 		14B8BDA525B4CB2E00595A17 /* SOTPKeychain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SOTPKeychain.swift; sourceTree = "<group>"; };
 		14CB6D6624FC19D600316ED7 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
@@ -279,7 +278,6 @@
 				143D098725168F2B00C30041 /* RoundedButtonWithShadow.swift */,
 				14744A0D26F2728000D9D5DB /* QRImageCodeScaner.swift */,
 				14744A0F26FBB73F00D9D5DB /* QRCameraScanner.swift */,
-				14744A112700FD8700D9D5DB /* SOTPScanQRViewController.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -744,7 +742,6 @@
 				14CB6D6924FC2AD100316ED7 /* SettingsTableViewCellWithButton.swift in Sources */,
 				14B1D9692722D6BC00262979 /* CreateTokenError.swift in Sources */,
 				1438EB4026DE807900F8457D /* GoogleAuthenticator.proto in Sources */,
-				14744A122700FD8700D9D5DB /* SOTPScanQRViewController.swift in Sources */,
 				14A3454725B4C7D600F63C54 /* SOTPToken.swift in Sources */,
 				14B1D9672722D69200262979 /* AuthenticatorModel.swift in Sources */,
 				1401DAC32443433100DE677F /* AddAccountViewController.swift in Sources */,
@@ -843,6 +840,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				14E8524B256AE6E400B9744B /* ru */,
+				14B1D98C273400ED00262979 /* en */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -981,7 +979,7 @@
 				CODE_SIGN_ENTITLEMENTS = Authenticator/AuthenticatorDebug.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 23;
+				CURRENT_PROJECT_VERSION = 26;
 				DEVELOPMENT_TEAM = Q9Y5N2Z9SF;
 				INFOPLIST_FILE = Authenticator/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -989,7 +987,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = am.baroynag.SOTP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1008,7 +1006,7 @@
 				CODE_SIGN_ENTITLEMENTS = Authenticator/AuthenticatorRelease.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 23;
+				CURRENT_PROJECT_VERSION = 26;
 				DEVELOPMENT_TEAM = Q9Y5N2Z9SF;
 				INFOPLIST_FILE = Authenticator/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -1016,7 +1014,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = am.baroynag.SOTP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1037,7 +1035,7 @@
 				CODE_SIGN_ENTITLEMENTS = SOTPWatch/SOTPWatchDebug.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 23;
+				CURRENT_PROJECT_VERSION = 26;
 				DEVELOPMENT_TEAM = Q9Y5N2Z9SF;
 				IBSC_MODULE = SOTPWatch_Extension;
 				INFOPLIST_FILE = SOTPWatch/Info.plist;
@@ -1047,7 +1045,7 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.3;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = am.baroynag.SOTP.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1070,7 +1068,7 @@
 				CLANG_USE_OPTIMIZATION_PROFILE = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 23;
+				CURRENT_PROJECT_VERSION = 26;
 				DEVELOPMENT_TEAM = Q9Y5N2Z9SF;
 				IBSC_MODULE = SOTPWatch_Extension;
 				INFOPLIST_FILE = SOTPWatch/Info.plist;
@@ -1080,7 +1078,7 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.3;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = am.baroynag.SOTP.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1101,7 +1099,7 @@
 				CODE_SIGN_ENTITLEMENTS = "SOTPWatch Extension/SOTPWatch ExtensionDebug.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 23;
+				CURRENT_PROJECT_VERSION = 26;
 				DEVELOPMENT_TEAM = Q9Y5N2Z9SF;
 				INFOPLIST_FILE = "SOTPWatch Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1109,7 +1107,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.3;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = am.baroynag.SOTP.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1129,7 +1127,7 @@
 				CLANG_USE_OPTIMIZATION_PROFILE = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 23;
+				CURRENT_PROJECT_VERSION = 26;
 				DEVELOPMENT_TEAM = Q9Y5N2Z9SF;
 				INFOPLIST_FILE = "SOTPWatch Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1137,7 +1135,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.3;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = am.baroynag.SOTP.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				PROVISIONING_PROFILE_SPECIFIER = "";

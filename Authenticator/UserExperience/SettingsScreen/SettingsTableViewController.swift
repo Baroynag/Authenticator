@@ -7,12 +7,18 @@
 //
 
 import UIKit
+import PhotosUI
 
-class SettingsTableViewController: SOTPScanQRViewController {
+protocol SettingsTableViewControllerOutput: AnyObject {
+    func didAddRecords()
+}
+
+class SettingsTableViewController: UIViewController {
 
     let cellId = "settingsCellId"
     let cellWithButtonId = "settingsCellWithButtonId"
     var tableView = UITableView()
+    weak var output: SettingsTableViewControllerOutput?
 
     let settingsList = [
         NSLocalizedString("Support this project", comment: ""),
@@ -59,24 +65,21 @@ extension SettingsTableViewController: SettingsTableViewCellWithButtonOutput {
 extension SettingsTableViewController: UIDocumentPickerDelegate {
 
     public func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
-        var title = NSLocalizedString("Wrong password", comment: "")
+
         if let fileUrl = urls.first {
             dismiss(animated: true) {[weak self ] in
-                guard let self = self else {
-                    return
-                }
-
                 let promtForPassword = UIAlertController.promptForPassword { (pass) in
-                    if let pass = pass {
-                        if Backup.getFileContent(fileURL: fileUrl, password: pass) {
-                            self.scannQROutput?.didFound(success: true)
-                            title = NSLocalizedString("Data loaded", comment: "")
-                        }
+                    do {
+                        try Backup.getFileContent(fileURL: fileUrl, password: pass)
+                        self?.output?.didAddRecords()
+                        let alert = UIAlertController.alertWithLocalizedTitle(title: "Data loaded")
+                        self?.present(alert, animated: true)
+                    } catch {
+                        let alert = UIAlertController.alertWithLocalizedTitle(title: "Unable to upload file")
+                        self?.present(alert, animated: true)
                     }
-                    let alert = UIAlertController.alertWithOk(title: title)
-                    self.present(alert, animated: true)
                 }
-                self.present(promtForPassword, animated: true)
+                self?.present(promtForPassword, animated: true)
             }
         }
     }
@@ -171,5 +174,140 @@ extension SettingsTableViewController: UITableViewDelegate {
         }
 
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+}
+
+extension SettingsTableViewController {
+
+    public func loadFromGoogleAuthenticator() {
+        let alert = QRCameraScanner.scanFromAlert { [weak self] option in
+            switch option {
+            case .camera:
+                self?.scanWithCamera()
+            case .photoLibrary:
+                self?.showImagePicker()
+            default: break
+            }
+        }
+        self.present(alert, animated: true)
+    }
+
+    private func importFromGoogleAuthenticatorQRImage(image: UIImage) {
+        do {
+            try AuthenticatorModel.shared.loadFromScannedGoogleAuthenticatorImage(image: image)
+            output?.didAddRecords()
+            present(loadedAlert(), animated: true)
+        } catch {
+            let alert = failedAlert()
+            present(alert, animated: true)
+        }
+
+    }
+
+    private func showImagePickerController() {
+        let picker = UIImagePickerController()
+        picker.allowsEditing = true
+        picker.delegate = self
+        self.present(picker, animated: true)
+    }
+
+    @available(iOS 14, *)
+    private func showPhpImagePicker() {
+        DispatchQueue.main.async { [weak self] in
+            var configuration = PHPickerConfiguration(photoLibrary: .shared())
+            let filter = PHPickerFilter.any(of: [.images])
+            configuration.filter = filter
+            let picker = PHPickerViewController(configuration: configuration)
+            picker.delegate = self
+            self?.present(picker, animated: true)
+        }
+    }
+
+    private func showImagePicker() {
+        if #available(iOS 14, *) {
+            showPhpImagePicker()
+        } else {
+            showImagePickerController()
+        }
+    }
+
+    private func scanWithCamera() {
+        QRCameraScanner.requestCameraAutorizationStatus { [weak self] currentStatus in
+            DispatchQueue.main.async {
+                if currentStatus == .authorized {
+                    self?.setupCaptureSession()
+                } else {
+                    let alert = QRCameraScanner.cameraPermissionAlert()
+                    self?.present(alert, animated: true, completion: nil)
+                }
+            }
+        }
+    }
+
+    private func setupCaptureSession() {
+        let scanQrViewController = ScanQrViewController()
+        scanQrViewController.output = self
+        scanQrViewController.modalPresentationStyle = .fullScreen
+        present(scanQrViewController, animated: true)
+    }
+
+}
+
+extension SettingsTableViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+
+    func imagePickerController(_ picker: UIImagePickerController,
+                               didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+
+        guard let image = info[.editedImage] else {return}
+
+        if let selectedImage = image as? UIImage {
+            self.importFromGoogleAuthenticatorQRImage(image: selectedImage)
+        }
+        picker.dismiss(animated: true)
+    }
+
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
+
+    func loadedAlert() -> UIAlertController {
+        let title = NSLocalizedString("Data loaded", comment: "")
+        return UIAlertController.alertWithOk(title: title)
+    }
+
+    func failedAlert() -> UIAlertController {
+        let title = NSLocalizedString("QR code has the wrong format", comment: "")
+        return UIAlertController.alertWithOk(title: title)
+    }
+}
+
+@available(iOS 14, *)
+extension SettingsTableViewController: PHPickerViewControllerDelegate {
+    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+        picker.dismiss(animated: true, completion: nil)
+
+        if let itemProvider = results.first?.itemProvider, itemProvider.canLoadObject(ofClass: UIImage.self) {
+            itemProvider.loadObject(ofClass: UIImage.self) { [weak self] image, _ in
+                DispatchQueue.main.async {
+                    if let selectedImage = image as? UIImage {
+                        self?.importFromGoogleAuthenticatorQRImage(image: selectedImage)
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+extension SettingsTableViewController: ScanQrViewControllerOutput {
+
+    func didFound(qrCodeString: String) {
+        do {
+            try AuthenticatorModel.shared.importFromGoogleAuthenticatorURL(urlString: qrCodeString)
+            output?.didAddRecords()
+            present(loadedAlert(), animated: true)
+        } catch {
+            present(failedAlert(), animated: true)
+        }
     }
 }

@@ -74,7 +74,6 @@ class AuthenticatorModel {
     }
 
     public func deleteData(index: Int) {
-
         let itemToRemove = sotpPersistentTokenItems[index]
         if let identifier = itemToRemove.identifier {
             try? SOTPKeychain.shared.deleteKeychainItem(forPersistentRef: identifier)
@@ -88,7 +87,7 @@ class AuthenticatorModel {
 
             if let issuer = item.token?.issuer,
                let name = item.token?.name {
-               dictionary[issuer] =
+                dictionary[UUID().uuidString] =
                     ["issuer": issuer,
                     "key": item.plainSecret ?? "",
                     "priority": String(item.priority ?? 0),
@@ -118,14 +117,34 @@ class AuthenticatorModel {
         return count > 0
     }
 
+    private func getRecords(retryAmount: Int) {
+        var retry = retryAmount
+        tryGetAllDataFromKeychain {[weak self] in
+            if retry > 0 {
+                retry -= 1
+                self?.getRecords(retryAmount: retry)
+
+            }
+        }
+    }
+
     public func isAnyRecords() -> Bool {
-        getAllSOTPTokens()
+        getRecords(retryAmount: 3)
         return isAnyData()
+    }
+
+    public func tryGetAllDataFromKeychain(errorHandler: () -> Void) {
+        do {
+            try getAllSOTPTokens()
+        } catch {
+            errorHandler()
+        }
+
     }
 
     public func refreshModel() {
         sotpPersistentTokenItems = []
-        getAllSOTPTokens()
+        try? getAllSOTPTokens()
     }
 
     public func swapPriority(fromIndex: Int, toIndex: Int) {
@@ -148,10 +167,9 @@ class AuthenticatorModel {
         return sotpPersistentTokenItems.count + 1
     }
 
-    public func getAllSOTPTokens() {
-
-        let tokens = try? Array(SOTPKeychain.shared.allPersistentTokens())
-        sotpPersistentTokenItems = tokens?.sorted(by: { $0.priority ?? 0 < $1.priority ?? 0 }) ?? []
+    public func getAllSOTPTokens() throws {
+        let tokens = try Array(SOTPKeychain.shared.allPersistentTokens())
+        sotpPersistentTokenItems = tokens.sorted(by: { $0.priority ?? 0 < $1.priority ?? 0 })
     }
 
     public func importFromGoogleAuthenticator (migrationData: MigrationPayload?) throws {

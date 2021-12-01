@@ -24,22 +24,17 @@ extension UIAlertController {
         let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .default)
 
         let submitTitle = NSLocalizedString("Ok", comment: "")
-        let submitAction = UIAlertAction(title: submitTitle, style: .default) { [unowned alert] _ in
-             if let answer = alert.textFields?[0] {
-                 if let pass = answer.text {
-                     if pass == ""{
-                         cancelAction.isEnabled = false
-                     } else {
-                         completion(pass)
-                     }
-                 }
-             }
-         }
-
-         alert.addAction(submitAction)
-         alert.addAction(cancelAction)
-         return alert
-     }
+        let submitAction = UIAlertAction(title: submitTitle, style: .default) { [weak alert] _ in
+            if let answer = alert?.textFields?[0] {
+                if let pass = answer.text {
+                    completion(pass)
+                }
+            }
+        }
+        alert.addAction(submitAction)
+        alert.addAction(cancelAction)
+        return alert
+    }
 
     class public func alertWithOk(title: String) -> UIAlertController {
         let alert = UIAlertController(title: title, message: nil, preferredStyle: .alert)
@@ -48,6 +43,19 @@ extension UIAlertController {
         return alert
     }
 
+    class public func alertWithLocalizedTitle(title: String) -> UIAlertController {
+        let localizedTitle = NSLocalizedString(title, comment: "")
+        let alert = UIAlertController.alertWithOk(title: localizedTitle)
+        return alert
+    }
+
+    class public func alertWithErrorDescription (title: String, error: Error) -> UIAlertController {
+        var errorDecription = title
+        if error.localizedDescription != "" {
+            errorDecription += " (" + error.localizedDescription + ")"
+        }
+        return UIAlertController.alertWithLocalizedTitle(title: errorDecription)
+    }
 }
 
 extension UIViewController {
