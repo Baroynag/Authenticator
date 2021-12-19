@@ -18,6 +18,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print("WCSession not supported")
         }
         iapSetup()
+        
+        if CommandLine.arguments.contains("greetingScreenTest") {
+            AuthenticatorModel.shared.deleteAllData()
+        }
+
         return true
     }
 
