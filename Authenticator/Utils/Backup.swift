@@ -9,7 +9,11 @@
 import RNCryptor
 
 class Backup {
-    class public func getEncriptedData(password: String) -> String? {
+
+    static private let temporaryFolder = FileManager.default.temporaryDirectory
+    static private let temporaryFilePathComponent = "sotpbackup.sotp"
+
+    class private func getEncriptedData(password: String) -> String? {
         let jsonData = AuthenticatorModel.shared.getBackUpData()
         if let jsonString = String(data: jsonData, encoding: .utf8) {
             let encryptedText = RNCryptor.encrypt(plainText: jsonString, password: password)
@@ -17,39 +21,56 @@ class Backup {
         }
         return nil
     }
-    class public func getFileContent (fileURL: URL, password: String) -> Bool {
-        // TODO: add error message
-        if password == "" {
-           return false
+    class public func getFileContent (fileURL: URL, password: String?) throws {
+
+        guard let password = password else {
+            throw LoadBackupError.emptyPassword
         }
+
+        if password == "" {
+            throw LoadBackupError.emptyPassword
+        }
+
         do {
             let data = try String(contentsOf: fileURL)
             let decriptedText = RNCryptor.decrypt(encryptedText: data, password: password)
             guard let jsonData = decriptedText.data(using: .utf8) else {
-                print(NSLocalizedString("Error to upload file", comment: ""))
-                return false }
+                throw LoadBackupError.loadError
+            }
             do {
                 let tokens = try JSONDecoder().decode([SOTPToken].self, from: jsonData)
                 saveData(tokens: tokens)
                 AuthenticatorModel.shared.refreshModel()
-            } catch {
-                print("json decoding error \(error.localizedDescription)")
-                return false
             }
-
-        } catch {
-            print(error.localizedDescription)
-            return false
         }
-        return true
     }
 
     class private func saveData(tokens: [SOTPToken]) {
         for sotpToken in tokens {
-            AuthenticatorModel.shared.addOneItem(account: sotpToken.name,
+            try? AuthenticatorModel.shared.addOneItem(account: sotpToken.name,
                                                  issuer: sotpToken.issuer,
                                                  key: sotpToken.secret,
                                                  priority: sotpToken.priority)
         }
     }
+
+    static public func getTemporaryFilePathForBackup() -> URL {
+        return temporaryFolder.appendingPathComponent(temporaryFilePathComponent)
+    }
+
+    static public func prepareFileForBackup(password: String) throws  -> String {
+        guard let backupFile = getEncriptedData(password: password) else {
+            throw SaveBackupError.unableToSaveFile
+        }
+        return backupFile
+    }
+}
+
+enum SaveBackupError: Error {
+    case unableToSaveFile
+}
+
+enum LoadBackupError: Error {
+    case emptyPassword
+    case loadError
 }

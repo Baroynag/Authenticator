@@ -52,11 +52,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 }
 
 extension SceneDelegate: GreetingViewControllerOutput {
-    func didLoadBackup() {
-        showAuthenticatorRoot()
+    func didAddRecords(success: Bool) {
+        if success {
+            showAuthenticatorRoot()
+        }
     }
 
-    func didAdd(account: String?, issuer: String?, key: String?) {
-        showAuthenticatorRoot()
-    }
+//    func didFound(success: Bool) {
+//        if success {
+//
+//        }
+//    }
 }

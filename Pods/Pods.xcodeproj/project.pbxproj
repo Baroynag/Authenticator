@@ -7,208 +7,394 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		07670E889FC39F3A8F86456326F610F2 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A4010630A7BB8AC9A3CACD717DD9D5 /* Keychain.swift */; };
-		0943EE36AE1F183CB1CE117FACAB7316 /* Base32-watchOS-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = BF34D0F9AF150AE1ED633E431F2206CA /* Base32-watchOS-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		170EB62A67FC00CFA39C04D971478529 /* Base32-iOS-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B171B669DCA702864054A2DE72B7C319 /* Base32-iOS-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1DA384FB7CDA6A89664EFC29290F51FC /* RNCryptor-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 44703832625E914A750DC1B559070DCE /* RNCryptor-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		21E091B2CB0E1DA119484823A592BDF5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43CE77C37E18ED85CAEAF0B7A5273844 /* Foundation.framework */; };
-		239AC28680B5ED1110AB7581BF0E1A3D /* PersistentToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48401D1771A663C7FDB3803394B16F7C /* PersistentToken.swift */; };
-		243CC3065ED0F95D27E4FFBE668E58BC /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E11153953D27934EFB7E550F32661F /* Token.swift */; };
-		259B5AAE204E8B9BA31AD635FEC8F92A /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E11153953D27934EFB7E550F32661F /* Token.swift */; };
-		275ABEB51B3E6CFB1F99DC846CF08578 /* RNCryptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F89D8B121D8FA84EF2481BF72E75570 /* RNCryptor.swift */; };
-		2AAB4D377EFF6076A2CBDC2E1E128AEE /* Crypto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB75CD3252D4F1740D5EFC50096727F /* Crypto.swift */; };
-		36AC8E4868BD5C97410702782309235B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43CE77C37E18ED85CAEAF0B7A5273844 /* Foundation.framework */; };
-		39EB93D037BA1E093974BC541AEC2940 /* PersistentToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48401D1771A663C7FDB3803394B16F7C /* PersistentToken.swift */; };
+		04A09360324C4E3D58A91E0316DBFCD9 /* duration.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E60FA4A3B48E0E99560B15EBF443ECD /* duration.pb.swift */; };
+		066CD5B812B62BA16175A36CE621A167 /* ProtobufMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9DC46D1075B8DE7C147FF485FFB837 /* ProtobufMap.swift */; };
+		067610D8E708BCE1B6C30E74313332E0 /* StringUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA951D92785D07984628B05314BF201 /* StringUtils.swift */; };
+		07670E889FC39F3A8F86456326F610F2 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0F73E51B51732FE1CD3F34584789CC /* Keychain.swift */; };
+		0943EE36AE1F183CB1CE117FACAB7316 /* Base32-watchOS-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 65D92F6FC83C7C5B08D4D1C3073BC60E /* Base32-watchOS-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0D9D0F76CDE875251CDF8F8CDE304C55 /* Google_Protobuf_FieldMask+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54D49F4ABFDE4F121DD4872B9E86EDC /* Google_Protobuf_FieldMask+Extensions.swift */; };
+		0E69C16A6F0FD741C5A3E47DE288D210 /* Message+TextFormatAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20CAB2098B7F6A0346173EC1529C8198 /* Message+TextFormatAdditions.swift */; };
+		0F196866334DA010A59361AB5BC8F620 /* Internal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150747ABD6FD7A78972D57CB30129809 /* Internal.swift */; };
+		11DEEB57C07627A3403CD9BEE3BB2067 /* field_mask.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346409C530AC3D278F0E1B29B68723E8 /* field_mask.pb.swift */; };
+		12CC79CFD4F3FA56D3CFD541C02EA617 /* Pods-Authenticator-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = CCB476DF65438582EFA88712FF8AF428 /* Pods-Authenticator-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		170EB62A67FC00CFA39C04D971478529 /* Base32-iOS-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 28DC55389E29C761A99CFFC222D458CD /* Base32-iOS-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1B8EA5FC8AF8CD71363B4DF2A788DEEE /* MessageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF826AE4DA555C9614AAC2951854458 /* MessageExtension.swift */; };
+		1C9A2ACFCBB948407CF608663AAB2006 /* CustomJSONCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770A8BF1EE0E93F01C5F6E6142C3F395 /* CustomJSONCodable.swift */; };
+		1DA384FB7CDA6A89664EFC29290F51FC /* RNCryptor-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9192FA8C24790D0D9D106EC9CF59A694 /* RNCryptor-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		22153764D197F250775890A6B1E47351 /* UnsafeRawPointer+Shims.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D96436EFC6CDB177633C65230169276 /* UnsafeRawPointer+Shims.swift */; };
+		239AC28680B5ED1110AB7581BF0E1A3D /* PersistentToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB69D5B95EA251C2F4C2CDAD00A8776 /* PersistentToken.swift */; };
+		243CC3065ED0F95D27E4FFBE668E58BC /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C2E7F79186B488D7886C04C2A0AF26 /* Token.swift */; };
+		25422B5CCDE38C38B7850160D59070DE /* Message+BinaryAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03BE4B6462597148EEDF44FE0BE77B0 /* Message+BinaryAdditions.swift */; };
+		259B5AAE204E8B9BA31AD635FEC8F92A /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C2E7F79186B488D7886C04C2A0AF26 /* Token.swift */; };
+		259BA8DDDCBF4751A69420DE52CD5C41 /* FieldTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33BC38DE9A3F51C61ED6620FAE94F5A /* FieldTag.swift */; };
+		26C574CE285029D63AD6C8ED9780A19E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3705D526B95C3BCCBD9498B434687F0B /* Foundation.framework */; };
+		27517E97FA894A4ECA5AE2AE5BD8830B /* TextFormatDecodingOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61A28E09E81ED45002590BF485CFA68 /* TextFormatDecodingOptions.swift */; };
+		275ABEB51B3E6CFB1F99DC846CF08578 /* RNCryptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D075CF75A2B4B0CB2B6ED30D8C0F7C3C /* RNCryptor.swift */; };
+		27A16A1A47A8BAFA7E594BE6C9EB1E88 /* empty.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E6CAFB3DBAC934D748D1291DFBF3C4 /* empty.pb.swift */; };
+		289E1BB0A2A305B35238C9CF40A333DC /* JSONScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC25FE53F60B1A003838594958EA46BE /* JSONScanner.swift */; };
+		291FD41254509B8E8A2128C2C53BA16B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3705D526B95C3BCCBD9498B434687F0B /* Foundation.framework */; };
+		2AAB4D377EFF6076A2CBDC2E1E128AEE /* Crypto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252A0BA3E78AA8F1CBF77C20C4F05B05 /* Crypto.swift */; };
+		2B5E5DC81ED73B5FC422B2339D59F220 /* BinaryEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0852AECA150FECE324EFC5A4AFBC2A2 /* BinaryEncoder.swift */; };
+		2EA05BDE49E2C5768AE4CA5FAFA17472 /* Pods-Authenticator-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF8FB491D8A30E64F0E167BEAC1F3DC /* Pods-Authenticator-dummy.m */; };
+		301FDAF0AA65309B9939E8C1DBF653BE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3705D526B95C3BCCBD9498B434687F0B /* Foundation.framework */; };
+		311172653501A9A63A4891AECD616DD0 /* JSONDecodingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD1CAB0D38FE29232631B88D7B5A3BB /* JSONDecodingError.swift */; };
+		33B5DB7D5A1E37A29969C66B3FE4A98C /* BinaryDecodingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5646850446C2848755891B3C989DE802 /* BinaryDecodingError.swift */; };
+		348E340B73A92197555D27BFA8EF21CC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 456E8DF009DACB8198EF5DA9D0E03E5A /* Foundation.framework */; };
+		366DC2517FD96B5E8BE8258527B6C02D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3705D526B95C3BCCBD9498B434687F0B /* Foundation.framework */; };
+		38B8B519A9423BC18E06FF93F353A587 /* ExtensionFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E911FC3E9CA1EB8E308F51A90FBD9EF /* ExtensionFields.swift */; };
+		39EB93D037BA1E093974BC541AEC2940 /* PersistentToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB69D5B95EA251C2F4C2CDAD00A8776 /* PersistentToken.swift */; };
+		3D6170DFAF288775DC288291FC04EA84 /* Visitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375ACC3018BB7828A360DB6C36DBD7DC /* Visitor.swift */; };
+		3D9D54BFB87F305B262115312973A761 /* TextFormatEncodingOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62D1CF997467B4115205061BE38DA1E /* TextFormatEncodingOptions.swift */; };
+		3EAD27947630860DF24FE1F57E717964 /* TextFormatEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E107DA391A7702AD9EB77057751CDDE /* TextFormatEncoder.swift */; };
 		465A3E114B4CCEDA31E78E5F3F8797C0 /* Pods-SOTPWatch-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 18979DB67C83AE3BEC9675286E74D0D2 /* Pods-SOTPWatch-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		472BB3DD41111E4DD406567CF40BF789 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43CE77C37E18ED85CAEAF0B7A5273844 /* Foundation.framework */; };
-		5221D407B05DC02D9D53F186B2E83DEA /* Generator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074A0E16958A5DF1BFEEC319337F7F57 /* Generator.swift */; };
-		56FB905803682D8F2DE6260CDF4123AC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5A651C56960D35D1B273C8E9770949A /* Foundation.framework */; };
-		589D86D3648893C3828104D5B27B0900 /* MF_Base32Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = A3183009AB76C01E32288B07E3AE1B53 /* MF_Base32Additions.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		5C634451C4094E9C7B021BE320F0540B /* OneTimePassword-iOS-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D90F787AB69A39C677F2DAB41AA45B4C /* OneTimePassword-iOS-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6222B27EE225EA7F44190ED08FFC52A2 /* Token+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75470FF885A3B5F002127D6D2B83773 /* Token+URL.swift */; };
-		6820B3638809F3914194216BB5A3C2A2 /* RNCryptor-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B2D18A05FF579834928730F56652EF /* RNCryptor-dummy.m */; };
-		6B2AE1ADA51785F08949479A193AB17E /* Base32-iOS-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F0D29B9FB198B941A2996733AF0746B /* Base32-iOS-dummy.m */; };
-		71E29D3FDA0EA9E4D72CC379902060FC /* OneTimePassword-iOS-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BDC071CC3FBC9C8652142CF95F0B266A /* OneTimePassword-iOS-dummy.m */; };
+		485ED5DC9CEF727F94A9B93087D2B7F4 /* HashVisitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C21D00CB81DAC43A9C5023682E0CB12 /* HashVisitor.swift */; };
+		4B7AF15082427E0E07DA5BC495F4F309 /* BinaryEncodingVisitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C36DCE01BA55D7B5FFBC2558F5A7D9 /* BinaryEncodingVisitor.swift */; };
+		5124D90F3E8C2264F5F904B880E252BE /* Message+JSONAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A0502D1858C57695BDAC7000D1E5DC /* Message+JSONAdditions.swift */; };
+		5221D407B05DC02D9D53F186B2E83DEA /* Generator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0347E3F69D896EBBC1E3CB15BDBC5D /* Generator.swift */; };
+		589D86D3648893C3828104D5B27B0900 /* MF_Base32Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 677EC8C211E393C9585E97D5D8A94BFB /* MF_Base32Additions.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		5B5F7F32B29BA04AD99B9231ABE2D5E4 /* Google_Protobuf_Wrappers+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CACC91FE3E95A09458745E58DC25715 /* Google_Protobuf_Wrappers+Extensions.swift */; };
+		5C634451C4094E9C7B021BE320F0540B /* OneTimePassword-iOS-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E91763DA4E339A807CE299B2B722C1D1 /* OneTimePassword-iOS-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5DC53D35039C2A64A86D102A02EB317D /* ExtensionMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63167F22E347037257A1908DE884851 /* ExtensionMap.swift */; };
+		5FD1905A93213C67218EC852C14FEFC8 /* FieldTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC72511357DEA484983139956628104B /* FieldTypes.swift */; };
+		6222B27EE225EA7F44190ED08FFC52A2 /* Token+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD9A012E078B567431E17915736344A /* Token+URL.swift */; };
+		6410A9206AD6E96B1392292ED61E4100 /* Google_Protobuf_Value+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40AD097B6BC0365DD33310B5EAB7082 /* Google_Protobuf_Value+Extensions.swift */; };
+		64BF9040E5C7FB8667FAA2DA426FA14A /* Data+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C0D91EAD68D2CD6733604227094B9B /* Data+Extensions.swift */; };
+		6820B3638809F3914194216BB5A3C2A2 /* RNCryptor-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D2E61CD53CF9728EFD2F0881B1BBA78 /* RNCryptor-dummy.m */; };
+		68730349221D00296B9692F0A495186C /* TextFormatScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F4D28D3F838CF78CB7056B1E69B8B5 /* TextFormatScanner.swift */; };
+		69CAFF8A7FCDA7A383DB93091ABFB6BD /* Google_Protobuf_Any+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F018CEC7414ACCDBE9B2D5B818B0EE /* Google_Protobuf_Any+Extensions.swift */; };
+		6B2AE1ADA51785F08949479A193AB17E /* Base32-iOS-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A6554318D04320DF07E9DE03E3B84232 /* Base32-iOS-dummy.m */; };
+		6C39258AAA8906B9BAEE1BAF64492844 /* UnsafeBufferPointer+Shims.swift in Sources */ = {isa = PBXBuildFile; fileRef = B195D3839334F8184A966D77773ADD06 /* UnsafeBufferPointer+Shims.swift */; };
+		6C57C1D467061A6BAB31511EF0F979AD /* BinaryDelimited.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195EC0DE0F217DBB576A252C24585C8B /* BinaryDelimited.swift */; };
+		6FA453B241F40E601EE538137B79D102 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 456E8DF009DACB8198EF5DA9D0E03E5A /* Foundation.framework */; };
+		71E29D3FDA0EA9E4D72CC379902060FC /* OneTimePassword-iOS-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E256E78A1D029E2E335F5FB9DF3DD53E /* OneTimePassword-iOS-dummy.m */; };
 		71E48FFC0AB23FCAD18E13CCE3B32953 /* Pods-SOTPWatch-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 78E2D693C6DF8E0E13A6A0E6AE9CC23A /* Pods-SOTPWatch-dummy.m */; };
-		7333F2E6B82682A1BD95BD476DE41209 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5A651C56960D35D1B273C8E9770949A /* Foundation.framework */; };
-		7460AE659EED4B482F64E2C409C348EC /* Token+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75470FF885A3B5F002127D6D2B83773 /* Token+URL.swift */; };
-		782E63617AE1DACE76433E18619F99A0 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A4010630A7BB8AC9A3CACD717DD9D5 /* Keychain.swift */; };
+		7203B31C393204BF7C08AF811CBEA363 /* WireFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6E48F27C9F9F518EB932AEAABD5861 /* WireFormat.swift */; };
+		7460AE659EED4B482F64E2C409C348EC /* Token+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD9A012E078B567431E17915736344A /* Token+URL.swift */; };
+		74AC36056519E1696D8373590E570D46 /* JSONEncodingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D75586BBBCABD955524C34ECCD2B86 /* JSONEncodingError.swift */; };
+		7724CA45CAC37563208007730FB2D4B4 /* JSONMapEncodingVisitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF948EB4BC920FABDB281A5E7917A5B8 /* JSONMapEncodingVisitor.swift */; };
+		782E63617AE1DACE76433E18619F99A0 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0F73E51B51732FE1CD3F34584789CC /* Keychain.swift */; };
 		7A639205EA12C23F895B58C3DC49E763 /* Pods-SOTPWatch Extension-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 05FC4CCAB90D7EB71D1FC654C3BB7D7F /* Pods-SOTPWatch Extension-dummy.m */; };
-		7B04DCC990AC2C76185EB5FF67EE631A /* Crypto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB75CD3252D4F1740D5EFC50096727F /* Crypto.swift */; };
-		876358EBBE064690B56758CA705CDFD0 /* OneTimePassword-watchOS-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D7E346DF769E7C01236DBCFDB09F7C94 /* OneTimePassword-watchOS-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7B04DCC990AC2C76185EB5FF67EE631A /* Crypto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252A0BA3E78AA8F1CBF77C20C4F05B05 /* Crypto.swift */; };
+		7D7E59D7667AFA1D2368A289F2E3A74A /* source_context.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F906E8C4F7D274F43F47D7170994760 /* source_context.pb.swift */; };
+		7E450FDF55944CC90FDA515024C2A810 /* Google_Protobuf_Any+Registry.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70CFCB8A054D79B2236F6E20A034838 /* Google_Protobuf_Any+Registry.swift */; };
+		7E7CCCF2BCC4195E84C84A058B0E075A /* any.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F9014BC1C0255C443C84E7B233F43B /* any.pb.swift */; };
+		7F7E1D8A5291B3D6474415C06801D57B /* api.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4442402C1A89D5BED912A0BC1AC80F1F /* api.pb.swift */; };
+		809E9B520AFD0771BB71038413BF5F5F /* BinaryEncodingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C47B09ABE9BE7BE3B4EF0D309314930 /* BinaryEncodingError.swift */; };
+		81DA4F5F84660F59C7DCB937D121FE97 /* JSONEncodingVisitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C34399068EFA4616DFB78E669ECA113 /* JSONEncodingVisitor.swift */; };
+		876358EBBE064690B56758CA705CDFD0 /* OneTimePassword-watchOS-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 2564EC2ADE36BC6608F71D2A7830B021 /* OneTimePassword-watchOS-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8841ECAF31A2E82762A83961C04FD2F0 /* Message+JSONArrayAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A915CE1B095EE3F9416FCF809B85E13 /* Message+JSONArrayAdditions.swift */; };
+		8B7178B35E6AC89720BB13C477829AEE /* Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D14EB1710C193393D12DA63E3D3C64 /* Enum.swift */; };
+		8BE806DD7A18B96C3FE52345CBDDEA88 /* BinaryEncodingSizeVisitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 681BE280ECEC86F0F8AEE6C380C11101 /* BinaryEncodingSizeVisitor.swift */; };
 		8D881F1BB9F02A4AF55769B70B20D80B /* Pods-SOTPWatch Extension-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 73EC071CBDF2B38D4CF924410A0BC140 /* Pods-SOTPWatch Extension-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		91DD16B58B81C1A5C0969EA704907B0E /* MF_Base32Additions.h in Headers */ = {isa = PBXBuildFile; fileRef = 632864D493A91BD77218C27AE77EEE91 /* MF_Base32Additions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		945A0B9823659D5DAAECE1FBF00FDA57 /* Generator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074A0E16958A5DF1BFEEC319337F7F57 /* Generator.swift */; };
+		91DD16B58B81C1A5C0969EA704907B0E /* MF_Base32Additions.h in Headers */ = {isa = PBXBuildFile; fileRef = B58E2A5AB7CF0911462E36B3610C2C71 /* MF_Base32Additions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		92C7080E4889E845FFA5C4F0048FC70D /* TimeUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C11F2D0D08616BA345AC518FEA004A /* TimeUtils.swift */; };
+		945A0B9823659D5DAAECE1FBF00FDA57 /* Generator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0347E3F69D896EBBC1E3CB15BDBC5D /* Generator.swift */; };
 		94DE24B6F6F2A4A69DF04176AFC232C3 /* Base32.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5272460D420E1E9E4BCF04D18583A4E9 /* Base32.framework */; };
-		98CBA3685FB21E625188F1F8E9A2AB94 /* Pods-Authenticator-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = CCB476DF65438582EFA88712FF8AF428 /* Pods-Authenticator-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A5A10972D5C5100DA3A766907AE8B760 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5A651C56960D35D1B273C8E9770949A /* Foundation.framework */; };
-		B3BB0D8D7448836638927C2F118A0B53 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43CE77C37E18ED85CAEAF0B7A5273844 /* Foundation.framework */; };
-		CBD57991CAFEA0E115B93E504C6424BF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5A651C56960D35D1B273C8E9770949A /* Foundation.framework */; };
-		D6E9BCF8990F696AB04CB636B5700514 /* Base32-watchOS-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = FB8730D3AABF1A8CBC847928169493B5 /* Base32-watchOS-dummy.m */; };
-		E182B2EE09D8D77AF037E719563A10C8 /* MF_Base32Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = A3183009AB76C01E32288B07E3AE1B53 /* MF_Base32Additions.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		E3CF2933069749BBBB831FF254A92380 /* MF_Base32Additions.h in Headers */ = {isa = PBXBuildFile; fileRef = 632864D493A91BD77218C27AE77EEE91 /* MF_Base32Additions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EB932A8667EAA877EAA00E1A16C366C8 /* Pods-Authenticator-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF8FB491D8A30E64F0E167BEAC1F3DC /* Pods-Authenticator-dummy.m */; };
+		94F10F83AE563575832D38CBF62FFD3B /* SwiftProtobuf-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8F0BD0EA8E1270839F40FCFE983830F0 /* SwiftProtobuf-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9700BC277A370438D5A39EE8455F8114 /* TextFormatDecodingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC23F397E6A88D649FF8838FE7377766 /* TextFormatDecodingError.swift */; };
+		97E1041159122A0CD31833DBDD7A4D39 /* ExtensionFieldValueSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BA7A11F133BAB1C254445FA1C9EA29 /* ExtensionFieldValueSet.swift */; };
+		A096A65BFDA5E88AE6E7667F64F3DB37 /* wrappers.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6FDE61528978099422E2AA590110939 /* wrappers.pb.swift */; };
+		A0978535A85D0ABD7853A0F3D3A374F8 /* Decoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACBBE4299CE7EF2EDBDDDD49F4759E7 /* Decoder.swift */; };
+		A306782DC125A83C5AF8D47C5BEE91AC /* SimpleExtensionMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1005F84449E9B8EE69B97C6C9B407FDF /* SimpleExtensionMap.swift */; };
+		A353CE6E7868A7C27530CB392F6EE164 /* Google_Protobuf_ListValue+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A287CAF63BF193C9AE087CB2B289D96 /* Google_Protobuf_ListValue+Extensions.swift */; };
+		A561B9D0156C65C2DAEBCE71DA2C53DF /* AnyUnpackError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CED456E3CD446099B9C76EADAD2C2AB /* AnyUnpackError.swift */; };
+		A5760654DC6480FD5349822F7A5A564E /* descriptor.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = F058337B28DA4155B06C9636C51F1157 /* descriptor.pb.swift */; };
+		A9279E81A7C7E0A19A28B71840B8A6B3 /* type.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9F6474370035FD448E7FB0F2DE819F /* type.pb.swift */; };
+		AA5BAFEE16421EF90FD54A4CA32D5A5E /* DoubleParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47238BEDC00F0D96529BAC29EEA7618F /* DoubleParser.swift */; };
+		AA60D16E23144B1EE6F2EEC04467BEF4 /* JSONDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEF9A8233D08EF33E7F8116CF206B6D /* JSONDecoder.swift */; };
+		AA66ED93A8F2DADB32CCE274E447040C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 456E8DF009DACB8198EF5DA9D0E03E5A /* Foundation.framework */; };
+		AF50952CEE567CC2BF2503314F89F8A8 /* ProtobufAPIVersionCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29AE3C48D9038B22DC666FC7AA08A5E8 /* ProtobufAPIVersionCheck.swift */; };
+		B1AE14625C1AA370FA24336948BBBE40 /* timestamp.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBD34CC3114E6C56FAE22475C007C56 /* timestamp.pb.swift */; };
+		B8C4123A152381BD2F8FF7C04B10A9DA /* UnknownStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC02E2CB16DE59741DC68D46194A3286 /* UnknownStorage.swift */; };
+		BB658F54DF19D4A60E12BF13E4BEF3DB /* Message+AnyAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1103A84D51E9B54AD867DAAA3A5061DF /* Message+AnyAdditions.swift */; };
+		BDA9F6811D1580ACCB23889ADE665675 /* Google_Protobuf_Struct+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79FC1CA6F79D38A6623055DAB8A28273 /* Google_Protobuf_Struct+Extensions.swift */; };
+		C3015CEC822A6D87F4D750A076CC3FB8 /* ZigZag.swift in Sources */ = {isa = PBXBuildFile; fileRef = A191986ADE8E9F9EAD56D9FB14A5DB65 /* ZigZag.swift */; };
+		C4D774FAA9A8B38404FDFA15230ADE1D /* MathUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756F5B494DA67036914E12CA84C088C4 /* MathUtils.swift */; };
+		C5F24FD19CCE6408CF75E28A90E05756 /* AnyMessageStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971C02F0FB9A95267D872166258FE1D8 /* AnyMessageStorage.swift */; };
+		CB190229F12055E6703484E6ADD44957 /* Google_Protobuf_Duration+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BC852DAF7E1BE3B3FA874C47DF97C7 /* Google_Protobuf_Duration+Extensions.swift */; };
+		CBCB7172A6D172C0C1A6B79A357B343F /* Google_Protobuf_NullValue+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D139D710784039B9C59A023B8BBEA2A2 /* Google_Protobuf_NullValue+Extensions.swift */; };
+		CC06E899B113296F76CCC62687CCFDE1 /* Varint.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24ADEB66F2401B6E04EDA33A0B1B930 /* Varint.swift */; };
+		CE1E02F3EA35F0421E36CB845A196773 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 456E8DF009DACB8198EF5DA9D0E03E5A /* Foundation.framework */; };
+		CEE69724BC617259BD6CCD76E1264C45 /* ExtensibleMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58CBDEBB1E6EC26B8EF093AA940274AB /* ExtensibleMessage.swift */; };
+		D0B4605FEE4D68E47DD8F1115FC2D4F9 /* NameMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809684727CEE9484C158A4CB2F4CAAF2 /* NameMap.swift */; };
+		D160E8E1FB946251AC041DA5F6A4A143 /* TextFormatEncodingVisitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7695ED9599E8FDE736C3F2C91627273D /* TextFormatEncodingVisitor.swift */; };
+		D161D620532C3D5053A614F2FDBF9DB2 /* Google_Protobuf_Timestamp+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7F5568A54F93DF1BB91B8B8872E9FC /* Google_Protobuf_Timestamp+Extensions.swift */; };
+		D2575BB9D350056D5DF177425F26A288 /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F42382B9F3ED778FA579EBEBADFAC4E /* Version.swift */; };
+		D6E9BCF8990F696AB04CB636B5700514 /* Base32-watchOS-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 934D7643827736BB4C0F070EF0C9BF4B /* Base32-watchOS-dummy.m */; };
+		DE368DD73909B1A11AEEC0A985F4C540 /* TextFormatDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C12A84B8291CFE104B61C5857825CE4 /* TextFormatDecoder.swift */; };
+		DECB08BC5236EDA9B6B8BC9A6AB66D2A /* struct.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4811AE68258881BD9B68408636ADA593 /* struct.pb.swift */; };
+		E182B2EE09D8D77AF037E719563A10C8 /* MF_Base32Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 677EC8C211E393C9585E97D5D8A94BFB /* MF_Base32Additions.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		E3CF2933069749BBBB831FF254A92380 /* MF_Base32Additions.h in Headers */ = {isa = PBXBuildFile; fileRef = B58E2A5AB7CF0911462E36B3610C2C71 /* MF_Base32Additions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E9D10B6577A2016878CC6373C6C86CE0 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60F489D8ED4DAB913FC58BD3B2DBF9E /* Message.swift */; };
+		ECD2D5288E99B87DD90803BC67352068 /* JSONDecodingOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB92C44F9460EB97E25A76A9061DEBC /* JSONDecodingOptions.swift */; };
 		F098A504231B7B84BB2D35DE9A192B5F /* Base32.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5272460D420E1E9E4BCF04D18583A4E9 /* Base32.framework */; };
-		F1F909ED553974905C74A7F7DEBFDB96 /* OneTimePassword-watchOS-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B365B704CB12A23EB630B871655AA35A /* OneTimePassword-watchOS-dummy.m */; };
+		F1E0BB5DBA5393D8BAA4B0FBB03A9B87 /* ProtoNameProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28F305CD8B949FFC43C9D10C4827971 /* ProtoNameProviding.swift */; };
+		F1F832231AE3985E324463E9ECD55838 /* BinaryDecodingOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2295DF99701CD58B316A8C9800AA39D0 /* BinaryDecodingOptions.swift */; };
+		F1F909ED553974905C74A7F7DEBFDB96 /* OneTimePassword-watchOS-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C5925CAA8CB5F1472A398B71F028AEC6 /* OneTimePassword-watchOS-dummy.m */; };
+		F227A646427FC31045D5500E4662D0CF /* JSONEncodingOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B178453EDEF91B6EE9F22B61133A800 /* JSONEncodingOptions.swift */; };
+		F3B99A9638D12BD62ED2FC1FAAB947D4 /* JSONEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D772AC621570AB17980990160462C8A /* JSONEncoder.swift */; };
+		F4F8C02E43A0AE296FB83507B582BCEA /* SelectiveVisitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA0DE2CA909874F5F15CB5B62DBF53C /* SelectiveVisitor.swift */; };
+		F67BA71116B68D17675F93255B086E16 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3705D526B95C3BCCBD9498B434687F0B /* Foundation.framework */; };
+		FA22EE7CEF450AEB7765378565211A54 /* BinaryDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535CCE0AEFDC31159A63D55C20D42B79 /* BinaryDecoder.swift */; };
+		FADC9DC2ED64824C3201923CA9A873BC /* SwiftProtobuf-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 22606498D7A6AAC701DCBB802ABCDAA2 /* SwiftProtobuf-dummy.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		16D2F4F92D5D3BB04026D312C951D8DC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = FFDB4CD6EE1AF34A7AC924100CA0F728;
-			remoteInfo = "Base32-watchOS";
-		};
-		1DDBA33884138B0CC31A3748945AAAA6 /* PBXContainerItemProxy */ = {
+		185B4677E5F0EF69E5C3851A80207815 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 341BC0F37AE8BE39EE2A2EC8F74A2FF2;
 			remoteInfo = "OneTimePassword-iOS";
 		};
-		4274E3DA6D06AE7ECC4583CF1F03D52A /* PBXContainerItemProxy */ = {
+		4676776C519BC35A59187660E26E6C9C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FFDB4CD6EE1AF34A7AC924100CA0F728;
+			remoteInfo = "Base32-watchOS";
+		};
+		4B8382FC0B1881F820403E4F7B7F99B3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = B324EAACF56EAB2963A6F825B45D350F;
 			remoteInfo = "Base32-iOS";
 		};
-		45C8BA014EFD3193ED0F0C944F09333A /* PBXContainerItemProxy */ = {
+		6F2E460B3D2B801C8A770CC0EB83D6EC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6E1940D2E89848550EDF45A13778361B;
+			remoteInfo = "OneTimePassword-watchOS";
+		};
+		71EEFF0E40A07A0B9BC32FC6D5F691E4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6E1940D2E89848550EDF45A13778361B;
+			remoteInfo = "OneTimePassword-watchOS";
+		};
+		87AF1A080FAA6EDC4046414F2F0366ED /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FFDB4CD6EE1AF34A7AC924100CA0F728;
+			remoteInfo = "Base32-watchOS";
+		};
+		88C04F2E9C5CB0C0DFCFF2D728402CB4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 05CCA2AD142519DF6FED0979BACBC149;
 			remoteInfo = RNCryptor;
 		};
-		8E25EC94BD45B9EA217ED53646AF1606 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = FFDB4CD6EE1AF34A7AC924100CA0F728;
-			remoteInfo = "Base32-watchOS";
-		};
-		A14F3ABF86331C7897D4A10A19AAF154 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = B324EAACF56EAB2963A6F825B45D350F;
-			remoteInfo = "Base32-iOS";
-		};
-		B0817DE929155519BF7C28A76CDFD985 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 6E1940D2E89848550EDF45A13778361B;
-			remoteInfo = "OneTimePassword-watchOS";
-		};
-		D3D51073B936B1B603B0CC1FB720B0F9 /* PBXContainerItemProxy */ = {
+		8EF967C8C7533319587185770CB3EB24 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = DC1DD9135194B83E5BDDF0E5005DCBD9;
 			remoteInfo = "Pods-SOTPWatch";
 		};
-		E48A2898D5DCE6E5DA7C0E8AA0CB34EA /* PBXContainerItemProxy */ = {
+		971F7945A5DFCB6CE0053A65FBB63455 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = FFDB4CD6EE1AF34A7AC924100CA0F728;
 			remoteInfo = "Base32-watchOS";
 		};
-		F7F6FE59AE4AC765867E2326163101E7 /* PBXContainerItemProxy */ = {
+		C95E0ACF35832262271C39BC7AC394A0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 6E1940D2E89848550EDF45A13778361B;
-			remoteInfo = "OneTimePassword-watchOS";
+			remoteGlobalIDString = A5F702E0DA383BC1479572581615A916;
+			remoteInfo = SwiftProtobuf;
+		};
+		D2FA965332D78491816228E07D792BAE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B324EAACF56EAB2963A6F825B45D350F;
+			remoteInfo = "Base32-iOS";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		01D4B2DC0D78E18017E602164C5EC700 /* OneTimePassword-watchOS-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = "OneTimePassword-watchOS-Info.plist"; path = "../OneTimePassword-watchOS/OneTimePassword-watchOS-Info.plist"; sourceTree = "<group>"; };
 		05FC4CCAB90D7EB71D1FC654C3BB7D7F /* Pods-SOTPWatch Extension-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SOTPWatch Extension-dummy.m"; sourceTree = "<group>"; };
-		074A0E16958A5DF1BFEEC319337F7F57 /* Generator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Generator.swift; path = Sources/Generator.swift; sourceTree = "<group>"; };
-		07C9E739768A9751187ACA1414315785 /* OneTimePassword-watchOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; name = "OneTimePassword-watchOS.modulemap"; path = "../OneTimePassword-watchOS/OneTimePassword-watchOS.modulemap"; sourceTree = "<group>"; };
-		0F0D29B9FB198B941A2996733AF0746B /* Base32-iOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Base32-iOS-dummy.m"; sourceTree = "<group>"; };
-		15992832F7913121CFC6DF05C124484C /* Base32-watchOS-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "Base32-watchOS-prefix.pch"; path = "../Base32-watchOS/Base32-watchOS-prefix.pch"; sourceTree = "<group>"; };
-		16A4010630A7BB8AC9A3CACD717DD9D5 /* Keychain.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Keychain.swift; path = Sources/Keychain.swift; sourceTree = "<group>"; };
+		0802CA15BC9F2BA8310FA046F2A0AC7A /* Base32-watchOS-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "Base32-watchOS-prefix.pch"; path = "../Base32-watchOS/Base32-watchOS-prefix.pch"; sourceTree = "<group>"; };
+		0D96436EFC6CDB177633C65230169276 /* UnsafeRawPointer+Shims.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UnsafeRawPointer+Shims.swift"; path = "Sources/SwiftProtobuf/UnsafeRawPointer+Shims.swift"; sourceTree = "<group>"; };
+		0E3761D111F960880A393BB83BF80AF2 /* OneTimePassword-watchOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "OneTimePassword-watchOS.release.xcconfig"; path = "../OneTimePassword-watchOS/OneTimePassword-watchOS.release.xcconfig"; sourceTree = "<group>"; };
+		0E60FA4A3B48E0E99560B15EBF443ECD /* duration.pb.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = duration.pb.swift; path = Sources/SwiftProtobuf/duration.pb.swift; sourceTree = "<group>"; };
+		0F09CE2FDA3265255E96A70DE19FC926 /* SwiftProtobuf-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftProtobuf-prefix.pch"; sourceTree = "<group>"; };
+		1005F84449E9B8EE69B97C6C9B407FDF /* SimpleExtensionMap.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SimpleExtensionMap.swift; path = Sources/SwiftProtobuf/SimpleExtensionMap.swift; sourceTree = "<group>"; };
+		1103A84D51E9B54AD867DAAA3A5061DF /* Message+AnyAdditions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Message+AnyAdditions.swift"; path = "Sources/SwiftProtobuf/Message+AnyAdditions.swift"; sourceTree = "<group>"; };
+		150747ABD6FD7A78972D57CB30129809 /* Internal.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Internal.swift; path = Sources/SwiftProtobuf/Internal.swift; sourceTree = "<group>"; };
 		18979DB67C83AE3BEC9675286E74D0D2 /* Pods-SOTPWatch-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SOTPWatch-umbrella.h"; sourceTree = "<group>"; };
-		18B2D18A05FF579834928730F56652EF /* RNCryptor-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "RNCryptor-dummy.m"; sourceTree = "<group>"; };
-		18B588B37303CA4256DA5245BE78EACE /* OneTimePassword-watchOS-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "OneTimePassword-watchOS-prefix.pch"; path = "../OneTimePassword-watchOS/OneTimePassword-watchOS-prefix.pch"; sourceTree = "<group>"; };
-		1C370C210D2E4FA3825C09D182B0C573 /* RNCryptor-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "RNCryptor-Info.plist"; sourceTree = "<group>"; };
+		19074B4E9C6F8F47A1F4C441F90D1DE8 /* Base32-iOS-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Base32-iOS-Info.plist"; sourceTree = "<group>"; };
+		195EC0DE0F217DBB576A252C24585C8B /* BinaryDelimited.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BinaryDelimited.swift; path = Sources/SwiftProtobuf/BinaryDelimited.swift; sourceTree = "<group>"; };
+		1ACBBE4299CE7EF2EDBDDDD49F4759E7 /* Decoder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Decoder.swift; path = Sources/SwiftProtobuf/Decoder.swift; sourceTree = "<group>"; };
+		1C34399068EFA4616DFB78E669ECA113 /* JSONEncodingVisitor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JSONEncodingVisitor.swift; path = Sources/SwiftProtobuf/JSONEncodingVisitor.swift; sourceTree = "<group>"; };
+		1D2E61CD53CF9728EFD2F0881B1BBA78 /* RNCryptor-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "RNCryptor-dummy.m"; sourceTree = "<group>"; };
+		1E107DA391A7702AD9EB77057751CDDE /* TextFormatEncoder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TextFormatEncoder.swift; path = Sources/SwiftProtobuf/TextFormatEncoder.swift; sourceTree = "<group>"; };
 		1F7BB774AF51E5D1EDC27DC8713B5CDA /* Pods_SOTPWatch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_SOTPWatch.framework; path = "Pods-SOTPWatch.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		1F7D967D9D5DB01C2BE06FF72488F558 /* Base32-iOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Base32-iOS.modulemap"; sourceTree = "<group>"; };
+		1F906E8C4F7D274F43F47D7170994760 /* source_context.pb.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = source_context.pb.swift; path = Sources/SwiftProtobuf/source_context.pb.swift; sourceTree = "<group>"; };
+		20CAB2098B7F6A0346173EC1529C8198 /* Message+TextFormatAdditions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Message+TextFormatAdditions.swift"; path = "Sources/SwiftProtobuf/Message+TextFormatAdditions.swift"; sourceTree = "<group>"; };
+		22606498D7A6AAC701DCBB802ABCDAA2 /* SwiftProtobuf-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftProtobuf-dummy.m"; sourceTree = "<group>"; };
+		2295DF99701CD58B316A8C9800AA39D0 /* BinaryDecodingOptions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BinaryDecodingOptions.swift; path = Sources/SwiftProtobuf/BinaryDecodingOptions.swift; sourceTree = "<group>"; };
+		24D75586BBBCABD955524C34ECCD2B86 /* JSONEncodingError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JSONEncodingError.swift; path = Sources/SwiftProtobuf/JSONEncodingError.swift; sourceTree = "<group>"; };
+		252A0BA3E78AA8F1CBF77C20C4F05B05 /* Crypto.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Crypto.swift; path = Sources/Crypto.swift; sourceTree = "<group>"; };
+		2564EC2ADE36BC6608F71D2A7830B021 /* OneTimePassword-watchOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "OneTimePassword-watchOS-umbrella.h"; path = "../OneTimePassword-watchOS/OneTimePassword-watchOS-umbrella.h"; sourceTree = "<group>"; };
+		25C11F2D0D08616BA345AC518FEA004A /* TimeUtils.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TimeUtils.swift; path = Sources/SwiftProtobuf/TimeUtils.swift; sourceTree = "<group>"; };
+		28DC55389E29C761A99CFFC222D458CD /* Base32-iOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Base32-iOS-umbrella.h"; sourceTree = "<group>"; };
+		29AE3C48D9038B22DC666FC7AA08A5E8 /* ProtobufAPIVersionCheck.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ProtobufAPIVersionCheck.swift; path = Sources/SwiftProtobuf/ProtobufAPIVersionCheck.swift; sourceTree = "<group>"; };
+		2B7F5568A54F93DF1BB91B8B8872E9FC /* Google_Protobuf_Timestamp+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Google_Protobuf_Timestamp+Extensions.swift"; path = "Sources/SwiftProtobuf/Google_Protobuf_Timestamp+Extensions.swift"; sourceTree = "<group>"; };
 		2BC59F9D097CC23CF00A6B0A6EA0B165 /* Pods-Authenticator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Authenticator.release.xcconfig"; sourceTree = "<group>"; };
 		2C2E4A4839757ECB8C087B1C014D6D5B /* Pods-SOTPWatch Extension-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SOTPWatch Extension-Info.plist"; sourceTree = "<group>"; };
 		2C4822E58F8FA2AF0DF482A2BAECE055 /* Pods-Authenticator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Authenticator.debug.xcconfig"; sourceTree = "<group>"; };
-		36FA8F0D162FCEDA24C9167FDBBC3E85 /* Base32-watchOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; name = "Base32-watchOS.modulemap"; path = "../Base32-watchOS/Base32-watchOS.modulemap"; sourceTree = "<group>"; };
-		3CB75CD3252D4F1740D5EFC50096727F /* Crypto.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Crypto.swift; path = Sources/Crypto.swift; sourceTree = "<group>"; };
-		413FB0BB4BFDFEC410E79FD44584AD8A /* RNCryptor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = RNCryptor.release.xcconfig; sourceTree = "<group>"; };
-		43CE77C37E18ED85CAEAF0B7A5273844 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		44703832625E914A750DC1B559070DCE /* RNCryptor-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RNCryptor-umbrella.h"; sourceTree = "<group>"; };
+		2CA0DE2CA909874F5F15CB5B62DBF53C /* SelectiveVisitor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SelectiveVisitor.swift; path = Sources/SwiftProtobuf/SelectiveVisitor.swift; sourceTree = "<group>"; };
+		2CACC91FE3E95A09458745E58DC25715 /* Google_Protobuf_Wrappers+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Google_Protobuf_Wrappers+Extensions.swift"; path = "Sources/SwiftProtobuf/Google_Protobuf_Wrappers+Extensions.swift"; sourceTree = "<group>"; };
+		2CB92C44F9460EB97E25A76A9061DEBC /* JSONDecodingOptions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JSONDecodingOptions.swift; path = Sources/SwiftProtobuf/JSONDecodingOptions.swift; sourceTree = "<group>"; };
+		2D14B2F8AA1785AD444C36FA481F2233 /* OneTimePassword-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "OneTimePassword-iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		346409C530AC3D278F0E1B29B68723E8 /* field_mask.pb.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = field_mask.pb.swift; path = Sources/SwiftProtobuf/field_mask.pb.swift; sourceTree = "<group>"; };
+		3705D526B95C3BCCBD9498B434687F0B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		375ACC3018BB7828A360DB6C36DBD7DC /* Visitor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Visitor.swift; path = Sources/SwiftProtobuf/Visitor.swift; sourceTree = "<group>"; };
+		3A915CE1B095EE3F9416FCF809B85E13 /* Message+JSONArrayAdditions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Message+JSONArrayAdditions.swift"; path = "Sources/SwiftProtobuf/Message+JSONArrayAdditions.swift"; sourceTree = "<group>"; };
+		3C0D429FAC2BE4F2A43308565DEB4B47 /* OneTimePassword-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "OneTimePassword-iOS.release.xcconfig"; sourceTree = "<group>"; };
+		3C21D00CB81DAC43A9C5023682E0CB12 /* HashVisitor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HashVisitor.swift; path = Sources/SwiftProtobuf/HashVisitor.swift; sourceTree = "<group>"; };
+		3D0DAFD9939E91AD9FF0653038DCC29E /* RNCryptor-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RNCryptor-prefix.pch"; sourceTree = "<group>"; };
+		3EBD34CC3114E6C56FAE22475C007C56 /* timestamp.pb.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = timestamp.pb.swift; path = Sources/SwiftProtobuf/timestamp.pb.swift; sourceTree = "<group>"; };
+		404332EFCBF0A040F105526E9CC235F1 /* OneTimePassword-iOS-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "OneTimePassword-iOS-Info.plist"; sourceTree = "<group>"; };
+		42BC852DAF7E1BE3B3FA874C47DF97C7 /* Google_Protobuf_Duration+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Google_Protobuf_Duration+Extensions.swift"; path = "Sources/SwiftProtobuf/Google_Protobuf_Duration+Extensions.swift"; sourceTree = "<group>"; };
+		4442402C1A89D5BED912A0BC1AC80F1F /* api.pb.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = api.pb.swift; path = Sources/SwiftProtobuf/api.pb.swift; sourceTree = "<group>"; };
+		456E8DF009DACB8198EF5DA9D0E03E5A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS7.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		47228025ADA480F707DB5C4900D01827 /* Pods-SOTPWatch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SOTPWatch.debug.xcconfig"; sourceTree = "<group>"; };
-		48401D1771A663C7FDB3803394B16F7C /* PersistentToken.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PersistentToken.swift; path = Sources/PersistentToken.swift; sourceTree = "<group>"; };
-		4DBBD567C80311E4D96F46BC03E91795 /* OneTimePassword-iOS-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "OneTimePassword-iOS-prefix.pch"; sourceTree = "<group>"; };
-		4E4E37E34FE5B0769E2CCB182B2CFF4A /* Base32-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Base32-iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		47238BEDC00F0D96529BAC29EEA7618F /* DoubleParser.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DoubleParser.swift; path = Sources/SwiftProtobuf/DoubleParser.swift; sourceTree = "<group>"; };
+		4811AE68258881BD9B68408636ADA593 /* struct.pb.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = struct.pb.swift; path = Sources/SwiftProtobuf/struct.pb.swift; sourceTree = "<group>"; };
+		4C0F73E51B51732FE1CD3F34584789CC /* Keychain.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Keychain.swift; path = Sources/Keychain.swift; sourceTree = "<group>"; };
 		50F81942B51A2D5CCB4F7536BBAE3D9E /* Pods_Authenticator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Authenticator.framework; path = "Pods-Authenticator.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5272460D420E1E9E4BCF04D18583A4E9 /* Base32.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Base32.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		535CCE0AEFDC31159A63D55C20D42B79 /* BinaryDecoder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BinaryDecoder.swift; path = Sources/SwiftProtobuf/BinaryDecoder.swift; sourceTree = "<group>"; };
+		5646850446C2848755891B3C989DE802 /* BinaryDecodingError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BinaryDecodingError.swift; path = Sources/SwiftProtobuf/BinaryDecodingError.swift; sourceTree = "<group>"; };
 		56A6F36C6D3622179B5E9F0E1A5223FC /* Pods-SOTPWatch-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SOTPWatch-Info.plist"; sourceTree = "<group>"; };
-		5744FC2A3BE293AA3D92553FFFB194C0 /* RNCryptor.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = RNCryptor.modulemap; sourceTree = "<group>"; };
+		58CBDEBB1E6EC26B8EF093AA940274AB /* ExtensibleMessage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExtensibleMessage.swift; path = Sources/SwiftProtobuf/ExtensibleMessage.swift; sourceTree = "<group>"; };
 		59CE536A225362A8CC185DA9127754F7 /* Pods-SOTPWatch Extension-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SOTPWatch Extension-acknowledgements.markdown"; sourceTree = "<group>"; };
+		5A287CAF63BF193C9AE087CB2B289D96 /* Google_Protobuf_ListValue+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Google_Protobuf_ListValue+Extensions.swift"; path = "Sources/SwiftProtobuf/Google_Protobuf_ListValue+Extensions.swift"; sourceTree = "<group>"; };
 		5D7A9C05A8683DDC01814A53E717C064 /* OneTimePassword.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = OneTimePassword.framework; path = "OneTimePassword-watchOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		5E60BE85D23C1D9A34DC05144D440308 /* Base32-iOS-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Base32-iOS-Info.plist"; sourceTree = "<group>"; };
+		5E911FC3E9CA1EB8E308F51A90FBD9EF /* ExtensionFields.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExtensionFields.swift; path = Sources/SwiftProtobuf/ExtensionFields.swift; sourceTree = "<group>"; };
 		5F3796E19DE3F4A38F4920F1FF6D725E /* Pods-Authenticator-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Authenticator-Info.plist"; sourceTree = "<group>"; };
-		5F89D8B121D8FA84EF2481BF72E75570 /* RNCryptor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RNCryptor.swift; path = Sources/RNCryptor/RNCryptor.swift; sourceTree = "<group>"; };
 		607DD01DC16FE8F28D4D07A3875CA712 /* Pods-SOTPWatch Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SOTPWatch Extension.release.xcconfig"; sourceTree = "<group>"; };
-		632864D493A91BD77218C27AE77EEE91 /* MF_Base32Additions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MF_Base32Additions.h; path = Base32/MF_Base32Additions.h; sourceTree = "<group>"; };
-		66192404C2922E214DF62AA63BE8B421 /* OneTimePassword-iOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "OneTimePassword-iOS.modulemap"; sourceTree = "<group>"; };
-		6BBB8520647F74E7D7B04A40E810E005 /* Base32-iOS-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Base32-iOS-prefix.pch"; sourceTree = "<group>"; };
+		617E624BA07498E907ADD66DFE79005C /* Base32-watchOS-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = "Base32-watchOS-Info.plist"; path = "../Base32-watchOS/Base32-watchOS-Info.plist"; sourceTree = "<group>"; };
+		62224CD4B547D52CD4FD6C2CA3DB3744 /* OneTimePassword-watchOS-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "OneTimePassword-watchOS-prefix.pch"; path = "../OneTimePassword-watchOS/OneTimePassword-watchOS-prefix.pch"; sourceTree = "<group>"; };
+		63D72FBC138A9DC34CCBB0ED86A8BDC6 /* Base32-iOS-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Base32-iOS-prefix.pch"; sourceTree = "<group>"; };
+		65C2E7F79186B488D7886C04C2A0AF26 /* Token.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Token.swift; path = Sources/Token.swift; sourceTree = "<group>"; };
+		65D92F6FC83C7C5B08D4D1C3073BC60E /* Base32-watchOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "Base32-watchOS-umbrella.h"; path = "../Base32-watchOS/Base32-watchOS-umbrella.h"; sourceTree = "<group>"; };
+		677EC8C211E393C9585E97D5D8A94BFB /* MF_Base32Additions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MF_Base32Additions.m; path = Base32/MF_Base32Additions.m; sourceTree = "<group>"; };
+		67F4D28D3F838CF78CB7056B1E69B8B5 /* TextFormatScanner.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TextFormatScanner.swift; path = Sources/SwiftProtobuf/TextFormatScanner.swift; sourceTree = "<group>"; };
+		681BE280ECEC86F0F8AEE6C380C11101 /* BinaryEncodingSizeVisitor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BinaryEncodingSizeVisitor.swift; path = Sources/SwiftProtobuf/BinaryEncodingSizeVisitor.swift; sourceTree = "<group>"; };
+		6B178453EDEF91B6EE9F22B61133A800 /* JSONEncodingOptions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JSONEncodingOptions.swift; path = Sources/SwiftProtobuf/JSONEncodingOptions.swift; sourceTree = "<group>"; };
+		6BA951D92785D07984628B05314BF201 /* StringUtils.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StringUtils.swift; path = Sources/SwiftProtobuf/StringUtils.swift; sourceTree = "<group>"; };
+		6C12A84B8291CFE104B61C5857825CE4 /* TextFormatDecoder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TextFormatDecoder.swift; path = Sources/SwiftProtobuf/TextFormatDecoder.swift; sourceTree = "<group>"; };
+		6F42382B9F3ED778FA579EBEBADFAC4E /* Version.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Version.swift; path = Sources/SwiftProtobuf/Version.swift; sourceTree = "<group>"; };
+		6FD1CAB0D38FE29232631B88D7B5A3BB /* JSONDecodingError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JSONDecodingError.swift; path = Sources/SwiftProtobuf/JSONDecodingError.swift; sourceTree = "<group>"; };
+		70E6CAFB3DBAC934D748D1291DFBF3C4 /* empty.pb.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = empty.pb.swift; path = Sources/SwiftProtobuf/empty.pb.swift; sourceTree = "<group>"; };
+		72FBC52FEBAFCE61DFFCC3CDE2746D7E /* Base32-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Base32-iOS.release.xcconfig"; sourceTree = "<group>"; };
+		73B4EDDD7DA4342D4BDABA94CEBFA8A2 /* Base32-watchOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Base32-watchOS.release.xcconfig"; path = "../Base32-watchOS/Base32-watchOS.release.xcconfig"; sourceTree = "<group>"; };
 		73EC071CBDF2B38D4CF924410A0BC140 /* Pods-SOTPWatch Extension-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SOTPWatch Extension-umbrella.h"; sourceTree = "<group>"; };
+		756F5B494DA67036914E12CA84C088C4 /* MathUtils.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MathUtils.swift; path = Sources/SwiftProtobuf/MathUtils.swift; sourceTree = "<group>"; };
+		7695ED9599E8FDE736C3F2C91627273D /* TextFormatEncodingVisitor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TextFormatEncodingVisitor.swift; path = Sources/SwiftProtobuf/TextFormatEncodingVisitor.swift; sourceTree = "<group>"; };
+		7699BDF99BD4DC4FC365360DF53CC8CE /* RNCryptor-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "RNCryptor-Info.plist"; sourceTree = "<group>"; };
+		770A8BF1EE0E93F01C5F6E6142C3F395 /* CustomJSONCodable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CustomJSONCodable.swift; path = Sources/SwiftProtobuf/CustomJSONCodable.swift; sourceTree = "<group>"; };
 		78E2D693C6DF8E0E13A6A0E6AE9CC23A /* Pods-SOTPWatch-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SOTPWatch-dummy.m"; sourceTree = "<group>"; };
-		8483B0CFD34944888AD262156FF2A9A2 /* OneTimePassword-watchOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "OneTimePassword-watchOS.release.xcconfig"; path = "../OneTimePassword-watchOS/OneTimePassword-watchOS.release.xcconfig"; sourceTree = "<group>"; };
-		8757FBAB20FE10EC6646DBD0F5B79483 /* OneTimePassword-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "OneTimePassword-iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		79FC1CA6F79D38A6623055DAB8A28273 /* Google_Protobuf_Struct+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Google_Protobuf_Struct+Extensions.swift"; path = "Sources/SwiftProtobuf/Google_Protobuf_Struct+Extensions.swift"; sourceTree = "<group>"; };
+		7CFEE5B3F9E009E5BD92394A07FBA0BA /* OneTimePassword-watchOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; name = "OneTimePassword-watchOS.modulemap"; path = "../OneTimePassword-watchOS/OneTimePassword-watchOS.modulemap"; sourceTree = "<group>"; };
+		7D0347E3F69D896EBBC1E3CB15BDBC5D /* Generator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Generator.swift; path = Sources/Generator.swift; sourceTree = "<group>"; };
+		7D772AC621570AB17980990160462C8A /* JSONEncoder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JSONEncoder.swift; path = Sources/SwiftProtobuf/JSONEncoder.swift; sourceTree = "<group>"; };
+		809684727CEE9484C158A4CB2F4CAAF2 /* NameMap.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NameMap.swift; path = Sources/SwiftProtobuf/NameMap.swift; sourceTree = "<group>"; };
+		8A426120BC88D97C3287EF200F7166CA /* Base32-watchOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Base32-watchOS.debug.xcconfig"; path = "../Base32-watchOS/Base32-watchOS.debug.xcconfig"; sourceTree = "<group>"; };
 		8AD655B484E7B62D79240BF5A64D8D4F /* Pods-SOTPWatch Extension-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SOTPWatch Extension-frameworks.sh"; sourceTree = "<group>"; };
-		8ADE5EADA2A7B9EB32B8AA0B7FCDEDDA /* OneTimePassword-watchOS-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = "OneTimePassword-watchOS-Info.plist"; path = "../OneTimePassword-watchOS/OneTimePassword-watchOS-Info.plist"; sourceTree = "<group>"; };
-		8EEAFA4856EAA367048845A0EBD1292A /* RNCryptor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = RNCryptor.debug.xcconfig; sourceTree = "<group>"; };
+		8BEF9A8233D08EF33E7F8116CF206B6D /* JSONDecoder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JSONDecoder.swift; path = Sources/SwiftProtobuf/JSONDecoder.swift; sourceTree = "<group>"; };
+		8F0BD0EA8E1270839F40FCFE983830F0 /* SwiftProtobuf-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftProtobuf-umbrella.h"; sourceTree = "<group>"; };
+		9192FA8C24790D0D9D106EC9CF59A694 /* RNCryptor-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RNCryptor-umbrella.h"; sourceTree = "<group>"; };
 		91C99EDA7A6ACAD6614EDF839CBF6A41 /* Pods-SOTPWatch Extension-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SOTPWatch Extension-acknowledgements.plist"; sourceTree = "<group>"; };
+		92F9014BC1C0255C443C84E7B233F43B /* any.pb.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = any.pb.swift; path = Sources/SwiftProtobuf/any.pb.swift; sourceTree = "<group>"; };
+		934D7643827736BB4C0F070EF0C9BF4B /* Base32-watchOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "Base32-watchOS-dummy.m"; path = "../Base32-watchOS/Base32-watchOS-dummy.m"; sourceTree = "<group>"; };
+		943D347E61A2E181A4FA2CA894307B6E /* SwiftProtobuf.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftProtobuf.framework; path = SwiftProtobuf.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		971C02F0FB9A95267D872166258FE1D8 /* AnyMessageStorage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AnyMessageStorage.swift; path = Sources/SwiftProtobuf/AnyMessageStorage.swift; sourceTree = "<group>"; };
+		99F018CEC7414ACCDBE9B2D5B818B0EE /* Google_Protobuf_Any+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Google_Protobuf_Any+Extensions.swift"; path = "Sources/SwiftProtobuf/Google_Protobuf_Any+Extensions.swift"; sourceTree = "<group>"; };
 		99F678240DE15B95C7C68365C6C5395B /* Pods-Authenticator-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Authenticator-acknowledgements.plist"; sourceTree = "<group>"; };
-		9D75BFA513DF670AB35B367D2D62FDFD /* OneTimePassword-watchOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "OneTimePassword-watchOS.debug.xcconfig"; path = "../OneTimePassword-watchOS/OneTimePassword-watchOS.debug.xcconfig"; sourceTree = "<group>"; };
+		9C47B09ABE9BE7BE3B4EF0D309314930 /* BinaryEncodingError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BinaryEncodingError.swift; path = Sources/SwiftProtobuf/BinaryEncodingError.swift; sourceTree = "<group>"; };
+		9CED456E3CD446099B9C76EADAD2C2AB /* AnyUnpackError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AnyUnpackError.swift; path = Sources/SwiftProtobuf/AnyUnpackError.swift; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9DB6D892BA9973B87DF400F65C5A64DF /* Base32.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Base32.framework; path = "Base32-iOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E910C902B8FC1B4609079A68AA9340B /* Pods_SOTPWatch_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_SOTPWatch_Extension.framework; path = "Pods-SOTPWatch Extension.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F39FA0800A388962C23D5F40B3D4186 /* Pods-SOTPWatch-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SOTPWatch-frameworks.sh"; sourceTree = "<group>"; };
 		9F62925D674AF47DDF0C7EB46B3EA584 /* Pods-SOTPWatch-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SOTPWatch-acknowledgements.plist"; sourceTree = "<group>"; };
-		A017574457B7D78401E80C811A39C9A3 /* Base32-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Base32-iOS.release.xcconfig"; sourceTree = "<group>"; };
-		A288680ABBF7A34DE7DF7A0051FD3EBB /* OneTimePassword-iOS-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "OneTimePassword-iOS-Info.plist"; sourceTree = "<group>"; };
-		A3183009AB76C01E32288B07E3AE1B53 /* MF_Base32Additions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MF_Base32Additions.m; path = Base32/MF_Base32Additions.m; sourceTree = "<group>"; };
-		A5A651C56960D35D1B273C8E9770949A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS5.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		A75470FF885A3B5F002127D6D2B83773 /* Token+URL.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Token+URL.swift"; path = "Sources/Token+URL.swift"; sourceTree = "<group>"; };
+		A0616F117C086330044D1711D4149B4B /* Base32-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Base32-iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		A191986ADE8E9F9EAD56D9FB14A5DB65 /* ZigZag.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ZigZag.swift; path = Sources/SwiftProtobuf/ZigZag.swift; sourceTree = "<group>"; };
+		A2BA7A11F133BAB1C254445FA1C9EA29 /* ExtensionFieldValueSet.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExtensionFieldValueSet.swift; path = Sources/SwiftProtobuf/ExtensionFieldValueSet.swift; sourceTree = "<group>"; };
+		A33BC38DE9A3F51C61ED6620FAE94F5A /* FieldTag.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FieldTag.swift; path = Sources/SwiftProtobuf/FieldTag.swift; sourceTree = "<group>"; };
+		A6554318D04320DF07E9DE03E3B84232 /* Base32-iOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Base32-iOS-dummy.m"; sourceTree = "<group>"; };
+		A66F39BB61E250707256FEC5B1260344 /* SwiftProtobuf.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftProtobuf.debug.xcconfig; sourceTree = "<group>"; };
 		A7E0B0368732B4789712AD50BCD717B9 /* Pods-SOTPWatch Extension.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-SOTPWatch Extension.modulemap"; sourceTree = "<group>"; };
+		AB6E48F27C9F9F518EB932AEAABD5861 /* WireFormat.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WireFormat.swift; path = Sources/SwiftProtobuf/WireFormat.swift; sourceTree = "<group>"; };
+		AC25FE53F60B1A003838594958EA46BE /* JSONScanner.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JSONScanner.swift; path = Sources/SwiftProtobuf/JSONScanner.swift; sourceTree = "<group>"; };
+		ACF826AE4DA555C9614AAC2951854458 /* MessageExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MessageExtension.swift; path = Sources/SwiftProtobuf/MessageExtension.swift; sourceTree = "<group>"; };
 		AE3AE9A62F44283D485BA068DB83318D /* Pods-SOTPWatch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SOTPWatch.release.xcconfig"; sourceTree = "<group>"; };
-		B171B669DCA702864054A2DE72B7C319 /* Base32-iOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Base32-iOS-umbrella.h"; sourceTree = "<group>"; };
-		B365B704CB12A23EB630B871655AA35A /* OneTimePassword-watchOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "OneTimePassword-watchOS-dummy.m"; path = "../OneTimePassword-watchOS/OneTimePassword-watchOS-dummy.m"; sourceTree = "<group>"; };
-		B4E11153953D27934EFB7E550F32661F /* Token.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Token.swift; path = Sources/Token.swift; sourceTree = "<group>"; };
+		B0852AECA150FECE324EFC5A4AFBC2A2 /* BinaryEncoder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BinaryEncoder.swift; path = Sources/SwiftProtobuf/BinaryEncoder.swift; sourceTree = "<group>"; };
+		B195D3839334F8184A966D77773ADD06 /* UnsafeBufferPointer+Shims.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UnsafeBufferPointer+Shims.swift"; path = "Sources/SwiftProtobuf/UnsafeBufferPointer+Shims.swift"; sourceTree = "<group>"; };
+		B28F305CD8B949FFC43C9D10C4827971 /* ProtoNameProviding.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ProtoNameProviding.swift; path = Sources/SwiftProtobuf/ProtoNameProviding.swift; sourceTree = "<group>"; };
+		B2ED35335EC72A6BDF3DDA60C8FBABBE /* SwiftProtobuf.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SwiftProtobuf.modulemap; sourceTree = "<group>"; };
+		B58E2A5AB7CF0911462E36B3610C2C71 /* MF_Base32Additions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MF_Base32Additions.h; path = Base32/MF_Base32Additions.h; sourceTree = "<group>"; };
+		B5D14EB1710C193393D12DA63E3D3C64 /* Enum.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Enum.swift; path = Sources/SwiftProtobuf/Enum.swift; sourceTree = "<group>"; };
 		B8B5128DC920B0D35264C7C8CF2A83AF /* Pods-SOTPWatch Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SOTPWatch Extension.debug.xcconfig"; sourceTree = "<group>"; };
-		BDC071CC3FBC9C8652142CF95F0B266A /* OneTimePassword-iOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "OneTimePassword-iOS-dummy.m"; sourceTree = "<group>"; };
-		BF34D0F9AF150AE1ED633E431F2206CA /* Base32-watchOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "Base32-watchOS-umbrella.h"; path = "../Base32-watchOS/Base32-watchOS-umbrella.h"; sourceTree = "<group>"; };
+		B9C7185296F4DCFE8A20115B39C6518E /* OneTimePassword-iOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "OneTimePassword-iOS.modulemap"; sourceTree = "<group>"; };
+		BCCD6461D11ACE1D8C9AA9237B4C6AB5 /* SwiftProtobuf.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftProtobuf.release.xcconfig; sourceTree = "<group>"; };
+		BF2CB8ABD85F735F423EEE126981DE72 /* Base32-iOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Base32-iOS.modulemap"; sourceTree = "<group>"; };
 		BFF8FB491D8A30E64F0E167BEAC1F3DC /* Pods-Authenticator-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Authenticator-dummy.m"; sourceTree = "<group>"; };
-		C2C511D2F7702C3719DFCB016EF91A46 /* Base32-watchOS-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = "Base32-watchOS-Info.plist"; path = "../Base32-watchOS/Base32-watchOS-Info.plist"; sourceTree = "<group>"; };
-		C3411F4C486221E7A972CA53FAA7EE01 /* Base32-watchOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Base32-watchOS.release.xcconfig"; path = "../Base32-watchOS/Base32-watchOS.release.xcconfig"; sourceTree = "<group>"; };
+		C03BE4B6462597148EEDF44FE0BE77B0 /* Message+BinaryAdditions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Message+BinaryAdditions.swift"; path = "Sources/SwiftProtobuf/Message+BinaryAdditions.swift"; sourceTree = "<group>"; };
+		C42B9FEE1FDEED829B35E64BD61721F3 /* RNCryptor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = RNCryptor.release.xcconfig; sourceTree = "<group>"; };
+		C5925CAA8CB5F1472A398B71F028AEC6 /* OneTimePassword-watchOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "OneTimePassword-watchOS-dummy.m"; path = "../OneTimePassword-watchOS/OneTimePassword-watchOS-dummy.m"; sourceTree = "<group>"; };
 		CB3A8FE2A379108E8A1910CAEF141E18 /* Pods-Authenticator-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Authenticator-acknowledgements.markdown"; sourceTree = "<group>"; };
+		CC02E2CB16DE59741DC68D46194A3286 /* UnknownStorage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UnknownStorage.swift; path = Sources/SwiftProtobuf/UnknownStorage.swift; sourceTree = "<group>"; };
 		CCB476DF65438582EFA88712FF8AF428 /* Pods-Authenticator-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Authenticator-umbrella.h"; sourceTree = "<group>"; };
 		CD50AB443ABF9485C989924260697980 /* Pods-Authenticator.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Authenticator.modulemap"; sourceTree = "<group>"; };
 		CF1F2666249781535C3BD2150D165698 /* OneTimePassword.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = OneTimePassword.framework; path = "OneTimePassword-iOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		D37AA58C5B481E79CEF4C7336DB2A91F /* Base32-watchOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Base32-watchOS.debug.xcconfig"; path = "../Base32-watchOS/Base32-watchOS.debug.xcconfig"; sourceTree = "<group>"; };
-		D7E346DF769E7C01236DBCFDB09F7C94 /* OneTimePassword-watchOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "OneTimePassword-watchOS-umbrella.h"; path = "../OneTimePassword-watchOS/OneTimePassword-watchOS-umbrella.h"; sourceTree = "<group>"; };
-		D90F787AB69A39C677F2DAB41AA45B4C /* OneTimePassword-iOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "OneTimePassword-iOS-umbrella.h"; sourceTree = "<group>"; };
+		CF7E55479A8EA7FA89902DC6A7E1AEB7 /* SwiftProtobuf-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SwiftProtobuf-Info.plist"; sourceTree = "<group>"; };
+		CF948EB4BC920FABDB281A5E7917A5B8 /* JSONMapEncodingVisitor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JSONMapEncodingVisitor.swift; path = Sources/SwiftProtobuf/JSONMapEncodingVisitor.swift; sourceTree = "<group>"; };
+		D075CF75A2B4B0CB2B6ED30D8C0F7C3C /* RNCryptor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RNCryptor.swift; path = Sources/RNCryptor/RNCryptor.swift; sourceTree = "<group>"; };
+		D139D710784039B9C59A023B8BBEA2A2 /* Google_Protobuf_NullValue+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Google_Protobuf_NullValue+Extensions.swift"; path = "Sources/SwiftProtobuf/Google_Protobuf_NullValue+Extensions.swift"; sourceTree = "<group>"; };
+		D24ADEB66F2401B6E04EDA33A0B1B930 /* Varint.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Varint.swift; path = Sources/SwiftProtobuf/Varint.swift; sourceTree = "<group>"; };
+		D2C0D91EAD68D2CD6733604227094B9B /* Data+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Data+Extensions.swift"; path = "Sources/SwiftProtobuf/Data+Extensions.swift"; sourceTree = "<group>"; };
+		D62D1CF997467B4115205061BE38DA1E /* TextFormatEncodingOptions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TextFormatEncodingOptions.swift; path = Sources/SwiftProtobuf/TextFormatEncodingOptions.swift; sourceTree = "<group>"; };
+		D63167F22E347037257A1908DE884851 /* ExtensionMap.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExtensionMap.swift; path = Sources/SwiftProtobuf/ExtensionMap.swift; sourceTree = "<group>"; };
+		D70CFCB8A054D79B2236F6E20A034838 /* Google_Protobuf_Any+Registry.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Google_Protobuf_Any+Registry.swift"; path = "Sources/SwiftProtobuf/Google_Protobuf_Any+Registry.swift"; sourceTree = "<group>"; };
+		D8A0502D1858C57695BDAC7000D1E5DC /* Message+JSONAdditions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Message+JSONAdditions.swift"; path = "Sources/SwiftProtobuf/Message+JSONAdditions.swift"; sourceTree = "<group>"; };
+		DC72511357DEA484983139956628104B /* FieldTypes.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FieldTypes.swift; path = Sources/SwiftProtobuf/FieldTypes.swift; sourceTree = "<group>"; };
+		DE890430AD5F2AFC352CDAE186BADAFC /* Base32-watchOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; name = "Base32-watchOS.modulemap"; path = "../Base32-watchOS/Base32-watchOS.modulemap"; sourceTree = "<group>"; };
 		DF44469332218CC61E67284C33CCDAA3 /* Pods-SOTPWatch-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SOTPWatch-acknowledgements.markdown"; sourceTree = "<group>"; };
 		E1BD369D4579F45C663BF3FA80ABB72A /* Pods-Authenticator-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Authenticator-frameworks.sh"; sourceTree = "<group>"; };
+		E256E78A1D029E2E335F5FB9DF3DD53E /* OneTimePassword-iOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "OneTimePassword-iOS-dummy.m"; sourceTree = "<group>"; };
+		E40AD097B6BC0365DD33310B5EAB7082 /* Google_Protobuf_Value+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Google_Protobuf_Value+Extensions.swift"; path = "Sources/SwiftProtobuf/Google_Protobuf_Value+Extensions.swift"; sourceTree = "<group>"; };
 		E4FCC5FAC597A0AFAA514D9CA2245449 /* Pods-SOTPWatch.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-SOTPWatch.modulemap"; sourceTree = "<group>"; };
-		ED5139B2B7F51D97133A18421B964A0D /* RNCryptor-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RNCryptor-prefix.pch"; sourceTree = "<group>"; };
-		ED71E79B14BC03BDB6096698858608F1 /* OneTimePassword-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "OneTimePassword-iOS.release.xcconfig"; sourceTree = "<group>"; };
+		E61A28E09E81ED45002590BF485CFA68 /* TextFormatDecodingOptions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TextFormatDecodingOptions.swift; path = Sources/SwiftProtobuf/TextFormatDecodingOptions.swift; sourceTree = "<group>"; };
+		E91763DA4E339A807CE299B2B722C1D1 /* OneTimePassword-iOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "OneTimePassword-iOS-umbrella.h"; sourceTree = "<group>"; };
+		E9EFBBD6783320827E670A277E90EB09 /* RNCryptor.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = RNCryptor.modulemap; sourceTree = "<group>"; };
+		EE9DC46D1075B8DE7C147FF485FFB837 /* ProtobufMap.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ProtobufMap.swift; path = Sources/SwiftProtobuf/ProtobufMap.swift; sourceTree = "<group>"; };
+		F058337B28DA4155B06C9636C51F1157 /* descriptor.pb.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = descriptor.pb.swift; path = Sources/SwiftProtobuf/descriptor.pb.swift; sourceTree = "<group>"; };
+		F25399F4D04AA11AB4E82B4E5209571F /* OneTimePassword-iOS-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "OneTimePassword-iOS-prefix.pch"; sourceTree = "<group>"; };
 		F46A2F3D51E182FCA52ACF692A940776 /* Base32.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Base32.framework; path = "Base32-watchOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F54D49F4ABFDE4F121DD4872B9E86EDC /* Google_Protobuf_FieldMask+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Google_Protobuf_FieldMask+Extensions.swift"; path = "Sources/SwiftProtobuf/Google_Protobuf_FieldMask+Extensions.swift"; sourceTree = "<group>"; };
+		F5C36DCE01BA55D7B5FFBC2558F5A7D9 /* BinaryEncodingVisitor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BinaryEncodingVisitor.swift; path = Sources/SwiftProtobuf/BinaryEncodingVisitor.swift; sourceTree = "<group>"; };
+		F60F489D8ED4DAB913FC58BD3B2DBF9E /* Message.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Message.swift; path = Sources/SwiftProtobuf/Message.swift; sourceTree = "<group>"; };
 		F6320389F628433B78C81FB217A0485D /* RNCryptor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = RNCryptor.framework; path = RNCryptor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FB8730D3AABF1A8CBC847928169493B5 /* Base32-watchOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "Base32-watchOS-dummy.m"; path = "../Base32-watchOS/Base32-watchOS-dummy.m"; sourceTree = "<group>"; };
+		F6FDE61528978099422E2AA590110939 /* wrappers.pb.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = wrappers.pb.swift; path = Sources/SwiftProtobuf/wrappers.pb.swift; sourceTree = "<group>"; };
+		FBD9A012E078B567431E17915736344A /* Token+URL.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Token+URL.swift"; path = "Sources/Token+URL.swift"; sourceTree = "<group>"; };
+		FC23F397E6A88D649FF8838FE7377766 /* TextFormatDecodingError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TextFormatDecodingError.swift; path = Sources/SwiftProtobuf/TextFormatDecodingError.swift; sourceTree = "<group>"; };
+		FCB69D5B95EA251C2F4C2CDAD00A8776 /* PersistentToken.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PersistentToken.swift; path = Sources/PersistentToken.swift; sourceTree = "<group>"; };
+		FE9AC8CA8E338A9A9503599E4E061B74 /* RNCryptor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = RNCryptor.debug.xcconfig; sourceTree = "<group>"; };
+		FF8151AB12AB60D5CFC4277C93752D13 /* OneTimePassword-watchOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "OneTimePassword-watchOS.debug.xcconfig"; path = "../OneTimePassword-watchOS/OneTimePassword-watchOS.debug.xcconfig"; sourceTree = "<group>"; };
+		FF9F6474370035FD448E7FB0F2DE819F /* type.pb.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = type.pb.swift; path = Sources/SwiftProtobuf/type.pb.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -216,7 +402,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7333F2E6B82682A1BD95BD476DE41209 /* Foundation.framework in Frameworks */,
+				6FA453B241F40E601EE538137B79D102 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1788E673D9157DA5A15F74DDFD5D2001 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F67BA71116B68D17675F93255B086E16 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -224,7 +418,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				56FB905803682D8F2DE6260CDF4123AC /* Foundation.framework in Frameworks */,
+				CE1E02F3EA35F0421E36CB845A196773 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -232,7 +426,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21E091B2CB0E1DA119484823A592BDF5 /* Foundation.framework in Frameworks */,
+				366DC2517FD96B5E8BE8258527B6C02D /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4D6CDE0C73BB29EDCB4F1F8FA47923E8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				301FDAF0AA65309B9939E8C1DBF653BE /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,7 +442,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CBD57991CAFEA0E115B93E504C6424BF /* Foundation.framework in Frameworks */,
+				348E340B73A92197555D27BFA8EF21CC /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,15 +451,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F098A504231B7B84BB2D35DE9A192B5F /* Base32.framework in Frameworks */,
-				A5A10972D5C5100DA3A766907AE8B760 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C1006D0EE21D4F5BB1F36C359BB91E72 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B3BB0D8D7448836638927C2F118A0B53 /* Foundation.framework in Frameworks */,
+				AA66ED93A8F2DADB32CCE274E447040C /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,7 +459,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				36AC8E4868BD5C97410702782309235B /* Foundation.framework in Frameworks */,
+				26C574CE285029D63AD6C8ED9780A19E /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,92 +468,224 @@
 			buildActionMask = 2147483647;
 			files = (
 				94DE24B6F6F2A4A69DF04176AFC232C3 /* Base32.framework in Frameworks */,
-				472BB3DD41111E4DD406567CF40BF789 /* Foundation.framework in Frameworks */,
+				291FD41254509B8E8A2128C2C53BA16B /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		26294D5BC2C3D47D8F12B5E206528425 /* RNCryptor */ = {
+		236081809E674A123E12398585152FD9 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				5F89D8B121D8FA84EF2481BF72E75570 /* RNCryptor.swift */,
-				75CBAA067FF4441152BE01D3DE5FEFCB /* Support Files */,
-			);
-			name = RNCryptor;
-			path = RNCryptor;
-			sourceTree = "<group>";
-		};
-		2B8D0AD686BE551A8A93D1FDDE465837 /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				43CE77C37E18ED85CAEAF0B7A5273844 /* Foundation.framework */,
-			);
-			name = iOS;
-			sourceTree = "<group>";
-		};
-		3795418E211D9044E00D4B41F437BBB8 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				1F7D967D9D5DB01C2BE06FF72488F558 /* Base32-iOS.modulemap */,
-				0F0D29B9FB198B941A2996733AF0746B /* Base32-iOS-dummy.m */,
-				5E60BE85D23C1D9A34DC05144D440308 /* Base32-iOS-Info.plist */,
-				6BBB8520647F74E7D7B04A40E810E005 /* Base32-iOS-prefix.pch */,
-				B171B669DCA702864054A2DE72B7C319 /* Base32-iOS-umbrella.h */,
-				4E4E37E34FE5B0769E2CCB182B2CFF4A /* Base32-iOS.debug.xcconfig */,
-				A017574457B7D78401E80C811A39C9A3 /* Base32-iOS.release.xcconfig */,
-				36FA8F0D162FCEDA24C9167FDBBC3E85 /* Base32-watchOS.modulemap */,
-				FB8730D3AABF1A8CBC847928169493B5 /* Base32-watchOS-dummy.m */,
-				C2C511D2F7702C3719DFCB016EF91A46 /* Base32-watchOS-Info.plist */,
-				15992832F7913121CFC6DF05C124484C /* Base32-watchOS-prefix.pch */,
-				BF34D0F9AF150AE1ED633E431F2206CA /* Base32-watchOS-umbrella.h */,
-				D37AA58C5B481E79CEF4C7336DB2A91F /* Base32-watchOS.debug.xcconfig */,
-				C3411F4C486221E7A972CA53FAA7EE01 /* Base32-watchOS.release.xcconfig */,
+				B2ED35335EC72A6BDF3DDA60C8FBABBE /* SwiftProtobuf.modulemap */,
+				22606498D7A6AAC701DCBB802ABCDAA2 /* SwiftProtobuf-dummy.m */,
+				CF7E55479A8EA7FA89902DC6A7E1AEB7 /* SwiftProtobuf-Info.plist */,
+				0F09CE2FDA3265255E96A70DE19FC926 /* SwiftProtobuf-prefix.pch */,
+				8F0BD0EA8E1270839F40FCFE983830F0 /* SwiftProtobuf-umbrella.h */,
+				A66F39BB61E250707256FEC5B1260344 /* SwiftProtobuf.debug.xcconfig */,
+				BCCD6461D11ACE1D8C9AA9237B4C6AB5 /* SwiftProtobuf.release.xcconfig */,
 			);
 			name = "Support Files";
-			path = "../Target Support Files/Base32-iOS";
+			path = "../Target Support Files/SwiftProtobuf";
 			sourceTree = "<group>";
 		};
-		667BB8B42A6E819B600685AEF2573E8F /* Base32 */ = {
+		32924F1199B25B9396ECAC0700670CAD /* Base32 */ = {
 			isa = PBXGroup;
 			children = (
-				632864D493A91BD77218C27AE77EEE91 /* MF_Base32Additions.h */,
-				A3183009AB76C01E32288B07E3AE1B53 /* MF_Base32Additions.m */,
-				3795418E211D9044E00D4B41F437BBB8 /* Support Files */,
+				B58E2A5AB7CF0911462E36B3610C2C71 /* MF_Base32Additions.h */,
+				677EC8C211E393C9585E97D5D8A94BFB /* MF_Base32Additions.m */,
+				97FE3EA1BF8B1FF39D21BF0C3BD37946 /* Support Files */,
 			);
 			name = Base32;
 			path = Base32;
 			sourceTree = "<group>";
 		};
-		75CBAA067FF4441152BE01D3DE5FEFCB /* Support Files */ = {
+		67DCD9082300D9E614BD455DA04D7801 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5744FC2A3BE293AA3D92553FFFB194C0 /* RNCryptor.modulemap */,
-				18B2D18A05FF579834928730F56652EF /* RNCryptor-dummy.m */,
-				1C370C210D2E4FA3825C09D182B0C573 /* RNCryptor-Info.plist */,
-				ED5139B2B7F51D97133A18421B964A0D /* RNCryptor-prefix.pch */,
-				44703832625E914A750DC1B559070DCE /* RNCryptor-umbrella.h */,
-				8EEAFA4856EAA367048845A0EBD1292A /* RNCryptor.debug.xcconfig */,
-				413FB0BB4BFDFEC410E79FD44584AD8A /* RNCryptor.release.xcconfig */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/RNCryptor";
-			sourceTree = "<group>";
-		};
-		7D7F1987F0AEF53D7576838E1B3EC03B /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				F46A2F3D51E182FCA52ACF692A940776 /* Base32.framework */,
 				9DB6D892BA9973B87DF400F65C5A64DF /* Base32.framework */,
+				F46A2F3D51E182FCA52ACF692A940776 /* Base32.framework */,
 				CF1F2666249781535C3BD2150D165698 /* OneTimePassword.framework */,
 				5D7A9C05A8683DDC01814A53E717C064 /* OneTimePassword.framework */,
 				50F81942B51A2D5CCB4F7536BBAE3D9E /* Pods_Authenticator.framework */,
 				1F7BB774AF51E5D1EDC27DC8713B5CDA /* Pods_SOTPWatch.framework */,
 				9E910C902B8FC1B4609079A68AA9340B /* Pods_SOTPWatch_Extension.framework */,
 				F6320389F628433B78C81FB217A0485D /* RNCryptor.framework */,
+				943D347E61A2E181A4FA2CA894307B6E /* SwiftProtobuf.framework */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		6D04EB994DB3840B9E8848E570A8010E /* watchOS */ = {
+			isa = PBXGroup;
+			children = (
+				456E8DF009DACB8198EF5DA9D0E03E5A /* Foundation.framework */,
+			);
+			name = watchOS;
+			sourceTree = "<group>";
+		};
+		6DBAB5C1980D8E42DBC1A98BF8E0FEE2 /* SwiftProtobuf */ = {
+			isa = PBXGroup;
+			children = (
+				92F9014BC1C0255C443C84E7B233F43B /* any.pb.swift */,
+				971C02F0FB9A95267D872166258FE1D8 /* AnyMessageStorage.swift */,
+				9CED456E3CD446099B9C76EADAD2C2AB /* AnyUnpackError.swift */,
+				4442402C1A89D5BED912A0BC1AC80F1F /* api.pb.swift */,
+				535CCE0AEFDC31159A63D55C20D42B79 /* BinaryDecoder.swift */,
+				5646850446C2848755891B3C989DE802 /* BinaryDecodingError.swift */,
+				2295DF99701CD58B316A8C9800AA39D0 /* BinaryDecodingOptions.swift */,
+				195EC0DE0F217DBB576A252C24585C8B /* BinaryDelimited.swift */,
+				B0852AECA150FECE324EFC5A4AFBC2A2 /* BinaryEncoder.swift */,
+				9C47B09ABE9BE7BE3B4EF0D309314930 /* BinaryEncodingError.swift */,
+				681BE280ECEC86F0F8AEE6C380C11101 /* BinaryEncodingSizeVisitor.swift */,
+				F5C36DCE01BA55D7B5FFBC2558F5A7D9 /* BinaryEncodingVisitor.swift */,
+				770A8BF1EE0E93F01C5F6E6142C3F395 /* CustomJSONCodable.swift */,
+				D2C0D91EAD68D2CD6733604227094B9B /* Data+Extensions.swift */,
+				1ACBBE4299CE7EF2EDBDDDD49F4759E7 /* Decoder.swift */,
+				F058337B28DA4155B06C9636C51F1157 /* descriptor.pb.swift */,
+				47238BEDC00F0D96529BAC29EEA7618F /* DoubleParser.swift */,
+				0E60FA4A3B48E0E99560B15EBF443ECD /* duration.pb.swift */,
+				70E6CAFB3DBAC934D748D1291DFBF3C4 /* empty.pb.swift */,
+				B5D14EB1710C193393D12DA63E3D3C64 /* Enum.swift */,
+				58CBDEBB1E6EC26B8EF093AA940274AB /* ExtensibleMessage.swift */,
+				5E911FC3E9CA1EB8E308F51A90FBD9EF /* ExtensionFields.swift */,
+				A2BA7A11F133BAB1C254445FA1C9EA29 /* ExtensionFieldValueSet.swift */,
+				D63167F22E347037257A1908DE884851 /* ExtensionMap.swift */,
+				346409C530AC3D278F0E1B29B68723E8 /* field_mask.pb.swift */,
+				A33BC38DE9A3F51C61ED6620FAE94F5A /* FieldTag.swift */,
+				DC72511357DEA484983139956628104B /* FieldTypes.swift */,
+				99F018CEC7414ACCDBE9B2D5B818B0EE /* Google_Protobuf_Any+Extensions.swift */,
+				D70CFCB8A054D79B2236F6E20A034838 /* Google_Protobuf_Any+Registry.swift */,
+				42BC852DAF7E1BE3B3FA874C47DF97C7 /* Google_Protobuf_Duration+Extensions.swift */,
+				F54D49F4ABFDE4F121DD4872B9E86EDC /* Google_Protobuf_FieldMask+Extensions.swift */,
+				5A287CAF63BF193C9AE087CB2B289D96 /* Google_Protobuf_ListValue+Extensions.swift */,
+				D139D710784039B9C59A023B8BBEA2A2 /* Google_Protobuf_NullValue+Extensions.swift */,
+				79FC1CA6F79D38A6623055DAB8A28273 /* Google_Protobuf_Struct+Extensions.swift */,
+				2B7F5568A54F93DF1BB91B8B8872E9FC /* Google_Protobuf_Timestamp+Extensions.swift */,
+				E40AD097B6BC0365DD33310B5EAB7082 /* Google_Protobuf_Value+Extensions.swift */,
+				2CACC91FE3E95A09458745E58DC25715 /* Google_Protobuf_Wrappers+Extensions.swift */,
+				3C21D00CB81DAC43A9C5023682E0CB12 /* HashVisitor.swift */,
+				150747ABD6FD7A78972D57CB30129809 /* Internal.swift */,
+				8BEF9A8233D08EF33E7F8116CF206B6D /* JSONDecoder.swift */,
+				6FD1CAB0D38FE29232631B88D7B5A3BB /* JSONDecodingError.swift */,
+				2CB92C44F9460EB97E25A76A9061DEBC /* JSONDecodingOptions.swift */,
+				7D772AC621570AB17980990160462C8A /* JSONEncoder.swift */,
+				24D75586BBBCABD955524C34ECCD2B86 /* JSONEncodingError.swift */,
+				6B178453EDEF91B6EE9F22B61133A800 /* JSONEncodingOptions.swift */,
+				1C34399068EFA4616DFB78E669ECA113 /* JSONEncodingVisitor.swift */,
+				CF948EB4BC920FABDB281A5E7917A5B8 /* JSONMapEncodingVisitor.swift */,
+				AC25FE53F60B1A003838594958EA46BE /* JSONScanner.swift */,
+				756F5B494DA67036914E12CA84C088C4 /* MathUtils.swift */,
+				F60F489D8ED4DAB913FC58BD3B2DBF9E /* Message.swift */,
+				1103A84D51E9B54AD867DAAA3A5061DF /* Message+AnyAdditions.swift */,
+				C03BE4B6462597148EEDF44FE0BE77B0 /* Message+BinaryAdditions.swift */,
+				D8A0502D1858C57695BDAC7000D1E5DC /* Message+JSONAdditions.swift */,
+				3A915CE1B095EE3F9416FCF809B85E13 /* Message+JSONArrayAdditions.swift */,
+				20CAB2098B7F6A0346173EC1529C8198 /* Message+TextFormatAdditions.swift */,
+				ACF826AE4DA555C9614AAC2951854458 /* MessageExtension.swift */,
+				809684727CEE9484C158A4CB2F4CAAF2 /* NameMap.swift */,
+				29AE3C48D9038B22DC666FC7AA08A5E8 /* ProtobufAPIVersionCheck.swift */,
+				EE9DC46D1075B8DE7C147FF485FFB837 /* ProtobufMap.swift */,
+				B28F305CD8B949FFC43C9D10C4827971 /* ProtoNameProviding.swift */,
+				2CA0DE2CA909874F5F15CB5B62DBF53C /* SelectiveVisitor.swift */,
+				1005F84449E9B8EE69B97C6C9B407FDF /* SimpleExtensionMap.swift */,
+				1F906E8C4F7D274F43F47D7170994760 /* source_context.pb.swift */,
+				6BA951D92785D07984628B05314BF201 /* StringUtils.swift */,
+				4811AE68258881BD9B68408636ADA593 /* struct.pb.swift */,
+				6C12A84B8291CFE104B61C5857825CE4 /* TextFormatDecoder.swift */,
+				FC23F397E6A88D649FF8838FE7377766 /* TextFormatDecodingError.swift */,
+				E61A28E09E81ED45002590BF485CFA68 /* TextFormatDecodingOptions.swift */,
+				1E107DA391A7702AD9EB77057751CDDE /* TextFormatEncoder.swift */,
+				D62D1CF997467B4115205061BE38DA1E /* TextFormatEncodingOptions.swift */,
+				7695ED9599E8FDE736C3F2C91627273D /* TextFormatEncodingVisitor.swift */,
+				67F4D28D3F838CF78CB7056B1E69B8B5 /* TextFormatScanner.swift */,
+				3EBD34CC3114E6C56FAE22475C007C56 /* timestamp.pb.swift */,
+				25C11F2D0D08616BA345AC518FEA004A /* TimeUtils.swift */,
+				FF9F6474370035FD448E7FB0F2DE819F /* type.pb.swift */,
+				CC02E2CB16DE59741DC68D46194A3286 /* UnknownStorage.swift */,
+				B195D3839334F8184A966D77773ADD06 /* UnsafeBufferPointer+Shims.swift */,
+				0D96436EFC6CDB177633C65230169276 /* UnsafeRawPointer+Shims.swift */,
+				D24ADEB66F2401B6E04EDA33A0B1B930 /* Varint.swift */,
+				6F42382B9F3ED778FA579EBEBADFAC4E /* Version.swift */,
+				375ACC3018BB7828A360DB6C36DBD7DC /* Visitor.swift */,
+				AB6E48F27C9F9F518EB932AEAABD5861 /* WireFormat.swift */,
+				F6FDE61528978099422E2AA590110939 /* wrappers.pb.swift */,
+				A191986ADE8E9F9EAD56D9FB14A5DB65 /* ZigZag.swift */,
+				236081809E674A123E12398585152FD9 /* Support Files */,
+			);
+			name = SwiftProtobuf;
+			path = SwiftProtobuf;
+			sourceTree = "<group>";
+		};
+		76B78DD0BECB49100B084A96E4CD7439 /* OneTimePassword */ = {
+			isa = PBXGroup;
+			children = (
+				252A0BA3E78AA8F1CBF77C20C4F05B05 /* Crypto.swift */,
+				7D0347E3F69D896EBBC1E3CB15BDBC5D /* Generator.swift */,
+				4C0F73E51B51732FE1CD3F34584789CC /* Keychain.swift */,
+				FCB69D5B95EA251C2F4C2CDAD00A8776 /* PersistentToken.swift */,
+				65C2E7F79186B488D7886C04C2A0AF26 /* Token.swift */,
+				FBD9A012E078B567431E17915736344A /* Token+URL.swift */,
+				88210F42590D2415CE99595AA61E76E2 /* Support Files */,
+			);
+			name = OneTimePassword;
+			path = OneTimePassword;
+			sourceTree = "<group>";
+		};
+		88210F42590D2415CE99595AA61E76E2 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				B9C7185296F4DCFE8A20115B39C6518E /* OneTimePassword-iOS.modulemap */,
+				E256E78A1D029E2E335F5FB9DF3DD53E /* OneTimePassword-iOS-dummy.m */,
+				404332EFCBF0A040F105526E9CC235F1 /* OneTimePassword-iOS-Info.plist */,
+				F25399F4D04AA11AB4E82B4E5209571F /* OneTimePassword-iOS-prefix.pch */,
+				E91763DA4E339A807CE299B2B722C1D1 /* OneTimePassword-iOS-umbrella.h */,
+				2D14B2F8AA1785AD444C36FA481F2233 /* OneTimePassword-iOS.debug.xcconfig */,
+				3C0D429FAC2BE4F2A43308565DEB4B47 /* OneTimePassword-iOS.release.xcconfig */,
+				7CFEE5B3F9E009E5BD92394A07FBA0BA /* OneTimePassword-watchOS.modulemap */,
+				C5925CAA8CB5F1472A398B71F028AEC6 /* OneTimePassword-watchOS-dummy.m */,
+				01D4B2DC0D78E18017E602164C5EC700 /* OneTimePassword-watchOS-Info.plist */,
+				62224CD4B547D52CD4FD6C2CA3DB3744 /* OneTimePassword-watchOS-prefix.pch */,
+				2564EC2ADE36BC6608F71D2A7830B021 /* OneTimePassword-watchOS-umbrella.h */,
+				FF8151AB12AB60D5CFC4277C93752D13 /* OneTimePassword-watchOS.debug.xcconfig */,
+				0E3761D111F960880A393BB83BF80AF2 /* OneTimePassword-watchOS.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/OneTimePassword-iOS";
+			sourceTree = "<group>";
+		};
+		97FE3EA1BF8B1FF39D21BF0C3BD37946 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				BF2CB8ABD85F735F423EEE126981DE72 /* Base32-iOS.modulemap */,
+				A6554318D04320DF07E9DE03E3B84232 /* Base32-iOS-dummy.m */,
+				19074B4E9C6F8F47A1F4C441F90D1DE8 /* Base32-iOS-Info.plist */,
+				63D72FBC138A9DC34CCBB0ED86A8BDC6 /* Base32-iOS-prefix.pch */,
+				28DC55389E29C761A99CFFC222D458CD /* Base32-iOS-umbrella.h */,
+				A0616F117C086330044D1711D4149B4B /* Base32-iOS.debug.xcconfig */,
+				72FBC52FEBAFCE61DFFCC3CDE2746D7E /* Base32-iOS.release.xcconfig */,
+				DE890430AD5F2AFC352CDAE186BADAFC /* Base32-watchOS.modulemap */,
+				934D7643827736BB4C0F070EF0C9BF4B /* Base32-watchOS-dummy.m */,
+				617E624BA07498E907ADD66DFE79005C /* Base32-watchOS-Info.plist */,
+				0802CA15BC9F2BA8310FA046F2A0AC7A /* Base32-watchOS-prefix.pch */,
+				65D92F6FC83C7C5B08D4D1C3073BC60E /* Base32-watchOS-umbrella.h */,
+				8A426120BC88D97C3287EF200F7166CA /* Base32-watchOS.debug.xcconfig */,
+				73B4EDDD7DA4342D4BDABA94CEBFA8A2 /* Base32-watchOS.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Base32-iOS";
+			sourceTree = "<group>";
+		};
+		9B14E3AE77B0ABC242F70AE51420570B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				32924F1199B25B9396ECAC0700670CAD /* Base32 */,
+				76B78DD0BECB49100B084A96E4CD7439 /* OneTimePassword */,
+				C2248EBF8FC28B4C9079E216FFC8EA38 /* RNCryptor */,
+				6DBAB5C1980D8E42DBC1A98BF8E0FEE2 /* SwiftProtobuf */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		A92E4F2840F0BD7FD0CE198C891DD36C /* Pods-SOTPWatch */ = {
@@ -389,22 +715,37 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		B74C378C655FD083E4121288898542C1 /* watchOS */ = {
+		B2C3283D19D5906FFC8CF530513CB8B9 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				A5A651C56960D35D1B273C8E9770949A /* Foundation.framework */,
+				E9EFBBD6783320827E670A277E90EB09 /* RNCryptor.modulemap */,
+				1D2E61CD53CF9728EFD2F0881B1BBA78 /* RNCryptor-dummy.m */,
+				7699BDF99BD4DC4FC365360DF53CC8CE /* RNCryptor-Info.plist */,
+				3D0DAFD9939E91AD9FF0653038DCC29E /* RNCryptor-prefix.pch */,
+				9192FA8C24790D0D9D106EC9CF59A694 /* RNCryptor-umbrella.h */,
+				FE9AC8CA8E338A9A9503599E4E061B74 /* RNCryptor.debug.xcconfig */,
+				C42B9FEE1FDEED829B35E64BD61721F3 /* RNCryptor.release.xcconfig */,
 			);
-			name = watchOS;
+			name = "Support Files";
+			path = "../Target Support Files/RNCryptor";
 			sourceTree = "<group>";
 		};
-		C1C47ADB4DC6EA3284BEEA0FD46B9B02 /* Pods */ = {
+		B4CF174F6F12B602DBC8E6175F12B6DC /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				667BB8B42A6E819B600685AEF2573E8F /* Base32 */,
-				D5087ECE2A2D0525FAC8615236F49CE7 /* OneTimePassword */,
-				26294D5BC2C3D47D8F12B5E206528425 /* RNCryptor */,
+				3705D526B95C3BCCBD9498B434687F0B /* Foundation.framework */,
 			);
-			name = Pods;
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		C2248EBF8FC28B4C9079E216FFC8EA38 /* RNCryptor */ = {
+			isa = PBXGroup;
+			children = (
+				D075CF75A2B4B0CB2B6ED30D8C0F7C3C /* RNCryptor.swift */,
+				B2C3283D19D5906FFC8CF530513CB8B9 /* Support Files */,
+			);
+			name = RNCryptor;
+			path = RNCryptor;
 			sourceTree = "<group>";
 		};
 		CF1408CF629C7361332E53B88F7BD30C = {
@@ -412,55 +753,18 @@
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
 				DBE7F3F2E3C54DD0271A7ABBB5199465 /* Frameworks */,
-				C1C47ADB4DC6EA3284BEEA0FD46B9B02 /* Pods */,
-				7D7F1987F0AEF53D7576838E1B3EC03B /* Products */,
+				9B14E3AE77B0ABC242F70AE51420570B /* Pods */,
+				67DCD9082300D9E614BD455DA04D7801 /* Products */,
 				A997CF8BE3FDA1DC788E269C5D6D7173 /* Targets Support Files */,
 			);
-			sourceTree = "<group>";
-		};
-		D5087ECE2A2D0525FAC8615236F49CE7 /* OneTimePassword */ = {
-			isa = PBXGroup;
-			children = (
-				3CB75CD3252D4F1740D5EFC50096727F /* Crypto.swift */,
-				074A0E16958A5DF1BFEEC319337F7F57 /* Generator.swift */,
-				16A4010630A7BB8AC9A3CACD717DD9D5 /* Keychain.swift */,
-				48401D1771A663C7FDB3803394B16F7C /* PersistentToken.swift */,
-				B4E11153953D27934EFB7E550F32661F /* Token.swift */,
-				A75470FF885A3B5F002127D6D2B83773 /* Token+URL.swift */,
-				DB98CD9062C4E80A100450C664DC7BDB /* Support Files */,
-			);
-			name = OneTimePassword;
-			path = OneTimePassword;
-			sourceTree = "<group>";
-		};
-		DB98CD9062C4E80A100450C664DC7BDB /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				66192404C2922E214DF62AA63BE8B421 /* OneTimePassword-iOS.modulemap */,
-				BDC071CC3FBC9C8652142CF95F0B266A /* OneTimePassword-iOS-dummy.m */,
-				A288680ABBF7A34DE7DF7A0051FD3EBB /* OneTimePassword-iOS-Info.plist */,
-				4DBBD567C80311E4D96F46BC03E91795 /* OneTimePassword-iOS-prefix.pch */,
-				D90F787AB69A39C677F2DAB41AA45B4C /* OneTimePassword-iOS-umbrella.h */,
-				8757FBAB20FE10EC6646DBD0F5B79483 /* OneTimePassword-iOS.debug.xcconfig */,
-				ED71E79B14BC03BDB6096698858608F1 /* OneTimePassword-iOS.release.xcconfig */,
-				07C9E739768A9751187ACA1414315785 /* OneTimePassword-watchOS.modulemap */,
-				B365B704CB12A23EB630B871655AA35A /* OneTimePassword-watchOS-dummy.m */,
-				8ADE5EADA2A7B9EB32B8AA0B7FCDEDDA /* OneTimePassword-watchOS-Info.plist */,
-				18B588B37303CA4256DA5245BE78EACE /* OneTimePassword-watchOS-prefix.pch */,
-				D7E346DF769E7C01236DBCFDB09F7C94 /* OneTimePassword-watchOS-umbrella.h */,
-				9D75BFA513DF670AB35B367D2D62FDFD /* OneTimePassword-watchOS.debug.xcconfig */,
-				8483B0CFD34944888AD262156FF2A9A2 /* OneTimePassword-watchOS.release.xcconfig */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/OneTimePassword-iOS";
 			sourceTree = "<group>";
 		};
 		DBE7F3F2E3C54DD0271A7ABBB5199465 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				5272460D420E1E9E4BCF04D18583A4E9 /* Base32.framework */,
-				2B8D0AD686BE551A8A93D1FDDE465837 /* iOS */,
-				B74C378C655FD083E4121288898542C1 /* watchOS */,
+				B4CF174F6F12B602DBC8E6175F12B6DC /* iOS */,
+				6D04EB994DB3840B9E8848E570A8010E /* watchOS */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -502,14 +806,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		0DC0EF13A8CB28D46202B2F47B2584D0 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				98CBA3685FB21E625188F1F8E9A2AB94 /* Pods-Authenticator-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		10B16F8948F5F1ED8DC3156D767E290E /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -560,11 +856,27 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8C38160C2EF0A5875E5DC9C1741F1AC1 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				12CC79CFD4F3FA56D3CFD541C02EA617 /* Pods-Authenticator-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C7CA9184ABA7BC59B01BEA6FCBF87A0C /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				465A3E114B4CCEDA31E78E5F3F8797C0 /* Pods-SOTPWatch-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E222B5A06DD3E6512552C88347A2CB2C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				94F10F83AE563575832D38CBF62FFD3B /* SwiftProtobuf-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -601,9 +913,9 @@
 			buildRules = (
 			);
 			dependencies = (
-				573CB8A6799D8869582006F857951940 /* PBXTargetDependency */,
-				E5922FF4E904B72887FCE57250808566 /* PBXTargetDependency */,
-				26C3ED3E7A1B64A86CC3EC78111A6B83 /* PBXTargetDependency */,
+				BD591EC90AFA2EC777CE0299CFFFB105 /* PBXTargetDependency */,
+				8E8891C37E3FF7AF9E043A34F08197F0 /* PBXTargetDependency */,
+				2D070E30E877B7B1D9D219416F639E12 /* PBXTargetDependency */,
 			);
 			name = "Pods-SOTPWatch Extension";
 			productName = "Pods-SOTPWatch Extension";
@@ -622,7 +934,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				B3AF4D2EA220A87FF10ACD56A888A9C3 /* PBXTargetDependency */,
+				487204A9110EDD8CFBA135C7FFF308A8 /* PBXTargetDependency */,
 			);
 			name = "OneTimePassword-iOS";
 			productName = "OneTimePassword-iOS";
@@ -641,11 +953,29 @@
 			buildRules = (
 			);
 			dependencies = (
-				A2AF1F4CA1FEE25F35091039E0B321EC /* PBXTargetDependency */,
+				FED03A3EE2CA46A7C30535FF3B978F18 /* PBXTargetDependency */,
 			);
 			name = "OneTimePassword-watchOS";
 			productName = "OneTimePassword-watchOS";
 			productReference = 5D7A9C05A8683DDC01814A53E717C064 /* OneTimePassword.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		A5F702E0DA383BC1479572581615A916 /* SwiftProtobuf */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1E5A35574AF09A8C04DAD9F9BAF97CAD /* Build configuration list for PBXNativeTarget "SwiftProtobuf" */;
+			buildPhases = (
+				E222B5A06DD3E6512552C88347A2CB2C /* Headers */,
+				ADD6ACBB61B44C7509D241C5A577EEF2 /* Sources */,
+				4D6CDE0C73BB29EDCB4F1F8FA47923E8 /* Frameworks */,
+				C2565FA3B9A7BFC9A44A80184CEB77A5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SwiftProtobuf;
+			productName = SwiftProtobuf;
+			productReference = 943D347E61A2E181A4FA2CA894307B6E /* SwiftProtobuf.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		B324EAACF56EAB2963A6F825B45D350F /* Base32-iOS */ = {
@@ -678,8 +1008,8 @@
 			buildRules = (
 			);
 			dependencies = (
-				EEE0F827E4C9649FCDDDE085EB010AA0 /* PBXTargetDependency */,
-				BE74F36C6EC4EAD8FA064F35358B608E /* PBXTargetDependency */,
+				72E2BEC77F8C64F24FA69FF62D040CF0 /* PBXTargetDependency */,
+				7F562BBD3837A20FADFD2F7708702480 /* PBXTargetDependency */,
 			);
 			name = "Pods-SOTPWatch";
 			productName = "Pods-SOTPWatch";
@@ -688,19 +1018,20 @@
 		};
 		F26C0BD6713BF4D4E51E026FC8E0B09B /* Pods-Authenticator */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E2BC033D0AA5D819A8EDE6E95B50181C /* Build configuration list for PBXNativeTarget "Pods-Authenticator" */;
+			buildConfigurationList = 927D26E3E41E6C60D21FB3AF1EB456E0 /* Build configuration list for PBXNativeTarget "Pods-Authenticator" */;
 			buildPhases = (
-				0DC0EF13A8CB28D46202B2F47B2584D0 /* Headers */,
-				033E99818884E35055B9B6D671FA618B /* Sources */,
-				C1006D0EE21D4F5BB1F36C359BB91E72 /* Frameworks */,
-				7064F759BF1D58485F5BBA7E83CBA403 /* Resources */,
+				8C38160C2EF0A5875E5DC9C1741F1AC1 /* Headers */,
+				CCCA57C4972810F94CE93823F7E4457F /* Sources */,
+				1788E673D9157DA5A15F74DDFD5D2001 /* Frameworks */,
+				A028A84266323841F13BE6F314EDA7F6 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				5B3313B2052AADCEDFB58460D8A45AFB /* PBXTargetDependency */,
-				732B7BCE1E4EF6EA67EB206D9F73FF25 /* PBXTargetDependency */,
-				D37092F439E41F0E950A93EC65D7250A /* PBXTargetDependency */,
+				EE0B875043B2FCC0E125F3E0621D6EC7 /* PBXTargetDependency */,
+				B4A339BF9BFC9143308A6D2573DE3EDF /* PBXTargetDependency */,
+				0A5BD396F6B41AE7D0999A22CFBF9952 /* PBXTargetDependency */,
+				203E2CE33D83F1E582508377DC48ECDC /* PBXTargetDependency */,
 			);
 			name = "Pods-Authenticator";
 			productName = "Pods-Authenticator";
@@ -731,8 +1062,8 @@
 		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1100;
-				LastUpgradeCheck = 1100;
+				LastSwiftUpdateCheck = 1240;
+				LastUpgradeCheck = 1240;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 10.0";
@@ -743,7 +1074,7 @@
 				Base,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
-			productRefGroup = 7D7F1987F0AEF53D7576838E1B3EC03B /* Products */;
+			productRefGroup = 67DCD9082300D9E614BD455DA04D7801 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -755,19 +1086,13 @@
 				DC1DD9135194B83E5BDDF0E5005DCBD9 /* Pods-SOTPWatch */,
 				2571852D81B756BAC962369CB58FEB98 /* Pods-SOTPWatch Extension */,
 				05CCA2AD142519DF6FED0979BACBC149 /* RNCryptor */,
+				A5F702E0DA383BC1479572581615A916 /* SwiftProtobuf */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		1DC65ABB19D43616AFEB7FCF4ED5AC52 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		7064F759BF1D58485F5BBA7E83CBA403 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -781,7 +1106,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A028A84266323841F13BE6F314EDA7F6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A91D9151AD761A32995C8E55FBB485EB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C2565FA3B9A7BFC9A44A80184CEB77A5 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -819,14 +1158,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		033E99818884E35055B9B6D671FA618B /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				EB932A8667EAA877EAA00E1A16C366C8 /* Pods-Authenticator-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		2A7A2B13D812393E5721594F3D529E39 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -844,8 +1175,8 @@
 				782E63617AE1DACE76433E18619F99A0 /* Keychain.swift in Sources */,
 				71E29D3FDA0EA9E4D72CC379902060FC /* OneTimePassword-iOS-dummy.m in Sources */,
 				239AC28680B5ED1110AB7581BF0E1A3D /* PersistentToken.swift in Sources */,
-				6222B27EE225EA7F44190ED08FFC52A2 /* Token+URL.swift in Sources */,
 				243CC3065ED0F95D27E4FFBE668E58BC /* Token.swift in Sources */,
+				6222B27EE225EA7F44190ED08FFC52A2 /* Token+URL.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -867,8 +1198,108 @@
 				07670E889FC39F3A8F86456326F610F2 /* Keychain.swift in Sources */,
 				F1F909ED553974905C74A7F7DEBFDB96 /* OneTimePassword-watchOS-dummy.m in Sources */,
 				39EB93D037BA1E093974BC541AEC2940 /* PersistentToken.swift in Sources */,
-				7460AE659EED4B482F64E2C409C348EC /* Token+URL.swift in Sources */,
 				259B5AAE204E8B9BA31AD635FEC8F92A /* Token.swift in Sources */,
+				7460AE659EED4B482F64E2C409C348EC /* Token+URL.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ADD6ACBB61B44C7509D241C5A577EEF2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7E7CCCF2BCC4195E84C84A058B0E075A /* any.pb.swift in Sources */,
+				C5F24FD19CCE6408CF75E28A90E05756 /* AnyMessageStorage.swift in Sources */,
+				A561B9D0156C65C2DAEBCE71DA2C53DF /* AnyUnpackError.swift in Sources */,
+				7F7E1D8A5291B3D6474415C06801D57B /* api.pb.swift in Sources */,
+				FA22EE7CEF450AEB7765378565211A54 /* BinaryDecoder.swift in Sources */,
+				33B5DB7D5A1E37A29969C66B3FE4A98C /* BinaryDecodingError.swift in Sources */,
+				F1F832231AE3985E324463E9ECD55838 /* BinaryDecodingOptions.swift in Sources */,
+				6C57C1D467061A6BAB31511EF0F979AD /* BinaryDelimited.swift in Sources */,
+				2B5E5DC81ED73B5FC422B2339D59F220 /* BinaryEncoder.swift in Sources */,
+				809E9B520AFD0771BB71038413BF5F5F /* BinaryEncodingError.swift in Sources */,
+				8BE806DD7A18B96C3FE52345CBDDEA88 /* BinaryEncodingSizeVisitor.swift in Sources */,
+				4B7AF15082427E0E07DA5BC495F4F309 /* BinaryEncodingVisitor.swift in Sources */,
+				1C9A2ACFCBB948407CF608663AAB2006 /* CustomJSONCodable.swift in Sources */,
+				64BF9040E5C7FB8667FAA2DA426FA14A /* Data+Extensions.swift in Sources */,
+				A0978535A85D0ABD7853A0F3D3A374F8 /* Decoder.swift in Sources */,
+				A5760654DC6480FD5349822F7A5A564E /* descriptor.pb.swift in Sources */,
+				AA5BAFEE16421EF90FD54A4CA32D5A5E /* DoubleParser.swift in Sources */,
+				04A09360324C4E3D58A91E0316DBFCD9 /* duration.pb.swift in Sources */,
+				27A16A1A47A8BAFA7E594BE6C9EB1E88 /* empty.pb.swift in Sources */,
+				8B7178B35E6AC89720BB13C477829AEE /* Enum.swift in Sources */,
+				CEE69724BC617259BD6CCD76E1264C45 /* ExtensibleMessage.swift in Sources */,
+				38B8B519A9423BC18E06FF93F353A587 /* ExtensionFields.swift in Sources */,
+				97E1041159122A0CD31833DBDD7A4D39 /* ExtensionFieldValueSet.swift in Sources */,
+				5DC53D35039C2A64A86D102A02EB317D /* ExtensionMap.swift in Sources */,
+				11DEEB57C07627A3403CD9BEE3BB2067 /* field_mask.pb.swift in Sources */,
+				259BA8DDDCBF4751A69420DE52CD5C41 /* FieldTag.swift in Sources */,
+				5FD1905A93213C67218EC852C14FEFC8 /* FieldTypes.swift in Sources */,
+				69CAFF8A7FCDA7A383DB93091ABFB6BD /* Google_Protobuf_Any+Extensions.swift in Sources */,
+				7E450FDF55944CC90FDA515024C2A810 /* Google_Protobuf_Any+Registry.swift in Sources */,
+				CB190229F12055E6703484E6ADD44957 /* Google_Protobuf_Duration+Extensions.swift in Sources */,
+				0D9D0F76CDE875251CDF8F8CDE304C55 /* Google_Protobuf_FieldMask+Extensions.swift in Sources */,
+				A353CE6E7868A7C27530CB392F6EE164 /* Google_Protobuf_ListValue+Extensions.swift in Sources */,
+				CBCB7172A6D172C0C1A6B79A357B343F /* Google_Protobuf_NullValue+Extensions.swift in Sources */,
+				BDA9F6811D1580ACCB23889ADE665675 /* Google_Protobuf_Struct+Extensions.swift in Sources */,
+				D161D620532C3D5053A614F2FDBF9DB2 /* Google_Protobuf_Timestamp+Extensions.swift in Sources */,
+				6410A9206AD6E96B1392292ED61E4100 /* Google_Protobuf_Value+Extensions.swift in Sources */,
+				5B5F7F32B29BA04AD99B9231ABE2D5E4 /* Google_Protobuf_Wrappers+Extensions.swift in Sources */,
+				485ED5DC9CEF727F94A9B93087D2B7F4 /* HashVisitor.swift in Sources */,
+				0F196866334DA010A59361AB5BC8F620 /* Internal.swift in Sources */,
+				AA60D16E23144B1EE6F2EEC04467BEF4 /* JSONDecoder.swift in Sources */,
+				311172653501A9A63A4891AECD616DD0 /* JSONDecodingError.swift in Sources */,
+				ECD2D5288E99B87DD90803BC67352068 /* JSONDecodingOptions.swift in Sources */,
+				F3B99A9638D12BD62ED2FC1FAAB947D4 /* JSONEncoder.swift in Sources */,
+				74AC36056519E1696D8373590E570D46 /* JSONEncodingError.swift in Sources */,
+				F227A646427FC31045D5500E4662D0CF /* JSONEncodingOptions.swift in Sources */,
+				81DA4F5F84660F59C7DCB937D121FE97 /* JSONEncodingVisitor.swift in Sources */,
+				7724CA45CAC37563208007730FB2D4B4 /* JSONMapEncodingVisitor.swift in Sources */,
+				289E1BB0A2A305B35238C9CF40A333DC /* JSONScanner.swift in Sources */,
+				C4D774FAA9A8B38404FDFA15230ADE1D /* MathUtils.swift in Sources */,
+				E9D10B6577A2016878CC6373C6C86CE0 /* Message.swift in Sources */,
+				BB658F54DF19D4A60E12BF13E4BEF3DB /* Message+AnyAdditions.swift in Sources */,
+				25422B5CCDE38C38B7850160D59070DE /* Message+BinaryAdditions.swift in Sources */,
+				5124D90F3E8C2264F5F904B880E252BE /* Message+JSONAdditions.swift in Sources */,
+				8841ECAF31A2E82762A83961C04FD2F0 /* Message+JSONArrayAdditions.swift in Sources */,
+				0E69C16A6F0FD741C5A3E47DE288D210 /* Message+TextFormatAdditions.swift in Sources */,
+				1B8EA5FC8AF8CD71363B4DF2A788DEEE /* MessageExtension.swift in Sources */,
+				D0B4605FEE4D68E47DD8F1115FC2D4F9 /* NameMap.swift in Sources */,
+				AF50952CEE567CC2BF2503314F89F8A8 /* ProtobufAPIVersionCheck.swift in Sources */,
+				066CD5B812B62BA16175A36CE621A167 /* ProtobufMap.swift in Sources */,
+				F1E0BB5DBA5393D8BAA4B0FBB03A9B87 /* ProtoNameProviding.swift in Sources */,
+				F4F8C02E43A0AE296FB83507B582BCEA /* SelectiveVisitor.swift in Sources */,
+				A306782DC125A83C5AF8D47C5BEE91AC /* SimpleExtensionMap.swift in Sources */,
+				7D7E59D7667AFA1D2368A289F2E3A74A /* source_context.pb.swift in Sources */,
+				067610D8E708BCE1B6C30E74313332E0 /* StringUtils.swift in Sources */,
+				DECB08BC5236EDA9B6B8BC9A6AB66D2A /* struct.pb.swift in Sources */,
+				FADC9DC2ED64824C3201923CA9A873BC /* SwiftProtobuf-dummy.m in Sources */,
+				DE368DD73909B1A11AEEC0A985F4C540 /* TextFormatDecoder.swift in Sources */,
+				9700BC277A370438D5A39EE8455F8114 /* TextFormatDecodingError.swift in Sources */,
+				27517E97FA894A4ECA5AE2AE5BD8830B /* TextFormatDecodingOptions.swift in Sources */,
+				3EAD27947630860DF24FE1F57E717964 /* TextFormatEncoder.swift in Sources */,
+				3D9D54BFB87F305B262115312973A761 /* TextFormatEncodingOptions.swift in Sources */,
+				D160E8E1FB946251AC041DA5F6A4A143 /* TextFormatEncodingVisitor.swift in Sources */,
+				68730349221D00296B9692F0A495186C /* TextFormatScanner.swift in Sources */,
+				B1AE14625C1AA370FA24336948BBBE40 /* timestamp.pb.swift in Sources */,
+				92C7080E4889E845FFA5C4F0048FC70D /* TimeUtils.swift in Sources */,
+				A9279E81A7C7E0A19A28B71840B8A6B3 /* type.pb.swift in Sources */,
+				B8C4123A152381BD2F8FF7C04B10A9DA /* UnknownStorage.swift in Sources */,
+				6C39258AAA8906B9BAEE1BAF64492844 /* UnsafeBufferPointer+Shims.swift in Sources */,
+				22153764D197F250775890A6B1E47351 /* UnsafeRawPointer+Shims.swift in Sources */,
+				CC06E899B113296F76CCC62687CCFDE1 /* Varint.swift in Sources */,
+				D2575BB9D350056D5DF177425F26A288 /* Version.swift in Sources */,
+				3D6170DFAF288775DC288291FC04EA84 /* Visitor.swift in Sources */,
+				7203B31C393204BF7C08AF811CBEA363 /* WireFormat.swift in Sources */,
+				A096A65BFDA5E88AE6E7667F64F3DB37 /* wrappers.pb.swift in Sources */,
+				C3015CEC822A6D87F4D750A076CC3FB8 /* ZigZag.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CCCA57C4972810F94CE93823F7E4457F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2EA05BDE49E2C5768AE4CA5FAFA17472 /* Pods-Authenticator-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -893,84 +1324,232 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6820B3638809F3914194216BB5A3C2A2 /* RNCryptor-dummy.m in Sources */,
 				275ABEB51B3E6CFB1F99DC846CF08578 /* RNCryptor.swift in Sources */,
+				6820B3638809F3914194216BB5A3C2A2 /* RNCryptor-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		26C3ED3E7A1B64A86CC3EC78111A6B83 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "Pods-SOTPWatch";
-			target = DC1DD9135194B83E5BDDF0E5005DCBD9 /* Pods-SOTPWatch */;
-			targetProxy = D3D51073B936B1B603B0CC1FB720B0F9 /* PBXContainerItemProxy */;
-		};
-		573CB8A6799D8869582006F857951940 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "Base32-watchOS";
-			target = FFDB4CD6EE1AF34A7AC924100CA0F728 /* Base32-watchOS */;
-			targetProxy = 8E25EC94BD45B9EA217ED53646AF1606 /* PBXContainerItemProxy */;
-		};
-		5B3313B2052AADCEDFB58460D8A45AFB /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "Base32-iOS";
-			target = B324EAACF56EAB2963A6F825B45D350F /* Base32-iOS */;
-			targetProxy = A14F3ABF86331C7897D4A10A19AAF154 /* PBXContainerItemProxy */;
-		};
-		732B7BCE1E4EF6EA67EB206D9F73FF25 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "OneTimePassword-iOS";
-			target = 341BC0F37AE8BE39EE2A2EC8F74A2FF2 /* OneTimePassword-iOS */;
-			targetProxy = 1DDBA33884138B0CC31A3748945AAAA6 /* PBXContainerItemProxy */;
-		};
-		A2AF1F4CA1FEE25F35091039E0B321EC /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "Base32-watchOS";
-			target = FFDB4CD6EE1AF34A7AC924100CA0F728 /* Base32-watchOS */;
-			targetProxy = 16D2F4F92D5D3BB04026D312C951D8DC /* PBXContainerItemProxy */;
-		};
-		B3AF4D2EA220A87FF10ACD56A888A9C3 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "Base32-iOS";
-			target = B324EAACF56EAB2963A6F825B45D350F /* Base32-iOS */;
-			targetProxy = 4274E3DA6D06AE7ECC4583CF1F03D52A /* PBXContainerItemProxy */;
-		};
-		BE74F36C6EC4EAD8FA064F35358B608E /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "OneTimePassword-watchOS";
-			target = 6E1940D2E89848550EDF45A13778361B /* OneTimePassword-watchOS */;
-			targetProxy = F7F6FE59AE4AC765867E2326163101E7 /* PBXContainerItemProxy */;
-		};
-		D37092F439E41F0E950A93EC65D7250A /* PBXTargetDependency */ = {
+		0A5BD396F6B41AE7D0999A22CFBF9952 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = RNCryptor;
 			target = 05CCA2AD142519DF6FED0979BACBC149 /* RNCryptor */;
-			targetProxy = 45C8BA014EFD3193ED0F0C944F09333A /* PBXContainerItemProxy */;
+			targetProxy = 88C04F2E9C5CB0C0DFCFF2D728402CB4 /* PBXContainerItemProxy */;
 		};
-		E5922FF4E904B72887FCE57250808566 /* PBXTargetDependency */ = {
+		203E2CE33D83F1E582508377DC48ECDC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = "OneTimePassword-watchOS";
-			target = 6E1940D2E89848550EDF45A13778361B /* OneTimePassword-watchOS */;
-			targetProxy = B0817DE929155519BF7C28A76CDFD985 /* PBXContainerItemProxy */;
+			name = SwiftProtobuf;
+			target = A5F702E0DA383BC1479572581615A916 /* SwiftProtobuf */;
+			targetProxy = C95E0ACF35832262271C39BC7AC394A0 /* PBXContainerItemProxy */;
 		};
-		EEE0F827E4C9649FCDDDE085EB010AA0 /* PBXTargetDependency */ = {
+		2D070E30E877B7B1D9D219416F639E12 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-SOTPWatch";
+			target = DC1DD9135194B83E5BDDF0E5005DCBD9 /* Pods-SOTPWatch */;
+			targetProxy = 8EF967C8C7533319587185770CB3EB24 /* PBXContainerItemProxy */;
+		};
+		487204A9110EDD8CFBA135C7FFF308A8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Base32-iOS";
+			target = B324EAACF56EAB2963A6F825B45D350F /* Base32-iOS */;
+			targetProxy = D2FA965332D78491816228E07D792BAE /* PBXContainerItemProxy */;
+		};
+		72E2BEC77F8C64F24FA69FF62D040CF0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Base32-watchOS";
 			target = FFDB4CD6EE1AF34A7AC924100CA0F728 /* Base32-watchOS */;
-			targetProxy = E48A2898D5DCE6E5DA7C0E8AA0CB34EA /* PBXContainerItemProxy */;
+			targetProxy = 87AF1A080FAA6EDC4046414F2F0366ED /* PBXContainerItemProxy */;
+		};
+		7F562BBD3837A20FADFD2F7708702480 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "OneTimePassword-watchOS";
+			target = 6E1940D2E89848550EDF45A13778361B /* OneTimePassword-watchOS */;
+			targetProxy = 71EEFF0E40A07A0B9BC32FC6D5F691E4 /* PBXContainerItemProxy */;
+		};
+		8E8891C37E3FF7AF9E043A34F08197F0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "OneTimePassword-watchOS";
+			target = 6E1940D2E89848550EDF45A13778361B /* OneTimePassword-watchOS */;
+			targetProxy = 6F2E460B3D2B801C8A770CC0EB83D6EC /* PBXContainerItemProxy */;
+		};
+		B4A339BF9BFC9143308A6D2573DE3EDF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "OneTimePassword-iOS";
+			target = 341BC0F37AE8BE39EE2A2EC8F74A2FF2 /* OneTimePassword-iOS */;
+			targetProxy = 185B4677E5F0EF69E5C3851A80207815 /* PBXContainerItemProxy */;
+		};
+		BD591EC90AFA2EC777CE0299CFFFB105 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Base32-watchOS";
+			target = FFDB4CD6EE1AF34A7AC924100CA0F728 /* Base32-watchOS */;
+			targetProxy = 971F7945A5DFCB6CE0053A65FBB63455 /* PBXContainerItemProxy */;
+		};
+		EE0B875043B2FCC0E125F3E0621D6EC7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Base32-iOS";
+			target = B324EAACF56EAB2963A6F825B45D350F /* Base32-iOS */;
+			targetProxy = 4B8382FC0B1881F820403E4F7B7F99B3 /* PBXContainerItemProxy */;
+		};
+		FED03A3EE2CA46A7C30535FF3B978F18 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Base32-watchOS";
+			target = FFDB4CD6EE1AF34A7AC924100CA0F728 /* Base32-watchOS */;
+			targetProxy = 4676776C519BC35A59187660E26E6C9C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		0A8F8FEF6357466D49F4E16052856DCE /* Debug */ = {
+		0A0D4513652D22FAFE25519B98EF8313 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2C4822E58F8FA2AF0DF482A2BAECE055 /* Pods-Authenticator.debug.xcconfig */;
+			baseConfigurationReference = 3C0D429FAC2BE4F2A43308565DEB4B47 /* OneTimePassword-iOS.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/OneTimePassword-iOS/OneTimePassword-iOS-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/OneTimePassword-iOS/OneTimePassword-iOS-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/OneTimePassword-iOS/OneTimePassword-iOS.modulemap";
+				PRODUCT_MODULE_NAME = OneTimePassword;
+				PRODUCT_NAME = OneTimePassword;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		0C8AE471A9AFB98EF96EBF14FE200C91 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0E3761D111F960880A393BB83BF80AF2 /* OneTimePassword-watchOS.release.xcconfig */;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/OneTimePassword-watchOS/OneTimePassword-watchOS-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/OneTimePassword-watchOS/OneTimePassword-watchOS-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/OneTimePassword-watchOS/OneTimePassword-watchOS.modulemap";
+				PRODUCT_MODULE_NAME = OneTimePassword;
+				PRODUCT_NAME = OneTimePassword;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Release;
+		};
+		197543462E12C94948A2A22AC8E4D121 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 607DD01DC16FE8F28D4D07A3875CA712 /* Pods-SOTPWatch Extension.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-SOTPWatch Extension/Pods-SOTPWatch Extension-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-SOTPWatch Extension/Pods-SOTPWatch Extension.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+				WATCHOS_DEPLOYMENT_TARGET = 5.0;
+			};
+			name = Release;
+		};
+		2B4EB2538760ADC3722DA98B731A905E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A0616F117C086330044D1711D4149B4B /* Base32-iOS.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Base32-iOS/Base32-iOS-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Base32-iOS/Base32-iOS-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/Base32-iOS/Base32-iOS.modulemap";
+				PRODUCT_MODULE_NAME = Base32;
+				PRODUCT_NAME = Base32;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		3726687807399FA6D070C1481C231DE7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2BC59F9D097CC23CF00A6B0A6EA0B165 /* Pods-Authenticator.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -997,51 +1576,17 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Debug;
+			name = Release;
 		};
-		3457AF04FE2C1BC68913C8D3DF4EAA3A /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9D75BFA513DF670AB35B367D2D62FDFD /* OneTimePassword-watchOS.debug.xcconfig */;
-			buildSettings = {
-				APPLICATION_EXTENSION_API_ONLY = YES;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/OneTimePassword-watchOS/OneTimePassword-watchOS-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/OneTimePassword-watchOS/OneTimePassword-watchOS-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/OneTimePassword-watchOS/OneTimePassword-watchOS.modulemap";
-				PRODUCT_MODULE_NAME = OneTimePassword;
-				PRODUCT_NAME = OneTimePassword;
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-				WATCHOS_DEPLOYMENT_TARGET = 2.0;
-			};
-			name = Debug;
-		};
-		3471FE74314515892E087FEEC4D31428 /* Release */ = {
+		388E497D37F89FB2B286719BA19E2009 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -1064,287 +1609,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"POD_CONFIGURATION_RELEASE=1",
-					"$(inherited)",
-				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				MTL_FAST_MATH = YES;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
-				SWIFT_VERSION = 5.0;
-				SYMROOT = "${SRCROOT}/../build";
-				WATCHOS_DEPLOYMENT_TARGET = 5.0;
-			};
-			name = Release;
-		};
-		67DE49A45011BB05DF4C71F6675C3483 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4E4E37E34FE5B0769E2CCB182B2CFF4A /* Base32-iOS.debug.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/Base32-iOS/Base32-iOS-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Base32-iOS/Base32-iOS-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/Base32-iOS/Base32-iOS.modulemap";
-				PRODUCT_MODULE_NAME = Base32;
-				PRODUCT_NAME = Base32;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		6F307C2D3EC098E5A9445D5AE9CFD9E5 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 47228025ADA480F707DB5C4900D01827 /* Pods-SOTPWatch.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				APPLICATION_EXTENSION_API_ONLY = YES;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-SOTPWatch/Pods-SOTPWatch-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-SOTPWatch/Pods-SOTPWatch.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = 4;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-				WATCHOS_DEPLOYMENT_TARGET = 5.0;
-			};
-			name = Debug;
-		};
-		7CA5C8FFC46FFCF7A1668944A693C7B3 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 413FB0BB4BFDFEC410E79FD44584AD8A /* RNCryptor.release.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/RNCryptor/RNCryptor-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/RNCryptor/RNCryptor-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/RNCryptor/RNCryptor.modulemap";
-				PRODUCT_MODULE_NAME = RNCryptor;
-				PRODUCT_NAME = RNCryptor;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		7D941B6823E2DAFE302FF57C9EEA73C7 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = D37AA58C5B481E79CEF4C7336DB2A91F /* Base32-watchOS.debug.xcconfig */;
-			buildSettings = {
-				APPLICATION_EXTENSION_API_ONLY = YES;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/Base32-watchOS/Base32-watchOS-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Base32-watchOS/Base32-watchOS-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/Base32-watchOS/Base32-watchOS.modulemap";
-				PRODUCT_MODULE_NAME = Base32;
-				PRODUCT_NAME = Base32;
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-				WATCHOS_DEPLOYMENT_TARGET = 2.0;
-			};
-			name = Debug;
-		};
-		80222D2F6D186018F8CDF36B6B806FA4 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = A017574457B7D78401E80C811A39C9A3 /* Base32-iOS.release.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/Base32-iOS/Base32-iOS-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Base32-iOS/Base32-iOS-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/Base32-iOS/Base32-iOS.modulemap";
-				PRODUCT_MODULE_NAME = Base32;
-				PRODUCT_NAME = Base32;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		8454F2D97A66176ECF596318624F4931 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = AE3AE9A62F44283D485BA068DB83318D /* Pods-SOTPWatch.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				APPLICATION_EXTENSION_API_ONLY = YES;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-SOTPWatch/Pods-SOTPWatch-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-SOTPWatch/Pods-SOTPWatch.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = 4;
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-				WATCHOS_DEPLOYMENT_TARGET = 5.0;
-			};
-			name = Release;
-		};
-		9147A4FB2A2BC6B5E561E62E3D96DD57 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -1384,12 +1649,153 @@
 			};
 			name = Debug;
 		};
-		B6BAF50CC416166C43D117582D634950 /* Release */ = {
+		3DC675C2AEF6C5B2C89BA145E9B76D4A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C3411F4C486221E7A972CA53FAA7EE01 /* Base32-watchOS.release.xcconfig */;
+			baseConfigurationReference = BCCD6461D11ACE1D8C9AA9237B4C6AB5 /* SwiftProtobuf.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftProtobuf/SwiftProtobuf-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwiftProtobuf/SwiftProtobuf-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/SwiftProtobuf/SwiftProtobuf.modulemap";
+				PRODUCT_MODULE_NAME = SwiftProtobuf;
+				PRODUCT_NAME = SwiftProtobuf;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		3ECF5679A770FDE014295BFB45CB2DF8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8A426120BC88D97C3287EF200F7166CA /* Base32-watchOS.debug.xcconfig */;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
-				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Base32-watchOS/Base32-watchOS-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Base32-watchOS/Base32-watchOS-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/Base32-watchOS/Base32-watchOS.modulemap";
+				PRODUCT_MODULE_NAME = Base32;
+				PRODUCT_NAME = Base32;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Debug;
+		};
+		4F0EF6C4BB24412B93BC3038AA62092C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AE3AE9A62F44283D485BA068DB83318D /* Pods-SOTPWatch.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-SOTPWatch/Pods-SOTPWatch-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-SOTPWatch/Pods-SOTPWatch.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+				WATCHOS_DEPLOYMENT_TARGET = 5.0;
+			};
+			name = Release;
+		};
+		58AAD917AADD49AB8B16F1C1E38E4195 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2D14B2F8AA1785AD444C36FA481F2233 /* OneTimePassword-iOS.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/OneTimePassword-iOS/OneTimePassword-iOS-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/OneTimePassword-iOS/OneTimePassword-iOS-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/OneTimePassword-iOS/OneTimePassword-iOS.modulemap";
+				PRODUCT_MODULE_NAME = OneTimePassword;
+				PRODUCT_NAME = OneTimePassword;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		6251BD55F9E9FBAB9EEB3245EB203021 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 73B4EDDD7DA4342D4BDABA94CEBFA8A2 /* Base32-watchOS.release.xcconfig */;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -1421,11 +1827,12 @@
 			};
 			name = Release;
 		};
-		CA300C5F4EDD65C0B347DD6A6741B7B4 /* Release */ = {
+		6EE66391E835A7B2FD9E08DA31C7BFA5 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = ED71E79B14BC03BDB6096698858608F1 /* OneTimePassword-iOS.release.xcconfig */;
+			baseConfigurationReference = 2C4822E58F8FA2AF0DF482A2BAECE055 /* Pods-Authenticator.debug.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -1434,34 +1841,133 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/OneTimePassword-iOS/OneTimePassword-iOS-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/OneTimePassword-iOS/OneTimePassword-iOS-Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Pods-Authenticator/Pods-Authenticator-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MODULEMAP_FILE = "Target Support Files/OneTimePassword-iOS/OneTimePassword-iOS.modulemap";
-				PRODUCT_MODULE_NAME = OneTimePassword;
-				PRODUCT_NAME = OneTimePassword;
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Authenticator/Pods-Authenticator.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
+			name = Debug;
+		};
+		86A6628B841CA44E0DCE05E75C74795A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+				WATCHOS_DEPLOYMENT_TARGET = 5.0;
+			};
 			name = Release;
 		};
-		CE73D6CD1C3896EA28C80C06CEFD5FE8 /* Debug */ = {
+		8A461796D6596B473545729EDC154343 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8EEAFA4856EAA367048845A0EBD1292A /* RNCryptor.debug.xcconfig */;
+			baseConfigurationReference = B8B5128DC920B0D35264C7C8CF2A83AF /* Pods-SOTPWatch Extension.debug.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-SOTPWatch Extension/Pods-SOTPWatch Extension-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-SOTPWatch Extension/Pods-SOTPWatch Extension.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+				WATCHOS_DEPLOYMENT_TARGET = 5.0;
+			};
+			name = Debug;
+		};
+		9851000EB22B16E2582F722CD050EDB1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FE9AC8CA8E338A9A9503599E4E061B74 /* RNCryptor.debug.xcconfig */;
+			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -1492,90 +1998,11 @@
 			};
 			name = Debug;
 		};
-		D015CA3C45478543686F8072077C3AC5 /* Release */ = {
+		A5E1F621CEBD2CD3A52571E3F5C7C13C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 607DD01DC16FE8F28D4D07A3875CA712 /* Pods-SOTPWatch Extension.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				APPLICATION_EXTENSION_API_ONLY = YES;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-SOTPWatch Extension/Pods-SOTPWatch Extension-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-SOTPWatch Extension/Pods-SOTPWatch Extension.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = 4;
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-				WATCHOS_DEPLOYMENT_TARGET = 5.0;
-			};
-			name = Release;
-		};
-		D0733BD080768C1BC46A2A930D9C927B /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2BC59F9D097CC23CF00A6B0A6EA0B165 /* Pods-Authenticator.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-Authenticator/Pods-Authenticator-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-Authenticator/Pods-Authenticator.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		DD6200E2CE65DAE336A20C7004C62C0E /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8483B0CFD34944888AD262156FF2A9A2 /* OneTimePassword-watchOS.release.xcconfig */;
+			baseConfigurationReference = FF8151AB12AB60D5CFC4277C93752D13 /* OneTimePassword-watchOS.debug.xcconfig */;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
-				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -1600,18 +2027,16 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
-			name = Release;
+			name = Debug;
 		};
-		F24973692D531734DC8154303D57AFF3 /* Debug */ = {
+		A657E6C98874B3CDB6B4E17B04FAACA0 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8757FBAB20FE10EC6646DBD0F5B79483 /* OneTimePassword-iOS.debug.xcconfig */;
+			baseConfigurationReference = 72FBC52FEBAFCE61DFFCC3CDE2746D7E /* Base32-iOS.release.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -1620,8 +2045,8 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/OneTimePassword-iOS/OneTimePassword-iOS-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/OneTimePassword-iOS/OneTimePassword-iOS-Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/Base32-iOS/Base32-iOS-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Base32-iOS/Base32-iOS-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1629,26 +2054,26 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MODULEMAP_FILE = "Target Support Files/OneTimePassword-iOS/OneTimePassword-iOS.modulemap";
-				PRODUCT_MODULE_NAME = OneTimePassword;
-				PRODUCT_NAME = OneTimePassword;
+				MODULEMAP_FILE = "Target Support Files/Base32-iOS/Base32-iOS.modulemap";
+				PRODUCT_MODULE_NAME = Base32;
+				PRODUCT_NAME = Base32;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Debug;
+			name = Release;
 		};
-		F96F8EA031DFCC4D57C677D2310541F8 /* Debug */ = {
+		B21E1390136B8DA5F442E18E953633A0 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B8B5128DC920B0D35264C7C8CF2A83AF /* Pods-SOTPWatch Extension.debug.xcconfig */;
+			baseConfigurationReference = 47228025ADA480F707DB5C4900D01827 /* Pods-SOTPWatch.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				APPLICATION_EXTENSION_API_ONLY = YES;
-				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -1657,7 +2082,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-SOTPWatch Extension/Pods-SOTPWatch Extension-Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Pods-SOTPWatch/Pods-SOTPWatch-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1665,7 +2090,7 @@
 					"@loader_path/Frameworks",
 				);
 				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-SOTPWatch Extension/Pods-SOTPWatch Extension.modulemap";
+				MODULEMAP_FILE = "Target Support Files/Pods-SOTPWatch/Pods-SOTPWatch.modulemap";
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
@@ -1680,14 +2105,83 @@
 			};
 			name = Debug;
 		};
+		B645EE3BA4D7A53C88BCF9C4CC2F8779 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A66F39BB61E250707256FEC5B1260344 /* SwiftProtobuf.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftProtobuf/SwiftProtobuf-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwiftProtobuf/SwiftProtobuf-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/SwiftProtobuf/SwiftProtobuf.modulemap";
+				PRODUCT_MODULE_NAME = SwiftProtobuf;
+				PRODUCT_NAME = SwiftProtobuf;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		E1D89997ED7B2B36B587F2F95BC1137B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C42B9FEE1FDEED829B35E64BD61721F3 /* RNCryptor.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/RNCryptor/RNCryptor-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/RNCryptor/RNCryptor-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/RNCryptor/RNCryptor.modulemap";
+				PRODUCT_MODULE_NAME = RNCryptor;
+				PRODUCT_NAME = RNCryptor;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
 		0BC9E72D995D0D4C01E440121B5597C3 /* Build configuration list for PBXNativeTarget "Pods-SOTPWatch" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				6F307C2D3EC098E5A9445D5AE9CFD9E5 /* Debug */,
-				8454F2D97A66176ECF596318624F4931 /* Release */,
+				B21E1390136B8DA5F442E18E953633A0 /* Debug */,
+				4F0EF6C4BB24412B93BC3038AA62092C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1695,8 +2189,17 @@
 		130D7877C03B82EB5AFA6D317911AB46 /* Build configuration list for PBXNativeTarget "OneTimePassword-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F24973692D531734DC8154303D57AFF3 /* Debug */,
-				CA300C5F4EDD65C0B347DD6A6741B7B4 /* Release */,
+				58AAD917AADD49AB8B16F1C1E38E4195 /* Debug */,
+				0A0D4513652D22FAFE25519B98EF8313 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1E5A35574AF09A8C04DAD9F9BAF97CAD /* Build configuration list for PBXNativeTarget "SwiftProtobuf" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B645EE3BA4D7A53C88BCF9C4CC2F8779 /* Debug */,
+				3DC675C2AEF6C5B2C89BA145E9B76D4A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1704,8 +2207,8 @@
 		244C8495B4807405AC4E43E3331BC3A5 /* Build configuration list for PBXNativeTarget "RNCryptor" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				CE73D6CD1C3896EA28C80C06CEFD5FE8 /* Debug */,
-				7CA5C8FFC46FFCF7A1668944A693C7B3 /* Release */,
+				9851000EB22B16E2582F722CD050EDB1 /* Debug */,
+				E1D89997ED7B2B36B587F2F95BC1137B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1713,8 +2216,8 @@
 		27079BDBEDBA3FEF358C6667E2656715 /* Build configuration list for PBXNativeTarget "Base32-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				67DE49A45011BB05DF4C71F6675C3483 /* Debug */,
-				80222D2F6D186018F8CDF36B6B806FA4 /* Release */,
+				2B4EB2538760ADC3722DA98B731A905E /* Debug */,
+				A657E6C98874B3CDB6B4E17B04FAACA0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1722,8 +2225,8 @@
 		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				9147A4FB2A2BC6B5E561E62E3D96DD57 /* Debug */,
-				3471FE74314515892E087FEEC4D31428 /* Release */,
+				388E497D37F89FB2B286719BA19E2009 /* Debug */,
+				86A6628B841CA44E0DCE05E75C74795A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1731,8 +2234,17 @@
 		8BA8F278BE84F4025B9FF72D2DB3C9E6 /* Build configuration list for PBXNativeTarget "Pods-SOTPWatch Extension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F96F8EA031DFCC4D57C677D2310541F8 /* Debug */,
-				D015CA3C45478543686F8072077C3AC5 /* Release */,
+				8A461796D6596B473545729EDC154343 /* Debug */,
+				197543462E12C94948A2A22AC8E4D121 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		927D26E3E41E6C60D21FB3AF1EB456E0 /* Build configuration list for PBXNativeTarget "Pods-Authenticator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6EE66391E835A7B2FD9E08DA31C7BFA5 /* Debug */,
+				3726687807399FA6D070C1481C231DE7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1740,17 +2252,8 @@
 		A295446BB1955ACEC329E01D20581954 /* Build configuration list for PBXNativeTarget "OneTimePassword-watchOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				3457AF04FE2C1BC68913C8D3DF4EAA3A /* Debug */,
-				DD6200E2CE65DAE336A20C7004C62C0E /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		E2BC033D0AA5D819A8EDE6E95B50181C /* Build configuration list for PBXNativeTarget "Pods-Authenticator" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				0A8F8FEF6357466D49F4E16052856DCE /* Debug */,
-				D0733BD080768C1BC46A2A930D9C927B /* Release */,
+				A5E1F621CEBD2CD3A52571E3F5C7C13C /* Debug */,
+				0C8AE471A9AFB98EF96EBF14FE200C91 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1758,8 +2261,8 @@
 		EC355CD982FA8421E9BB484DF4D9075B /* Build configuration list for PBXNativeTarget "Base32-watchOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				7D941B6823E2DAFE302FF57C9EEA73C7 /* Debug */,
-				B6BAF50CC416166C43D117582D634950 /* Release */,
+				3ECF5679A770FDE014295BFB45CB2DF8 /* Debug */,
+				6251BD55F9E9FBAB9EEB3245EB203021 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

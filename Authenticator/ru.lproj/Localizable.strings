@@ -109,3 +109,20 @@
 /* No comment provided by engineer. */
 "Wrong password" = "Не правильный пароль";
 
+/* No comment provided by engineer. */
+"Load from Google" = "Загрузить из Google";
+
+/* No comment provided by engineer. */
+"Load from Google Authenticator" = "Загрузить из Google Authenticator";
+
+/* No comment provided by engineer. */
+"QR code has the wrong format" = "Не верный формат QR кода";
+
+/* No comment provided by engineer. */
+"Camera" = "Камера";
+
+"Photo library" = "Галерея";
+
+"Dismiss" = "Отмена";
+
+"Unable to upload file" = "Ошибка загрузки файла";

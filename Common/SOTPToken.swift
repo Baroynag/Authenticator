@@ -74,10 +74,16 @@ public struct SOTPPersistentToken: Hashable, Encodable {
             !secretData.isEmpty else {
             throw DeserializationError.missingSecret}
 
-        guard let generator = Generator(factor: .timer(period: 30), secret: secretData, algorithm: .sha1, digits: 6) else {
+        guard let generator = Generator(factor: .timer(period: 30),
+                                        secret: secretData,
+                                        algorithm: .sha1,
+                                        digits: 6) else {
         throw DeserializationError.missingSecret}
 
-        self.init(tokenAtributes: tokenAtributes, generator: generator, identifier: keychainItemRef, plainSecret: secretString)
+        self.init(tokenAtributes: tokenAtributes,
+                  generator: generator,
+                  identifier: keychainItemRef,
+                  plainSecret: secretString)
     }
 
     public func encode(to encoder: Encoder) throws {

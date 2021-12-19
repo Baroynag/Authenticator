@@ -31,45 +31,49 @@ class AuthenticatorModel {
         return false
     }
 
-    public func addOneItem(account: String?, issuer: String?, key: String?, priority: Int) {
+    public func addOneItem(account: String?, issuer: String?, key: String?, priority: Int) throws {
 
-        let account = account ?? ""
+        guard let account = account else {throw CreateTokenError.emptyAccount}
+        guard let key = key else {throw CreateTokenError.emptySecret}
         let issuer =  issuer ?? ""
-        let key =  key ?? ""
 
-        createPersistentToken(account: account,
-                              issuer: issuer,
-                              key: key,
-                              priority: priority)
+        try createPersistentToken(account: account,
+                                  issuer: issuer,
+                                  key: key,
+                                  priority: priority)
     }
 
-    public func addOneItem(account: String?, issuer: String?, key: String?) {
+    public func addOneItem(account: String?, issuer: String?, key: String?) throws {
 
-        let account = account ?? ""
+        guard let account = account else {throw CreateTokenError.emptyAccount}
+        guard let key = key else {throw CreateTokenError.emptySecret}
         let issuer =  issuer ?? ""
-        let key =  key ?? ""
 
         let priority = getNextPriorityNumber()
 
-        createPersistentToken(account: account,
+        try createPersistentToken(account: account,
                               issuer: issuer,
                               key: key,
                               priority: priority)
     }
 
-    private func createPersistentToken (account: String, issuer: String, key: String, priority: Int) {
+    private func createPersistentToken (account: String, issuer: String, key: String, priority: Int) throws {
 
         if isRecordExist(account: account, issuer: issuer, secret: key) {
             return
         }
 
-        if let token = TokenGenerator.shared.createTimeBasedPersistentToken(name: account, issuer: issuer, secretString: key, priority: priority) {
+        if let token = TokenGenerator.shared.createTimeBasedPersistentToken(name: account,
+                                                                            issuer: issuer,
+                                                                            secretString: key,
+                                                                            priority: priority) {
             sotpPersistentTokenItems.append(token)
+        } else {
+            throw CreateTokenError.tokenCreateError
         }
     }
 
     public func deleteData(index: Int) {
-
         let itemToRemove = sotpPersistentTokenItems[index]
         if let identifier = itemToRemove.identifier {
             try? SOTPKeychain.shared.deleteKeychainItem(forPersistentRef: identifier)
@@ -83,7 +87,7 @@ class AuthenticatorModel {
 
             if let issuer = item.token?.issuer,
                let name = item.token?.name {
-               dictionary[issuer] =
+                dictionary[UUID().uuidString] =
                     ["issuer": issuer,
                     "key": item.plainSecret ?? "",
                     "priority": String(item.priority ?? 0),
@@ -113,14 +117,34 @@ class AuthenticatorModel {
         return count > 0
     }
 
+    private func getRecords(retryAmount: Int) {
+        var retry = retryAmount
+        tryGetAllDataFromKeychain {[weak self] in
+            if retry > 0 {
+                retry -= 1
+                self?.getRecords(retryAmount: retry)
+
+            }
+        }
+    }
+
     public func isAnyRecords() -> Bool {
-        getAllSOTPTokens()
+        getRecords(retryAmount: 3)
         return isAnyData()
+    }
+
+    public func tryGetAllDataFromKeychain(errorHandler: () -> Void) {
+        do {
+            try getAllSOTPTokens()
+        } catch {
+            errorHandler()
+        }
+
     }
 
     public func refreshModel() {
         sotpPersistentTokenItems = []
-        getAllSOTPTokens()
+        try? getAllSOTPTokens()
     }
 
     public func swapPriority(fromIndex: Int, toIndex: Int) {
@@ -143,14 +167,52 @@ class AuthenticatorModel {
         return sotpPersistentTokenItems.count + 1
     }
 
-    public func getAllSOTPTokens() {
-
-        let tokens = try? Array(SOTPKeychain.shared.allPersistentTokens())
-        sotpPersistentTokenItems = tokens?.sorted(by: { $0.priority ?? 0 < $1.priority ?? 0 }) ?? []
+    public func getAllSOTPTokens() throws {
+        let tokens = try Array(SOTPKeychain.shared.allPersistentTokens())
+        sotpPersistentTokenItems = tokens.sorted(by: { $0.priority ?? 0 < $1.priority ?? 0 })
     }
 
-    public func deleteAllData() {
-        try? SOTPKeychain.shared.deleteAllKeychainItem()
+    public func importFromGoogleAuthenticator (migrationData: MigrationPayload?) throws {
+
+        if let otpParameters = migrationData?.otpParameters {
+            for otpParameter in otpParameters {
+                let key = MF_Base32Codec.base32String(from: otpParameter.secret)
+                try AuthenticatorModel.shared.addOneItem(account: otpParameter.name,
+                                                         issuer: otpParameter.issuer,
+                                                         key: key)
+            }
+        } else {
+            throw QRCodeScanerError.otpParametersParsingFailled
+        }
     }
 
+    public func importFromGoogleAuthenticatorURL(urlString: String) throws {
+        if let migrationPayload = QRImageScaner.getMigrationDataFromURLString(urlString: urlString) {
+            try AuthenticatorModel.shared.importFromGoogleAuthenticator(migrationData: migrationPayload)
+        } else {
+            throw QRCodeScanerError.wrongProtbufFormat
+        }
+    }
+  
+    public func createItemFromURLString(urlString: String) throws {
+        guard let url = URLComponents(string: urlString) else {
+            return
+        }
+
+        let account   = url.path.replacingOccurrences(of: "/", with: "")
+        let issuer    = QRImageScaner.getQueryStringParameter(url: url, param: "issuer")
+        let key       = QRImageScaner.getQueryStringParameter(url: url, param: "secret")
+
+        try addOneItem(account: account,
+                       issuer: issuer,
+                       key: key)
+   }
+
+    public func loadFromScannedGoogleAuthenticatorImage(image: UIImage) throws {
+        if let migrationPayload = QRImageScaner.getGoogleAuthenticatorInfo(image: image) {
+            try AuthenticatorModel.shared.importFromGoogleAuthenticator(migrationData: migrationPayload)
+        } else {
+            throw QRCodeScanerError.failledScanningQR
+        }
+    }
 }
