@@ -193,7 +193,7 @@ class AuthenticatorModel {
             throw QRCodeScanerError.wrongProtbufFormat
         }
     }
-  
+
     public func createItemFromURLString(urlString: String) throws {
         guard let url = URLComponents(string: urlString) else {
             return
@@ -214,5 +214,9 @@ class AuthenticatorModel {
         } else {
             throw QRCodeScanerError.failledScanningQR
         }
+    }
+
+    public func deleteAllData() {
+        try? SOTPKeychain.shared.deleteAllKeychainItem()
     }
 }
