@@ -27,7 +27,6 @@
 		1430EA8F24DF0E0800B75CF6 /* Purchases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1430EA8E24DF0E0800B75CF6 /* Purchases.swift */; };
 		1430EA9124DF0FCA00B75CF6 /* PurchaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1430EA9024DF0FCA00B75CF6 /* PurchaseViewController.swift */; };
 		1438EB3E26DE805300F8457D /* GoogleAuthenticator.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1438EB3D26DE805300F8457D /* GoogleAuthenticator.pb.swift */; };
-		1438EB4026DE807900F8457D /* GoogleAuthenticator.proto in Sources */ = {isa = PBXBuildFile; fileRef = 1438EB3F26DE807900F8457D /* GoogleAuthenticator.proto */; };
 		143D098825168F2B00C30041 /* RoundedButtonWithShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143D098725168F2B00C30041 /* RoundedButtonWithShadow.swift */; };
 		144B48A024FC10510086DA04 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144B489F24FC10510086DA04 /* SettingsTableViewController.swift */; };
 		14543DA124853A03008E7DA8 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14543D9F24853A03008E7DA8 /* Interface.storyboard */; };
@@ -660,7 +659,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 		14AD19DC257A9168005E4DFB /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -678,7 +677,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 		14AD19DD257A9181005E4DFB /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -801,7 +800,6 @@
 				14B8BDA625B4CB2E00595A17 /* SOTPKeychain.swift in Sources */,
 				14CB6D6924FC2AD100316ED7 /* SettingsTableViewCellWithButton.swift in Sources */,
 				14B1D9692722D6BC00262979 /* CreateTokenError.swift in Sources */,
-				1438EB4026DE807900F8457D /* GoogleAuthenticator.proto in Sources */,
 				14A3454725B4C7D600F63C54 /* SOTPToken.swift in Sources */,
 				14B1D9672722D69200262979 /* AuthenticatorModel.swift in Sources */,
 				1401DAC32443433100DE677F /* AddAccountViewController.swift in Sources */,
@@ -1052,7 +1050,7 @@
 				CODE_SIGN_ENTITLEMENTS = Authenticator/AuthenticatorDebug.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 26;
+				CURRENT_PROJECT_VERSION = 36;
 				DEVELOPMENT_TEAM = Q9Y5N2Z9SF;
 				INFOPLIST_FILE = Authenticator/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -1060,7 +1058,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = am.baroynag.SOTP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1077,9 +1075,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_USE_OPTIMIZATION_PROFILE = YES;
 				CODE_SIGN_ENTITLEMENTS = Authenticator/AuthenticatorRelease.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 26;
+				CODE_SIGN_IDENTITY = "Apple Distrbution";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 36;
 				DEVELOPMENT_TEAM = Q9Y5N2Z9SF;
 				INFOPLIST_FILE = Authenticator/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -1087,10 +1085,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = am.baroynag.SOTP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore am.baroynag.SOTP 1650793223";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 				WATCHOS_DEPLOYMENT_TARGET = 5.0;
@@ -1148,7 +1146,7 @@
 				CODE_SIGN_ENTITLEMENTS = SOTPWatch/SOTPWatchDebug.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 26;
+				CURRENT_PROJECT_VERSION = 36;
 				DEVELOPMENT_TEAM = Q9Y5N2Z9SF;
 				IBSC_MODULE = SOTPWatch_Extension;
 				INFOPLIST_FILE = SOTPWatch/Info.plist;
@@ -1158,7 +1156,7 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = am.baroynag.SOTP.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1179,9 +1177,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_USE_OPTIMIZATION_PROFILE = YES;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 26;
+				CODE_SIGN_IDENTITY = "Apple Distrbution";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 36;
 				DEVELOPMENT_TEAM = Q9Y5N2Z9SF;
 				IBSC_MODULE = SOTPWatch_Extension;
 				INFOPLIST_FILE = SOTPWatch/Info.plist;
@@ -1191,10 +1189,10 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = am.baroynag.SOTP.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore am.baroynag.SOTP 1650793223";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -1212,7 +1210,7 @@
 				CODE_SIGN_ENTITLEMENTS = "SOTPWatch Extension/SOTPWatch ExtensionDebug.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 26;
+				CURRENT_PROJECT_VERSION = 36;
 				DEVELOPMENT_TEAM = Q9Y5N2Z9SF;
 				INFOPLIST_FILE = "SOTPWatch Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1220,7 +1218,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = am.baroynag.SOTP.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1238,9 +1236,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CLANG_USE_OPTIMIZATION_PROFILE = YES;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 26;
+				CODE_SIGN_IDENTITY = "Apple Distrbution";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 36;
 				DEVELOPMENT_TEAM = Q9Y5N2Z9SF;
 				INFOPLIST_FILE = "SOTPWatch Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1248,10 +1246,10 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = am.baroynag.SOTP.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore am.baroynag.SOTP 1650793223";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;

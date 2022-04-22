@@ -47,7 +47,9 @@ fastlane/test_output
 fastlane/Provisioning
 fastlane/Build
 fastlane/report.xml
+fastlane/Preview.html
 buildData
+.env.secrets
 
 # Bundler
 .bundle/

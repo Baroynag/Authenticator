@@ -62,17 +62,6 @@ class SOTPUITests: XCTestCase {
 		confirmPassword.tap()
 		confirmPassword.typeText("123")
 		app.buttons["Ok"].tap()
-		app.buttons["Save to Files"].tap()
-		app.buttons["Save"].tap()
-	}
-
-	func testPurchaseScreen() throws {
-		app.launch()
-		app.buttons["settings"].tap()
-		app.buttons["settingsScreenPurchaseButton"].tap()
-		app.buttons["oneDollarPurchaseButton"].tap()
-		let message = app.staticTexts["Thank you for your support!"]
-		XCTAssertTrue(message.waitForExistence(timeout: 5))
 	}
 
 }

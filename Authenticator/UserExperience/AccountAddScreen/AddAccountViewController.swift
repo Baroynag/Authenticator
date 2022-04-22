@@ -43,6 +43,7 @@ class AddAccountViewController: UIViewController {
         button.titleLabel?.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
         button.addTarget(self, action: #selector(handleCreateButtonTapped), for: .touchUpInside)
         button.accessibilityIdentifier = "addAccountScreenCreateButton"
+        button.isAccessibilityElement = true
         return button
     }()
 
@@ -65,6 +66,7 @@ class AddAccountViewController: UIViewController {
         button.addTarget(self, action: #selector(handleScanButton), for: .touchUpInside)
         button.setAttributedTitle(attributedText, for: .normal)
         button.accessibilityIdentifier = "addAccountScreenScanQrButton"
+        button.isAccessibilityElement = true
         return button
     }()
 
@@ -74,6 +76,7 @@ class AddAccountViewController: UIViewController {
         button.backgroundColor = UIColor.systemBackground
         button.addTarget(self, action: #selector(handleCancelButton), for: .touchUpInside)
         button.accessibilityIdentifier = "addAccountScreenCancel"
+        button.isAccessibilityElement = true
         return button
     }()
 
@@ -179,6 +182,7 @@ class AddAccountViewController: UIViewController {
         textField.tag = tag
         textField.delegate = self
         textField.accessibilityIdentifier = placeholderText
+        textField.isAccessibilityElement = true
     }
 
     private func showAlert(alertTitle: String, alertMessage: String) {
