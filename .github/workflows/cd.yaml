@@ -13,6 +13,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    uses: maierj/fastlane-action@v2.2.0
-      with:
+    - name: Run tests
+      uses: maierj/fastlane-action@v2.2.0
+        with:
           lane: run_tests
