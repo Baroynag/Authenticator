@@ -12,6 +12,15 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - uses: actions/cache@v2
+      with:
+        path: Pods
+        key: ${{ runner.os }}-pods-${{ hashFiles('**/Podfile.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-pods-
+
+    - name: CocoaPod Install
+      run: pod install
 
     - name: Run tests
       uses: maierj/fastlane-action@v2.2.0
